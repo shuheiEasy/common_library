@@ -24,6 +24,15 @@ namespace dataObject
         int size;
     };
 
+    class List : public DataObject
+    {
+    public:
+        List();
+        ~List();
+        int getSize() const;
+        const char *getType() const;
+    };
+
     class String : public DataObject
     {
     private:
