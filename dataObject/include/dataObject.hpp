@@ -18,14 +18,25 @@ namespace dataObject
         virtual int getSize() const = 0;
     };
 
+    template <class DATATYPE>
+    struct Node
+    {
+        DATATYPE data;
+        Node *next;
+    };
+
     struct Moji
     {
         char *data;
         int size;
     };
 
+    template <class T>
     class List : public DataObject
     {
+    private:
+        Node<T> *data;
+
     public:
         List();
         ~List();

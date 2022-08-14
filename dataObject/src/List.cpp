@@ -2,14 +2,18 @@
 
 using namespace dataObject;
 
-List::List(){}
+template <class T>
+List<T>::List(){}
 
-List::~List(){}
+template <class T>
+List<T>::~List(){}
 
-int List::getSize() const{
+template <class T>
+int List<T>::getSize() const{
     return 0;
 }
 
-const char *List::getType() const{
+template <class T>
+const char *List<T>::getType() const{
     return "List";
 }
