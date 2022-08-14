@@ -231,6 +231,19 @@ namespace dataObject
         }
         int getSize() const { return _length; }
         const char *getType() const { return "List"; }
+        int index(const T data)
+        {
+            Node<T> *ptr = _head;
+            for (int i = 0; i < _length; i++)
+            {
+                if (ptr->data == data)
+                {
+                    return i;
+                }
+                ptr = ptr->next;
+            }
+            return -1;
+        }
         void insert(const int id, const T data)
         {
             _insert(_get_ptr(id), data);
