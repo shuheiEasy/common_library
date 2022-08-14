@@ -13,10 +13,11 @@ add_library(${PROJECT_NAME} ${source_list})
 add_library(${PARENT_PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 # ヘッダー
+file(GLOB_RECURSE header_list "include/*.hpp")
 set_target_properties(
-    ${PROJECT_NAME}
-    PROPERTIES
-        PUBLIC_HEADER include/${PROJECT_NAME}.hpp)
+    ${PROJECT_NAME} PROPERTIES
+    FRAMEWORK TRUE
+    PUBLIC_HEADER "${header_list}")
 
 # インストール
 install(
