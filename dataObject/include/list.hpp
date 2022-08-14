@@ -170,7 +170,7 @@ namespace dataObject
         {
             _free();
         }
-        void append(T data)
+        void append(const T data)
         {
             if (_length == 0)
             {
