@@ -2,6 +2,7 @@
 #define STRING_H
 
 #include "./core.hpp"
+#include "./list.hpp"
 
 namespace dataObject
 {
@@ -48,7 +49,7 @@ namespace dataObject
         String &operator=(const String &str);
         String &operator+=(const String &str);
         void remove(int start, int end);
-
+        List<String> split(const char *sep);
         void _test();
     };
 }

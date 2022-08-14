@@ -179,6 +179,27 @@ void String::remove(int start, int end)
     _length -= end_pos - start_pos + 1;
 }
 
+List<String> String::split(const char *sep)
+{
+    List<String> ret;
+    String buffer = "";
+    for (int i = 0; i < _length; i++)
+    {
+        if (strcmp(_data[i].data, sep) == 0)
+        {
+            ret.append(buffer);
+            buffer.clear();
+            buffer = "";
+        }
+        else
+        {
+            buffer += _data[i].data;
+        }
+    }
+    ret.append(buffer);
+    return ret;
+}
+
 Moji *String::_converter(const char *text, int &size)
 {
     // 初期化
