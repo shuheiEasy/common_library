@@ -211,6 +211,10 @@ Moji *String::_converter(const char *text, int &size)
 
 void String::_init()
 {
+    // 定数
+    _MOJI_SIZE = 4;
+    _MEMORY_SIZE = 4;
+
     // 長さ
     _length = 0;
 
@@ -249,7 +253,7 @@ void String::_getMemory(const int memory_size)
         if (tmp == NULL)
         {
             printf("メモリーの再確保に失敗しました!(size=%d)\n", memory_size);
-            _free_ptr();
+            // _free_ptr();
             exit(1);
         }
         else
