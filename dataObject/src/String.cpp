@@ -223,12 +223,16 @@ void String::_init()
 
 void String::_free_ptr()
 {
-    for (int i = 0; i < _memory_unit * _MEMORY_SIZE; i++)
+    if (_memory_unit > 0)
     {
-        free(_data[i].data);
-    }
+        for (int i = 0; i < _memory_unit * _MEMORY_SIZE; i++)
+        {
+            free(_data[i].data);
+        }
 
-    free(_data);
+        free(_data);
+        _memory_unit = 0;
+    }
 }
 
 void String::_getMemory(const int memory_size)
@@ -244,27 +248,29 @@ void String::_getMemory(const int memory_size)
 
         if (tmp == NULL)
         {
+            printf("メモリーの再確保に失敗しました!(size=%d)\n", memory_size);
             _free_ptr();
-            printf("メモリーの再確保に失敗しました!\n");
             exit(1);
         }
-
-        // 追加確保分初期化
-        for (int i = (_memory_unit - 1) * _MEMORY_SIZE; i < _memory_unit * _MEMORY_SIZE; i++)
+        else
         {
-            tmp[i].data = (char *)malloc(sizeof(char) * _MOJI_SIZE);
-            for (int j = 0; j < _MOJI_SIZE; j++)
+            // 追加確保分初期化
+            for (int i = (_memory_unit - 1) * _MEMORY_SIZE; i < _memory_unit * _MEMORY_SIZE; i++)
             {
-                tmp[i].data[j] = '\0';
+                tmp[i].data = (char *)malloc(sizeof(char) * _MOJI_SIZE);
+                for (int j = 0; j < _MOJI_SIZE; j++)
+                {
+                    tmp[i].data[j] = '\0';
+                }
+                tmp[i].size = 0;
             }
-            tmp[i].size = 0;
+
+            // 代入
+            _data = tmp;
+
+            // もっと足りないこともありそうなので再帰的にする
+            _getMemory(memory_size);
         }
-
-        // 代入
-        _data = tmp;
-
-        // もっと足りないこともありそうなので再帰的にする
-        _getMemory(memory_size);
     }
 }
 

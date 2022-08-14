@@ -14,7 +14,8 @@ namespace dataObject
     class String : public DataObject
     {
     private:
-        const int _MOJI_SIZE = 4;
+        const static int _MOJI_SIZE = 4;
+        const static int _MEMORY_SIZE = 4;
 
         Moji *_data;
         int _length;
