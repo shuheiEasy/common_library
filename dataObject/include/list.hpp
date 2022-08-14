@@ -224,6 +224,20 @@ namespace dataObject
                 _append(ptr, &_tail, data);
             }
         }
+        int count(const T data)
+        {
+            Node<T> *ptr = _head;
+            int ret = 0;
+            for (int i = 0; i < _length; i++)
+            {
+                if (ptr->data == data)
+                {
+                    ret++;
+                }
+                ptr = ptr->next;
+            }
+            return ret;
+        }
         void clear() { _free(); };
         T get(int id)
         {
