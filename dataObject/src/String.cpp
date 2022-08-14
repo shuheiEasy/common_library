@@ -126,7 +126,8 @@ bool String::operator!=(const String &text) const
     return !operator==(text);
 }
 
-String &String::operator=(const char *str){
+String &String::operator=(const char *str)
+{
     clear();
     _setData(str, -1);
 
@@ -222,6 +223,11 @@ void String::_init()
 
 void String::_free_ptr()
 {
+    for (int i = 0; i < _memory_unit * _MEMORY_SIZE; i++)
+    {
+        free(_data[i].data);
+    }
+
     free(_data);
 }
 
