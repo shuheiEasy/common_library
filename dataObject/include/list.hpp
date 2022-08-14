@@ -40,6 +40,16 @@ namespace dataObject
             }
         }
 
+        inline T _at(int id)
+        {
+            if (id < _length)
+            {
+                Node<T> *ptr = _get_ptr(id);
+                return ptr->data;
+            }
+            return NULL;
+        }
+
         inline int _get_id(int id)
         {
             if (id < 0)
@@ -68,6 +78,37 @@ namespace dataObject
                 }
             }
             return ptr;
+        }
+
+        inline void _insert(Node<T> *ptr, T data)
+        {
+            Node<T> *tmp = (Node<T> *)malloc(sizeof(Node<T>));
+            if (tmp != NULL)
+            {
+                tmp->data = data;
+
+                if (ptr == _head)
+                {
+                    tmp->next = ptr;
+                    tmp->prev = NULL;
+                    ptr->prev = tmp;
+                    _head = tmp;
+                }
+                else
+                {
+                    tmp->next = ptr;
+                    tmp->prev = ptr->prev;
+                    ptr->prev = tmp;
+                    Node<T> *p_ptr = tmp->prev;
+                    p_ptr->next = tmp;
+                }
+
+                _length++;
+            }
+            else
+            {
+                printf("失敗\n");
+            }
         }
 
         inline void _malloc(T data)
@@ -184,26 +225,19 @@ namespace dataObject
             }
         }
         void clear() { _free(); };
-
         T get(int id)
         {
-            if (id < _length)
-            {
-                Node<T> *ptr = _get_ptr(id);
-                return ptr->data;
-            }
-            return NULL;
+            return _at(id);
         }
         int getSize() const { return _length; }
         const char *getType() const { return "List"; }
+        void insert(const int id, const T data)
+        {
+            _insert(_get_ptr(id), data);
+        }
         T operator[](const int id)
         {
-            if (id < _length)
-            {
-                Node<T> *ptr = _get_ptr(id);
-                return ptr->data;
-            }
-            return NULL;
+            return _at(id);
         }
 
         void remove(int id)
