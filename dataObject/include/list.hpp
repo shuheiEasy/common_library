@@ -39,7 +39,6 @@ namespace dataObject
                 printf("失敗\n");
             }
         }
-
         inline T _at(int id)
         {
             if (id < _length)
@@ -49,7 +48,6 @@ namespace dataObject
             }
             return NULL;
         }
-
         inline int _get_id(int id)
         {
             if (id < 0)
@@ -61,7 +59,6 @@ namespace dataObject
                 return id;
             }
         }
-
         inline Node<T> *_get_ptr(int id)
         {
             Node<T> *ptr;
@@ -79,7 +76,6 @@ namespace dataObject
             }
             return ptr;
         }
-
         inline void _insert(Node<T> *ptr, T data)
         {
             Node<T> *tmp = (Node<T> *)malloc(sizeof(Node<T>));
@@ -110,7 +106,6 @@ namespace dataObject
                 printf("失敗\n");
             }
         }
-
         inline void _malloc(T data)
         {
             _head = (Node<T> *)malloc(sizeof(Node<T>));
@@ -124,7 +119,6 @@ namespace dataObject
                 _length++;
             }
         }
-
         inline void _free()
         {
             if (_length > 0)
@@ -140,7 +134,6 @@ namespace dataObject
                 _length = 0;
             }
         }
-
         inline int _remove(int start, int length)
         {
             if (length >= _length)
@@ -266,12 +259,13 @@ namespace dataObject
         {
             return _at(id);
         }
-
+        List<T> &operator+=(const T &data){
+            append(data);
+        }
         void remove(int id)
         {
             _remove(id, 1);
         }
-
         void remove(int id, int length)
         {
             if (length < 0)
