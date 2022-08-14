@@ -29,6 +29,11 @@ void String::append(const char *text)
     _setData(text, -1);
 }
 
+void String::append(const String text)
+{
+    _setData(text.getChar(), -1);
+}
+
 void String::clear()
 {
     _free_ptr();
@@ -93,6 +98,13 @@ void String::insert(const char *text, int start)
     _setData(text, start_pos);
 }
 
+void String::insert(const String text, int start)
+{
+    int start_pos = _getPos(start);
+
+    _setData(text.getChar(), start_pos);
+}
+
 bool String::operator==(const char *text) const
 {
     if (strcmp(getChar(), text) == 0)
@@ -121,6 +133,11 @@ bool String::operator==(const String &text) const
     return false;
 }
 
+bool String::operator!=(const char *text) const
+{
+    return !operator==(text);
+}
+
 bool String::operator!=(const String &text) const
 {
     return !operator==(text);
@@ -139,6 +156,12 @@ String &String::operator=(const String &str)
     clear();
     _setData(str.getChar(), -1);
 
+    return *this;
+}
+
+String &String::operator+=(const char *str)
+{
+    _setData(str, -1);
     return *this;
 }
 
@@ -198,6 +221,11 @@ List<String> String::split(const char *sep)
     }
     ret.append(buffer);
     return ret;
+}
+
+List<String> String::split(const String sep)
+{
+    return split(sep.getChar());
 }
 
 Moji *String::_converter(const char *text, int &size)

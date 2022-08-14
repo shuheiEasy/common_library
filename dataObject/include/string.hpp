@@ -36,20 +36,25 @@ namespace dataObject
         String(const String &text);
         ~String();
         void append(const char *text);
+        void append(const String text);
         void clear();
         char *getChar() const;
         const char *getType() const;
         int getSize() const;
         Moji *getStr() const;
         void insert(const char *text, int start);
+        void insert(const String text, int start);
         bool operator==(const char *text) const;
         bool operator==(const String &text) const;
+        bool operator!=(const char *text) const;
         bool operator!=(const String &text) const;
         String &operator=(const char *str);
         String &operator=(const String &str);
+        String &operator+=(const char *str);
         String &operator+=(const String &str);
         void remove(int start, int end);
         List<String> split(const char *sep);
+        List<String> split(const String sep);
         void _test();
     };
 }
