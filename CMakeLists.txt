@@ -7,6 +7,7 @@ project(common_library CXX)
 # サブプロジェクト設定
 add_subdirectory(fileSystem)
 add_subdirectory(dataObject)
+add_subdirectory(logSystem)
 
 install(
     EXPORT commonLibraryTargets
