@@ -218,18 +218,6 @@ namespace dataObject
                 }
                 _data = n_ptr;
             }
-            // else
-            // {
-            //     Node<T> *p_ptr = remove_node;
-            //     for (int i = 0; i < length; i++)
-            //     {
-            //         Node<T> *tmp = p_ptr;
-            //         p_ptr = p_ptr->prev;
-            //         free(tmp);
-            //         _length--;
-            //     }
-            //     _tail = p_ptr;
-            // }
             return 0;
         }
 
