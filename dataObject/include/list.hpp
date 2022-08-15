@@ -56,16 +56,65 @@ namespace dataObject
             }
             return NULL;
         }
-        inline int _get_id(int id)
+        inline int _del(int start, int length)
         {
-            if (id < 0)
+            // 長過ぎるとき
+            if (length >= _length)
             {
-                return _length + id + 1;
+                _free();
+                return -1;
+            }
+
+            // 削除開始地点
+            Node<T> *remove_node;
+            if (start < 0)
+            {
+                remove_node = _get_ptr(start - 1);
             }
             else
             {
-                return id;
+                remove_node = _get_ptr(start);
             }
+
+            // 削除
+            if (remove_node != _data)
+            {
+                Node<T> *p_ptr = remove_node->prev;
+                Node<T> *n_ptr = remove_node;
+                for (int i = 0; i < length; i++)
+                {
+                    Node<T> *tmp = n_ptr;
+                    n_ptr = n_ptr->next;
+                    if (n_ptr == _tail)
+                    {
+                        p_ptr->next = _tail;
+                        _tail->prev = p_ptr;
+                        _length--;
+                        free(tmp);
+                        break;
+                    }
+                    else
+                    {
+                        p_ptr->next = n_ptr;
+                        n_ptr->prev = p_ptr;
+                        _length--;
+                        free(tmp);
+                    }
+                }
+            }
+            else
+            {
+                Node<T> *n_ptr = remove_node;
+                for (int i = 0; i < length; i++)
+                {
+                    Node<T> *tmp = n_ptr;
+                    n_ptr = n_ptr->next;
+                    free(tmp);
+                    _length--;
+                }
+                _data = n_ptr;
+            }
+            return 0;
         }
         inline Node<T> *_get_ptr(int id)
         {
@@ -160,66 +209,6 @@ namespace dataObject
                 _length = 0;
             }
         }
-        inline int _remove(int start, int length)
-        {
-            // 長過ぎるとき
-            if (length >= _length)
-            {
-                _free();
-                return -1;
-            }
-
-            // 削除開始地点
-            Node<T> *remove_node;
-            if (start < 0)
-            {
-                remove_node = _get_ptr(start - 1);
-            }
-            else
-            {
-                remove_node = _get_ptr(start);
-            }
-
-            // 削除
-            if (remove_node != _data)
-            {
-                Node<T> *p_ptr = remove_node->prev;
-                Node<T> *n_ptr = remove_node;
-                for (int i = 0; i < length; i++)
-                {
-                    Node<T> *tmp = n_ptr;
-                    n_ptr = n_ptr->next;
-                    if (n_ptr == _tail)
-                    {
-                        p_ptr->next = _tail;
-                        _tail->prev = p_ptr;
-                        _length--;
-                        free(tmp);
-                        break;
-                    }
-                    else
-                    {
-                        p_ptr->next = n_ptr;
-                        n_ptr->prev = p_ptr;
-                        _length--;
-                        free(tmp);
-                    }
-                }
-            }
-            else
-            {
-                Node<T> *n_ptr = remove_node;
-                for (int i = 0; i < length; i++)
-                {
-                    Node<T> *tmp = n_ptr;
-                    n_ptr = n_ptr->next;
-                    free(tmp);
-                    _length--;
-                }
-                _data = n_ptr;
-            }
-            return 0;
-        }
 
     public:
         List()
@@ -260,6 +249,22 @@ namespace dataObject
             return ret;
         }
         void clear() { _free(); }
+        void del(int id)
+        {
+            _del(id, 1);
+        }
+        void del(int id, int length)
+        {
+            if (length < 0)
+            {
+                id += length + 1;
+                _del(id, length * -1);
+            }
+            else
+            {
+                _del(id, length);
+            }
+        }
         void extend(List<T> &list)
         {
             for (int i = 0; i < list.getSize(); i++)
@@ -296,23 +301,6 @@ namespace dataObject
         }
         List<T> &operator+=(const T &data) { append(data); }
         List<T> &operator+=(List<T> &list) { extend(list); }
-        void remove(int id)
-        {
-            _remove(id, 1);
-        }
-        void remove(int id, int length)
-        {
-            if (length < 0)
-            {
-                id = _get_id(id);
-                id += length + 1;
-                _remove(id, length * -1);
-            }
-            else
-            {
-                _remove(id, length);
-            }
-        }
         List<T> slice(int start, int length)
         {
             List<T> ret;
