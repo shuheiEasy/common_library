@@ -257,8 +257,31 @@ namespace dataObject
         {
             if (length < 0)
             {
-                id += length + 1;
-                _del(id, length * -1);
+                Node<T> *ptr;
+                int start;
+                int checked_length = 1;
+                if (id < 0)
+                {
+                    ptr = _get_ptr(id - 1);
+                    start = id + 1;
+                }
+                else
+                {
+                    ptr = _get_ptr(id);
+                    start = id;
+                }
+
+                for (int i = 0; i > length; i--)
+                {
+                    if (ptr->prev == NULL)
+                    {
+                        break;
+                    }
+                    ptr = ptr->prev;
+                    start--;
+                    checked_length++;
+                }
+                _del(start, checked_length);
             }
             else
             {
