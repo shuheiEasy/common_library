@@ -18,7 +18,7 @@ namespace dataObject
     class List : public DataObject
     {
     private:
-        Node<T> *_head;
+        Node<T> *_data;
         Node<T> *_tail;
         int _length;
         inline void _append(Node<T> *n_ptr, Node<T> **tail, T data)
@@ -28,10 +28,10 @@ namespace dataObject
             if (tmp != NULL)
             {
                 tmp->data = data;
-                tmp->next = NULL;
+                tmp->next = _tail;
                 tmp->prev = n_ptr;
                 n_ptr->next = tmp;
-                *tail = tmp;
+                _tail->prev = tmp;
                 _length++;
             }
             else
@@ -43,7 +43,15 @@ namespace dataObject
         {
             if (id < _length)
             {
-                Node<T> *ptr = _get_ptr(id);
+                Node<T> *ptr;
+                if (id < 0)
+                {
+                    ptr = _get_ptr(id - 1);
+                }
+                else
+                {
+                    ptr = _get_ptr(id);
+                }
                 return ptr->data;
             }
             return NULL;
@@ -52,7 +60,7 @@ namespace dataObject
         {
             if (id < 0)
             {
-                return _length + id;
+                return _length + id + 1;
             }
             else
             {
@@ -65,12 +73,26 @@ namespace dataObject
             if (id < 0)
             {
                 ptr = _tail;
+                for (int i = -1; i > id; i--)
+                {
+                    // 安全装置
+                    if (ptr->prev == NULL)
+                    {
+                        break;
+                    }
+                    ptr = ptr->prev;
+                }
             }
             else
             {
-                ptr = _head;
+                ptr = _data;
                 for (int i = 0; i < id; i++)
                 {
+                    // 安全装置
+                    if (ptr->next == NULL)
+                    {
+                        break;
+                    }
                     ptr = ptr->next;
                 }
             }
@@ -83,12 +105,12 @@ namespace dataObject
             {
                 tmp->data = data;
 
-                if (ptr == _head)
+                if (ptr == _data)
                 {
                     tmp->next = ptr;
                     tmp->prev = NULL;
                     ptr->prev = tmp;
-                    _head = tmp;
+                    _data = tmp;
                 }
                 else
                 {
@@ -108,14 +130,18 @@ namespace dataObject
         }
         inline void _malloc(T data)
         {
-            _head = (Node<T> *)malloc(sizeof(Node<T>));
-            _tail = _head;
+            _data = (Node<T> *)malloc(sizeof(Node<T>));
+            _tail = (Node<T> *)malloc(sizeof(Node<T>));
 
-            if (_head != NULL)
+            if ((_data != NULL) && (_tail != NULL))
             {
-                _head->data = data;
-                _head->prev = NULL;
-                _head->next = NULL;
+
+                _data->data = data;
+                _data->prev = NULL;
+                _data->next = _tail;
+                _tail->prev = _data;
+                _tail->next = NULL;
+
                 _length++;
             }
         }
@@ -124,25 +150,38 @@ namespace dataObject
             if (_length > 0)
             {
                 Node<T> *ptr = _tail;
-                for (int i = 0; i < _length - 1; i++)
+                while (ptr != _data)
                 {
                     Node<T> *tmp = ptr;
                     ptr = ptr->prev;
                     free(tmp);
                 }
-                free(_head);
+                free(_data);
                 _length = 0;
             }
         }
         inline int _remove(int start, int length)
         {
+            // 長過ぎるとき
             if (length >= _length)
             {
                 _free();
                 return -1;
             }
-            Node<T> *remove_node = _get_ptr(start);
-            if (remove_node != _head && remove_node != _tail)
+
+            // 削除開始地点
+            Node<T> *remove_node;
+            if (start < 0)
+            {
+                remove_node = _get_ptr(start - 1);
+            }
+            else
+            {
+                remove_node = _get_ptr(start);
+            }
+
+            // 削除
+            if (remove_node != _data)
             {
                 Node<T> *p_ptr = remove_node->prev;
                 Node<T> *n_ptr = remove_node;
@@ -150,10 +189,10 @@ namespace dataObject
                 {
                     Node<T> *tmp = n_ptr;
                     n_ptr = n_ptr->next;
-                    if (n_ptr == NULL)
+                    if (n_ptr == _tail)
                     {
-                        p_ptr->next = NULL;
-                        _tail = p_ptr;
+                        p_ptr->next = _tail;
+                        _tail->prev = p_ptr;
                         _length--;
                         free(tmp);
                         break;
@@ -167,7 +206,7 @@ namespace dataObject
                     }
                 }
             }
-            else if (remove_node == _head)
+            else
             {
                 Node<T> *n_ptr = remove_node;
                 for (int i = 0; i < length; i++)
@@ -177,27 +216,28 @@ namespace dataObject
                     free(tmp);
                     _length--;
                 }
-                _head = n_ptr;
+                _data = n_ptr;
             }
-            else
-            {
-                Node<T> *p_ptr = remove_node;
-                for (int i = 0; i < length; i++)
-                {
-                    Node<T> *tmp = p_ptr;
-                    p_ptr = p_ptr->prev;
-                    free(tmp);
-                    _length--;
-                }
-                _tail = p_ptr;
-            }
+            // else
+            // {
+            //     Node<T> *p_ptr = remove_node;
+            //     for (int i = 0; i < length; i++)
+            //     {
+            //         Node<T> *tmp = p_ptr;
+            //         p_ptr = p_ptr->prev;
+            //         free(tmp);
+            //         _length--;
+            //     }
+            //     _tail = p_ptr;
+            // }
             return 0;
         }
 
     public:
         List()
         {
-            _head = NULL;
+            _data = NULL;
+            _tail = NULL;
             _length = 0;
         }
         ~List()
@@ -219,7 +259,7 @@ namespace dataObject
         }
         int count(const T data)
         {
-            Node<T> *ptr = _head;
+            Node<T> *ptr = _data;
             int ret = 0;
             for (int i = 0; i < _length; i++)
             {
@@ -240,7 +280,7 @@ namespace dataObject
         const char *getType() const { return "List"; }
         int index(const T data)
         {
-            Node<T> *ptr = _head;
+            Node<T> *ptr = _data;
             for (int i = 0; i < _length; i++)
             {
                 if (ptr->data == data)
@@ -259,9 +299,7 @@ namespace dataObject
         {
             return _at(id);
         }
-        List<T> &operator+=(const T &data){
-            append(data);
-        }
+        List<T> &operator+=(const T &data) { append(data); }
         void remove(int id)
         {
             _remove(id, 1);
