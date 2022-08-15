@@ -259,7 +259,14 @@ namespace dataObject
             }
             return ret;
         }
-        void clear() { _free(); };
+        void clear() { _free(); }
+        void extend(List<T> &list)
+        {
+            for (int i = 0; i < list.getSize(); i++)
+            {
+                append(list[i]);
+            }
+        }
         T get(int id)
         {
             return _at(id);
@@ -288,6 +295,7 @@ namespace dataObject
             return _at(id);
         }
         List<T> &operator+=(const T &data) { append(data); }
+        List<T> &operator+=(List<T> &list) { extend(list); }
         void remove(int id)
         {
             _remove(id, 1);
@@ -304,6 +312,37 @@ namespace dataObject
             {
                 _remove(id, length);
             }
+        }
+        List<T> slice(int start, int length)
+        {
+            List<T> ret;
+
+            // 探索開始地点
+            Node<T> *node_ptr;
+            if (start < 0)
+            {
+                node_ptr = _get_ptr(start - 1);
+            }
+            else
+            {
+                node_ptr = _get_ptr(start);
+            }
+
+            // 取得
+            for (int i = 0; i < length; i++)
+            {
+                ret.append(node_ptr->data);
+                if (node_ptr->next == _tail)
+                {
+                    break;
+                }
+                else
+                {
+                    node_ptr = node_ptr->next;
+                }
+            }
+
+            return ret;
         }
     };
 
