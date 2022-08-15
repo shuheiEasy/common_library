@@ -26,9 +26,9 @@ namespace dataObject
         void _init();
         void _free_ptr();
         void _getMemory(const int memory_size);
-        int _getPos(int pos);
+        int _getPos(int pos) const;
         Moji *_malloc(int size);
-        void _setData(const char *text, int start);        
+        void _setData(const char *text, int start);
         int _remove(int start, int length);
 
     public:
@@ -49,12 +49,13 @@ namespace dataObject
         bool operator==(const String &text) const;
         bool operator!=(const char *text) const;
         bool operator!=(const String &text) const;
+        String operator[](const int id) const;
         String &operator=(const char *str);
         String &operator=(const String &str);
         String &operator+=(const char *str);
         String &operator+=(const String &str);
         void remove(int start, int length);
-        String slice(int start, int length); 
+        String slice(int start, int length) const;
         List<String> split(const char *sep);
         List<String> split(const String sep);
         String pop(int start, int length);

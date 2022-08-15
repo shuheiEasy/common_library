@@ -143,6 +143,11 @@ bool String::operator!=(const String &text) const
     return !operator==(text);
 }
 
+String String::operator[](const int id) const
+{
+    return slice(id, 1);
+}
+
 String &String::operator=(const char *str)
 {
     clear();
@@ -176,7 +181,7 @@ void String::remove(int start, int length)
     _remove(start, length);
 }
 
-String String::slice(int start, int length)
+String String::slice(int start, int length) const
 {
     // 位置取得
     int start_pos;
@@ -353,7 +358,7 @@ void String::_getMemory(const int memory_size)
     }
 }
 
-int String::_getPos(int pos)
+int String::_getPos(int pos) const
 {
     int ret;
 
