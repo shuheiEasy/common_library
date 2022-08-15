@@ -171,61 +171,87 @@ String &String::operator+=(const String &str)
     return *this;
 }
 
-void String::remove(int start, int end)
+void String::remove(int start, int length)
+{
+    _remove(start, length);
+}
+
+String String::slice(int start, int length)
 {
     // 位置取得
-    int start_pos = _getPos(start);
-    int end_pos = _getPos(end);
+    int start_pos;
+    int end_pos;
 
-    // 位置指定が不正なので修正
+    if (length < 0)
+    {
+        end_pos = _getPos(start);
+        start_pos = _getPos(end_pos + length);
+    }
+    else
+    {
+        start_pos = _getPos(start);
+        end_pos = _getPos(start_pos + length);
+    }
+
+    // 不正検知
     if (start_pos > end_pos)
     {
-        start_pos = _getPos(end);
-        end_pos = _getPos(start);
+        return String("");
     }
 
-    // データ移動
-    int pos = 0;
-    for (int i = end_pos + 1; i < _memory_unit * _MEMORY_SIZE; i++)
+    // データ取得
+    String ret = "";
+    for (int i = start_pos; i < end_pos; i++)
     {
-        _data[start_pos + pos].size = _data[i].size;
-        _data[i].size = 0;
-        for (int j = 0; j < _MOJI_SIZE; j++)
+        // 領域外判定
+        if (i >= _memory_unit * _MEMORY_SIZE)
         {
-            _data[start_pos + pos].data[j] = _data[i].data[j];
-            _data[i].data[j] = '\0';
+            break;
         }
-        pos++;
+        ret += _data[i].data;
     }
 
-    //文字数削除
-    _length -= end_pos - start_pos + 1;
+    return ret;
 }
 
 List<String> String::split(const char *sep)
 {
+    return split(String(sep));
+}
+
+List<String> String::split(const String sep)
+{
     List<String> ret;
+    int sep_length = sep.getSize();
+
     String buffer = "";
+    String check_text = "";
     for (int i = 0; i < _length; i++)
     {
-        if (strcmp(_data[i].data, sep) == 0)
+        check_text += _data[i].data;
+        if (check_text.getSize() == sep_length)
         {
-            ret.append(buffer);
-            buffer.clear();
-            buffer = "";
-        }
-        else
-        {
-            buffer += _data[i].data;
+            if (check_text == sep)
+            {
+                check_text = "";
+                ret.append(buffer);
+                buffer = "";
+            }
+            else
+            {
+                buffer += check_text.pop(0, 1);
+            }
         }
     }
     ret.append(buffer);
     return ret;
 }
 
-List<String> String::split(const String sep)
+String String::pop(int start, int length)
 {
-    return split(sep.getChar());
+    String ret = slice(start, length);
+    _remove(start, length);
+    return ret;
 }
 
 Moji *String::_converter(const char *text, int &size)
@@ -417,6 +443,49 @@ void String::_setData(const char *text, int start)
 
     // 文字の長さ更新
     _length += moji_counter;
+}
+
+int String::_remove(int start, int length)
+{
+    // 位置取得
+    int start_pos;
+    int end_pos;
+
+    if (length < 0)
+    {
+        end_pos = _getPos(start);
+        start_pos = _getPos(end_pos + length);
+    }
+    else
+    {
+        start_pos = _getPos(start);
+        end_pos = _getPos(start_pos + length);
+    }
+
+    // 不正検知
+    if (start_pos > end_pos)
+    {
+        return -1;
+    }
+
+    //データ移動
+    int pos = 0;
+    for (int i = end_pos; i < _memory_unit * _MEMORY_SIZE; i++)
+    {
+        _data[start_pos + pos].size = _data[i].size;
+        _data[i].size = 0;
+        for (int j = 0; j < _MOJI_SIZE; j++)
+        {
+            _data[start_pos + pos].data[j] = _data[i].data[j];
+            _data[i].data[j] = '\0';
+        }
+        pos++;
+    }
+
+    //文字数削除
+    _length -= end_pos - start_pos;
+
+    return 0;
 }
 
 void String::_test()
