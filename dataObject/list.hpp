@@ -323,8 +323,16 @@ namespace dataObject
         {
             return _at(id);
         }
-        List<T> &operator+=(const T &data) { append(data); }
-        List<T> &operator+=(List<T> &list) { extend(list); }
+        List<T> &operator+=(const T &data)
+        {
+            append(data);
+            return *this;
+        }
+        List<T> &operator+=(List<T> &list)
+        {
+            extend(list);
+            return *this;
+        }
         List<T> slice(int start, int length)
         {
             List<T> ret;

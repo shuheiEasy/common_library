@@ -11,6 +11,8 @@
 #include <vector>
 #include <string>
 
+#include "../dataObject/dataObject.hpp"
+
 namespace FileSystem
 {
     enum FileType
