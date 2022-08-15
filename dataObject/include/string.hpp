@@ -23,13 +23,14 @@ namespace dataObject
         int _memory_unit;
 
         Moji *_converter(const char *text, int &size);
+        int _del(int start, int length);
         void _init();
         void _free_ptr();
         void _getMemory(const int memory_size);
         int _getPos(int pos) const;
         Moji *_malloc(int size);
         void _setData(const char *text, int start);
-        int _remove(int start, int length);
+        
 
     public:
         String();
@@ -39,6 +40,8 @@ namespace dataObject
         void append(const char *text);
         void append(const String text);
         void clear();
+        void del(int start);
+        void del(int start, int length);
         char *getChar() const;
         const char *getType() const;
         int getSize() const;
@@ -55,8 +58,7 @@ namespace dataObject
         String &operator=(const char *str);
         String &operator=(const String &str);
         String &operator+=(const char *str);
-        String &operator+=(const String &str);
-        void remove(int start, int length);
+        String &operator+=(const String &str);        
         String slice(int start, int length) const;
         List<String> split(const char *sep);
         List<String> split(const String sep);
