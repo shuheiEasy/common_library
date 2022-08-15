@@ -3,7 +3,7 @@ project(fileSystem)
 set(PARENT_PROJECT_NAME common_library)
 
 # インクルードフォルダ追加
-include_directories(include)
+include_directories(.)
 
 # # C++ファイル取得
 file(GLOB_RECURSE source_list "src/*.cpp")
@@ -16,7 +16,7 @@ add_library(${PARENT_PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 set_target_properties(
     ${PROJECT_NAME}
     PROPERTIES
-        PUBLIC_HEADER include/fileSystem.hpp)
+        PUBLIC_HEADER fileSystem.hpp)
 
 # インストール
 install(

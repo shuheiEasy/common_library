@@ -2,7 +2,6 @@
 #define LOGSYS_H
 
 #include <stdio.h>
-#include <dataObject.hpp>
 
 namespace logSystem
 {
