@@ -105,6 +105,25 @@ void String::insert(const String text, int start)
     _setData(text.getChar(), start_pos);
 }
 
+bool String::isdigit() const
+{
+    for (int i = 0; i < _length; i++)
+    {
+        if (_data[i].size > 2)
+        {
+            return false;
+        }
+        else if (_data[i].size == 2)
+        {
+            if (!(('0' <= _data[i].data[0] && _data[i].data[0] <= '9') || _data[i].data[0] == '.'))
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 bool String::operator==(const char *text) const
 {
     if (strcmp(getChar(), text) == 0)

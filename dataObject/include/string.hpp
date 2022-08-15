@@ -45,6 +45,7 @@ namespace dataObject
         Moji *getStr() const;
         void insert(const char *text, int start);
         void insert(const String text, int start);
+        bool isdigit() const;
         bool operator==(const char *text) const;
         bool operator==(const String &text) const;
         bool operator!=(const char *text) const;
