@@ -5,4 +5,10 @@
 #include "./string.hpp"
 #include "./list.hpp"
 
+namespace dataObject
+{
+    int len(DataObject &data);
+    String type(DataObject &data);
+}
+
 #endif
