@@ -113,11 +113,62 @@ bool String::isdigit() const
         {
             return false;
         }
-        else if (_data[i].size == 2)
+        else
         {
-            if (!(('0' <= _data[i].data[0] && _data[i].data[0] <= '9') || _data[i].data[0] == '.'))
+            switch (_data[i].data[0])
             {
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+                break;
+
+            default:
                 return false;
+                break;
+            }
+        }
+    }
+    return true;
+}
+
+bool String::isnumeric() const
+{
+    for (int i = 0; i < _length; i++)
+    {
+        if (_data[i].size > 2)
+        {
+            return false;
+        }
+        else
+        {
+            switch (_data[i].data[0])
+            {
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+                break;
+            
+            // 追加部分
+            case '.':
+                break;
+
+            default:
+                return false;
+                break;
             }
         }
     }
