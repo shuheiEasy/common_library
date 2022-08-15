@@ -30,7 +30,6 @@ namespace dataObject
         int _getPos(int pos) const;
         Moji *_malloc(int size);
         void _setData(const char *text, int start);
-        
 
     public:
         String();
@@ -44,6 +43,7 @@ namespace dataObject
         void del(int start, int length);
         char *getChar() const;
         const char *getType() const;
+        const char *getLog() const;
         int getSize() const;
         Moji *getStr() const;
         void insert(const char *text, int start);
@@ -58,7 +58,7 @@ namespace dataObject
         String &operator=(const char *str);
         String &operator=(const String &str);
         String &operator+=(const char *str);
-        String &operator+=(const String &str);        
+        String &operator+=(const String &str);
         String slice(int start, int length) const;
         List<String> split(const char *sep);
         List<String> split(const String sep);

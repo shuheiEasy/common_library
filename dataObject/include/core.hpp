@@ -13,6 +13,7 @@ namespace dataObject
     public:
         virtual const char *getType() const = 0;
         virtual int getSize() const = 0;
+        virtual const char *getLog() const = 0;
     };
 }
 

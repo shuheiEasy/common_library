@@ -299,6 +299,7 @@ namespace dataObject
         {
             return _at(id);
         }
+        const char *getLog() const { return ""; }
         int getSize() const { return _length; }
         const char *getType() const { return "List"; }
         int index(const T data)
