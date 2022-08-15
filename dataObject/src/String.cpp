@@ -91,6 +91,10 @@ const char *String::getType() const
     return "String";
 }
 
+const char *String::getLog() const{
+    return getChar();
+}
+
 int String::getSize() const
 {
     return _length;
