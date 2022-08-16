@@ -5,6 +5,8 @@ set(PARENT_PROJECT_NAME common_library)
 # インクルードフォルダ追加
 set(INCLUDE_DIR include/${PROJECT_NAME})
 include_directories(${INCLUDE_DIR})
+include_directories(../dataObject/include)
+include_directories(../fileSystem/include)
 
 # # C++ファイル取得
 file(GLOB_RECURSE source_list "src/*.cpp")
