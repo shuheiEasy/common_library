@@ -68,10 +68,12 @@ namespace dataObject
 
     // String型変換
     template <class T>
-    inline String toString(T a){
+    inline String toString(T &a)
+    {
         return "";
     }
-    inline String toString(String a){
+    inline String toString(String &a)
+    {
         return a;
     }
 }
