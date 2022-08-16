@@ -65,6 +65,15 @@ namespace dataObject
         String pop(int start, int length);
         void _test();
     };
+
+    // String型変換
+    template <class T>
+    inline String toString(T a){
+        return "";
+    }
+    inline String toString(String a){
+        return a;
+    }
 }
 
 #endif
