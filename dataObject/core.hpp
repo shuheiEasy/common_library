@@ -19,8 +19,9 @@ namespace dataObject
     enum ClassType
     {
         ANYTYPE_CLASS = -1,
-        DATATYPE_CLASS = 0,
-        NONETYPE_CLASS
+        NONETYPE_CLASS = 0,
+        DATATYPE_CLASS = 100,
+        LISTTYPE_CLASS        
     };
 
     template <class TYPE>
