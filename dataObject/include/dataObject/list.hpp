@@ -39,7 +39,7 @@ namespace dataObject
                 printf("失敗\n");
             }
         }
-        inline T _at(int id)
+        inline T *_at(int id)
         {
             if (id < _length)
             {
@@ -52,7 +52,7 @@ namespace dataObject
                 {
                     ptr = _get_ptr(id);
                 }
-                return ptr->data;
+                return &(ptr->data);
             }
             return NULL;
         }
@@ -297,9 +297,9 @@ namespace dataObject
         }
         T get(int id)
         {
-            return _at(id);
+            return *_at(id);
         }
-        const char *getLog() const ;
+        const char *getLog() const;
         int getSize() const { return _length; }
         const char *getType() const { return "List"; }
         int index(const T data)
@@ -319,9 +319,9 @@ namespace dataObject
         {
             _insert(_get_ptr(id), data);
         }
-        T operator[](const int id)
+        T &operator[](const int id)
         {
-            return _at(id);
+            return *_at(id);
         }
         List<T> &operator+=(const T &data)
         {
