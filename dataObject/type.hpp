@@ -16,6 +16,14 @@ namespace dataObject
     };
 
     template <class T>
+    class Type<List<T>>
+    {
+    public:
+        ClassType class_id;
+        Type() { class_id = DATATYPE_CLASS; }
+    };
+
+    template <class T>
     const char *List<T>::getLog() const
     {
         Type<T> buf;
