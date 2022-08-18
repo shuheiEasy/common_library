@@ -229,8 +229,8 @@ namespace dataObject
             }
             else
             {
-                Node<T> *ptr = _get_ptr(_length - 1);                
-                _append(ptr, &_tail, data);                
+                Node<T> *ptr = _get_ptr(this->_length - 1);                
+                _append(ptr, &(this->_tail), data); 
             }
         }
         int count(const T data)
