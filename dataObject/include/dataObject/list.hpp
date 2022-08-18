@@ -21,7 +21,7 @@ namespace dataObject
         Node<T> *_data;
         Node<T> *_tail;
         int _length;
-        inline void _append(Node<T> *n_ptr, Node<T> **tail, const T &data)
+        inline void _append(Node<T> *n_ptr, Node<T> **tail, T &data)
         {
             Node<T> *tmp = (Node<T> *)malloc(sizeof(Node<T>));
 
@@ -147,7 +147,7 @@ namespace dataObject
             }
             return ptr;
         }
-        inline void _insert(Node<T> *ptr, const T &data)
+        inline void _insert(Node<T> *ptr, T &data)
         {
             Node<T> *tmp = (Node<T> *)malloc(sizeof(Node<T>));
             if (tmp != NULL)
@@ -177,7 +177,7 @@ namespace dataObject
                 printf("失敗\n");
             }
         }
-        inline void _malloc(const T &data)
+        inline void _malloc(T &data)
         {
             _data = (Node<T> *)malloc(sizeof(Node<T>));
             _tail = (Node<T> *)malloc(sizeof(Node<T>));
@@ -221,7 +221,7 @@ namespace dataObject
         {
             _free();
         }
-        void append(const T &data)
+        void append(T &data)
         {
             if (_length == 0)
             {
@@ -229,9 +229,8 @@ namespace dataObject
             }
             else
             {
-                Node<T> *ptr = _get_ptr(_length - 1);
-
-                _append(ptr, &_tail, data);
+                Node<T> *ptr = _get_ptr(_length - 1);                
+                _append(ptr, &_tail, data);                
             }
         }
         int count(const T data)
@@ -322,6 +321,12 @@ namespace dataObject
         T &operator[](const int id)
         {
             return *_at(id);
+        }
+        List<T> &operator=(List<T> &list)
+        {
+            clear();
+            this->extend(list);
+            return *this;
         }
         List<T> &operator+=(const T &data)
         {
