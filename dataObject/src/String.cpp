@@ -91,7 +91,8 @@ const char *String::getType() const
     return "String";
 }
 
-const char *String::getLog() const{
+const char *String::getLog() const
+{
     return getChar();
 }
 
@@ -232,7 +233,7 @@ String String::operator[](const int id) const
     return slice(id, 1);
 }
 
-String &String::operator=(const char *str)
+String String::operator=(const char *str)
 {
     clear();
     _setData(str, -1);
@@ -240,12 +241,26 @@ String &String::operator=(const char *str)
     return *this;
 }
 
-String &String::operator=(const String &str)
+String String::operator=(const String &str)
 {
     clear();
     _setData(str.getChar(), -1);
 
     return *this;
+}
+
+String String::operator+(const char *str) const
+{
+    String ret = *this;
+    ret.append(str);
+    return ret;
+}
+
+String String::operator+(const String &str) const
+{
+    String ret = *this;
+    ret.append(str);
+    return ret;
 }
 
 String &String::operator+=(const char *str)

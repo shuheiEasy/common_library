@@ -55,8 +55,10 @@ namespace dataObject
         bool operator!=(const char *text) const;
         bool operator!=(const String &text) const;
         String operator[](const int id) const;
-        String &operator=(const char *str);
-        String &operator=(const String &str);
+        String operator=(const char *str);
+        String operator=(const String &str);
+        String operator+(const char *str) const;
+        String operator+(const String &str) const;
         String &operator+=(const char *str);
         String &operator+=(const String &str);
         String slice(int start, int length) const;
