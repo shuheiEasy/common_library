@@ -448,10 +448,18 @@ void String::_free_ptr()
     {
         for (int i = 0; i < _memory_unit * _MEMORY_SIZE; i++)
         {
-            free(_data[i].data);
+            if (_data[i].data != NULL)
+            {
+                free(_data[i].data);
+                _data[i].data = NULL;
+            }
         }
 
-        free(_data);
+        if (_data != NULL)
+        {
+            free(_data);
+            _data = NULL;
+        }
         _memory_unit = 0;
     }
 }
