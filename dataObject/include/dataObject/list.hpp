@@ -3,6 +3,7 @@
 
 #include "./core.hpp"
 
+
 namespace dataObject
 {
 
@@ -289,7 +290,7 @@ namespace dataObject
         {
             _free();
         }
-        void append(const T &data)
+        inline void append(const T &data)
         {
             if (_length == 0)
             {
@@ -301,7 +302,7 @@ namespace dataObject
                 _append(ptr, &(this->_tail), data);
             }
         }
-        int count(const T &data)
+        inline int count(const T &data)
         {
             Node<T> *ptr = _data;
             int ret = 0;
@@ -315,12 +316,12 @@ namespace dataObject
             }
             return ret;
         }
-        void clear() { _free(); }
-        void del(int id)
+        inline void clear() { _free(); }
+        inline void del(int id)
         {
             _del(id, 1);
         }
-        void del(int id, int length)
+        inline void del(int id, int length)
         {
             if (length < 0)
             {
@@ -355,21 +356,23 @@ namespace dataObject
                 _del(id, length);
             }
         }
-        void extend(const List<T> &list)
+        inline void extend(const List<T> &list)
         {
             for (int i = 0; i < list.getSize(); i++)
             {
                 append(list.get(i));
             }
         }
-        T get(int id) const
+        inline T get(int id) const
         {
             return *_at(id);
         }
         const char *getLog() const;
-        int getSize() const { return this->_length; }
-        const char *getType() const { return "List"; }
-        int index(const T data)
+        inline int getSize() const { return this->_length; }
+        inline int getSize() { return this->_length; }
+        inline const char *getType() const { return "List"; }
+        inline const char *getType() { return "List"; }
+        inline int index(const T data)
         {
             Node<T> *ptr = _data;
             for (int i = 0; i < _length; i++)
@@ -382,31 +385,31 @@ namespace dataObject
             }
             return -1;
         }
-        void insert(const int id, const T &data)
+        inline void insert(const int id, const T &data)
         {
             _insert(_get_ptr(id), data);
         }
-        T &operator[](const int id)
+        inline T operator[](const int id)
         {
-            return *_at_change(id);
+            return *(this->_at_change(id));
         }
-        List<T> &operator=(const List<T> &list)
+        inline List<T> &operator=(const List<T> &list)
         {
             clear();
             this->extend(list);
             return *this;
         }
-        List<T> &operator+=(const T &data)
+        inline List<T> &operator+=(const T &data)
         {
             append(data);
             return *this;
         }
-        List<T> &operator+=(const List<T> &list)
+        inline List<T> &operator+=(const List<T> &list)
         {
             extend(list);
             return *this;
         }
-        List<T> slice(int start, int length)
+        inline List<T> slice(int start, int length)
         {
             List<T> ret;
 
@@ -437,6 +440,15 @@ namespace dataObject
 
             return ret;
         }
+    };
+
+    template <class T>
+    class Vec : public DataObject, public std::vector<T>
+    {
+    public:
+        const char *getType() const { return "Vec"; }
+        int getSize() const { return this->size(); }
+        const char *getLog() const { return "実装中"; }
     };
 
 }
