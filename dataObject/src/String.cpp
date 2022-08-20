@@ -13,6 +13,12 @@ String::String(const int &data)
     _fromInt(data, -1);
 }
 
+String::String(const double &data)
+{
+    _init();
+    _fromDouble(data, -1);
+}
+
 String::String(const char *text)
 {
     _init();
@@ -33,6 +39,11 @@ String::~String()
 void String::append(const int &data)
 {
     _fromInt(data, -1);
+}
+
+void String::append(const double &data)
+{
+    _fromDouble(data, -1);
 }
 
 void String::append(const char *text)
@@ -214,6 +225,19 @@ bool String::operator==(const int &data) const
     }
 }
 
+bool String::operator==(const double &data) const
+{
+    String tmp(data);
+    if (tmp == *this)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 bool String::operator==(const char *text) const
 {
     if (strcmp(getChar(), text) == 0)
@@ -242,7 +266,13 @@ bool String::operator==(const String &text) const
     return false;
 }
 
-bool String::operator!=(const int &data) const{
+bool String::operator!=(const int &data) const
+{
+    return !operator==(data);
+}
+
+bool String::operator!=(const double &data) const
+{
     return !operator==(data);
 }
 
@@ -265,7 +295,13 @@ String String::operator=(const int &data)
 {
     clear();
     _fromInt(data, -1);
+    return *this;
+}
 
+String String::operator=(const double &data)
+{
+    clear();
+    _fromDouble(data, -1);
     return *this;
 }
 
@@ -292,6 +328,13 @@ String String::operator+(const int &data) const
     return ret;
 }
 
+String String::operator+(const double &data) const
+{
+    String ret = *this;
+    ret.append(data);
+    return ret;
+}
+
 String String::operator+(const char *str) const
 {
     String ret = *this;
@@ -309,6 +352,11 @@ String String::operator+(const String &str) const
 String &String::operator+=(const int &data)
 {
     _fromInt(data, -1);
+    return *this;
+}
+
+String &String::operator+=(const double &data){
+    _fromDouble(data, -1);
     return *this;
 }
 
@@ -517,7 +565,40 @@ void String::_fromInt(const int data, const int start)
 {
     const int TMP_SIZE = 12;
     char tmp[TMP_SIZE];
+    for (int i = 0; i < TMP_SIZE; i++)
+    {
+        tmp[i] = '\0';
+    }
     snprintf(tmp, TMP_SIZE, "%d", data);
+    _setData(tmp, start);
+}
+
+void String::_fromDouble(const double data, const int start)
+{
+    const int TMP_SIZE = 16;
+    char tmp[TMP_SIZE];
+    for (int i = 0; i < TMP_SIZE; i++)
+    {
+        tmp[i] = '\0';
+    }
+    snprintf(tmp, TMP_SIZE, "%f", data);
+    int non_zero_digit = TMP_SIZE - 1;
+    for (int i = TMP_SIZE - 1; i >= 0; i--)
+    {
+        if (non_zero_digit == i)
+        {
+            if ((tmp[i] == '0') || (tmp[i] == '\0'))
+            {
+                non_zero_digit--;
+            }
+        }
+    }
+
+    for (int i = non_zero_digit + 1; i < TMP_SIZE; i++)
+    {
+        tmp[i] = '\0';
+    }
+
     _setData(tmp, start);
 }
 
