@@ -21,7 +21,8 @@ namespace dataObject
         Node<T> *_data;
         Node<T> *_tail;
         int _length;
-        inline void _append(Node<T> *n_ptr, Node<T> **tail, T &data)
+
+        inline void _append(Node<T> *n_ptr, Node<T> **tail, const T data)
         {
             Node<T> *tmp = (Node<T> *)malloc(sizeof(Node<T>));
 
@@ -39,7 +40,7 @@ namespace dataObject
                 printf("失敗\n");
             }
         }
-        inline T *_at(int id)
+        inline T *_at(int id) const
         {
             if (id < _length)
             {
@@ -51,6 +52,23 @@ namespace dataObject
                 else
                 {
                     ptr = _get_ptr(id);
+                }
+                return &(ptr->data);
+            }
+            return NULL;
+        }
+        inline T *_at_change(int id)
+        {
+            if (id < _length)
+            {
+                Node<T> *ptr;
+                if (id < 0)
+                {
+                    ptr = _get_ptr_change(id - 1);
+                }
+                else
+                {
+                    ptr = _get_ptr_change(id);
                 }
                 return &(ptr->data);
             }
@@ -116,7 +134,7 @@ namespace dataObject
             }
             return 0;
         }
-        inline Node<T> *_get_ptr(int id)
+        inline Node<T> *_get_ptr(int id) const
         {
             Node<T> *ptr;
             if (id < 0)
@@ -147,7 +165,38 @@ namespace dataObject
             }
             return ptr;
         }
-        inline void _insert(Node<T> *ptr, T &data)
+        inline Node<T> *_get_ptr_change(int id)
+        {
+            Node<T> *ptr;
+            if (id < 0)
+            {
+                ptr = _tail;
+                for (int i = -1; i > id; i--)
+                {
+                    // 安全装置
+                    if (ptr->prev == NULL)
+                    {
+                        break;
+                    }
+                    ptr = ptr->prev;
+                }
+            }
+            else
+            {
+                ptr = _data;
+                for (int i = 0; i < id; i++)
+                {
+                    // 安全装置
+                    if (ptr->next == NULL)
+                    {
+                        break;
+                    }
+                    ptr = ptr->next;
+                }
+            }
+            return ptr;
+        }
+        inline void _insert(Node<T> *ptr, const T data)
         {
             Node<T> *tmp = (Node<T> *)malloc(sizeof(Node<T>));
             if (tmp != NULL)
@@ -177,14 +226,13 @@ namespace dataObject
                 printf("失敗\n");
             }
         }
-        inline void _malloc(T &data)
+        inline void _malloc(const T data)
         {
             _data = (Node<T> *)malloc(sizeof(Node<T>));
             _tail = (Node<T> *)malloc(sizeof(Node<T>));
 
             if ((_data != NULL) && (_tail != NULL))
             {
-
                 _data->data = data;
                 _data->prev = NULL;
                 _data->next = _tail;
@@ -202,10 +250,22 @@ namespace dataObject
                 while (ptr != _data)
                 {
                     Node<T> *tmp = ptr;
-                    ptr = ptr->prev;
-                    free(tmp);
+                    ptr = tmp->prev;
+                    if (tmp != NULL)
+                    {
+                        free(tmp);
+                        tmp = NULL;
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
-                free(_data);
+                if (_data != NULL)
+                {
+                    free(_data);
+                    _data = NULL;
+                }
                 _length = 0;
             }
         }
@@ -217,11 +277,19 @@ namespace dataObject
             _tail = NULL;
             _length = 0;
         }
+        List(const List<T> &list)
+        {
+            _data = NULL;
+            _tail = NULL;
+            _length = 0;
+
+            this->extend(list);
+        }
         ~List()
         {
             _free();
         }
-        void append(T &data)
+        void append(const T &data)
         {
             if (_length == 0)
             {
@@ -229,11 +297,11 @@ namespace dataObject
             }
             else
             {
-                Node<T> *ptr = _get_ptr(this->_length - 1);                
-                _append(ptr, &(this->_tail), data); 
+                Node<T> *ptr = _get_ptr(this->_length - 1);
+                _append(ptr, &(this->_tail), data);
             }
         }
-        int count(const T data)
+        int count(const T &data)
         {
             Node<T> *ptr = _data;
             int ret = 0;
@@ -287,19 +355,19 @@ namespace dataObject
                 _del(id, length);
             }
         }
-        void extend(List<T> &list)
+        void extend(const List<T> &list)
         {
             for (int i = 0; i < list.getSize(); i++)
             {
-                append(list[i]);
+                append(list.get(i));
             }
         }
-        T get(int id)
+        T get(int id) const
         {
             return *_at(id);
         }
         const char *getLog() const;
-        int getSize() const { return _length; }
+        int getSize() const { return this->_length; }
         const char *getType() const { return "List"; }
         int index(const T data)
         {
@@ -320,9 +388,9 @@ namespace dataObject
         }
         T &operator[](const int id)
         {
-            return *_at(id);
+            return *_at_change(id);
         }
-        List<T> &operator=(List<T> &list)
+        List<T> &operator=(const List<T> &list)
         {
             clear();
             this->extend(list);
@@ -333,7 +401,7 @@ namespace dataObject
             append(data);
             return *this;
         }
-        List<T> &operator+=(List<T> &list)
+        List<T> &operator+=(const List<T> &list)
         {
             extend(list);
             return *this;
