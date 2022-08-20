@@ -3,7 +3,6 @@
 
 #include "./core.hpp"
 
-
 namespace dataObject
 {
 
@@ -440,15 +439,6 @@ namespace dataObject
 
             return ret;
         }
-    };
-
-    template <class T>
-    class Vec : public DataObject, public std::vector<T>
-    {
-    public:
-        const char *getType() const { return "Vec"; }
-        int getSize() const { return this->size(); }
-        const char *getLog() const { return "実装中"; }
     };
 
 }
