@@ -26,6 +26,7 @@ namespace dataObject
         int _del(int start, int length);
         void _init();
         void _free_ptr();
+        void _fromInt(const int data,const int start);
         void _getMemory(const int memory_size);
         int _getPos(int pos) const;
         Moji *_malloc(int size);
@@ -33,9 +34,11 @@ namespace dataObject
 
     public:
         String();
+        String(const int &data);
         String(const char *text);
         String(const String &text);
         ~String();
+        void append(const int &data);
         void append(const char *text);
         void append(const String text);
         void clear();
@@ -50,15 +53,20 @@ namespace dataObject
         void insert(const String text, int start);
         bool isdigit() const;
         bool isnumeric() const;
+        bool operator==(const int &data) const;
         bool operator==(const char *text) const;
         bool operator==(const String &text) const;
+        bool operator!=(const int &data) const;
         bool operator!=(const char *text) const;
         bool operator!=(const String &text) const;
         String operator[](const int id) const;
+        String operator=(const int &data);
         String operator=(const char *str);
         String operator=(const String &str);
+        String operator+(const int &data) const;
         String operator+(const char *str) const;
         String operator+(const String &str) const;
+        String &operator+=(const int &data);
         String &operator+=(const char *str);
         String &operator+=(const String &str);
         String slice(int start, int length) const;

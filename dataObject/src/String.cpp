@@ -7,6 +7,12 @@ String::String()
     _init();
 }
 
+String::String(const int &data)
+{
+    _init();
+    _fromInt(data, -1);
+}
+
 String::String(const char *text)
 {
     _init();
@@ -22,6 +28,11 @@ String::String(const String &text)
 String::~String()
 {
     _free_ptr();
+}
+
+void String::append(const int &data)
+{
+    _fromInt(data, -1);
 }
 
 void String::append(const char *text)
@@ -190,6 +201,19 @@ bool String::isnumeric() const
     return true;
 }
 
+bool String::operator==(const int &data) const
+{
+    String tmp(data);
+    if (tmp == *this)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 bool String::operator==(const char *text) const
 {
     if (strcmp(getChar(), text) == 0)
@@ -218,6 +242,10 @@ bool String::operator==(const String &text) const
     return false;
 }
 
+bool String::operator!=(const int &data) const{
+    return !operator==(data);
+}
+
 bool String::operator!=(const char *text) const
 {
     return !operator==(text);
@@ -231,6 +259,14 @@ bool String::operator!=(const String &text) const
 String String::operator[](const int id) const
 {
     return slice(id, 1);
+}
+
+String String::operator=(const int &data)
+{
+    clear();
+    _fromInt(data, -1);
+
+    return *this;
 }
 
 String String::operator=(const char *str)
@@ -249,6 +285,13 @@ String String::operator=(const String &str)
     return *this;
 }
 
+String String::operator+(const int &data) const
+{
+    String ret = *this;
+    ret.append(data);
+    return ret;
+}
+
 String String::operator+(const char *str) const
 {
     String ret = *this;
@@ -261,6 +304,12 @@ String String::operator+(const String &str) const
     String ret = *this;
     ret.append(str);
     return ret;
+}
+
+String &String::operator+=(const int &data)
+{
+    _fromInt(data, -1);
+    return *this;
 }
 
 String &String::operator+=(const char *str)
@@ -462,6 +511,14 @@ void String::_free_ptr()
         }
         _memory_unit = 0;
     }
+}
+
+void String::_fromInt(const int data, const int start)
+{
+    const int TMP_SIZE = 12;
+    char tmp[TMP_SIZE];
+    snprintf(tmp, TMP_SIZE, "%d", data);
+    _setData(tmp, start);
 }
 
 void String::_getMemory(const int memory_size)
