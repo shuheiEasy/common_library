@@ -5,8 +5,8 @@ cmake_minimum_required(VERSION 3.11.0)
 project(common_library CXX)
 
 # サブプロジェクト設定
-add_subdirectory(fileSystem)
 add_subdirectory(dataObject)
+add_subdirectory(fileSystem)
 add_subdirectory(logSystem)
 
 install(
