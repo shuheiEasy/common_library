@@ -404,7 +404,8 @@ String &String::operator+=(const float &data)
     return *this;
 }
 
-String &String::operator+=(const double &data){
+String &String::operator+=(const double &data)
+{
     _fromDouble(data, -1);
     return *this;
 }
@@ -488,7 +489,13 @@ List<String> String::split(const String sep)
             }
         }
     }
+    if (check_text.getSize() > 0)
+    {
+        buffer.append(check_text);
+    }
+
     ret.append(buffer);
+    
     return ret;
 }
 
@@ -650,7 +657,6 @@ void String::_fromFloat(const float data, const int start)
 
     _setData(tmp, start);
 }
-
 
 void String::_fromDouble(const double data, const int start)
 {
