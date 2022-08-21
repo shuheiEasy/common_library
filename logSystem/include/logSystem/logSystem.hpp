@@ -1,7 +1,8 @@
 #ifndef LOGSYS_H
 #define LOGSYS_H
 
-#include <stdio.h>
+#include <stdarg.h>
+#include <dataObject/dataObject.hpp>
 #include <fileSystem/fileSystem.hpp>
 
 namespace logSystem
@@ -14,7 +15,8 @@ namespace logSystem
     public:
         LogSystem();
         ~LogSystem();
-        void print(const dataObject::DataObject &obj);
+        void print(const dataObject::String &format, ...);
+        void print(const char* format, ...);
     };
 
     
