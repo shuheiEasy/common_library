@@ -3,6 +3,7 @@
 
 #include "./core.hpp"
 #include "./string.hpp"
+#include "./int.hpp"
 #include "./type.hpp"
 
 namespace dataObject
