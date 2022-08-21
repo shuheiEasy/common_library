@@ -27,11 +27,26 @@ namespace dataObject
         const char *getLog() const;
         int getSize() const;
         operator bool() { return _data; };
+        Bool operator==(const bool &data) const;
+        Bool operator==(const Bool &data) const;
+        Bool operator==(const int &data) const;
+        Bool operator==(const String &data) const;
+        Bool operator!=(const bool &data) const;
+        Bool operator!=(const Bool &data) const;
+        Bool operator!=(const int &data) const;
+        Bool operator!=(const String &data) const;
         Bool operator=(const bool &data);
         Bool operator=(const Bool &data);
         Bool operator=(const int &data);
         Bool operator=(const String &data);
-
+        Bool operator+(const bool &data) const;
+        Bool operator+(const Bool &data) const;
+        Bool operator+(const int &data) const;
+        Bool operator+(const String &data) const;
+        Bool &operator+=(const bool &data);
+        Bool &operator+=(const Bool &data);
+        Bool &operator+=(const int &data);
+        Bool &operator+=(const String &data);
     };
 }
 
