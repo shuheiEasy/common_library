@@ -31,7 +31,7 @@ int Bool::getSize() const
     return 1;
 }
 
-void Int::_init()
+void Bool::_init()
 {
     this->_data = false;
 }
