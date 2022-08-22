@@ -167,6 +167,30 @@ Bool Bool::operator+(const String &data) const
     return ret;
 }
 
+Bool Bool::operator-(const bool &data) const
+{
+    Bool ret = this->_data - data;
+    return ret;
+}
+
+Bool Bool::operator-(const Bool &data) const
+{
+    Bool ret = this->_data - data.getBool();
+    return ret;
+}
+
+Bool Bool::operator-(const int &data) const
+{
+    Bool ret = *this - Bool(data);
+    return ret;
+}
+
+Bool Bool::operator-(const String &data) const
+{
+    Bool ret = *this -Bool(data);
+    return ret;
+}
+
 Bool &Bool::operator+=(const bool &data)
 {
     this->_data = this->_data + data;

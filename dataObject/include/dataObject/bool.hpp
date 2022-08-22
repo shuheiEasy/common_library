@@ -43,6 +43,10 @@ namespace dataObject
         Bool operator+(const Bool &data) const;
         Bool operator+(const int &data) const;
         Bool operator+(const String &data) const;
+        Bool operator-(const bool &data) const;
+        Bool operator-(const Bool &data) const;
+        Bool operator-(const int &data) const;
+        Bool operator-(const String &data) const;
         Bool &operator+=(const bool &data);
         Bool &operator+=(const Bool &data);
         Bool &operator+=(const int &data);
