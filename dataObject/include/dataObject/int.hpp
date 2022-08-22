@@ -5,19 +5,28 @@
 
 namespace dataObject
 {
-    class Int:public DataObject{
-        private:
+    class Int : public DataObject
+    {
+    private:
         int _data;
 
         void _init();
 
-        public:
+    public:
         Int();
         Int(const int &data);
         ~Int();
-        const char *getType() const;
+        int getInt() const;
         const char *getLog() const;
         int getSize() const;
+        const char *getType() const;
+        operator int() const { return _data; }
+        Int operator=(const int &data);
+        Int operator=(const Int &data);
+        bool operator==(const int &data) const;
+        bool operator==(const Int &data) const;
+        bool operator!=(const int &data) const;
+        bool operator!=(const Int &data) const;
     };
 }
 
