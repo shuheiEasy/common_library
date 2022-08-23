@@ -27,6 +27,26 @@ namespace dataObject
         bool operator==(const Int &data) const;
         bool operator!=(const int &data) const;
         bool operator!=(const Int &data) const;
+        bool operator<(const int &data) const;
+        bool operator<(const Int &data) const;
+        bool operator<=(const int &data) const;
+        bool operator<=(const Int &data) const;
+        bool operator>(const int &data) const;
+        bool operator>(const Int &data) const;
+        bool operator>=(const int &data) const;
+        bool operator>=(const Int &data) const;
+        Int &operator+=(const int &data);
+        Int &operator+=(const Int &data);
+        Int &operator-=(const int &data);
+        Int &operator-=(const Int &data);
+        Int &operator*=(const int &data);
+        Int &operator*=(const Int &data);
+        Int &operator/=(const int &data);
+        Int &operator/=(const Int &data);
+        Int operator++();
+        Int operator++(int);
+        Int operator--();
+        Int operator--(int);
     };
 }
 
