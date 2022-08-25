@@ -4,6 +4,8 @@
 #include "./core.hpp"
 #include "./bool.hpp"
 #include "./int.hpp"
+#include "./float.hpp"
+#include "./double.hpp"
 #include "./string.hpp"
 #include "./type.hpp"
 
