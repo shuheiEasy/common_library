@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <locale.h>
 
+#define LANGUAGECODE "ja_JP.UTF-8"
+
 namespace dataObject
 {
     class DataObject

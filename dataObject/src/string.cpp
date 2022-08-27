@@ -509,7 +509,6 @@ String String::pop(int start, int length)
 Moji *String::_converter(const char *text, int &size)
 {
     // 初期化
-    setlocale(LC_CTYPE, "ja_JP.UTF-8");
     int pos = 0;
     size = 0;
     Moji *ret = _malloc(strlen(text));
@@ -593,6 +592,9 @@ void String::_init()
 
     // 記憶領域確保
     _data = _malloc(_memory_unit * _MEMORY_SIZE);
+
+    //文字コード設定
+    setlocale(LC_CTYPE, LANGUAGECODE);
 }
 
 void String::_free_ptr()
