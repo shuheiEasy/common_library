@@ -14,9 +14,9 @@ dataObject::String dataObject::getEnv(const String &data)
 {
     char *strenv;
     /* 環境変数HOMEの値を取得 */
-    if ((strenv = getenv(data.getChar())) != NULL)
+    if ((strenv = getenv(data.getChar())) == NULL)
     {
-        printf("HOME:%s\n", strenv);
+        return String("");
     }
     return String(strenv);
 }
