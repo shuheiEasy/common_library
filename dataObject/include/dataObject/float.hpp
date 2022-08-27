@@ -5,7 +5,7 @@
 
 namespace dataObject
 {
-    class Float : public DataObject
+    class Float : public None
     {
     private:
         float _data;
