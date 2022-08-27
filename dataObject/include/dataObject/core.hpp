@@ -18,6 +18,12 @@ namespace dataObject
         virtual const char *getLog() const { return "None"; }
     };
 
+    class None : public DataObject{
+        const char *getType() const { return "None"; }
+        int getSize() const { return 0; }
+        const char *getLog() const { return "None"; }
+    };
+
     enum ClassType
     {
         ANYTYPE_CLASS = -1,

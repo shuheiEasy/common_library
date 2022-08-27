@@ -15,7 +15,7 @@ namespace dataObject
     };
 
     template <class T>
-    class List : public DataObject
+    class List : public None
     {
     private:
         Node<T> *_data;

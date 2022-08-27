@@ -12,7 +12,7 @@ namespace dataObject
         int size;
     };
 
-    class String : public DataObject
+    class String : public None
     {
     private:
         int _MOJI_SIZE = 4;

@@ -5,7 +5,7 @@
 
 namespace dataObject
 {
-    class Double : public DataObject
+    class Double : public None
     {
     private:
         double _data;

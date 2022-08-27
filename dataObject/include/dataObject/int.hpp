@@ -5,7 +5,7 @@
 
 namespace dataObject
 {
-    class Int : public DataObject
+    class Int : public None
     {
     private:
         int _data;
