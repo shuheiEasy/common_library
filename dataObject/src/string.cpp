@@ -495,7 +495,7 @@ List<String> String::split(const String sep)
     }
 
     ret.append(buffer);
-    
+
     return ret;
 }
 
@@ -773,7 +773,7 @@ void String::_setData(const char *text, int start)
     // 変数
     int moji_counter = 0;
     int start_pos;
-    Moji *tmp;
+    Moji *tmp=NULL;
 
     // 入力情報分析
     tmp = _converter(text, moji_counter);
@@ -814,7 +814,11 @@ void String::_setData(const char *text, int start)
     }
 
     // バッファの解放
-    free(tmp);
+    if (tmp != NULL)
+    {
+        free(tmp);
+        tmp = NULL;
+    }
 
     // 文字の長さ更新
     _length += moji_counter;
