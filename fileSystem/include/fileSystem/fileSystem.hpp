@@ -22,6 +22,21 @@ namespace FileSystem
         FT_Dir,
     };
 
+    class FileClass : public dataObject::None
+    {
+    private:
+        FileType _filetype;
+        dataObject::String _path;
+
+    public:
+        FileClass();
+        FileClass(dataObject::String path);
+        ~FileClass();
+        const char *getType() const { return "File"; }
+        int getSize() const { return 1; }
+        const char *getLog() const { return _path.getChar(); }
+    };
+
     class File
     {
     private:
@@ -66,6 +81,7 @@ namespace FileSystem
 
     // 関数
     std::string getAbsolutePath(const char *path);
+    dataObject::String getAbsolutePath(dataObject::String path);
 
 }
 #endif
