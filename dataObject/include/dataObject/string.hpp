@@ -22,7 +22,7 @@ namespace dataObject
         int _length;
         int _memory_unit;
 
-        Moji *_converter(const char *text, int &size);
+        void _converter(Moji *&ret,const char *text, int &size);
         int _del(int start, int length);
         void _init();
         void _free_ptr();
