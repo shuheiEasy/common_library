@@ -506,12 +506,12 @@ String String::pop(int start, int length)
     return ret;
 }
 
-Moji *String::_converter(const char *text, int &size)
+void String::_converter(Moji *&ret, const char *text, int &size)
 {
     // 初期化
     int pos = 0;
     size = 0;
-    Moji *ret = _malloc(strlen(text));
+    ret = _malloc(strlen(text));
 
     // 計測
     while (text[pos] != '\0')
@@ -531,8 +531,6 @@ Moji *String::_converter(const char *text, int &size)
         pos += len;
         size++;
     }
-
-    return ret;
 }
 
 int String::_del(int start, int length)
@@ -773,10 +771,10 @@ void String::_setData(const char *text, int start)
     // 変数
     int moji_counter = 0;
     int start_pos;
-    Moji *tmp=NULL;
+    Moji *tmp = NULL;
 
     // 入力情報分析
-    tmp = _converter(text, moji_counter);
+    _converter(tmp, text, moji_counter);
 
     // 入力位置分析
     if (start < 0)
