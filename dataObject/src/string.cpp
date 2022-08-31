@@ -601,7 +601,6 @@ void String::_init()
         _data[i].size = 0;
     }
 
-
     //文字コード設定
     setlocale(LC_CTYPE, LANGUAGECODE);
 }
