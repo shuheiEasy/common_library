@@ -2,6 +2,7 @@
 #define FILESYS_H
 
 #include <unistd.h>
+#include <sys/stat.h>
 
 #include <dataObject/dataObject.hpp>
 
@@ -58,6 +59,6 @@ namespace FileSystem
 
     // 関数
     dataObject::String getAbsolutePath(dataObject::String &path);
-
+    dataObject::List<dataObject::String> getPathList(dataObject::String &path);
 }
 #endif

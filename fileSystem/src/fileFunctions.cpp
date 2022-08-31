@@ -94,3 +94,26 @@ String FileSystem::getAbsolutePath(String &path)
 
     return ret;
 }
+
+List<String> FileSystem::getPathList(String &path)
+{
+    List<String> ret;
+    String path_separator;
+
+    // パス区切り文字
+    if (OSTYPE == "LINUX")
+    {
+        path_separator = "/";
+    }
+    else if (OSTYPE == "WINDOWS")
+    {
+        path_separator = "\\";
+    }else{
+        path_separator = "/";
+    }
+
+    // パス分割
+    ret = path.split(path_separator);
+
+    return ret;
+}
