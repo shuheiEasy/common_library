@@ -590,6 +590,17 @@ void String::_init()
 
     // 記憶領域確保
     _data = _malloc(_memory_unit * _MEMORY_SIZE);
+    // 追加確保分初期化
+    for (int i = (_memory_unit - 1) * _MEMORY_SIZE; i < _memory_unit * _MEMORY_SIZE; i++)
+    {
+        _data[i].data = (char *)malloc(sizeof(char) * _MOJI_SIZE);
+        for (int j = 0; j < _MOJI_SIZE; j++)
+        {
+            _data[i].data[j] = '\0';
+        }
+        _data[i].size = 0;
+    }
+
 
     //文字コード設定
     setlocale(LC_CTYPE, LANGUAGECODE);
