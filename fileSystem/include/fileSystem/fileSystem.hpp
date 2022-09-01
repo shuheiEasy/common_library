@@ -35,6 +35,7 @@ namespace FileSystem
         dataObject::String _extension;
 
         void _init(dataObject::String path);
+        void _setDirPath();
         void _setExtension();
         void _setName();
 
@@ -48,8 +49,12 @@ namespace FileSystem
         const char *getLog() const { return _path.getChar(); }
 
         // 独自メンバ関数
+        dataObject::Bool exists(); // ディレクトリ判定
         dataObject::Bool isdir(); // ディレクトリ判定
-        dataObject::Int mkdir();  // ディレクトリ作成
+        dataObject::Bool isfile(); // ファイル判定
+        dataObject::Bool mkdir();  // ディレクトリ作成
+        dataObject::Bool mkfile();  // ファイル作成
+        dataObject::Bool touch();  // ファイル作成
     };
 
     // class FileExplorer

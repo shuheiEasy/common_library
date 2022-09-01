@@ -24,6 +24,20 @@ File::~File() {}
 //
 /////////////////////////////////////////////////
 
+// ファイルの存在確認
+Bool File::exists()
+{
+    Bool ret = false;
+    switch (_filetype)
+    {
+    case FT_File:
+    case FT_Dir:
+        ret = true;
+        break;
+    }
+    return ret;
+}
+
 // ディレクトリ判定
 Bool File::isdir()
 {
@@ -35,25 +49,23 @@ Bool File::isdir()
     return ret;
 }
 
+// ファイル判定
+Bool File::isfile()
+{
+    Bool ret = false;
+    if (_filetype == FT_File)
+    {
+        ret = true;
+    }
+    return ret;
+}
+
 // ディレクトリ作成
-Int File::mkdir()
+Bool File::mkdir()
 {
 
     // パス設定
-    if (OSTYPE == "LINUX")
-    {
-        if (_path[-1] != "/")
-        {
-            _path += "/";
-        }
-    }
-    else
-    {
-        if (_path[-1] != "\\")
-        {
-            _path += "\\";
-        }
-    }
+    _setDirPath();
 
     // ディレクトリ作成
     if ((_filetype == FT_NoExist) || (_filetype == FT_File))
@@ -72,7 +84,7 @@ Int File::mkdir()
     {
         if (_filetype == FT_Dir)
         {
-            printf("ディレクトリが存在しています\n");
+            printf("ディレクトリが存在していたので作成しません\n");
         }
         else
         {
@@ -81,12 +93,57 @@ Int File::mkdir()
     }
 
     // 戻り値
-    Int ret = -1;
+    Bool ret = false;
     if (_filetype == FT_Dir)
     {
-        ret = 0;
+        ret = true;
     }
     return ret;
+}
+
+Bool File::mkfile()
+{
+    // 拡張子設定
+    _setExtension();
+
+    // ファイル作成
+    FILE *fp = NULL;
+
+    switch (_filetype)
+    {
+    case FT_NoExist:
+    case FT_Dir:
+        if (((fp = fopen(_name.getChar(), "w")) != NULL))
+        {
+            fclose(fp);
+            _filetype = FT_File;
+        }
+        else
+        {
+            printf("ファイルの作成に失敗しました\n");
+            _filetype = FT_Unknown;
+        }
+        break;
+    case FT_File:
+        printf("ファイルが存在していたので作成しません\n");
+        break;
+    default:
+        printf("ファイルが作成できません\n");
+        break;
+    }
+
+    // 戻り値
+    Bool ret = false;
+    if (_filetype == FT_File)
+    {
+        ret = true;
+    }
+    return ret;
+}
+
+Bool File::touch()
+{
+    return mkfile();
 }
 
 /////////////////////////////////////////////////
@@ -127,20 +184,7 @@ void File::_init(String path)
         // フォルダ
         if (_filetype == FT_Dir)
         {
-            if (OSTYPE == "LINUX")
-            {
-                if (_path[-1] != "/")
-                {
-                    _path += "/";
-                }
-            }
-            else
-            {
-                if (_path[-1] != "\\")
-                {
-                    _path += "\\";
-                }
-            }
+            _setDirPath();
         }
         // ファイル
         else if (_filetype == FT_File)
@@ -151,6 +195,24 @@ void File::_init(String path)
     else
     {
         _filetype = FT_NoExist;
+    }
+}
+
+void File::_setDirPath()
+{
+    if (OSTYPE == "LINUX")
+    {
+        if (_path[-1] != "/")
+        {
+            _path += "/";
+        }
+    }
+    else
+    {
+        if (_path[-1] != "\\")
+        {
+            _path += "\\";
+        }
     }
 }
 
