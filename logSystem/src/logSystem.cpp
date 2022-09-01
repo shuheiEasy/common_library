@@ -9,6 +9,7 @@ LogSystem::LogSystem()
 
 LogSystem::~LogSystem()
 {
+    delete file;
 }
 
 void LogSystem::print(const String &format, ...)
