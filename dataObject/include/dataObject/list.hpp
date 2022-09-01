@@ -22,7 +22,7 @@ namespace dataObject
         Node<T> *_tail;
         int _length;
 
-        inline void _append(Node<T> *n_ptr, Node<T> **tail, const T data)
+        inline void _append(Node<T> *&n_ptr, const T data)
         {
             Node<T> *tmp = (Node<T> *)malloc(sizeof(Node<T>));
 
@@ -298,7 +298,7 @@ namespace dataObject
             else
             {
                 Node<T> *ptr = _get_ptr(this->_length - 1);
-                _append(ptr, &(this->_tail), data);
+                _append(ptr, data);
             }
         }
         inline int count(const T &data)
