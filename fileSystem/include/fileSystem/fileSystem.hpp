@@ -20,12 +20,13 @@ namespace FileSystem
 {
     enum FileType
     {
-        FT_Unknown = -1,
-        FT_File = 0,
+        FT_Unknown = -100,
+        FT_NoExist = 0,
+        FT_File = 1,
         FT_Dir,
     };
 
-    class File
+    class File : public dataObject::None
     {
     private:
         FileType _filetype;
@@ -34,6 +35,8 @@ namespace FileSystem
         dataObject::String _extension;
 
         void _init(dataObject::String path);
+        void _setExtension();
+        void _setName();
 
     public:
         File();
