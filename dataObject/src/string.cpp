@@ -511,7 +511,7 @@ void String::_converter(Moji *&ret, const char *text, int &size)
     // 初期化
     int pos = 0;
     size = 0;
-    ret = _malloc(strlen(text));
+    _malloc(ret, strlen(text));
 
     // 計測
     while (text[pos] != '\0')
@@ -589,17 +589,7 @@ void String::_init()
     _memory_unit = 1;
 
     // 記憶領域確保
-    _data = _malloc(_memory_unit * _MEMORY_SIZE);
-    // 追加確保分初期化
-    for (int i = (_memory_unit - 1) * _MEMORY_SIZE; i < _memory_unit * _MEMORY_SIZE; i++)
-    {
-        _data[i].data = (char *)malloc(sizeof(char) * _MOJI_SIZE);
-        for (int j = 0; j < _MOJI_SIZE; j++)
-        {
-            _data[i].data[j] = '\0';
-        }
-        _data[i].size = 0;
-    }
+    _malloc(_data, _memory_unit * _MEMORY_SIZE);
 
     //文字コード設定
     setlocale(LC_CTYPE, LANGUAGECODE);
@@ -742,7 +732,7 @@ int String::_getPos(int pos) const
 
     if (pos < 0)
     {
-        ret = _length + pos + 1;
+        ret = _length + pos;
         if (ret < 0)
         {
             ret = 0;
@@ -760,9 +750,9 @@ int String::_getPos(int pos) const
     return ret;
 }
 
-Moji *String::_malloc(int size)
+void String::_malloc(Moji *&ret,int size)
 {
-    Moji *ret = (Moji *)malloc(sizeof(Moji) * size);
+    ret = (Moji *)malloc(sizeof(Moji) * size);
     for (int i = 0; i < size; i++)
     {
         ret[i].size = 0;
@@ -772,8 +762,6 @@ Moji *String::_malloc(int size)
             ret[i].data[j] = '\0';
         }
     }
-
-    return ret;
 }
 
 void String::_setData(const char *text, int start)

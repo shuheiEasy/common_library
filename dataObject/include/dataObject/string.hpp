@@ -22,16 +22,16 @@ namespace dataObject
         int _length;
         int _memory_unit;
 
-        void _converter(Moji *&ret,const char *text, int &size);
+        void _converter(Moji *&ret, const char *text, int &size);
         int _del(int start, int length);
         void _init();
         void _free_ptr();
-        void _fromInt(const int data,const int start);
-        void _fromFloat(const float data,const int start);
-        void _fromDouble(const double data,const int start);
+        void _fromInt(const int data, const int start);
+        void _fromFloat(const float data, const int start);
+        void _fromDouble(const double data, const int start);
         void _getMemory(const int memory_size);
         int _getPos(int pos) const;
-        Moji *_malloc(int size);
+        void _malloc(Moji *&ret, int size);
         void _setData(const char *text, int start);
 
     public:
