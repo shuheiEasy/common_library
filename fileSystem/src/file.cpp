@@ -8,11 +8,86 @@ File::File()
     String buf = "";
     _init(buf);
 }
+File::File(const char *path)
+{
+    _init(String(path));
+}
 File::File(String &path)
 {
     _init(path);
 }
 File::~File() {}
+
+/////////////////////////////////////////////////
+//
+// public 独自メンバ関数
+//
+/////////////////////////////////////////////////
+
+// ディレクトリ判定
+Bool File::isdir()
+{
+    Bool ret = false;
+    if (_filetype == FT_Dir)
+    {
+        ret = true;
+    }
+    return ret;
+}
+
+// ディレクトリ作成
+Int File::mkdir()
+{
+
+    // パス設定
+    if (OSTYPE == "LINUX")
+    {
+        if (_path[-1] != "/")
+        {
+            _path += "/";
+        }
+    }
+    else
+    {
+        if (_path[-1] != "\\")
+        {
+            _path += "\\";
+        }
+    }
+
+    // ディレクトリ作成
+    if ((_filetype == FT_NoExist) || (_filetype == FT_File))
+    {
+        if (::mkdir(_path.getChar(), 0777) == 0)
+        {
+            _filetype = FT_Dir;
+        }
+        else
+        {
+            printf("ディレクトリの作成に失敗しました\n");
+            _filetype = FT_Unknown;
+        }
+    }
+    else
+    {
+        if (_filetype == FT_Dir)
+        {
+            printf("ディレクトリが存在しています\n");
+        }
+        else
+        {
+            printf("ディレクトリの作成はできません\n");
+        }
+    }
+
+    // 戻り値
+    Int ret = -1;
+    if (_filetype == FT_Dir)
+    {
+        ret = 0;
+    }
+    return ret;
+}
 
 /////////////////////////////////////////////////
 //

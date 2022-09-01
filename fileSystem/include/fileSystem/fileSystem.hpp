@@ -40,11 +40,16 @@ namespace FileSystem
 
     public:
         File();
+        File(const char *path);
         File(dataObject::String &path);
         ~File();
         const char *getType() const { return "File"; }
         int getSize() const { return 1; }
         const char *getLog() const { return _path.getChar(); }
+
+        // 独自メンバ関数
+        dataObject::Bool isdir(); // ディレクトリ判定
+        dataObject::Int mkdir();  // ディレクトリ作成
     };
 
     // class FileExplorer
