@@ -80,7 +80,7 @@ String FileSystem::getAbsolutePath(String &path)
         path_separator = "\\";
     }
 
-    for (int i = 0; i < len(ret_path_list); i++)
+    for (int i = 0; i < ret_path_list.getSize(); i++)
     {
         if (OSTYPE == "LINUX")
         {

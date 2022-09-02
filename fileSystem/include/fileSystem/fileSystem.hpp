@@ -49,12 +49,12 @@ namespace FileSystem
         const char *getLog() const { return _path.getChar(); }
 
         // 独自メンバ関数
-        dataObject::Bool exists(); // ディレクトリ判定
-        dataObject::Bool isdir(); // ディレクトリ判定
-        dataObject::Bool isfile(); // ファイル判定
-        dataObject::Bool mkdir();  // ディレクトリ作成
-        dataObject::Bool mkfile();  // ファイル作成
-        dataObject::Bool touch();  // ファイル作成
+        dataObject::Int exists(); // ディレクトリ判定
+        dataObject::Int isdir(); // ディレクトリ判定
+        dataObject::Int isfile(); // ファイル判定
+        dataObject::Int mkdir();  // ディレクトリ作成
+        dataObject::Int mkfile();  // ファイル作成
+        dataObject::Int touch();  // ファイル作成
     };
 
     // class FileExplorer
