@@ -87,14 +87,14 @@ Int TextFile::readlines(List<String> &text_lines)
 }
 
 // 末尾に追加
-Int TextFile::write(const char *text, FileMode mode=APPENDMODE)
+Int TextFile::write(const char *text, FileMode mode)
 {
     String buffer = text;
     return this->write(buffer, mode);
 }
 
 // 末尾に追加
-Int TextFile::write(String text, FileMode mode=APPENDMODE)
+Int TextFile::write(String text, FileMode mode)
 {
     if (_filetype != FT_File)
     {
@@ -125,14 +125,14 @@ Int TextFile::write(String text, FileMode mode=APPENDMODE)
 }
 
 // 末尾に追加して改行
-Int TextFile::writeline(const char *text, FileMode mode=APPENDMODE)
+Int TextFile::writeline(const char *text, FileMode mode)
 {
     String buffer = text;
     return this->writeline(buffer, mode);
 }
 
 // 末尾に追加して改行
-Int TextFile::writeline(String text, FileMode mode=APPENDMODE)
+Int TextFile::writeline(String text, FileMode mode)
 {
     if (_filetype != FT_File)
     {
@@ -165,29 +165,192 @@ Int TextFile::writeline(String text, FileMode mode=APPENDMODE)
     return 0;
 }
 
-// ファイル書き込み
-// Int TextFile::write(void)
-// {
-//     if (_filetype != FT_File)
-//     {
-//         return -1;
-//     }
+// 行のリストを書き込み
+Int TextFile::writelines(List<Bool> &text_lines, FileMode mode)
+{
+    if (_filetype != FT_File)
+    {
+        return -1;
+    }
 
-//     if (open("w"))
-//     {
-//         for (int i = 0; i < len(_text_lines) - 1; i++)
-//         {
-//             auto line = _text_lines[i] + "\n";
-//             fputs(line.getChar(), _file_ptr);
-//         }
-//         auto line = _text_lines[-1];
-//         fputs(line.getChar(), _file_ptr);
-//         close();
-//     }
-//     else
-//     {
-//         return -2;
-//     }
+    // ファイル開く
+    Bool status = false;
+    switch (mode)
+    {
+    case WRITEMODE:
+    case APPENDMODE:
+        status = open(mode);
+        break;
+    }
 
-//     return 0;
-// }
+    // ファイル開けない
+    if (!status)
+    {
+        return -2;
+    }
+
+    // 書き込み
+    for (int i = 0; i < len(text_lines); i++)
+    {
+        String buffer = text_lines[i].getLog();
+        buffer += "\n";
+        fputs(buffer.getChar(), _file_ptr);
+    }
+
+    // ファイル閉じる
+    close();
+
+    return 0;
+}
+
+// 行のリストを書き込み
+Int TextFile::writelines(List<Int> &text_lines, FileMode mode)
+{
+    if (_filetype != FT_File)
+    {
+        return -1;
+    }
+
+    // ファイル開く
+    Bool status = false;
+    switch (mode)
+    {
+    case WRITEMODE:
+    case APPENDMODE:
+        status = open(mode);
+        break;
+    }
+
+    // ファイル開けない
+    if (!status)
+    {
+        return -2;
+    }
+
+    // 書き込み
+    for (int i = 0; i < len(text_lines); i++)
+    {
+        String buffer = text_lines[i].getLog();
+        buffer += "\n";
+        fputs(buffer.getChar(), _file_ptr);
+    }
+
+    // ファイル閉じる
+    close();
+
+    return 0;
+}
+
+// 行のリストを書き込み
+Int TextFile::writelines(List<Float> &text_lines, FileMode mode)
+{
+    if (_filetype != FT_File)
+    {
+        return -1;
+    }
+
+    // ファイル開く
+    Bool status = false;
+    switch (mode)
+    {
+    case WRITEMODE:
+    case APPENDMODE:
+        status = open(mode);
+        break;
+    }
+
+    // ファイル開けない
+    if (!status)
+    {
+        return -2;
+    }
+
+    // 書き込み
+    for (int i = 0; i < len(text_lines); i++)
+    {
+        String buffer = text_lines[i].getLog();
+        buffer += "\n";
+        fputs(buffer.getChar(), _file_ptr);
+    }
+
+    // ファイル閉じる
+    close();
+
+    return 0;
+}
+
+// 行のリストを書き込み
+Int TextFile::writelines(List<Double> &text_lines, FileMode mode)
+{
+    if (_filetype != FT_File)
+    {
+        return -1;
+    }
+
+    // ファイル開く
+    Bool status = false;
+    switch (mode)
+    {
+    case WRITEMODE:
+    case APPENDMODE:
+        status = open(mode);
+        break;
+    }
+
+    // ファイル開けない
+    if (!status)
+    {
+        return -2;
+    }
+
+    // 書き込み
+    for (int i = 0; i < len(text_lines); i++)
+    {
+        String buffer = text_lines[i].getLog();
+        buffer += "\n";
+        fputs(buffer.getChar(), _file_ptr);
+    }
+
+    // ファイル閉じる
+    close();
+
+    return 0;
+}
+
+// 行のリストを書き込み
+Int TextFile::writelines(List<String> &text_lines, FileMode mode)
+{
+    if (_filetype != FT_File)
+    {
+        return -1;
+    }
+
+    // ファイル開く
+    Bool status = false;
+    switch (mode)
+    {
+    case WRITEMODE:
+    case APPENDMODE:
+        status = open(mode);
+        break;
+    }
+
+    // ファイル開けない
+    if (!status)
+    {
+        return -2;
+    }
+
+    // 書き込み
+    for (int i = 0; i < len(text_lines); i++)
+    {
+        String buffer = text_lines[i];
+        buffer += "\n";
+        fputs(buffer.getChar(), _file_ptr);
+    }
+
+    // ファイル閉じる
+    close();
+
+    return 0;
+}
