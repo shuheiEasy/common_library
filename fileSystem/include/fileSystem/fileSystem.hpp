@@ -28,6 +28,14 @@ namespace FileSystem
         FT_Dir,
     };
 
+    enum FileMode
+    {
+        CLOSEMODE = -1,
+        READMODE = 0,
+        WRITEMODE,
+        APPENDMODE
+    };
+
     class File : public dataObject::None
     {
     protected:
@@ -63,15 +71,12 @@ namespace FileSystem
         dataObject::Bool mkdir();                // ディレクトリ作成
         dataObject::Bool mkfile();               // ファイル作成
         dataObject::Bool open(const char *mode); // ファイル開く
+        dataObject::Bool open(FileMode mode);    // ファイル開く
         dataObject::Bool touch();                // ファイル作成
     };
 
     class TextFile : public File
     {
-    private:
-        // 変数
-        dataObject::List<dataObject::String> _text_lines;
-
     public:
         // メンバ関数
         TextFile();
@@ -79,11 +84,13 @@ namespace FileSystem
         ~TextFile();
         const char *getType() const { return "TextFile"; }
 
-        dataObject::Int append(const char *text);        // 末尾に追加
-        dataObject::Int append(dataObject::String text);        // 末尾に追加
-        dataObject::List<dataObject::String> *getText(); // テキスト取得
-        dataObject::Int read();                          // ファイル読み取り
-        dataObject::Int write(void);                     // ファイル書き込み
+        // 独自メンバ関数
+        dataObject::Int read(dataObject::String &output);                               // ファイル全体を読み込み
+        dataObject::Int readlines(dataObject::List<dataObject::String> &text_lines);    // 行ごとに読み取り
+        dataObject::Int write(const char *text, FileMode mode = APPENDMODE);            // 書き込み
+        dataObject::Int write(dataObject::String text, FileMode mode = APPENDMODE);     // 書き込み
+        dataObject::Int writeline(const char *text, FileMode mode = APPENDMODE);        // 改行したものを書き込み
+        dataObject::Int writeline(dataObject::String text, FileMode mode = APPENDMODE); // 改行したものを書き込み
     };
 
     // class FileExplorer

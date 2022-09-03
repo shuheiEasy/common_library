@@ -9,33 +9,36 @@ TextFile::TextFile(const char *path) : File(path) {}
 
 TextFile::~TextFile() {}
 
-// 末尾に追加
-Int TextFile::append(const char *text)
-{
-    String buffer = text;
-    return this->append(buffer);
-}
+// // タブ追加
+// void TextFile::addTab(Int tab)
+// {
+//     for (int i = 0; i < tab; i++)
+//     {
+//         _tab_blank += " ";
+//     }
+// }
 
-// 末尾に追加
-Int TextFile::append(String text)
+Int TextFile::read(String &output)
 {
+    // ファイル以外を排除
     if (_filetype != FT_File)
     {
         return -1;
     }
 
-    if (open("a"))
+    // ファイル読み込み
+    if (open("r"))
     {
-        // 書き込み
-        fputs(text.getChar(), _file_ptr);
+        char moji;
+        std::string line = "";
+
+        while ((moji = fgetc(_file_ptr)) != EOF)
+        {
+            line.push_back(moji);
+        }
         close();
 
-        // テキスト情報更新
-        List<String> lines = text.split("\n");
-        for (int i = 0; i < len(lines); i++)
-        {
-            _text_lines.append(lines[i]);
-        }
+        output = line.c_str();
     }
     else
     {
@@ -45,13 +48,7 @@ Int TextFile::append(String text)
     return 0;
 }
 
-// 文章取得
-List<String> *TextFile::getText()
-{
-    return &_text_lines;
-}
-
-Int TextFile::read()
+Int TextFile::readlines(List<String> &text_lines)
 {
     // ファイル以外を排除
     if (_filetype != FT_File)
@@ -69,7 +66,7 @@ Int TextFile::read()
         {
             if (moji == '\n')
             {
-                _text_lines.append(String(line.c_str()));
+                text_lines.append(String(line.c_str()));
                 line.clear();
                 line = "";
             }
@@ -78,7 +75,7 @@ Int TextFile::read()
                 line.push_back(moji);
             }
         }
-        _text_lines.append(String(line.c_str()));
+        text_lines.append(String(line.c_str()));
         close();
     }
     else
@@ -89,29 +86,108 @@ Int TextFile::read()
     return 0;
 }
 
-// ファイル書き込み
-Int TextFile::write(void)
+// 末尾に追加
+Int TextFile::write(const char *text, FileMode mode=APPENDMODE)
+{
+    String buffer = text;
+    return this->write(buffer, mode);
+}
+
+// 末尾に追加
+Int TextFile::write(String text, FileMode mode=APPENDMODE)
 {
     if (_filetype != FT_File)
     {
         return -1;
     }
 
-    if (open("w"))
+    // ファイル開く
+    Bool status = false;
+    switch (mode)
     {
-        for (int i = 0; i < len(_text_lines) - 1; i++)
-        {
-            auto line = _text_lines[i] + "\n";
-            fputs(line.getChar(), _file_ptr);
-        }
-        auto line = _text_lines[-1];
-        fputs(line.getChar(), _file_ptr);
-        close();
+    case WRITEMODE:
+    case APPENDMODE:
+        status = open(mode);
+        break;
     }
-    else
+
+    // ファイル開けない
+    if (!status)
     {
         return -2;
     }
 
+    // 書き込み
+    fputs(text.getChar(), _file_ptr);
+    close();
+
     return 0;
 }
+
+// 末尾に追加して改行
+Int TextFile::writeline(const char *text, FileMode mode=APPENDMODE)
+{
+    String buffer = text;
+    return this->writeline(buffer, mode);
+}
+
+// 末尾に追加して改行
+Int TextFile::writeline(String text, FileMode mode=APPENDMODE)
+{
+    if (_filetype != FT_File)
+    {
+        return -1;
+    }
+
+    // ファイル開く
+    Bool status = false;
+    switch (mode)
+    {
+    case WRITEMODE:
+    case APPENDMODE:
+        status = open(mode);
+        break;
+    }
+
+    // ファイル開けない
+    if (!status)
+    {
+        return -2;
+    }
+
+    // 改行
+    text += "\n";
+
+    // 書き込み
+    fputs(text.getChar(), _file_ptr);
+    close();
+
+    return 0;
+}
+
+// ファイル書き込み
+// Int TextFile::write(void)
+// {
+//     if (_filetype != FT_File)
+//     {
+//         return -1;
+//     }
+
+//     if (open("w"))
+//     {
+//         for (int i = 0; i < len(_text_lines) - 1; i++)
+//         {
+//             auto line = _text_lines[i] + "\n";
+//             fputs(line.getChar(), _file_ptr);
+//         }
+//         auto line = _text_lines[-1];
+//         fputs(line.getChar(), _file_ptr);
+//         close();
+//     }
+//     else
+//     {
+//         return -2;
+//     }
+
+//     return 0;
+// }
