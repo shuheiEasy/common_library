@@ -301,6 +301,10 @@ namespace dataObject
                 _append(ptr, data);
             }
         }
+        inline T *at(int id)
+        {
+            return this->_at_change(id);
+        }
         inline int count(const T &data)
         {
             Node<T> *ptr = _data;
