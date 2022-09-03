@@ -48,6 +48,17 @@ Int TextFile::read(String &output)
     return 0;
 }
 
+String TextFile::read()
+{
+    String ret = "";
+    String buffer;
+    if (read(buffer) != 0)
+    {
+        return ret;
+    }
+    return buffer;
+}
+
 Int TextFile::readlines(List<String> &text_lines)
 {
     // ファイル以外を排除
@@ -84,6 +95,17 @@ Int TextFile::readlines(List<String> &text_lines)
     }
 
     return 0;
+}
+
+List<String> TextFile::readlines()
+{
+    List<String> ret;
+    List<String> buffer;
+    if (readlines(buffer) != 0)
+    {
+        return ret;
+    }
+    return buffer;
 }
 
 // 末尾に追加

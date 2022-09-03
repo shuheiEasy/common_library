@@ -85,17 +85,33 @@ namespace FileSystem
         const char *getType() const { return "TextFile"; }
 
         // 独自メンバ関数
-        dataObject::Int read(dataObject::String &output);                                                         // ファイル全体を読み込み
-        dataObject::Int readlines(dataObject::List<dataObject::String> &text_lines);                              // 行ごとに読み取り
-        dataObject::Int write(const char *text, FileMode mode = APPENDMODE);                                      // 書き込み
-        dataObject::Int write(dataObject::String text, FileMode mode = APPENDMODE);                               // 書き込み
-        dataObject::Int writeline(const char *text, FileMode mode = APPENDMODE);                                  // 改行したものを書き込み
-        dataObject::Int writeline(dataObject::String text, FileMode mode = APPENDMODE);                           // 改行したものを書き込み
-        dataObject::Int writelines(dataObject::List<dataObject::Bool> &text_lines, FileMode mode = APPENDMODE);   // 行のリストを書き込み
-        dataObject::Int writelines(dataObject::List<dataObject::Int> &text_lines, FileMode mode = APPENDMODE);    // 行のリストを書き込み
-        dataObject::Int writelines(dataObject::List<dataObject::Float> &text_lines, FileMode mode = APPENDMODE);  // 行のリストを書き込み
-        dataObject::Int writelines(dataObject::List<dataObject::Double> &text_lines, FileMode mode = APPENDMODE); // 行のリストを書き込み
-        dataObject::Int writelines(dataObject::List<dataObject::String> &text_lines, FileMode mode = APPENDMODE); // 行のリストを書き込み
+
+        // ファイル全体を読み込み
+        dataObject::Int read(dataObject::String &output);
+        // ファイル全体を読み込み
+        dataObject::String read();
+        // 行ごとに読み取り
+        dataObject::Int readlines(dataObject::List<dataObject::String> &text_lines);
+        // 行ごとに読み取り
+        dataObject::List<dataObject::String> readlines();
+        // 書き込み
+        dataObject::Int write(const char *text, FileMode mode = APPENDMODE);
+        // 書き込み
+        dataObject::Int write(dataObject::String text, FileMode mode = APPENDMODE);
+        // 改行したものを書き込み
+        dataObject::Int writeline(const char *text, FileMode mode = APPENDMODE);
+        // 改行したものを書き込み
+        dataObject::Int writeline(dataObject::String text, FileMode mode = APPENDMODE);
+        // 行のリストを書き込み
+        dataObject::Int writelines(dataObject::List<dataObject::Bool> &text_lines, FileMode mode = APPENDMODE);
+        // 行のリストを書き込み
+        dataObject::Int writelines(dataObject::List<dataObject::Int> &text_lines, FileMode mode = APPENDMODE);
+        // 行のリストを書き込み
+        dataObject::Int writelines(dataObject::List<dataObject::Float> &text_lines, FileMode mode = APPENDMODE);
+        // 行のリストを書き込み
+        dataObject::Int writelines(dataObject::List<dataObject::Double> &text_lines, FileMode mode = APPENDMODE);
+        // 行のリストを書き込み
+        dataObject::Int writelines(dataObject::List<dataObject::String> &text_lines, FileMode mode = APPENDMODE);
     };
 
     // class FileExplorer
