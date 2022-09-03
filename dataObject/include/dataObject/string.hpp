@@ -98,6 +98,10 @@ namespace dataObject
     {
         return "";
     }
+    inline String toString(const char *a)
+    {
+        return String(a);
+    }
     inline String toString(String &a)
     {
         return a;
