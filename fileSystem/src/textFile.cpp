@@ -3,9 +3,9 @@
 using namespace dataObject;
 using namespace FileSystem;
 
-TextFile::TextFile():File(){}
+TextFile::TextFile() : File() {}
 
-TextFile::TextFile(const char *path):File(path){}
+TextFile::TextFile(const char *path) : File(path) {}
 
 TextFile::~TextFile() {}
 
@@ -23,15 +23,13 @@ Int TextFile::read()
         return -1;
     }
 
-    FILE *fp = NULL;
-
     // ファイル読み込み
-    if ((fp = fopen(_path.getChar(), "r")) != NULL)
+    if (open("r"))
     {
         char moji;
         std::string line = "";
 
-        while ((moji = fgetc(fp)) != EOF)
+        while ((moji = fgetc(_file_ptr)) != EOF)
         {
             if (moji == '\n')
             {
@@ -45,6 +43,7 @@ Int TextFile::read()
             }
         }
         _text_lines.append(String(line.c_str()));
+        close();
     }
     else
     {
@@ -57,23 +56,21 @@ Int TextFile::read()
 // ファイル書き込み
 Int TextFile::write(void)
 {
-    FILE *fp = NULL;
-
     if (_filetype != FT_File)
     {
         return -1;
     }
 
-    if ((fp = fopen(_path.getChar(), "w")) != NULL)
+    if (open("w"))
     {
         for (int i = 0; i < len(_text_lines) - 1; i++)
         {
             auto line = _text_lines[i] + "\n";
-            fputs(line.getChar(), fp);
+            fputs(line.getChar(), _file_ptr);
         }
         auto line = _text_lines[-1];
-        fputs(line.getChar(), fp);
-        fclose(fp);
+        fputs(line.getChar(), _file_ptr);
+        close();
     }
     else
     {

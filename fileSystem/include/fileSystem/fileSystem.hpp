@@ -35,6 +35,7 @@ namespace FileSystem
         dataObject::String _path;
         dataObject::String _name;
         dataObject::String _extension;
+        FILE *_file_ptr;
 
         // メンバ関数
         void _init(dataObject::String path);
@@ -52,14 +53,17 @@ namespace FileSystem
         const char *getLog() const { return _path.getChar(); }
 
         // 独自メンバ関数
-        dataObject::Bool exists();    // ディレクトリ判定
-        dataObject::String getName(); // 名前取得
-        dataObject::String getPath(); // Path取得
-        dataObject::Bool isdir();     // ディレクトリ判定
-        dataObject::Bool isfile();    // ファイル判定
-        dataObject::Bool mkdir();     // ディレクトリ作成
-        dataObject::Bool mkfile();    // ファイル作成
-        dataObject::Bool touch();     // ファイル作成
+        void close();                            // ファイル閉じる
+        dataObject::Bool exists();               // ディレクトリ判定
+        FILE *getFilePtr();                      // ファイルポインター
+        dataObject::String getName();            // 名前取得
+        dataObject::String getPath();            // Path取得
+        dataObject::Bool isdir();                // ディレクトリ判定
+        dataObject::Bool isfile();               // ファイル判定
+        dataObject::Bool mkdir();                // ディレクトリ作成
+        dataObject::Bool mkfile();               // ファイル作成
+        dataObject::Bool open(const char *mode); // ファイル開く
+        dataObject::Bool touch();                // ファイル作成
     };
 
     class TextFile : public File

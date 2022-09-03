@@ -16,13 +16,23 @@ File::File(String &path)
 {
     _init(path);
 }
-File::~File() {}
+File::~File() { close(); }
 
 /////////////////////////////////////////////////
 //
 // public 独自メンバ関数
 //
 /////////////////////////////////////////////////
+
+// ファイル閉じる
+void File::close()
+{
+    if (_file_ptr != NULL)
+    {
+        fclose(_file_ptr);
+    }
+    _file_ptr = NULL;
+}
 
 // ファイルの存在確認
 Bool File::exists()
@@ -36,6 +46,11 @@ Bool File::exists()
         break;
     }
     return ret;
+}
+
+FILE *File::getFilePtr()
+{
+    return _file_ptr;
 }
 
 // 名前取得
@@ -153,6 +168,19 @@ Bool File::mkfile()
     return ret;
 }
 
+Bool File::open(const char *mode)
+{
+    close();
+    _file_ptr = fopen(_path.getChar(), mode);
+
+    Bool ret = false;
+    if (_file_ptr != NULL)
+    {
+        ret = true;
+    }
+    return ret;
+}
+
 Bool File::touch()
 {
     return mkfile();
@@ -174,6 +202,9 @@ void File::_init(String path)
 
     // 拡張子設定
     _extension = "";
+
+    // ファイルポインター
+    _file_ptr = NULL;
 
     // フォルダ・ファイルの存在判定
     struct stat stat_buffer;
