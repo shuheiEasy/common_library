@@ -38,6 +38,18 @@ Bool File::exists()
     return ret;
 }
 
+// 名前取得
+String File::getName()
+{
+    return _name;
+}
+
+// 名前取得
+String File::getPath()
+{
+    return _path;
+}
+
 // 文章取得
 List<String> *File::getText()
 {

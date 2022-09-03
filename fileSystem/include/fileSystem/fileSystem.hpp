@@ -54,13 +54,15 @@ namespace FileSystem
 
         // 独自メンバ関数
         dataObject::Bool exists();                       // ディレクトリ判定
-        dataObject::List<dataObject::String> *getText(); // テキスト
+        dataObject::String getName();                    // 名前取得
+        dataObject::String getPath();                    // Path取得
+        dataObject::List<dataObject::String> *getText(); // テキスト取得
         dataObject::Bool isdir();                        // ディレクトリ判定
         dataObject::Bool isfile();                       // ファイル判定
         dataObject::Bool mkdir();                        // ディレクトリ作成
         dataObject::Bool mkfile();                       // ファイル作成
-        dataObject::Bool touch();                        // ファイル作成
         dataObject::Int read();                          // ファイル読み取り
+        dataObject::Bool touch();                        // ファイル作成
     };
 
     // class FileExplorer
