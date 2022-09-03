@@ -7,6 +7,10 @@
 
 namespace logSystem
 {
+    // 関数
+    void print(const dataObject::String &format, ...);
+    void print(const char *format, ...);
+
     class LogSystem
     {
     private:
@@ -15,11 +19,7 @@ namespace logSystem
     public:
         LogSystem();
         ~LogSystem();
-        void print(const dataObject::String &format, ...);
-        void print(const char* format, ...);
     };
-
-    
 
 }
 

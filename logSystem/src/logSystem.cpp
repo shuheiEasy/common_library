@@ -12,7 +12,7 @@ LogSystem::~LogSystem()
     // delete file;
 }
 
-void LogSystem::print(const String &format, ...)
+void logSystem::print(const String &format, ...)
 {
     // 変数
     String format_str=format;
@@ -40,7 +40,7 @@ void LogSystem::print(const String &format, ...)
     va_end(args);
 }
 
-void LogSystem::print(const char *format_char, ...)
+void logSystem::print(const char *format_char, ...)
 {
     // 変数
     String format=format_char;
