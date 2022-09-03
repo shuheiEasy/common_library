@@ -372,9 +372,7 @@ namespace dataObject
         }
         const char *getLog() const;
         inline int getSize() const { return this->_length; }
-        inline int getSize() { return this->_length; }
         inline const char *getType() const { return "List"; }
-        inline const char *getType() { return "List"; }
         inline int index(const T data)
         {
             Node<T> *ptr = _data;
