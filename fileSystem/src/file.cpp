@@ -192,6 +192,22 @@ Bool File::mkfile()
     return ret;
 }
 
+Bool File::open(FileMode mode)
+{
+    Bool ret;
+    switch (mode)
+    {
+    case READMODE:
+        ret = open("r");
+    case WRITEMODE:
+        ret = open("w");
+    case APPENDMODE:
+        ret = open("a");
+        break;
+    }
+    return ret;
+}
+
 Bool File::open(const char *mode)
 {
     close();
