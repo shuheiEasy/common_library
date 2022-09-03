@@ -77,6 +77,8 @@ namespace FileSystem
         TextFile();
         TextFile(const char *path);
         ~TextFile();
+        const char *getType() const { return "TextFile"; }
+
         dataObject::Int append(const char *text);        // 末尾に追加
         dataObject::Int append(dataObject::String text);        // 末尾に追加
         dataObject::List<dataObject::String> *getText(); // テキスト取得
@@ -98,8 +100,7 @@ namespace FileSystem
     // };
 
     // 関数
-    dataObject::String
-    getAbsolutePath(dataObject::String &path);
+    dataObject::String getAbsolutePath(dataObject::String &path);
     dataObject::List<dataObject::String> getPathList(dataObject::String &path);
 }
 #endif
