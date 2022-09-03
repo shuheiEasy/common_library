@@ -7,16 +7,17 @@ TextFile::TextFile() : File() {}
 
 TextFile::TextFile(const char *path) : File(path) {}
 
-TextFile::~TextFile() {}
+TextFile::TextFile(File &file)
+{
+    _filetype = file.getFileType();
+    _filemode = CLOSEMODE;
+    _path = file.getPath();
+    _name = file.getName();
+    _extension = file.getExtension();
+    _file_ptr = NULL;
+}
 
-// // タブ追加
-// void TextFile::addTab(Int tab)
-// {
-//     for (int i = 0; i < tab; i++)
-//     {
-//         _tab_blank += " ";
-//     }
-// }
+TextFile::~TextFile() {}
 
 Int TextFile::read(String &output)
 {
@@ -109,14 +110,14 @@ List<String> TextFile::readlines()
 }
 
 // 末尾に追加
-Int TextFile::write(const char *text, FileMode mode)
+Int TextFile::write(const char *text, FileMode mode, Bool close_flag)
 {
     String buffer = text;
-    return this->write(buffer, mode);
+    return this->write(buffer, mode, close_flag);
 }
 
 // 末尾に追加
-Int TextFile::write(String text, FileMode mode)
+Int TextFile::write(String text, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -129,7 +130,10 @@ Int TextFile::write(String text, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
         break;
     }
 
@@ -141,20 +145,25 @@ Int TextFile::write(String text, FileMode mode)
 
     // 書き込み
     fputs(text.getChar(), _file_ptr);
-    close();
+
+    // ファイル閉じる
+    if (close_flag)
+    {
+        close();
+    }
 
     return 0;
 }
 
 // 末尾に追加して改行
-Int TextFile::writeline(const char *text, FileMode mode)
+Int TextFile::writeline(const char *text, FileMode mode, Bool close_flag)
 {
     String buffer = text;
-    return this->writeline(buffer, mode);
+    return this->writeline(buffer, mode, close_flag);
 }
 
 // 末尾に追加して改行
-Int TextFile::writeline(String text, FileMode mode)
+Int TextFile::writeline(String text, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -167,7 +176,10 @@ Int TextFile::writeline(String text, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
         break;
     }
 
@@ -182,13 +194,18 @@ Int TextFile::writeline(String text, FileMode mode)
 
     // 書き込み
     fputs(text.getChar(), _file_ptr);
-    close();
+
+    // ファイル閉じる
+    if (close_flag)
+    {
+        close();
+    }
 
     return 0;
 }
 
 // 行のリストを書き込み
-Int TextFile::writelines(List<Bool> &text_lines, FileMode mode)
+Int TextFile::writelines(List<Bool> &text_lines, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -201,7 +218,14 @@ Int TextFile::writelines(List<Bool> &text_lines, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
+        else
+        {
+            status = true;
+        }
         break;
     }
 
@@ -220,13 +244,16 @@ Int TextFile::writelines(List<Bool> &text_lines, FileMode mode)
     }
 
     // ファイル閉じる
-    close();
+    if (close_flag)
+    {
+        close();
+    }
 
     return 0;
 }
 
 // 行のリストを書き込み
-Int TextFile::writelines(List<Int> &text_lines, FileMode mode)
+Int TextFile::writelines(List<Int> &text_lines, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -239,7 +266,14 @@ Int TextFile::writelines(List<Int> &text_lines, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
+        else
+        {
+            status = true;
+        }
         break;
     }
 
@@ -258,13 +292,16 @@ Int TextFile::writelines(List<Int> &text_lines, FileMode mode)
     }
 
     // ファイル閉じる
-    close();
+    if (close_flag)
+    {
+        close();
+    }
 
     return 0;
 }
 
 // 行のリストを書き込み
-Int TextFile::writelines(List<Float> &text_lines, FileMode mode)
+Int TextFile::writelines(List<Float> &text_lines, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -277,7 +314,14 @@ Int TextFile::writelines(List<Float> &text_lines, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
+        else
+        {
+            status = true;
+        }
         break;
     }
 
@@ -296,13 +340,22 @@ Int TextFile::writelines(List<Float> &text_lines, FileMode mode)
     }
 
     // ファイル閉じる
-    close();
+    if (close_flag)
+    {
+        close();
+    }
+
+    // ファイル閉じる
+    if (close_flag)
+    {
+        close();
+    }
 
     return 0;
 }
 
 // 行のリストを書き込み
-Int TextFile::writelines(List<Double> &text_lines, FileMode mode)
+Int TextFile::writelines(List<Double> &text_lines, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -315,7 +368,14 @@ Int TextFile::writelines(List<Double> &text_lines, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
+        else
+        {
+            status = true;
+        }
         break;
     }
 
@@ -334,13 +394,16 @@ Int TextFile::writelines(List<Double> &text_lines, FileMode mode)
     }
 
     // ファイル閉じる
-    close();
+    if (close_flag)
+    {
+        close();
+    }
 
     return 0;
 }
 
 // 行のリストを書き込み
-Int TextFile::writelines(List<String> &text_lines, FileMode mode)
+Int TextFile::writelines(List<String> &text_lines, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -353,7 +416,14 @@ Int TextFile::writelines(List<String> &text_lines, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
+        else
+        {
+            status = true;
+        }
         break;
     }
 
@@ -372,7 +442,10 @@ Int TextFile::writelines(List<String> &text_lines, FileMode mode)
     }
 
     // ファイル閉じる
-    close();
+    if (close_flag)
+    {
+        close();
+    }
 
     return 0;
 }

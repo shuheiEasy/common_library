@@ -16,7 +16,18 @@ File::File(String &path)
 {
     _init(path);
 }
-File::~File() { close(); }
+
+File::File(File &file)
+{
+    _filetype = file.getFileType();
+    _filemode = CLOSEMODE;
+    _path = file.getPath();
+    _name = file.getName();
+    _extension = file.getExtension();
+    _file_ptr = NULL;
+}
+
+File::~File() {}
 
 int File::getSize() const
 {
@@ -55,6 +66,7 @@ void File::close()
         fclose(_file_ptr);
     }
     _file_ptr = NULL;
+    _filemode = CLOSEMODE;
 }
 
 // ファイルの存在確認
@@ -71,10 +83,22 @@ Bool File::exists()
     return ret;
 }
 
+// 拡張子取得
+String File::getExtension()
+{
+    return _extension;
+}
+
 // ファイルポインター
 FILE *File::getFilePtr()
 {
     return _file_ptr;
+}
+
+// ファイル形式取得
+FileType File::getFileType()
+{
+    return _filetype;
 }
 
 // 名前取得
@@ -199,12 +223,15 @@ Bool File::open(FileMode mode)
     {
     case READMODE:
         ret = open("r");
+        _filemode = READMODE;
         break;
     case WRITEMODE:
         ret = open("w");
+        _filemode = WRITEMODE;
         break;
     case APPENDMODE:
         ret = open("a");
+        _filemode = APPENDMODE;
         break;
     }
     return ret;
@@ -219,6 +246,7 @@ Bool File::open(const char *mode)
     if (_file_ptr != NULL)
     {
         ret = true;
+        _filemode = UNKNOWNMODE;
     }
     return ret;
 }
@@ -247,6 +275,9 @@ void File::_init(String path)
 
     // ファイルポインター
     _file_ptr = NULL;
+
+    // ファイルモード取得
+    _filemode = CLOSEMODE;
 
     // フォルダ・ファイルの存在判定
     struct stat stat_buffer;
