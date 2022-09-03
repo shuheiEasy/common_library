@@ -1,4 +1,4 @@
-#include <fileSystem.hpp>
+#include <fileSystem/fileSystem.hpp>
 
 using namespace dataObject;
 using namespace FileSystem;
@@ -23,6 +23,11 @@ File::~File() {}
 // public 独自メンバ関数
 //
 /////////////////////////////////////////////////
+
+Int File::test()
+{
+    return 0;
+}
 
 // ファイルの存在確認
 Int File::exists()

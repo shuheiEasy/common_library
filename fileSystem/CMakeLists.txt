@@ -3,7 +3,7 @@ project(fileSystem)
 set(PARENT_PROJECT_NAME common_library)
 
 # インクルードフォルダ追加
-set(INCLUDE_DIR include/${PROJECT_NAME})
+set(INCLUDE_DIR include)
 include_directories(${INCLUDE_DIR})
 include_directories(../dataObject/include)
 
@@ -12,14 +12,13 @@ file(GLOB_RECURSE source_list "src/*.cpp")
 
 # ライブラリ設定
 add_library(${PROJECT_NAME} ${source_list})
-link_directories(${PROJECT_NAME} common_library::dataObject)
 add_library(${PARENT_PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 # ヘッダー
 file(GLOB_RECURSE header_list "${INCLUDE_DIR}/*.hpp")
 set_target_properties(
-    ${PROJECT_NAME}
-    PROPERTIES
+    ${PROJECT_NAME} PROPERTIES
+    FRAMEWORK TRUE
         PUBLIC_HEADER "${header_list}")
 
 # インストール

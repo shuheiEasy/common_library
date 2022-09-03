@@ -49,6 +49,7 @@ namespace FileSystem
         const char *getLog() const { return _path.getChar(); }
 
         // 独自メンバ関数
+        dataObject::Int test();
         dataObject::Int exists(); // ディレクトリ判定
         dataObject::Int isdir(); // ディレクトリ判定
         dataObject::Int isfile(); // ファイル判定
