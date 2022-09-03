@@ -1,7 +1,7 @@
 #include <fileSystem/fileSystem.hpp>
 
 using namespace dataObject;
-using namespace FileSystem;
+using namespace fileSystem;
 
 TextFile::TextFile() : File() {}
 

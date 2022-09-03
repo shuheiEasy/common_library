@@ -1,9 +1,9 @@
 #include <fileSystem/fileSystem.hpp>
 
 using namespace dataObject;
-using namespace FileSystem;
+using namespace fileSystem;
 
-String FileSystem::getAbsolutePath(String &path)
+String fileSystem::getAbsolutePath(String &path)
 {
     // 絶対パスか判定
     if (path[0] == "/")
@@ -95,7 +95,7 @@ String FileSystem::getAbsolutePath(String &path)
     return ret;
 }
 
-List<String> FileSystem::getPathList(String &path)
+List<String> fileSystem::getPathList(String &path)
 {
     List<String> ret;
     String path_separator;

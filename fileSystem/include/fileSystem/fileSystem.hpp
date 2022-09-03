@@ -18,7 +18,7 @@
 #define OSTYPE "OTHER"
 #endif
 
-namespace FileSystem
+namespace fileSystem
 {
     enum FileType
     {

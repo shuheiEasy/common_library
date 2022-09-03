@@ -10,7 +10,7 @@ namespace logSystem
     class LogSystem
     {
     private:
-        FileSystem::File *file;
+        fileSystem::File *file;
 
     public:
         LogSystem();
