@@ -1,12 +1,11 @@
-#ifndef BOOL_H
-#define BOOL_H
+#ifndef BOOLEAN_H
+#define BOOLEAN_H
 
-#include <dataObject/core.hpp>
-#include "./string.hpp"
+#include <dataObject/string.hpp>
 
 namespace dataObject
 {
-    class Bool : public DataObject
+    class Bool : public None
     {
     private:
         bool _data;
