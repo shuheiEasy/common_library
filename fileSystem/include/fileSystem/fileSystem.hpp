@@ -49,7 +49,7 @@ namespace FileSystem
         File(dataObject::String &path);
         ~File();
         const char *getType() const { return "File"; }
-        int getSize() const { return 1; }
+        int getSize() const;
         const char *getLog() const { return _path.getChar(); }
 
         // 独自メンバ関数
@@ -77,7 +77,8 @@ namespace FileSystem
         TextFile();
         TextFile(const char *path);
         ~TextFile();
-
+        dataObject::Int append(const char *text);        // 末尾に追加
+        dataObject::Int append(dataObject::String text);        // 末尾に追加
         dataObject::List<dataObject::String> *getText(); // テキスト取得
         dataObject::Int read();                          // ファイル読み取り
         dataObject::Int write(void);                     // ファイル書き込み

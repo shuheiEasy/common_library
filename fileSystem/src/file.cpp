@@ -18,6 +18,29 @@ File::File(String &path)
 }
 File::~File() { close(); }
 
+int File::getSize() const
+{
+    int ret = -2;
+
+    switch (_filetype)
+    {
+    case FT_Unknown:
+        ret = -1;
+        break;
+    case FT_NoExist:
+        ret = 0;
+        break;
+    case FT_File:
+    case FT_Dir:
+        ret = 1;
+        break;
+    default:
+        break;
+    }
+
+    return ret;
+}
+
 /////////////////////////////////////////////////
 //
 // public 独自メンバ関数

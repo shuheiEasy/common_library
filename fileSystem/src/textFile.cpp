@@ -9,6 +9,42 @@ TextFile::TextFile(const char *path) : File(path) {}
 
 TextFile::~TextFile() {}
 
+// 末尾に追加
+Int TextFile::append(const char *text)
+{
+    String buffer = text;
+    return this->append(buffer);
+}
+
+// 末尾に追加
+Int TextFile::append(String text)
+{
+    if (_filetype != FT_File)
+    {
+        return -1;
+    }
+
+    if (open("a"))
+    {
+        // 書き込み
+        fputs(text.getChar(), _file_ptr);
+        close();
+
+        // テキスト情報更新
+        List<String> lines = text.split("\n");
+        for (int i = 0; i < len(lines); i++)
+        {
+            _text_lines.append(lines[i]);
+        }
+    }
+    else
+    {
+        return -2;
+    }
+
+    return 0;
+}
+
 // 文章取得
 List<String> *TextFile::getText()
 {
