@@ -9,15 +9,6 @@ TextFile::TextFile(const char *path) : File(path) {}
 
 TextFile::~TextFile() {}
 
-// // タブ追加
-// void TextFile::addTab(Int tab)
-// {
-//     for (int i = 0; i < tab; i++)
-//     {
-//         _tab_blank += " ";
-//     }
-// }
-
 Int TextFile::read(String &output)
 {
     // ファイル以外を排除
