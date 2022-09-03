@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
+#include <string>
+
 #include <dataObject/dataObject.hpp>
 
 #ifdef __linux__
@@ -33,7 +35,9 @@ namespace FileSystem
         dataObject::String _path;
         dataObject::String _name;
         dataObject::String _extension;
+        dataObject::List<dataObject::String> _text_lines;
 
+        // メンバ関数
         void _init(dataObject::String path);
         void _setDirPath();
         void _setExtension();
@@ -49,12 +53,14 @@ namespace FileSystem
         const char *getLog() const { return _path.getChar(); }
 
         // 独自メンバ関数
-        dataObject::Bool exists(); // ディレクトリ判定
-        dataObject::Bool isdir(); // ディレクトリ判定
-        dataObject::Bool isfile(); // ファイル判定
-        dataObject::Bool mkdir();  // ディレクトリ作成
-        dataObject::Bool mkfile();  // ファイル作成
-        dataObject::Bool touch();  // ファイル作成
+        dataObject::Bool exists();                       // ディレクトリ判定
+        dataObject::List<dataObject::String> *getText(); // テキスト
+        dataObject::Bool isdir();                        // ディレクトリ判定
+        dataObject::Bool isfile();                       // ファイル判定
+        dataObject::Bool mkdir();                        // ディレクトリ作成
+        dataObject::Bool mkfile();                       // ファイル作成
+        dataObject::Bool touch();                        // ファイル作成
+        dataObject::Int read();                          // ファイル読み取り
     };
 
     // class FileExplorer

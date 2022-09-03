@@ -152,43 +152,44 @@ Bool File::touch()
     return mkfile();
 }
 
-// Int File::read()
-// {
-//     // ファイル以外を排除
-//     if (_filetype != FT_File)
-//     {
-//         return -1;
-//     }
+Int File::read()
+{
+    // ファイル以外を排除
+    if (_filetype != FT_File)
+    {
+        return -1;
+    }
 
-//     FILE *fp = NULL;
+    FILE *fp = NULL;
 
-//     // ファイル読み込み
-//     if ((fp = fopen(_path.getChar(), "r")) != NULL)
-//     {
-//         char moji;
-//         std::string line = "";
+    // ファイル読み込み
+    if ((fp = fopen(_path.getChar(), "r")) != NULL)
+    {
+        char moji;
+        std::string line = "";
 
-//         while ((moji = fgetc(fp)) != EOF)
-//         {
-//             if (moji == '\n')
-//             {
-//                 _text_lines.append(String(line.c_str()));
-//                 line.clear();
-//                 line = "";
-//             }
-//             else
-//             {
-//                 line.push_back(moji);
-//             }
-//         }
-//     }
-//     else
-//     {
-//         return -2;
-//     }
+        while ((moji = fgetc(fp)) != EOF)
+        {
+            if (moji == '\n')
+            {
+                _text_lines.append(String(line.c_str()));
+                line.clear();
+                line = "";
+            }
+            else
+            {
+                line.push_back(moji);
+            }
+        }
+        _text_lines.append(String(line.c_str()));
+    }
+    else
+    {
+        return -2;
+    }
 
-//     return 0;
-// }
+    return 0;
+}
 
 /////////////////////////////////////////////////
 //
