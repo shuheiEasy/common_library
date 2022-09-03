@@ -153,4 +153,18 @@ namespace fileSystem
     dataObject::String getAbsolutePath(dataObject::String &path);
     dataObject::List<dataObject::String> getPathList(dataObject::String &path);
 }
+
+// 型判定に追加
+namespace dataObject
+{
+    // 型判定
+    template <>
+    class Type<fileSystem::File>
+    {
+    public:
+        ClassType class_id;
+        Type() { class_id = DATATYPE_CLASS; }
+    };
+}
+
 #endif
