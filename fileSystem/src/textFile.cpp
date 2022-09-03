@@ -133,6 +133,9 @@ Int TextFile::write(String text, FileMode mode, Bool close_flag)
         if (_filemode != mode)
         {
             status = open(mode);
+        }else
+        {
+            status = true;
         }
         break;
     }
@@ -179,6 +182,10 @@ Int TextFile::writeline(String text, FileMode mode, Bool close_flag)
         if (_filemode != mode)
         {
             status = open(mode);
+        }
+        else
+        {
+            status = true;
         }
         break;
     }
