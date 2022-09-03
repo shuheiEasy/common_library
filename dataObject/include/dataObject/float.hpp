@@ -1,7 +1,7 @@
 #ifndef FLOAT_H
 #define FLOAT_H
 
-#include "./core.hpp"
+#include <dataObject/core.hpp>
 
 namespace dataObject
 {

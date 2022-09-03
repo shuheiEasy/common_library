@@ -1,8 +1,8 @@
 #ifndef LIST_EX_H
 #define LIST_EX_H
 
-#include "./list.hpp"
-#include "./string.hpp"
+#include <dataObject/list.hpp>
+#include <dataObject/string.hpp>
 
 namespace dataObject
 {

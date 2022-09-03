@@ -1,7 +1,7 @@
 #ifndef DOUBLE_H
 #define DOUBLE_H
 
-#include "./core.hpp"
+#include <dataObject/core.hpp>
 
 namespace dataObject
 {

@@ -1,8 +1,8 @@
 #ifndef STRING_H
 #define STRING_H
 
-#include "./core.hpp"
-#include "./list.hpp"
+#include <dataObject/core.hpp>
+#include <dataObject/list.hpp>
 
 namespace dataObject
 {

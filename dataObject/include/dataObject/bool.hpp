@@ -1,7 +1,7 @@
 #ifndef BOOL_H
 #define BOOL_H
 
-#include "./core.hpp"
+#include <dataObject/core.hpp>
 #include "./string.hpp"
 
 namespace dataObject

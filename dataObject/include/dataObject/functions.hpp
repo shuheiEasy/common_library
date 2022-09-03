@@ -1,5 +1,8 @@
-#include "./core.hpp"
-#include "./string.hpp"
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
+
+#include <dataObject/core.hpp>
+#include <dataObject/string.hpp>
 
 namespace dataObject
 {
@@ -7,3 +10,5 @@ namespace dataObject
     String type(DataObject &data);
     String getEnv(const String &data);
 }
+
+#endif

@@ -1,7 +1,7 @@
 #ifndef INT_H
 #define INT_H
 
-#include "./core.hpp"
+#include <dataObject/core.hpp>
 
 namespace dataObject
 {
