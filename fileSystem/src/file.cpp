@@ -38,6 +38,12 @@ Bool File::exists()
     return ret;
 }
 
+// 文章取得
+List<String> *File::getText()
+{
+    return &_text_lines;
+}
+
 // ディレクトリ判定
 Bool File::isdir()
 {
@@ -145,6 +151,44 @@ Bool File::touch()
 {
     return mkfile();
 }
+
+// Int File::read()
+// {
+//     // ファイル以外を排除
+//     if (_filetype != FT_File)
+//     {
+//         return -1;
+//     }
+
+//     FILE *fp = NULL;
+
+//     // ファイル読み込み
+//     if ((fp = fopen(_path.getChar(), "r")) != NULL)
+//     {
+//         char moji;
+//         std::string line = "";
+
+//         while ((moji = fgetc(fp)) != EOF)
+//         {
+//             if (moji == '\n')
+//             {
+//                 _text_lines.append(String(line.c_str()));
+//                 line.clear();
+//                 line = "";
+//             }
+//             else
+//             {
+//                 line.push_back(moji);
+//             }
+//         }
+//     }
+//     else
+//     {
+//         return -2;
+//     }
+
+//     return 0;
+// }
 
 /////////////////////////////////////////////////
 //
