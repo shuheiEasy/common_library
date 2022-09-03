@@ -7,6 +7,16 @@ TextFile::TextFile() : File() {}
 
 TextFile::TextFile(const char *path) : File(path) {}
 
+TextFile::TextFile(File &file)
+{
+    _filetype = file.getFileType();
+    _filemode = CLOSEMODE;
+    _path = file.getPath();
+    _name = file.getName();
+    _extension = file.getExtension();
+    _file_ptr = NULL;
+}
+
 TextFile::~TextFile() {}
 
 Int TextFile::read(String &output)
