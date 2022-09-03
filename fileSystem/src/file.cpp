@@ -199,8 +199,10 @@ Bool File::open(FileMode mode)
     {
     case READMODE:
         ret = open("r");
+        break;
     case WRITEMODE:
         ret = open("w");
+        break;
     case APPENDMODE:
         ret = open("a");
         break;
