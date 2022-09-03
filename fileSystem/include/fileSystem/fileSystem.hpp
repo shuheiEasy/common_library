@@ -30,12 +30,11 @@ namespace FileSystem
 
     class File : public dataObject::None
     {
-    private:
+    protected:
         FileType _filetype;
         dataObject::String _path;
         dataObject::String _name;
         dataObject::String _extension;
-        dataObject::List<dataObject::String> _text_lines;
 
         // メンバ関数
         void _init(dataObject::String path);
@@ -53,16 +52,30 @@ namespace FileSystem
         const char *getLog() const { return _path.getChar(); }
 
         // 独自メンバ関数
-        dataObject::Bool exists();                       // ディレクトリ判定
-        dataObject::String getName();                    // 名前取得
-        dataObject::String getPath();                    // Path取得
+        dataObject::Bool exists();    // ディレクトリ判定
+        dataObject::String getName(); // 名前取得
+        dataObject::String getPath(); // Path取得
+        dataObject::Bool isdir();     // ディレクトリ判定
+        dataObject::Bool isfile();    // ファイル判定
+        dataObject::Bool mkdir();     // ディレクトリ作成
+        dataObject::Bool mkfile();    // ファイル作成
+        dataObject::Bool touch();     // ファイル作成
+    };
+
+    class TextFile : public File
+    {
+    private:
+        // 変数
+        dataObject::List<dataObject::String> _text_lines;
+
+    public:
+        // メンバ関数
+        TextFile();
+        TextFile(const char *path);
+        ~TextFile();
+
         dataObject::List<dataObject::String> *getText(); // テキスト取得
-        dataObject::Bool isdir();                        // ディレクトリ判定
-        dataObject::Bool isfile();                       // ファイル判定
-        dataObject::Bool mkdir();                        // ディレクトリ作成
-        dataObject::Bool mkfile();                       // ファイル作成
         dataObject::Int read();                          // ファイル読み取り
-        dataObject::Bool touch();                        // ファイル作成
         dataObject::Int write(void);                     // ファイル書き込み
     };
 
@@ -80,7 +93,8 @@ namespace FileSystem
     // };
 
     // 関数
-    dataObject::String getAbsolutePath(dataObject::String &path);
+    dataObject::String
+    getAbsolutePath(dataObject::String &path);
     dataObject::List<dataObject::String> getPathList(dataObject::String &path);
 }
 #endif
