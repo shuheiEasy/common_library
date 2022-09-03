@@ -100,14 +100,14 @@ List<String> TextFile::readlines()
 }
 
 // 末尾に追加
-Int TextFile::write(const char *text, FileMode mode)
+Int TextFile::write(const char *text, FileMode mode, Bool close_flag)
 {
     String buffer = text;
-    return this->write(buffer, mode);
+    return this->write(buffer, mode, close_flag);
 }
 
 // 末尾に追加
-Int TextFile::write(String text, FileMode mode)
+Int TextFile::write(String text, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -136,18 +136,24 @@ Int TextFile::write(String text, FileMode mode)
     // 書き込み
     fputs(text.getChar(), _file_ptr);
 
+    // ファイル閉じる
+    if (close_flag)
+    {
+        close();
+    }
+
     return 0;
 }
 
 // 末尾に追加して改行
-Int TextFile::writeline(const char *text, FileMode mode)
+Int TextFile::writeline(const char *text, FileMode mode, Bool close_flag)
 {
     String buffer = text;
-    return this->writeline(buffer, mode);
+    return this->writeline(buffer, mode, close_flag);
 }
 
 // 末尾に追加して改行
-Int TextFile::writeline(String text, FileMode mode)
+Int TextFile::writeline(String text, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -179,11 +185,17 @@ Int TextFile::writeline(String text, FileMode mode)
     // 書き込み
     fputs(text.getChar(), _file_ptr);
 
+    // ファイル閉じる
+    if (close_flag)
+    {
+        close();
+    }
+
     return 0;
 }
 
 // 行のリストを書き込み
-Int TextFile::writelines(List<Bool> &text_lines, FileMode mode)
+Int TextFile::writelines(List<Bool> &text_lines, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -221,11 +233,17 @@ Int TextFile::writelines(List<Bool> &text_lines, FileMode mode)
         fputs(buffer.getChar(), _file_ptr);
     }
 
+    // ファイル閉じる
+    if (close_flag)
+    {
+        close();
+    }
+
     return 0;
 }
 
 // 行のリストを書き込み
-Int TextFile::writelines(List<Int> &text_lines, FileMode mode)
+Int TextFile::writelines(List<Int> &text_lines, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -263,11 +281,17 @@ Int TextFile::writelines(List<Int> &text_lines, FileMode mode)
         fputs(buffer.getChar(), _file_ptr);
     }
 
+    // ファイル閉じる
+    if (close_flag)
+    {
+        close();
+    }
+
     return 0;
 }
 
 // 行のリストを書き込み
-Int TextFile::writelines(List<Float> &text_lines, FileMode mode)
+Int TextFile::writelines(List<Float> &text_lines, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -305,11 +329,23 @@ Int TextFile::writelines(List<Float> &text_lines, FileMode mode)
         fputs(buffer.getChar(), _file_ptr);
     }
 
+    // ファイル閉じる
+    if (close_flag)
+    {
+        close();
+    }
+
+    // ファイル閉じる
+    if (close_flag)
+    {
+        close();
+    }
+
     return 0;
 }
 
 // 行のリストを書き込み
-Int TextFile::writelines(List<Double> &text_lines, FileMode mode)
+Int TextFile::writelines(List<Double> &text_lines, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -347,11 +383,17 @@ Int TextFile::writelines(List<Double> &text_lines, FileMode mode)
         fputs(buffer.getChar(), _file_ptr);
     }
 
+    // ファイル閉じる
+    if (close_flag)
+    {
+        close();
+    }
+
     return 0;
 }
 
 // 行のリストを書き込み
-Int TextFile::writelines(List<String> &text_lines, FileMode mode)
+Int TextFile::writelines(List<String> &text_lines, FileMode mode, Bool close_flag)
 {
     if (_filetype != FT_File)
     {
@@ -387,6 +429,12 @@ Int TextFile::writelines(List<String> &text_lines, FileMode mode)
         String buffer = text_lines[i];
         buffer += "\n";
         fputs(buffer.getChar(), _file_ptr);
+    }
+
+    // ファイル閉じる
+    if (close_flag)
+    {
+        close();
     }
 
     return 0;

@@ -97,23 +97,23 @@ namespace fileSystem
         // 行ごとに読み取り
         dataObject::List<dataObject::String> readlines();
         // 書き込み
-        dataObject::Int write(const char *text, FileMode mode = APPENDMODE);
+        dataObject::Int write(const char *text, FileMode mode = APPENDMODE,dataObject::Bool close_flag=true);
         // 書き込み
-        dataObject::Int write(dataObject::String text, FileMode mode = APPENDMODE);
+        dataObject::Int write(dataObject::String text, FileMode mode = APPENDMODE,dataObject::Bool close_flag=true);
         // 改行したものを書き込み
-        dataObject::Int writeline(const char *text, FileMode mode = APPENDMODE);
+        dataObject::Int writeline(const char *text, FileMode mode = APPENDMODE,dataObject::Bool close_flag=true);
         // 改行したものを書き込み
-        dataObject::Int writeline(dataObject::String text, FileMode mode = APPENDMODE);
+        dataObject::Int writeline(dataObject::String text, FileMode mode = APPENDMODE,dataObject::Bool close_flag=true);
         // 行のリストを書き込み
-        dataObject::Int writelines(dataObject::List<dataObject::Bool> &text_lines, FileMode mode = APPENDMODE);
+        dataObject::Int writelines(dataObject::List<dataObject::Bool> &text_lines, FileMode mode = APPENDMODE,dataObject::Bool close_flag=true);
         // 行のリストを書き込み
-        dataObject::Int writelines(dataObject::List<dataObject::Int> &text_lines, FileMode mode = APPENDMODE);
+        dataObject::Int writelines(dataObject::List<dataObject::Int> &text_lines, FileMode mode = APPENDMODE,dataObject::Bool close_flag=true);
         // 行のリストを書き込み
-        dataObject::Int writelines(dataObject::List<dataObject::Float> &text_lines, FileMode mode = APPENDMODE);
+        dataObject::Int writelines(dataObject::List<dataObject::Float> &text_lines, FileMode mode = APPENDMODE,dataObject::Bool close_flag=true);
         // 行のリストを書き込み
-        dataObject::Int writelines(dataObject::List<dataObject::Double> &text_lines, FileMode mode = APPENDMODE);
+        dataObject::Int writelines(dataObject::List<dataObject::Double> &text_lines, FileMode mode = APPENDMODE,dataObject::Bool close_flag=true);
         // 行のリストを書き込み
-        dataObject::Int writelines(dataObject::List<dataObject::String> &text_lines, FileMode mode = APPENDMODE);
+        dataObject::Int writelines(dataObject::List<dataObject::String> &text_lines, FileMode mode = APPENDMODE,dataObject::Bool close_flag=true);
     };
 
     // class FileExplorer
