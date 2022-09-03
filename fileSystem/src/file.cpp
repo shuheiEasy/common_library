@@ -203,6 +203,35 @@ Int File::read()
     return 0;
 }
 
+// ファイル書き込み
+Int File::write(void)
+{
+    FILE *fp = NULL;
+
+    if (_filetype != FT_File)
+    {
+        return -1;
+    }
+
+    if ((fp = fopen(_path.getChar(), "w")) != NULL)
+    {
+        for (int i = 0; i < len(_text_lines) - 1; i++)
+        {
+            auto line = _text_lines[i] + "\n";
+            fputs(line.getChar(), fp);
+        }
+        auto line = _text_lines[-1];
+        fputs(line.getChar(), fp);
+        fclose(fp);
+    }
+    else
+    {
+        return -2;
+    }
+
+    return 0;
+}
+
 /////////////////////////////////////////////////
 //
 // private

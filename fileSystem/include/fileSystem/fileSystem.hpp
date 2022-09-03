@@ -63,6 +63,7 @@ namespace FileSystem
         dataObject::Bool mkfile();                       // ファイル作成
         dataObject::Int read();                          // ファイル読み取り
         dataObject::Bool touch();                        // ファイル作成
+        dataObject::Int write(void);                     // ファイル書き込み
     };
 
     // class FileExplorer
