@@ -55,6 +55,7 @@ void File::close()
         fclose(_file_ptr);
     }
     _file_ptr = NULL;
+    _filemode = CLOSEMODE;
 }
 
 // ファイルの存在確認
@@ -199,12 +200,15 @@ Bool File::open(FileMode mode)
     {
     case READMODE:
         ret = open("r");
+        _filemode = READMODE;
         break;
     case WRITEMODE:
         ret = open("w");
+        _filemode = WRITEMODE;
         break;
     case APPENDMODE:
         ret = open("a");
+        _filemode = APPENDMODE;
         break;
     }
     return ret;
@@ -219,6 +223,7 @@ Bool File::open(const char *mode)
     if (_file_ptr != NULL)
     {
         ret = true;
+        _filemode = UNKNOWNMODE;
     }
     return ret;
 }
@@ -247,6 +252,9 @@ void File::_init(String path)
 
     // ファイルポインター
     _file_ptr = NULL;
+
+    // ファイルモード取得
+    _filemode = CLOSEMODE;
 
     // フォルダ・ファイルの存在判定
     struct stat stat_buffer;

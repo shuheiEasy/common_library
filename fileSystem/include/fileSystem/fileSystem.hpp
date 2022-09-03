@@ -30,6 +30,7 @@ namespace fileSystem
 
     enum FileMode
     {
+        UNKNOWNMODE = -100,
         CLOSEMODE = -1,
         READMODE = 0,
         WRITEMODE,
@@ -40,6 +41,7 @@ namespace fileSystem
     {
     protected:
         FileType _filetype;
+        FileMode _filemode;
         dataObject::String _path;
         dataObject::String _name;
         dataObject::String _extension;
