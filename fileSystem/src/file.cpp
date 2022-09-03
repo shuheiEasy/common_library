@@ -16,13 +16,46 @@ File::File(String &path)
 {
     _init(path);
 }
-File::~File() {}
+File::~File() { close(); }
+
+int File::getSize() const
+{
+    int ret = -2;
+
+    switch (_filetype)
+    {
+    case FT_Unknown:
+        ret = -1;
+        break;
+    case FT_NoExist:
+        ret = 0;
+        break;
+    case FT_File:
+    case FT_Dir:
+        ret = 1;
+        break;
+    default:
+        break;
+    }
+
+    return ret;
+}
 
 /////////////////////////////////////////////////
 //
 // public 独自メンバ関数
 //
 /////////////////////////////////////////////////
+
+// ファイル閉じる
+void File::close()
+{
+    if (_file_ptr != NULL)
+    {
+        fclose(_file_ptr);
+    }
+    _file_ptr = NULL;
+}
 
 // ファイルの存在確認
 Bool File::exists()
@@ -38,10 +71,22 @@ Bool File::exists()
     return ret;
 }
 
-// 文章取得
-List<String> *File::getText()
+// ファイルポインター
+FILE *File::getFilePtr()
 {
-    return &_text_lines;
+    return _file_ptr;
+}
+
+// 名前取得
+String File::getName()
+{
+    return _name;
+}
+
+// 名前取得
+String File::getPath()
+{
+    return _path;
 }
 
 // ディレクトリ判定
@@ -147,48 +192,40 @@ Bool File::mkfile()
     return ret;
 }
 
+Bool File::open(FileMode mode)
+{
+    Bool ret;
+    switch (mode)
+    {
+    case READMODE:
+        ret = open("r");
+        break;
+    case WRITEMODE:
+        ret = open("w");
+        break;
+    case APPENDMODE:
+        ret = open("a");
+        break;
+    }
+    return ret;
+}
+
+Bool File::open(const char *mode)
+{
+    close();
+    _file_ptr = fopen(_path.getChar(), mode);
+
+    Bool ret = false;
+    if (_file_ptr != NULL)
+    {
+        ret = true;
+    }
+    return ret;
+}
+
 Bool File::touch()
 {
     return mkfile();
-}
-
-Int File::read()
-{
-    // ファイル以外を排除
-    if (_filetype != FT_File)
-    {
-        return -1;
-    }
-
-    FILE *fp = NULL;
-
-    // ファイル読み込み
-    if ((fp = fopen(_path.getChar(), "r")) != NULL)
-    {
-        char moji;
-        std::string line = "";
-
-        while ((moji = fgetc(fp)) != EOF)
-        {
-            if (moji == '\n')
-            {
-                _text_lines.append(String(line.c_str()));
-                line.clear();
-                line = "";
-            }
-            else
-            {
-                line.push_back(moji);
-            }
-        }
-        _text_lines.append(String(line.c_str()));
-    }
-    else
-    {
-        return -2;
-    }
-
-    return 0;
 }
 
 /////////////////////////////////////////////////
@@ -207,6 +244,9 @@ void File::_init(String path)
 
     // 拡張子設定
     _extension = "";
+
+    // ファイルポインター
+    _file_ptr = NULL;
 
     // フォルダ・ファイルの存在判定
     struct stat stat_buffer;
