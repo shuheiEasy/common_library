@@ -15,6 +15,10 @@ file(GLOB_RECURSE source_list "src/*.cpp")
 add_library(${PROJECT_NAME} ${source_list})
 add_library(${PARENT_PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
+# リンク呼び出し
+target_link_libraries(${PROJECT_NAME} common_library::dataObject)
+target_link_libraries(${PROJECT_NAME} common_library::fileSystem)
+
 # ヘッダー
 file(GLOB_RECURSE header_list "${INCLUDE_DIR}/*.hpp")
 set_target_properties(
