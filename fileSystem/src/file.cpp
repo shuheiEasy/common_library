@@ -24,49 +24,44 @@ File::~File() {}
 //
 /////////////////////////////////////////////////
 
-Int File::test()
-{
-    return 0;
-}
-
 // ファイルの存在確認
-Int File::exists()
+Bool File::exists()
 {
-    Int ret(0);
+    Bool ret = false;
     switch (_filetype)
     {
     case FT_File:
     case FT_Dir:
-        ret = 1;
+        ret = true;
         break;
     }
     return ret;
 }
 
 // ディレクトリ判定
-Int File::isdir()
+Bool File::isdir()
 {
-    Int ret = 0;
+    Bool ret = false;
     if (_filetype == FT_Dir)
     {
-        ret = 1;
+        ret = true;
     }
     return ret;
 }
 
 // ファイル判定
-Int File::isfile()
+Bool File::isfile()
 {
-    Int ret = 0;
+    Bool ret = false;
     if (_filetype == FT_File)
     {
-        ret = 1;
+        ret = true;
     }
     return ret;
 }
 
 // ディレクトリ作成
-Int File::mkdir()
+Bool File::mkdir()
 {
 
     // パス設定
@@ -98,15 +93,15 @@ Int File::mkdir()
     }
 
     // 戻り値
-    Int ret = 0;
+    Bool ret = false;
     if (_filetype == FT_Dir)
     {
-        ret = 1;
+        ret = true;
     }
     return ret;
 }
 
-Int File::mkfile()
+Bool File::mkfile()
 {
     // 拡張子設定
     _setExtension();
@@ -138,15 +133,15 @@ Int File::mkfile()
     }
 
     // 戻り値
-    Int ret = 0;
+    Bool ret = false;
     if (_filetype == FT_File)
     {
-        ret = 1;
+        ret = true;
     }
     return ret;
 }
 
-Int File::touch()
+Bool File::touch()
 {
     return mkfile();
 }
@@ -224,7 +219,7 @@ void File::_setDirPath()
 void File::_setExtension()
 {
     List<String> name_list = _name.split(".");
-    if (name_list.getSize() > 1)
+    if (len(name_list) > 1)
     {
         _extension = name_list[-1];
     }
