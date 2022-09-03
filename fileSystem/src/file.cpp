@@ -48,6 +48,7 @@ Bool File::exists()
     return ret;
 }
 
+// ファイルポインター
 FILE *File::getFilePtr()
 {
     return _file_ptr;
