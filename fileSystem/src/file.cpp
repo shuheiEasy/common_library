@@ -16,7 +16,7 @@ File::File(String &path)
 {
     _init(path);
 }
-File::~File() { close(); }
+File::~File() { }
 
 int File::getSize() const
 {

@@ -120,7 +120,10 @@ Int TextFile::write(String text, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
         break;
     }
 
@@ -132,7 +135,6 @@ Int TextFile::write(String text, FileMode mode)
 
     // 書き込み
     fputs(text.getChar(), _file_ptr);
-    close();
 
     return 0;
 }
@@ -158,7 +160,10 @@ Int TextFile::writeline(String text, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
         break;
     }
 
@@ -173,7 +178,6 @@ Int TextFile::writeline(String text, FileMode mode)
 
     // 書き込み
     fputs(text.getChar(), _file_ptr);
-    close();
 
     return 0;
 }
@@ -192,7 +196,14 @@ Int TextFile::writelines(List<Bool> &text_lines, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
+        else
+        {
+            status = true;
+        }
         break;
     }
 
@@ -209,9 +220,6 @@ Int TextFile::writelines(List<Bool> &text_lines, FileMode mode)
         buffer += "\n";
         fputs(buffer.getChar(), _file_ptr);
     }
-
-    // ファイル閉じる
-    close();
 
     return 0;
 }
@@ -230,7 +238,14 @@ Int TextFile::writelines(List<Int> &text_lines, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
+        else
+        {
+            status = true;
+        }
         break;
     }
 
@@ -247,9 +262,6 @@ Int TextFile::writelines(List<Int> &text_lines, FileMode mode)
         buffer += "\n";
         fputs(buffer.getChar(), _file_ptr);
     }
-
-    // ファイル閉じる
-    close();
 
     return 0;
 }
@@ -268,7 +280,14 @@ Int TextFile::writelines(List<Float> &text_lines, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
+        else
+        {
+            status = true;
+        }
         break;
     }
 
@@ -285,9 +304,6 @@ Int TextFile::writelines(List<Float> &text_lines, FileMode mode)
         buffer += "\n";
         fputs(buffer.getChar(), _file_ptr);
     }
-
-    // ファイル閉じる
-    close();
 
     return 0;
 }
@@ -306,7 +322,14 @@ Int TextFile::writelines(List<Double> &text_lines, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
+        else
+        {
+            status = true;
+        }
         break;
     }
 
@@ -323,9 +346,6 @@ Int TextFile::writelines(List<Double> &text_lines, FileMode mode)
         buffer += "\n";
         fputs(buffer.getChar(), _file_ptr);
     }
-
-    // ファイル閉じる
-    close();
 
     return 0;
 }
@@ -344,7 +364,14 @@ Int TextFile::writelines(List<String> &text_lines, FileMode mode)
     {
     case WRITEMODE:
     case APPENDMODE:
-        status = open(mode);
+        if (_filemode != mode)
+        {
+            status = open(mode);
+        }
+        else
+        {
+            status = true;
+        }
         break;
     }
 
@@ -361,9 +388,6 @@ Int TextFile::writelines(List<String> &text_lines, FileMode mode)
         buffer += "\n";
         fputs(buffer.getChar(), _file_ptr);
     }
-
-    // ファイル閉じる
-    close();
 
     return 0;
 }
