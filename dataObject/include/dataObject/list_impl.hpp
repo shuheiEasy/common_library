@@ -170,6 +170,22 @@ namespace dataObject
     }
 
     template <class T>
+    int List<T>::count(const T &data)
+    {
+        _Node<T> *ptr = _head->next;
+        int ret = 0;
+        while (ptr != _tail)
+        {
+            if ((*(ptr->data)) == data)
+            {
+                ret++;
+            }
+            ptr = ptr->next;
+        }
+        return ret;
+    }
+
+    template <class T>
     void List<T>::del(int start)
     {
         this->del(start, start);
@@ -236,6 +252,32 @@ namespace dataObject
     const char *List<T>::getType() const { return "List"; }
 
     template <class T>
+    int List<T>::index(const T &data, int count)
+    {
+        _Node<T> *ptr = _head->next;
+        int id = 0;
+        int counter = 1;
+        int ret = -1;
+
+        while (ptr != _tail)
+        {
+            if (*(ptr->data) == data)
+            {
+                ret = id;
+                if (count >= counter)
+                {
+                    break;
+                }
+                counter++;
+            }
+            ptr = ptr->next;
+            id++;
+        }
+
+        return ret;
+    }
+
+    template <class T>
     void List<T>::insert(const int id, const T &data)
     {
         // 挿入直前のポインター取得
@@ -255,6 +297,15 @@ namespace dataObject
         // 代入
         _Node<T> *insert_ptr = ptr->next;
         insert_ptr->data = new T(data);
+    }
+
+    template <class T>
+    List<T>::List(const List<T> &list)
+    {
+        // 初期化
+        _init();
+        // 拡張
+        extend(list);
     }
 
     template <class T>
@@ -287,12 +338,28 @@ namespace dataObject
     }
 
     template <class T>
-    List<T>::List(const List<T> &list)
+    List<T> List<T>::slice(int start, int length)
     {
-        // 初期化
-        _init();
-        // 拡張
-        extend(list);
+        List<T> ret;
+        int counter = 0;
+
+        // 取得するリストの先頭
+        _Node<T> *ptr;
+        _search(ptr, start);
+
+        while (ptr != _tail)
+        {
+            ret.append(*(ptr->data));
+
+            ptr = ptr->next;
+            counter++;
+            if (counter >= length)
+            {
+                break;
+            }
+        }
+
+        return ret;
     }
 }
 #endif

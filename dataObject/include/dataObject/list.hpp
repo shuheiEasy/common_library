@@ -44,7 +44,7 @@ namespace dataObject
         // 全削除
         void clear();
         // 計測
-        // int count(const T &data);
+        int count(const T &data);
         // 削除
         void del(int start);
         // 削除
@@ -60,7 +60,7 @@ namespace dataObject
         // 形式取得
         const char *getType() const;
         // 要素の位置取得
-        // int index(const T &data);
+        int index(const T &data,int count=1);
         // 挿入
         void insert(const int id, const T &data);
         // コンストラクタ
@@ -75,7 +75,7 @@ namespace dataObject
         List<T> &operator+=(const T &data);
         List<T> &operator+=(const List<T> &list);
         // スライス
-        // List<T> slice(int start, int end);
+        List<T> slice(int start, int length);
     };
 }
 
