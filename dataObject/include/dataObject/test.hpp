@@ -55,6 +55,8 @@ namespace dataObject
         int getSize() const;
         // 形式取得
         const char *getType() const;
+        // 挿入
+        void insert(const int id, const T &data);
         // オペレータ(添字演算子)
         T &operator[](const int id);
         // オペレータ(代入演算子)

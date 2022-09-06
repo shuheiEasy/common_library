@@ -236,6 +236,28 @@ namespace dataObject
     const char *Vector<T>::getType() const { return "List"; }
 
     template <class T>
+    void Vector<T>::insert(const int id, const T &data)
+    {
+        // 挿入直前のポインター取得
+        _Node<T> *ptr;
+        _search(ptr, id);
+        if (id >= 0)
+        {
+            if (ptr != _head)
+            {
+                ptr = ptr->prev;
+            }
+        }
+
+        // メモリ確保
+        _new(ptr);
+
+        // 代入
+        _Node<T> *insert_ptr = ptr->next;
+        insert_ptr->data = new T(data);
+    }
+
+    template <class T>
     T &Vector<T>::operator[](const int id)
     {
         return *(this->at(id));
