@@ -66,14 +66,14 @@ namespace dataObject
         ClassType check = buf.class_id;
         if (check == DATATYPE_CLASS)
         {
-            Node<T> *ptr = _data;
+            _Node<T> *ptr = _head->next;
             String ret = "[ ";
 
             while (ptr != _tail)
             {
-                String tmp = toString(ptr->data.getLog());
+                String tmp = toString(ptr->data->getLog());
 
-                if (ptr != _data)
+                if (ptr != _head->next)
                 {
                     ret += ", ";
                 }

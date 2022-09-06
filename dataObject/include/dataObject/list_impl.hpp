@@ -1,12 +1,12 @@
 #ifndef LIST_IMPL_H
 #define LIST_IMPL_H
 
-#include <dataObject/test.hpp>
+#include <dataObject/list.hpp>
 
 namespace dataObject
 {
     template <class T>
-    void Vector<T>::_del(_Node<T> *start, _Node<T> *end)
+    void List<T>::_del(_Node<T> *start, _Node<T> *end)
     {
         // 消去領域の直前のポインター
         _Node<T> *prev;
@@ -56,7 +56,7 @@ namespace dataObject
         next->prev = prev;
     }
     template <class T>
-    void Vector<T>::_free()
+    void List<T>::_free()
     {
         // 中身削除
         _del(_head, _tail);
@@ -67,7 +67,7 @@ namespace dataObject
     }
 
     template <class T>
-    void Vector<T>::_init()
+    void List<T>::_init()
     {
         // _Nodeポインターの初期化
         _head = new _Node<T>();
@@ -81,7 +81,7 @@ namespace dataObject
     }
 
     template <class T>
-    void Vector<T>::_malloc(_Node<T> *&tmp, _Node<T> *&prev, _Node<T> *&next)
+    void List<T>::_malloc(_Node<T> *&tmp, _Node<T> *&prev, _Node<T> *&next)
     {
         tmp = new _Node<T>();
         tmp->data = NULL;
@@ -92,7 +92,7 @@ namespace dataObject
     }
 
     template <class T>
-    void Vector<T>::_new(_Node<T> *prev, int memory_size)
+    void List<T>::_new(_Node<T> *prev, int memory_size)
     {
         // 追加領域の直後のポインター
         _Node<T> *next;
@@ -116,7 +116,7 @@ namespace dataObject
     }
 
     template <class T>
-    void Vector<T>::_search(_Node<T> *&ptr, int id) const
+    void List<T>::_search(_Node<T> *&ptr, int id) const
     {
         if (id < 0)
         {
@@ -147,7 +147,7 @@ namespace dataObject
     }
 
     template <class T>
-    void Vector<T>::append(const T &data)
+    void List<T>::append(const T &data)
     {
         _new(_tail->prev);
         _Node<T> *ptr;
@@ -156,7 +156,7 @@ namespace dataObject
     }
 
     template <class T>
-    T *Vector<T>::at(int id)
+    T *List<T>::at(int id)
     {
         _Node<T> *ptr;
         _search(ptr, id);
@@ -164,19 +164,19 @@ namespace dataObject
     }
 
     template <class T>
-    void Vector<T>::clear()
+    void List<T>::clear()
     {
         this->_del(_head, _tail);
     }
 
     template <class T>
-    void Vector<T>::del(int start)
+    void List<T>::del(int start)
     {
         this->del(start, start);
     }
 
     template <class T>
-    void Vector<T>::del(int start, int end)
+    void List<T>::del(int start, int end)
     {
         _Node<T> *start_ptr;
         _Node<T> *end_ptr;
@@ -194,7 +194,7 @@ namespace dataObject
     }
 
     template <class T>
-    void Vector<T>::extend(const Vector<T> &list)
+    void List<T>::extend(const List<T> &list)
     {
         // 確保位置
         _Node<T> *ptr = _tail->prev;
@@ -212,7 +212,7 @@ namespace dataObject
     }
 
     template <class T>
-    T Vector<T>::get(int id) const
+    T List<T>::get(int id) const
     {
         _Node<T> *ptr;
         _search(ptr, id);
@@ -220,7 +220,7 @@ namespace dataObject
     }
 
     template <class T>
-    int Vector<T>::getSize() const
+    int List<T>::getSize() const
     {
         int ret = 0;
         _Node<T> *ptr = _head->next;
@@ -233,10 +233,10 @@ namespace dataObject
     }
 
     template <class T>
-    const char *Vector<T>::getType() const { return "List"; }
+    const char *List<T>::getType() const { return "List"; }
 
     template <class T>
-    void Vector<T>::insert(const int id, const T &data)
+    void List<T>::insert(const int id, const T &data)
     {
         // 挿入直前のポインター取得
         _Node<T> *ptr;
@@ -258,13 +258,13 @@ namespace dataObject
     }
 
     template <class T>
-    T &Vector<T>::operator[](const int id)
+    T &List<T>::operator[](const int id)
     {
         return *(this->at(id));
     }
 
     template <class T>
-    Vector<T> &Vector<T>::operator=(const Vector<T> &list)
+    List<T> &List<T>::operator=(const List<T> &list)
     {
         // 全削除
         clear();
@@ -274,20 +274,20 @@ namespace dataObject
     }
 
     template <class T>
-    Vector<T> &Vector<T>::operator+=(const T &data)
+    List<T> &List<T>::operator+=(const T &data)
     {
         this->append(data);
         return *this;
     }
     template <class T>
-    Vector<T> &Vector<T>::operator+=(const Vector<T> &list)
+    List<T> &List<T>::operator+=(const List<T> &list)
     {
         this->extend(list);
         return *this;
     }
 
     template <class T>
-    Vector<T>::Vector(const Vector<T> &list)
+    List<T>::List(const List<T> &list)
     {
         // 初期化
         _init();

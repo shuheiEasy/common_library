@@ -2,7 +2,7 @@
 #define STRING_H
 
 #include <dataObject/core.hpp>
-#include <dataObject/list.hpp>
+#include <dataObject/list_impl.hpp>
 
 namespace dataObject
 {
