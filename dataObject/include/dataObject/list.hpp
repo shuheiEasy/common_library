@@ -43,6 +43,8 @@ namespace dataObject
         T *at(int id);
         // 全削除
         void clear();
+        // 計測
+        // int count(const T &data);
         // 削除
         void del(int start);
         // 削除
@@ -57,8 +59,14 @@ namespace dataObject
         int getSize() const;
         // 形式取得
         const char *getType() const;
+        // 要素の位置取得
+        // int index(const T &data);
         // 挿入
         void insert(const int id, const T &data);
+        // コンストラクタ
+        List() { _init(); }
+        List(const List<T> &list);
+        ~List() { _free(); }
         // オペレータ(添字演算子)
         T &operator[](const int id);
         // オペレータ(代入演算子)
@@ -66,10 +74,8 @@ namespace dataObject
         // オペレータ(複合代入演算子)
         List<T> &operator+=(const T &data);
         List<T> &operator+=(const List<T> &list);
-        // コンストラクタ
-        List() { _init(); }
-        List(const List<T> &list);
-        ~List() { _free(); }
+        // スライス
+        // List<T> slice(int start, int end);
     };
 }
 
