@@ -1,4 +1,4 @@
-#include <logSystem.hpp>
+#include <logSystem/logSystem.hpp>
 
 using namespace logSystem;
 using namespace dataObject;
@@ -71,7 +71,7 @@ int LogSystem::print(LogLevel log_level, const dataObject::String &format, ...)
     return 0;
 }
 
-void logSystem::print(const String &format, ...)
+void logSystem::fprint(const String &format, ...)
 {
     // 変数
     va_list args;
@@ -86,7 +86,7 @@ void logSystem::print(const String &format, ...)
     va_end(args);
 }
 
-void logSystem::print(const char *format_char, ...)
+void logSystem::fprint(const char *format_char, ...)
 {
     // 変数
     va_list args;
