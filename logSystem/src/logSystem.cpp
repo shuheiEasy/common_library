@@ -4,72 +4,11 @@ using namespace logSystem;
 using namespace dataObject;
 using namespace fileSystem;
 
-LogSystem::LogSystem()
-{
-    _init();
-}
-
-LogSystem::LogSystem(const char *file_name)
-{
-    _init();
-    setFile(file_name);
-}
-
-LogSystem::~LogSystem()
-{
-    if (_file != NULL)
-    {
-        delete _file;
-    }
-}
-
-void LogSystem::setFile(const char *file_name)
-{
-    _file = new TextFile(file_name);
-}
-
-int LogSystem::print(LogLevel log_level, const dataObject::String &format, ...)
-{
-    if (log_level <= _log_level)
-    {
-        return -1;
-    }
-
-    String print_fromat = "[";
-    switch (log_level)
-    {
-    case NOTSET:
-        print_fromat += "NOTSET";
-        break;
-    case DEBUG:
-        print_fromat += "DEBUG";
-        break;
-    case INFO:
-        print_fromat += "INFO";
-        break;
-    case WARNING:
-        print_fromat += "WARNING";
-        break;
-    case ERROR:
-        print_fromat += "ERROR";
-        break;
-    case CRITICAL:
-        print_fromat += "CRITICAL";
-        break;
-    default:
-        print_fromat += "CUSTOM";
-        break;
-    }
-    print_fromat += "] ";
-    print_fromat += format;
-
-    va_list args;
-    va_start(args, format);
-    logSystem::_vprint(print_fromat, args);
-    va_end(args);
-
-    return 0;
-}
+/////////////////////////////////////////////////
+//
+// 関数
+//
+/////////////////////////////////////////////////
 
 void logSystem::fprint(const String &format, ...)
 {
@@ -123,6 +62,94 @@ void logSystem::_vprint(const String &format, va_list args)
     printf("%s", print_text.getChar());
 }
 
+String logSystem::logLevel_str(LogLevel level)
+{
+    String ret = "";
+    switch (level)
+    {
+    case NOTSET:
+        ret += "NOTSET";
+        break;
+    case DEBUG:
+        ret += "DEBUG";
+        break;
+    case INFO:
+        ret += "INFO";
+        break;
+    case WARNING:
+        ret += "WARNING";
+        break;
+    case ERROR:
+        ret += "ERROR";
+        break;
+    case CRITICAL:
+        ret += "CRITICAL";
+        break;
+    default:
+        ret += "CUSTOM";
+        break;
+    }
+    return ret;
+}
+/////////////////////////////////////////////////
+//
+// LogSystem
+//
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+//
+// public
+//
+/////////////////////////////////////////////////
+LogSystem::LogSystem()
+{
+    _init();
+}
+
+LogSystem::LogSystem(const char *file_name)
+{
+    _init();
+    setFile(file_name);
+}
+
+LogSystem::~LogSystem()
+{
+    if (_file != NULL)
+    {
+        delete _file;
+    }
+}
+
+void LogSystem::setFile(const char *file_name)
+{
+    _file = new TextFile(file_name);
+}
+
+void LogSystem::setLevel(LogLevel log_level)
+{
+    _log_level = log_level;
+}
+
+int LogSystem::print(LogLevel log_level, const dataObject::String &format, ...)
+{
+    if (log_level <= _log_level)
+    {
+        return -1;
+    }
+
+    String print_fromat = "[";
+    print_fromat += logLevel_str(log_level);
+    print_fromat += "] ";
+    print_fromat += format;
+
+    va_list args;
+    va_start(args, format);
+    logSystem::_vprint(print_fromat, args);
+    va_end(args);
+
+    return 0;
+}
+
 /////////////////////////////////////////////////
 //
 // private
@@ -133,4 +160,20 @@ void LogSystem::_init()
 {
     _file = NULL;
     _log_level = WARNING;
+}
+
+/////////////////////////////////////////////////
+//
+// PrintSystem
+//
+/////////////////////////////////////////////////
+
+void PrintSystem::print(void)
+{
+    String print_text="";
+    for (int i = 0; i < _text_list->getSize(); i++)
+    {
+        print_text += _text_list->get(i);
+    }
+    printf("%s\n", print_text.getLog());
 }

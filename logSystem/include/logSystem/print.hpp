@@ -9,52 +9,59 @@ namespace logSystem
     void logSystem::print(const Args &...args)
     {
         PrintSystem p(args...);
+        p.print();
+    }
+
+    template <class... Args>
+    void LogSystem::test(LogLevel log_level, Args &...args)
+    {
+        printf("test\n");
     }
 
     template <class T>
-    void PrintSystem::_convertTypes(dataObject::String &text, const T &data)
+    void PrintSystem::_convertTypes(const T &data)
     {
-        text += dataObject::String(data);
+        _text_list->append(dataObject::String(data));
     }
 
     template <class... TailClass>
-    void PrintSystem::_extractStr(dataObject::String &text, const dataObject::DataObject &head, TailClass &...tail)
+    void PrintSystem::_extractStr(const dataObject::DataObject &head, TailClass &...tail)
     {
-        text += dataObject::String(head.getLog());
-        _extractStr(text, tail...);
+        _text_list->append(dataObject::String(head.getLog()));
+        _extractStr(tail...);
     }
 
     template <class... TailClass>
-    void PrintSystem::_extractStr(dataObject::String &text, const int &head, TailClass &...tail)
+    void PrintSystem::_extractStr(const int &head, TailClass &...tail)
     {
-        _convertTypes(text, head);
-        _extractStr(text, tail...);
+        _convertTypes(head);
+        _extractStr(tail...);
     }
 
     template <class... TailClass>
-    void PrintSystem::_extractStr(dataObject::String &text, const float &head, TailClass &...tail)
+    void PrintSystem::_extractStr(const float &head, TailClass &...tail)
     {
-        _convertTypes(text, head);
-        _extractStr(text, tail...);
+        _convertTypes(head);
+        _extractStr(tail...);
     }
     template <class... TailClass>
-    void PrintSystem::_extractStr(dataObject::String &text, const double &head, TailClass &...tail)
+    void PrintSystem::_extractStr(const double &head, TailClass &...tail)
     {
-        _convertTypes(text, head);
-        _extractStr(text, tail...);
+        _convertTypes(head);
+        _extractStr(tail...);
     }
     template <class... TailClass>
-    void PrintSystem::_extractStr(dataObject::String &text, const char *head, TailClass &...tail)
+    void PrintSystem::_extractStr(const char *head, TailClass &...tail)
     {
-        _convertTypes(text, head);
-        _extractStr(text, tail...);
+        _convertTypes(head);
+        _extractStr(tail...);
     }
     template <class... Args>
     PrintSystem::PrintSystem(const Args &...args)
     {
-        dataObject::String text = "";
-        _extractStr(text, args...);
-        printf("%s\n", text.getChar());
+        _text_list=new dataObject::List<dataObject::String>();
+        _extractStr(args...);
+        printf("%s\n", _text_list->getLog());
     }
 }
 #endif
