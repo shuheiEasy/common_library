@@ -22,27 +22,44 @@ namespace logSystem
     void print(Args &...args);
     void fprint(const dataObject::String &format, ...);
     void fprint(const char *format, ...);
-    void _vprint(const dataObject::String &format, va_list args);
+    dataObject::String _vprint(const dataObject::String &format, va_list args);
     dataObject::String logLevel_str(LogLevel level);
 
     class LogSystem
     {
     private:
+        enum Format_type
+        {
+            FT_STR,
+            FT_LEVEL,
+            FT_MESSAGE
+        };
+        struct Format
+        {
+            Format_type type;
+            dataObject::String data;
+            const char *getLog() const { return "Unknown"; }
+        };
         fileSystem::File *_file;
         LogLevel _log_level;
+        dataObject::List<Format> _formatter;
 
         // メゾット
+        dataObject::String _generatePrintText(dataObject::String &&msg);
         void _init();
+        void _setLoglevelText(LogLevel log_level);
 
     public:
         LogSystem();
         LogSystem(const char *file_name);
         ~LogSystem();
         void setFile(const char *file_name);
+        void setFormat(const char* format);
+        void setFormat(const dataObject::String &format);
         void setLevel(LogLevel log_level);
-        int print(LogLevel log_level, const dataObject::String &format, ...);
+        int fprint(LogLevel log_level, const dataObject::String &format, ...);
         template <class... Args>
-        void test(LogLevel log_level, Args &...args);
+        void print(LogLevel log_level, Args &&...args);
     };
 
     class PrintSystem
@@ -50,8 +67,10 @@ namespace logSystem
     private:
         dataObject::List<dataObject::String> *_text_list;
         template <class T>
-        void _convertTypes(const T &data);
+        void _convertTypes(T &data);
         void _extractStr() {}
+        template <class... TailClass>
+        void _extractStr(dataObject::DataObject &&head, TailClass &...tail);
         template <class... TailClass>
         void _extractStr(const dataObject::DataObject &head, TailClass &...tail);
         template <class... TailClass>
@@ -67,6 +86,7 @@ namespace logSystem
         template <class... Args>
         PrintSystem(const Args &...args);
         ~PrintSystem() { delete _text_list; }
+        dataObject::String getPrintStr();
         void print(void);
     };
 

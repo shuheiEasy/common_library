@@ -19,10 +19,13 @@ void logSystem::fprint(const String &format, ...)
     va_start(args, format);
 
     // 出力
-    _vprint(format, args);
+    String print_text = _vprint(format, args);
 
     // 解析終了
     va_end(args);
+
+    // 出力
+    printf("%s\n", print_text.getChar());
 }
 
 void logSystem::fprint(const char *format_char, ...)
@@ -34,13 +37,16 @@ void logSystem::fprint(const char *format_char, ...)
     va_start(args, format_char);
 
     // 出力
-    _vprint(String(format_char), args);
+    String print_text = _vprint(String(format_char), args);
 
     // 解析終了
     va_end(args);
+
+    // 出力
+    printf("%s\n", print_text.getChar());
 }
 
-void logSystem::_vprint(const String &format, va_list args)
+dataObject::String logSystem::_vprint(const String &format, va_list args)
 {
     // 変数
     String format_str = format;
@@ -58,8 +64,7 @@ void logSystem::_vprint(const String &format, va_list args)
     }
     print_text += format_list[-1];
 
-    // 出力
-    printf("%s", print_text.getChar());
+    return print_text;
 }
 
 String logSystem::logLevel_str(LogLevel level)
@@ -125,27 +130,111 @@ void LogSystem::setFile(const char *file_name)
     _file = new TextFile(file_name);
 }
 
+void LogSystem::setFormat(const char* format){
+    setFormat(String(format));
+}
+
+void LogSystem::setFormat(const dataObject::String &format)
+{
+    enum _State
+    {
+        _TEXT,
+        _TYPE
+    };
+    String buffer_str = "";
+    Format buffer_format;
+    int positon = 0;
+    _State state = _TEXT;
+    _formatter.clear();
+    while (positon < format.getSize())
+    {
+        switch (state)
+        {
+        case _TEXT:
+            if (format[positon] == "%")
+            {
+                if (positon + 1 < format.getSize())
+                {
+                    if (format[positon + 1] == "(")
+                    {
+                        buffer_format.data = buffer_str;
+                        buffer_format.type = FT_STR;
+                        _formatter.append(buffer_format);
+                        state = _TYPE;
+                        buffer_str = "";
+                        positon++;
+                    }
+                    else
+                    {
+                        buffer_str += format[positon];
+                    }
+                }
+                else
+                {
+                    buffer_str += format[positon];
+                }
+            }
+            else
+            {
+                buffer_str += format[positon];
+            }
+            break;
+        case _TYPE:
+            if (format[positon] == ")")
+            {
+                Bool append_flag = false;
+                if (buffer_str == "levelname")
+                {
+                    buffer_format.data = "";
+                    buffer_format.type = FT_LEVEL;
+                    append_flag = true;
+                }
+                else if (buffer_str == "message")
+                {
+                    buffer_format.data = "";
+                    buffer_format.type = FT_MESSAGE;
+                    append_flag = true;
+                }
+                if (append_flag)
+                {
+                    _formatter.append(buffer_format);
+                }
+                state = _TEXT;
+                buffer_str = "";
+            }
+            else
+            {
+                buffer_str += format[positon];
+            }
+            break;
+        }
+        positon++;
+    }
+    buffer_format.data = buffer_str;
+    buffer_format.type = FT_STR;
+    _formatter.append(buffer_format);
+}
+
 void LogSystem::setLevel(LogLevel log_level)
 {
     _log_level = log_level;
 }
 
-int LogSystem::print(LogLevel log_level, const dataObject::String &format, ...)
+int LogSystem::fprint(LogLevel log_level, const dataObject::String &format, ...)
 {
     if (log_level <= _log_level)
     {
         return -1;
     }
 
-    String print_fromat = "[";
-    print_fromat += logLevel_str(log_level);
-    print_fromat += "] ";
-    print_fromat += format;
+    _setLoglevelText(log_level);
 
     va_list args;
     va_start(args, format);
-    logSystem::_vprint(print_fromat, args);
+    String print_text = _generatePrintText(logSystem::_vprint(format, args));
     va_end(args);
+
+    printf("%s", print_text.getChar());
 
     return 0;
 }
@@ -155,11 +244,43 @@ int LogSystem::print(LogLevel log_level, const dataObject::String &format, ...)
 // private
 //
 /////////////////////////////////////////////////
+String LogSystem::_generatePrintText(dataObject::String &&msg)
+{
+    for (int i = 0; i < this->_formatter.getSize(); i++)
+    {
+        if (this->_formatter.get(i).type == FT_MESSAGE)
+        {
+            this->_formatter[i].data = msg;
+        }
+    }
+    String ret = "";
+    for (int i = 0; i < this->_formatter.getSize(); i++)
+    {
+        ret += this->_formatter[i].data;
+        if (this->_formatter.get(i).type != FT_STR)
+        {
+            this->_formatter[i].data = "";
+        }
+    }
+    return ret;
+}
 
 void LogSystem::_init()
 {
     _file = NULL;
     _log_level = WARNING;
+    setFormat("[%(levelname)] %(message) \n");
+}
+
+void LogSystem::_setLoglevelText(LogLevel log_level)
+{
+    for (int i = 0; i < this->_formatter.getSize(); i++)
+    {
+        if (this->_formatter.get(i).type == FT_LEVEL)
+        {
+            this->_formatter[i].data = logLevel_str(log_level);
+        }
+    }
 }
 
 /////////////////////////////////////////////////
@@ -168,12 +289,18 @@ void LogSystem::_init()
 //
 /////////////////////////////////////////////////
 
-void PrintSystem::print(void)
+dataObject::String PrintSystem::getPrintStr()
 {
-    String print_text="";
+    String print_text = "";
     for (int i = 0; i < _text_list->getSize(); i++)
     {
         print_text += _text_list->get(i);
     }
+    return print_text;
+}
+
+void PrintSystem::print()
+{
+    String print_text = getPrintStr();
     printf("%s\n", print_text.getLog());
 }
