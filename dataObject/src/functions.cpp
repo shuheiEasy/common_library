@@ -1,8 +1,9 @@
 #include <dataObject/dataObject.hpp>
 
-int dataObject::len(DataObject &data)
+dataObject::Int dataObject::len(DataObject &data)
 {
-    return data.getSize();
+    Int ret = data.getSize();
+    return ret;
 }
 
 dataObject::String dataObject::type(DataObject &data)

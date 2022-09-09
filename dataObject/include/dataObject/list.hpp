@@ -5,442 +5,78 @@
 
 namespace dataObject
 {
-
     template <class DATATYPE>
-    struct Node
+    struct _Node
     {
-        DATATYPE data;
-        Node *prev;
-        Node *next;
+        DATATYPE *data;
+        _Node *prev;
+        _Node *next;
     };
 
     template <class T>
     class List : public None
     {
     private:
-        Node<T> *_data;
-        Node<T> *_tail;
-        int _length;
+        // メンバ変数
 
-        inline void _append(Node<T> *&n_ptr, const T data)
-        {
-            Node<T> *tmp = (Node<T> *)malloc(sizeof(Node<T>));
+        // データの先頭
+        _Node<T> *_head;
+        _Node<T> *_tail;
 
-            if (tmp != NULL)
-            {
-                tmp->data = data;
-                tmp->next = _tail;
-                tmp->prev = n_ptr;
-                n_ptr->next = tmp;
-                _tail->prev = tmp;
-                _length++;
-            }
-            else
-            {
-                printf("失敗\n");
-            }
-        }
-        inline T *_at(int id) const
-        {
-            if (id < _length)
-            {
-                Node<T> *ptr;
-                if (id < 0)
-                {
-                    ptr = _get_ptr(id - 1);
-                }
-                else
-                {
-                    ptr = _get_ptr(id);
-                }
-                return &(ptr->data);
-            }
-            return NULL;
-        }
-        inline T *_at_change(int id)
-        {
-            if (id < _length)
-            {
-                Node<T> *ptr;
-                if (id < 0)
-                {
-                    ptr = _get_ptr_change(id - 1);
-                }
-                else
-                {
-                    ptr = _get_ptr_change(id);
-                }
-                return &(ptr->data);
-            }
-            return NULL;
-        }
-        inline int _del(int start, int length)
-        {
-            // 長過ぎるとき
-            if (length >= _length)
-            {
-                _free();
-                return -1;
-            }
-
-            // 削除開始地点
-            Node<T> *remove_node;
-            if (start < 0)
-            {
-                remove_node = _get_ptr(start - 1);
-            }
-            else
-            {
-                remove_node = _get_ptr(start);
-            }
-
-            // 削除
-            if (remove_node != _data)
-            {
-                Node<T> *p_ptr = remove_node->prev;
-                Node<T> *n_ptr = remove_node;
-                for (int i = 0; i < length; i++)
-                {
-                    Node<T> *tmp = n_ptr;
-                    n_ptr = n_ptr->next;
-                    if (n_ptr == _tail)
-                    {
-                        p_ptr->next = _tail;
-                        _tail->prev = p_ptr;
-                        _length--;
-                        free(tmp);
-                        break;
-                    }
-                    else
-                    {
-                        p_ptr->next = n_ptr;
-                        n_ptr->prev = p_ptr;
-                        _length--;
-                        free(tmp);
-                    }
-                }
-            }
-            else
-            {
-                Node<T> *n_ptr = remove_node;
-                for (int i = 0; i < length; i++)
-                {
-                    Node<T> *tmp = n_ptr;
-                    n_ptr = n_ptr->next;
-                    free(tmp);
-                    _length--;
-                }
-                _data = n_ptr;
-            }
-            return 0;
-        }
-        inline Node<T> *_get_ptr(int id) const
-        {
-            Node<T> *ptr;
-            if (id < 0)
-            {
-                ptr = _tail;
-                for (int i = -1; i > id; i--)
-                {
-                    // 安全装置
-                    if (ptr->prev == NULL)
-                    {
-                        break;
-                    }
-                    ptr = ptr->prev;
-                }
-            }
-            else
-            {
-                ptr = _data;
-                for (int i = 0; i < id; i++)
-                {
-                    // 安全装置
-                    if (ptr->next == NULL)
-                    {
-                        break;
-                    }
-                    ptr = ptr->next;
-                }
-            }
-            return ptr;
-        }
-        inline Node<T> *_get_ptr_change(int id)
-        {
-            Node<T> *ptr;
-            if (id < 0)
-            {
-                ptr = _tail;
-                for (int i = -1; i > id; i--)
-                {
-                    // 安全装置
-                    if (ptr->prev == NULL)
-                    {
-                        break;
-                    }
-                    ptr = ptr->prev;
-                }
-            }
-            else
-            {
-                ptr = _data;
-                for (int i = 0; i < id; i++)
-                {
-                    // 安全装置
-                    if (ptr->next == NULL)
-                    {
-                        break;
-                    }
-                    ptr = ptr->next;
-                }
-            }
-            return ptr;
-        }
-        inline void _insert(Node<T> *ptr, const T data)
-        {
-            Node<T> *tmp = (Node<T> *)malloc(sizeof(Node<T>));
-            if (tmp != NULL)
-            {
-                tmp->data = data;
-
-                if (ptr == _data)
-                {
-                    tmp->next = ptr;
-                    tmp->prev = NULL;
-                    ptr->prev = tmp;
-                    _data = tmp;
-                }
-                else
-                {
-                    tmp->next = ptr;
-                    tmp->prev = ptr->prev;
-                    ptr->prev = tmp;
-                    Node<T> *p_ptr = tmp->prev;
-                    p_ptr->next = tmp;
-                }
-
-                _length++;
-            }
-            else
-            {
-                printf("失敗\n");
-            }
-        }
-        inline void _malloc(const T data)
-        {
-            _data = (Node<T> *)malloc(sizeof(Node<T>));
-            _tail = (Node<T> *)malloc(sizeof(Node<T>));
-
-            if ((_data != NULL) && (_tail != NULL))
-            {
-                _data->data = data;
-                _data->prev = NULL;
-                _data->next = _tail;
-                _tail->prev = _data;
-                _tail->next = NULL;
-
-                _length++;
-            }
-        }
-        inline void _free()
-        {
-            if (_length > 0)
-            {
-                Node<T> *ptr = _tail;
-                while (ptr != _data)
-                {
-                    Node<T> *tmp = ptr;
-                    ptr = tmp->prev;
-                    if (tmp != NULL)
-                    {
-                        free(tmp);
-                        tmp = NULL;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                if (_data != NULL)
-                {
-                    free(_data);
-                    _data = NULL;
-                }
-                _length = 0;
-            }
-        }
+        // メモリー削除
+        void _del(_Node<T> *start, _Node<T> *end);
+        // 解放
+        void _free();
+        // 初期化
+        void _init();
+        // メモリー確保
+        void _malloc(_Node<T> *&tmp, _Node<T> *&prev, _Node<T> *&next);
+        // メモリー確保(ラッパー関数)
+        void _new(_Node<T> *prev, int memory_size = 1);
+        // 探索
+        void _search(_Node<T> *&ptr, int id) const;
 
     public:
-        List()
-        {
-            _data = NULL;
-            _tail = NULL;
-            _length = 0;
-        }
-        List(const List<T> &list)
-        {
-            _data = NULL;
-            _tail = NULL;
-            _length = 0;
-
-            this->extend(list);
-        }
-        ~List()
-        {
-            _free();
-        }
-        inline void append(const T &data)
-        {
-            if (_length == 0)
-            {
-                _malloc(data);
-            }
-            else
-            {
-                Node<T> *ptr = _get_ptr(this->_length - 1);
-                _append(ptr, data);
-            }
-        }
-        inline int count(const T &data)
-        {
-            Node<T> *ptr = _data;
-            int ret = 0;
-            for (int i = 0; i < _length; i++)
-            {
-                if (ptr->data == data)
-                {
-                    ret++;
-                }
-                ptr = ptr->next;
-            }
-            return ret;
-        }
-        inline void clear() { _free(); }
-        inline void del(int id)
-        {
-            _del(id, 1);
-        }
-        inline void del(int id, int length)
-        {
-            if (length < 0)
-            {
-                Node<T> *ptr;
-                int start;
-                int checked_length = 1;
-                if (id < 0)
-                {
-                    ptr = _get_ptr(id - 1);
-                    start = id + 1;
-                }
-                else
-                {
-                    ptr = _get_ptr(id);
-                    start = id;
-                }
-
-                for (int i = 0; i > length; i--)
-                {
-                    if (ptr->prev == NULL)
-                    {
-                        break;
-                    }
-                    ptr = ptr->prev;
-                    start--;
-                    checked_length++;
-                }
-                _del(start, checked_length);
-            }
-            else
-            {
-                _del(id, length);
-            }
-        }
-        inline void extend(const List<T> &list)
-        {
-            for (int i = 0; i < list.getSize(); i++)
-            {
-                append(list.get(i));
-            }
-        }
-        inline T get(int id) const
-        {
-            return *_at(id);
-        }
+        // データの追加
+        void append(const T &data);
+        // データのポインター取得
+        T *at(int id);
+        // 全削除
+        void clear();
+        // 計測
+        int count(const T &data);
+        // 削除
+        void del(int start);
+        // 削除
+        void del(int start, int end);
+        // 拡張
+        void extend(const List<T> &list);
+        // データ取得
+        T get(int id) const;
+        // 出力
         const char *getLog() const;
-        inline int getSize() const { return this->_length; }
-        inline int getSize() { return this->_length; }
-        inline const char *getType() const { return "List"; }
-        inline const char *getType() { return "List"; }
-        inline int index(const T data)
-        {
-            Node<T> *ptr = _data;
-            for (int i = 0; i < _length; i++)
-            {
-                if (ptr->data == data)
-                {
-                    return i;
-                }
-                ptr = ptr->next;
-            }
-            return -1;
-        }
-        inline void insert(const int id, const T &data)
-        {
-            _insert(_get_ptr(id), data);
-        }
-        inline T operator[](const int id)
-        {
-            return *(this->_at_change(id));
-        }
-        inline List<T> &operator=(const List<T> &list)
-        {
-            clear();
-            this->extend(list);
-            return *this;
-        }
-        inline List<T> &operator+=(const T &data)
-        {
-            append(data);
-            return *this;
-        }
-        inline List<T> &operator+=(const List<T> &list)
-        {
-            extend(list);
-            return *this;
-        }
-        inline List<T> slice(int start, int length)
-        {
-            List<T> ret;
-
-            // 探索開始地点
-            Node<T> *node_ptr;
-            if (start < 0)
-            {
-                node_ptr = _get_ptr(start - 1);
-            }
-            else
-            {
-                node_ptr = _get_ptr(start);
-            }
-
-            // 取得
-            for (int i = 0; i < length; i++)
-            {
-                ret.append(node_ptr->data);
-                if (node_ptr->next == _tail)
-                {
-                    break;
-                }
-                else
-                {
-                    node_ptr = node_ptr->next;
-                }
-            }
-
-            return ret;
-        }
+        // サイズ取得
+        int getSize() const;
+        // 形式取得
+        const char *getType() const;
+        // 要素の位置取得
+        int index(const T &data,int count=1);
+        // 挿入
+        void insert(const int id, const T &data);
+        // コンストラクタ
+        List() { _init(); }
+        List(const List<T> &list);
+        ~List() { _free(); }
+        // オペレータ(添字演算子)
+        T &operator[](const int id);
+        // オペレータ(代入演算子)
+        List<T> &operator=(const List<T> &list);
+        // オペレータ(複合代入演算子)
+        List<T> &operator+=(const T &data);
+        List<T> &operator+=(const List<T> &list);
+        // スライス
+        List<T> slice(int start, int length);
     };
-
 }
 
 #endif

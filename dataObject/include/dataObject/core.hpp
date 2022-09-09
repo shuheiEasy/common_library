@@ -19,6 +19,7 @@ namespace dataObject
     };
 
     class None : public DataObject{
+        public:
         const char *getType() const { return "None"; }
         int getSize() const { return 0; }
         const char *getLog() const { return "None"; }

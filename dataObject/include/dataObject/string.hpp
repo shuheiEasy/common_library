@@ -2,7 +2,7 @@
 #define STRING_H
 
 #include <dataObject/core.hpp>
-#include <dataObject/list.hpp>
+#include <dataObject/list_impl.hpp>
 
 namespace dataObject
 {
@@ -97,6 +97,10 @@ namespace dataObject
     inline String toString(T &a)
     {
         return "";
+    }
+    inline String toString(const char *a)
+    {
+        return String(a);
     }
     inline String toString(String &a)
     {
