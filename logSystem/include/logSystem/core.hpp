@@ -38,7 +38,6 @@ namespace logSystem
         {
             Format_type type;
             dataObject::String data;
-            const char *getLog() const { return "Unknown"; }
         };
         fileSystem::File *_file;
         LogLevel _log_level;
