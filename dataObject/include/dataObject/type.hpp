@@ -62,31 +62,24 @@ namespace dataObject
     template <class T>
     const char *List<T>::getLog() const
     {
-        Type<T> buf;
-        ClassType check = buf.class_id;
-        if (check == DATATYPE_CLASS)
+        _Node<T> *ptr = _head->next;
+        String ret = "[ ";
+
+        while (ptr != _tail)
         {
-            _Node<T> *ptr = _head->next;
-            String ret = "[ ";
+            String tmp = toString(ptr->data);
 
-            while (ptr != _tail)
+            if (ptr != _head->next)
             {
-                String tmp = toString(ptr->data->getLog());
-
-                if (ptr != _head->next)
-                {
-                    ret += ", ";
-                }
-                ret += tmp;
-                ptr = ptr->next;
+                ret += ", ";
             }
-
-            ret += " ]";
-
-            return ret.getChar();
+            ret += tmp;
+            ptr = ptr->next;
         }
 
-        return "";
+        ret += " ]";
+
+        return ret.getChar();
     }
 }
 #endif

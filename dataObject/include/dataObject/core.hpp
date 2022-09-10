@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <locale.h>
 
+#include <type_traits>
+
 #define LANGUAGECODE "ja_JP.UTF-8"
 
 namespace dataObject
@@ -18,8 +20,9 @@ namespace dataObject
         virtual const char *getLog() const { return "None"; }
     };
 
-    class None : public DataObject{
-        public:
+    class None : public DataObject
+    {
+    public:
         const char *getType() const { return "None"; }
         int getSize() const { return 0; }
         const char *getLog() const { return "None"; }
@@ -39,6 +42,18 @@ namespace dataObject
     public:
         ClassType class_id;
         Type() { class_id = ANYTYPE_CLASS; }
+    };
+
+    template <class TYPE>
+    class ClassCheck
+    {
+        template <class tInnerClass, int dummy = (&tInnerClass::getLog, 0)>
+        static const char *check(tInnerClass arg){return arg.getLog();}
+        static const char *check(...){return "arg.getLog()";}
+        static TYPE *mClass;
+
+    public:
+        static constexpr const char *value = decltype(check(mClass))::value;
     };
 }
 
