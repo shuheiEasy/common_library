@@ -8,16 +8,6 @@
 
 #include <dataObject/dataObject.hpp>
 
-#ifdef __linux__
-#define OSTYPE "LINUX"
-#elif _WIN32
-#define OSTYPE "WINDOWS"
-#elif _WIN64
-#define OSTYPE "WINDOWS"
-#else
-#define OSTYPE "OTHER"
-#endif
-
 namespace fileSystem
 {
     enum FileType

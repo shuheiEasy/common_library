@@ -10,6 +10,16 @@
 
 #define LANGUAGECODE "ja_JP.UTF-8"
 
+#ifdef __linux__
+#define OSTYPE "LINUX"
+#elif _WIN32
+#define OSTYPE "WINDOWS"
+#elif _WIN64
+#define OSTYPE "WINDOWS"
+#else
+#define OSTYPE "OTHER"
+#endif
+
 namespace dataObject
 {
     class DataObject
@@ -48,8 +58,8 @@ namespace dataObject
     class ClassCheck
     {
         template <class tInnerClass, int dummy = (&tInnerClass::getLog, 0)>
-        static const char *check(tInnerClass arg){return arg.getLog();}
-        static const char *check(...){return "arg.getLog()";}
+        static const char *check(tInnerClass arg) { return arg.getLog(); }
+        static const char *check(...) { return "arg.getLog()"; }
         static TYPE *mClass;
 
     public:
