@@ -19,7 +19,7 @@ namespace logSystem
 
     // 関数
     template <class... Args>
-    void print(Args &...args);
+    void print(const Args &...args);
     void fprint(const dataObject::String &format, ...);
     void fprint(const char *format, ...);
     dataObject::String _vprint(const dataObject::String &format, va_list args);
