@@ -105,12 +105,17 @@ namespace dataObject
         return String(text.getLog());
     }
     template <class T>
+    inline String toString(T &text, typename std::enable_if<std::is_same<DataObject, T>::value>::type * = nullptr)
+    {
+        return String(text.getLog());
+    }
+    template <class T>
     inline String toString(const T &num, typename std::enable_if<std::is_arithmetic<T>::value>::type * = nullptr)
     {
         return String(num);
     }
     template <class T>
-    inline String toString(const T &text, typename std::enable_if<!std::is_arithmetic<T>::value>::type * = nullptr)
+    inline String toString(const T &text, typename std::enable_if<!std::is_arithmetic<T>::value&&!std::is_base_of<DataObject, T>::value>::type * = nullptr)
     {
         return "";
     }
