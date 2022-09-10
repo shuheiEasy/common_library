@@ -93,32 +93,39 @@ namespace dataObject
     };
 
     // String型変換
-    template <class T,int dummy=(&T::getLog, 0)>
+    template <class T, int dummy = (&T::getLog, 0)>
     inline String toString(T *&text)
     {
         return String(text->getLog());
     }
-    
+
     template <class T>
-    inline String toString(T &text, typename std::enable_if<std::is_base_of<DataObject,T>::value>::type* = nullptr)
+    inline String toString(T &text, typename std::enable_if<std::is_base_of<DataObject, T>::value>::type * = nullptr)
     {
         return String(text.getLog());
     }
     template <class T>
-    inline String toString(const T &num, typename std::enable_if<std::is_arithmetic<T>::value>::type* = nullptr)
+    inline String toString(const T &num, typename std::enable_if<std::is_arithmetic<T>::value>::type * = nullptr)
     {
         return String(num);
     }
     template <class T>
-    inline String toString(const T &text, typename std::enable_if<!std::is_arithmetic<T>::value>::type* = nullptr)
+    inline String toString(const T &text, typename std::enable_if<!std::is_arithmetic<T>::value>::type * = nullptr)
     {
         return "";
     }
-    // inline String toString(int *&num)
-    // {
-    //     return String(*num);
-    // }
-
+    inline String toString(int *&num)
+    {
+        return String(*num);
+    }
+    inline String toString(float *&num)
+    {
+        return String(*num);
+    }
+    inline String toString(double *&num)
+    {
+        return String(*num);
+    }
     inline String toString(const char *text)
     {
         return String(text);
