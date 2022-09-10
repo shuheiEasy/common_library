@@ -65,21 +65,9 @@ namespace logSystem
     {
     private:
         dataObject::List<dataObject::String> *_text_list;
-        template <class T>
-        void _convertTypes(T &data);
         void _extractStr() {}
-        template <class... TailClass>
-        void _extractStr(dataObject::DataObject &&head, TailClass &...tail);
-        template <class... TailClass>
-        void _extractStr(const dataObject::DataObject &head, TailClass &...tail);
-        template <class... TailClass>
-        void _extractStr(const int &head, TailClass &...tail);
-        template <class... TailClass>
-        void _extractStr(const float &head, TailClass &...tail);
-        template <class... TailClass>
-        void _extractStr(const double &head, TailClass &...tail);
-        template <class... TailClass>
-        void _extractStr(const char *head, TailClass &...tail);
+        template <class HeadClass, class... TailClass>
+        void _extractStr(const HeadClass &head, TailClass &...tail);
 
     public:
         template <class... Args>

@@ -6,6 +6,7 @@ set(PARENT_PROJECT_NAME common_library)
 set(INCLUDE_DIR include)
 include_directories(${INCLUDE_DIR})
 include_directories(../dataObject/include)
+include_directories(../timeSystem/include)
 include_directories(../fileSystem/include)
 
 # # C++ファイル取得
@@ -17,6 +18,7 @@ add_library(${PARENT_PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 # リンク呼び出し
 target_link_libraries(${PROJECT_NAME} common_library::dataObject)
+target_link_libraries(${PROJECT_NAME} common_library::timeSystem)
 target_link_libraries(${PROJECT_NAME} common_library::fileSystem)
 
 # ヘッダー
