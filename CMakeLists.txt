@@ -6,6 +6,7 @@ project(common_library CXX)
 
 # サブプロジェクト設定
 add_subdirectory(dataObject)
+add_subdirectory(timeSystem)
 add_subdirectory(fileSystem)
 add_subdirectory(logSystem)
 
