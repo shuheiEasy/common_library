@@ -3,11 +3,11 @@
 using namespace dataObject;
 using namespace timeSystem;
 
-int Time::day() const { return _day; }
-int Time::hour() const { return _hour; }
-int Time::minute() const { return _minute; }
-int Time::second() const { return _second; }
-int Time::millisec() const { return _millisec; }
+Int Time::day() const { return Int(_day); }
+Int Time::hour() const { return Int(_hour); }
+Int Time::minute() const { return Int(_minute); }
+Int Time::second() const { return Int(_second); }
+Int Time::millisec() const { return Int(_millisec); }
 
 const char *Time::getType() const { return "Time"; }
 int Time::getSize() const { return 1; }

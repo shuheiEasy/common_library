@@ -22,11 +22,11 @@ namespace timeSystem
         void _converter(int day, int hour, int minute, int second, int millisec);
 
     public:
-        int day() const;
-        int hour() const;
-        int minute() const;
-        int second() const;
-        int millisec() const;
+        dataObject::Int day() const;
+        dataObject::Int hour() const;
+        dataObject::Int minute() const;
+        dataObject::Int second() const;
+        dataObject::Int millisec() const;
         const char *getType() const;
         int getSize() const;
         const char *getLog() const;
