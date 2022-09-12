@@ -130,7 +130,8 @@ void LogSystem::setFile(const char *file_name)
     _file = new TextFile(file_name);
 }
 
-void LogSystem::setFormat(const char* format){
+void LogSystem::setFormat(const char *format)
+{
     _formatter.setFormat(format);
 }
 
@@ -170,7 +171,15 @@ int LogSystem::fprint(LogLevel log_level, const dataObject::String &format, ...)
 /////////////////////////////////////////////////
 String LogSystem::_generatePrintText(dataObject::String &&msg)
 {
-    _formatter.setData("message",msg.getChar());
+    _formatter.setData("message", msg.getChar());
+    _datetime.now();
+    _formatter.setData("year", String(_datetime.year()));
+    _formatter.setData("month", String(_datetime.month()));
+    _formatter.setData("day", String(_datetime.day()));
+    _formatter.setData("hour", String(_datetime.hour()));
+    _formatter.setData("min", String(_datetime.minute()));
+    _formatter.setData("sec", String(_datetime.second()));
+    _formatter.setData("msec", String(_datetime.millisec()));
     return _formatter.generateText();
 }
 
@@ -178,12 +187,12 @@ void LogSystem::_init()
 {
     _file = NULL;
     _log_level = WARNING;
-    setFormat("[${levelname}] ${message}\n");
+    setFormat("${year}-${month}-${day} ${hour}:${min}:${sec},${msec} [${levelname}] ${message}\n");
 }
 
 void LogSystem::_setLoglevelText(LogLevel log_level)
 {
-    _formatter.setData("levelname",logLevel_str(log_level));
+    _formatter.setData("levelname", logLevel_str(log_level));
 }
 
 /////////////////////////////////////////////////

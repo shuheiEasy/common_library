@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <dataObject/dataObject.hpp>
 #include <formatter/formatter.hpp>
+#include <timeSystem/timeSystem.hpp>
 #include <fileSystem/fileSystem.hpp>
 
 namespace logSystem
@@ -32,6 +33,7 @@ namespace logSystem
         fileSystem::File *_file;
         LogLevel _log_level;
         formatter::Formatter _formatter;
+        timeSystem::Datetime _datetime;
 
         // メゾット
         dataObject::String _generatePrintText(dataObject::String &&msg);
