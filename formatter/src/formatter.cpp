@@ -28,6 +28,10 @@ void Formatter::setData(const char* fornat_type, const char *data){
     setData(String(fornat_type),String(data));
 }
 
+void Formatter::setData(const char *fornat_type, const dataObject::String &data){
+    setData(String(fornat_type),data);
+}
+
 void Formatter::setData(const String &fornat_type, const String &data)
 {
     for (int i = 0; i < _formatter.getSize(); i++)
@@ -40,6 +44,10 @@ void Formatter::setData(const String &fornat_type, const String &data)
             }
         }
     }
+}
+
+void Formatter::setData(const dataObject::String &fornat_type, const char *data){
+    setData(fornat_type,String(data));
 }
 
 void Formatter::setFormat(const char *fornat_text)

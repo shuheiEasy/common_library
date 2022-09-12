@@ -15,13 +15,15 @@ namespace formatter
         };
         dataObject::List<Format> _formatter;
         void _initFormatStruct(Format &f);
-        
+
     public:
         Formatter();
         ~Formatter();
         dataObject::String generateText();
-        void setData(const char* fornat_type, const char *data);
+        void setData(const char *fornat_type, const char *data);
+        void setData(const char *fornat_type, const dataObject::String &data);
         void setData(const dataObject::String &fornat_type, const dataObject::String &data);
+        void setData(const dataObject::String &fornat_type, const char *data);
         void setFormat(const char *fornat_text);
         void setFormat(const dataObject::String &fornat_text);
     };
