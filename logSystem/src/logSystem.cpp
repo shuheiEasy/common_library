@@ -187,7 +187,7 @@ void LogSystem::_init()
 {
     _file = NULL;
     _log_level = WARNING;
-    setFormat("${year}-${month}-${day} ${hour}:${min}:${sec},${msec} [${levelname}] ${message}\n");
+    setFormat("${year}-${month:02}-${day:02} ${hour:02}:${min:02}:${sec:02},${msec:03} [${levelname}] ${message}\n");
 }
 
 void LogSystem::_setLoglevelText(LogLevel log_level)
