@@ -136,7 +136,7 @@ void Formatter::setFormat(const dataObject::String &fornat_text)
                         buffer_format.left_zero = atoi(type_infos[1][1].getChar());
                     }else{
                         buffer_format.left_fill=" ";
-                        buffer_format.left_zero = atoi(type_infos[1][1].getChar());
+                        buffer_format.left_zero = atoi(type_infos[1][0].getChar());
                     }
                 }
                 _formatter.append(buffer_format);
