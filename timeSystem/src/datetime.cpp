@@ -41,11 +41,25 @@ void Datetime::setFormat(const char *format)
     _formatter.setFormat(format);
     _generateText();
 }
-void Datetime::setFormat(const dataObject::String &format)
+void Datetime::setFormat(const String &format)
 {
     _formatter.setFormat(format);
     _generateText();
 }
+
+Int Datetime::year() const { return Int(_year); }
+Int Datetime::month() const { return Int(_month); }
+Int Datetime::day() const { return Int(_day); }
+Int Datetime::hour() const { return Int(_hour); }
+Int Datetime::minute() const { return Int(_minute); }
+Int Datetime::second() const { return Int(_second); }
+Int Datetime::millisec() const { return Int(_millisec); }
+
+//////////////////////////////////
+//
+// private
+//
+//////////////////////////////////
 void Datetime::_converter(int duration)
 {
     _day++;

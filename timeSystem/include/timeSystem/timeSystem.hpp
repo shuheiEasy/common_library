@@ -67,6 +67,13 @@ namespace timeSystem
         void _generateText();
 
     public:
+        dataObject::Int year() const;
+        dataObject::Int month() const;
+        dataObject::Int day() const;
+        dataObject::Int hour() const;
+        dataObject::Int minute() const;
+        dataObject::Int second() const;
+        dataObject::Int millisec() const;
         Datetime();
         ~Datetime();
         const char *getType() const;
