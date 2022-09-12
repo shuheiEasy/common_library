@@ -6,6 +6,7 @@ set(PARENT_PROJECT_NAME common_library)
 set(INCLUDE_DIR include)
 include_directories(${INCLUDE_DIR})
 include_directories(../dataObject/include)
+include_directories(../formatter/include)
 
 # # C++ファイル取得
 file(GLOB_RECURSE source_list "src/*.cpp")
@@ -14,6 +15,7 @@ file(GLOB_RECURSE source_list "src/*.cpp")
 add_library(${PROJECT_NAME} ${source_list})
 add_library(${PARENT_PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 target_link_libraries(${PROJECT_NAME} common_library::dataObject)
+target_link_libraries(${PROJECT_NAME} common_library::formatter)
 
 # ヘッダー
 file(GLOB_RECURSE header_list "${INCLUDE_DIR}/*.hpp")

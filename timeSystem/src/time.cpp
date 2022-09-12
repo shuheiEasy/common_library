@@ -13,17 +13,7 @@ const char *Time::getType() const { return "Time"; }
 int Time::getSize() const { return 1; }
 const char *Time::getLog() const
 {
-    String ret = "";
-    ret += toString(_day);
-    ret += "d ";
-    ret += toString(_hour);
-    ret += ":";
-    ret += toString(_minute);
-    ret += ":";
-    ret += toString(_second);
-    ret += " ";
-    ret += toString(_millisec);
-    return ret.getChar();
+    return _print_text.getChar();
 }
 
 Time &Time::operator+=(const Time &time)
@@ -40,17 +30,25 @@ void Time::now()
     _converter(0, 0, 0, tt, p_mill.count() % 1000);
 }
 
+void Time::setFormat(const char *format)
+{
+    _formatter.setFormat(format);
+    _generateText();
+}
+void Time::setFormat(const dataObject::String &format)
+{
+    _formatter.setFormat(format);
+    _generateText();
+}
+
 Time::Time()
 {
-    _day = 0;
-    _hour = 0;
-    _minute = 0;
-    _second = 0;
-    _millisec = 0;
+    _init();
 }
 
 Time::Time(int day, int hour, int minute, int second, int millisec)
 {
+    _init();
     _converter(day, hour, minute, second, millisec);
 }
 
@@ -71,8 +69,26 @@ void Time::_converter(int day, int hour, int minute, int second, int millisec)
     _hour = (hour + buffer) % 24;
     buffer = int(float(hour + buffer) / 24);
     _day = day + buffer;
+
+    _generateText();
 }
 
+void Time::_generateText()
+{
+    _formatter.setData("day", toString(_day));
+    _formatter.setData("hour", toString(_hour));
+    _formatter.setData("min", toString(_minute));
+    _formatter.setData("sec", toString(_second));
+    _formatter.setData("msec", toString(_millisec));
+
+    _print_text = _formatter.generateText();
+}
+
+void Time::_init()
+{
+    _formatter.setFormat("${day}d ${hour}:${min}:${sec} ${msec}");
+    _converter(0, 0, 0, 0, 0);
+}
 void timeSystem::getTimeZone(int &hour, int &minutes)
 {
     auto result = command("date +\"%z\"");

@@ -3,7 +3,11 @@
 using namespace dataObject;
 using namespace timeSystem;
 
-Datetime::Datetime() { now(); }
+Datetime::Datetime()
+{
+    _formatter.setFormat("${year}年${month}月${day}日 ${hour}時${min}分${sec}秒 ${msec}");
+    now();
+}
 
 Datetime::~Datetime() {}
 
@@ -11,24 +15,7 @@ const char *Datetime::getType() const { return "Datetime"; }
 
 int Datetime::getSize() const { return 1; }
 
-const char *Datetime::getLog() const
-{
-    String ret = "";
-    ret += toString(_year);
-    ret += "年";
-    ret += toString(_month);
-    ret += "月";
-    ret += toString(_day);
-    ret += "日 ";
-    ret += toString(_hour);
-    ret += ":";
-    ret += toString(_minute);
-    ret += ":";
-    ret += toString(_second);
-    ret += " ";
-    ret += toString(_millisec);
-    return ret.getChar();
-}
+const char *Datetime::getLog() const { return _print_text.getChar(); }
 
 void Datetime::now()
 {
@@ -45,8 +32,20 @@ void Datetime::now()
     _minute = _time.minute();
     _second = _time.second();
     _millisec = _time.millisec();
+
+    _generateText();
 }
 
+void Datetime::setFormat(const char *format)
+{
+    _formatter.setFormat(format);
+    _generateText();
+}
+void Datetime::setFormat(const dataObject::String &format)
+{
+    _formatter.setFormat(format);
+    _generateText();
+}
 void Datetime::_converter(int duration)
 {
     _day++;
@@ -113,4 +112,17 @@ void Datetime::_converter(int duration)
     {
         _converter(remain_days);
     }
+}
+
+void Datetime::_generateText()
+{
+    _formatter.setData("year", toString(_year));
+    _formatter.setData("month", toString(_month));
+    _formatter.setData("day", toString(_day));
+    _formatter.setData("hour", toString(_hour));
+    _formatter.setData("min", toString(_minute));
+    _formatter.setData("sec", toString(_second));
+    _formatter.setData("msec", toString(_millisec));
+
+    _print_text = _formatter.generateText();
 }
