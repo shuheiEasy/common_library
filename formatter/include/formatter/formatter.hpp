@@ -12,6 +12,8 @@ namespace formatter
             bool type_flag;
             dataObject::String type;
             dataObject::String data;
+            dataObject::String left_fill;
+            dataObject::Int left_zero;
         };
         dataObject::List<Format> _formatter;
         void _initFormatStruct(Format &f);

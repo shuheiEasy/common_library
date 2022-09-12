@@ -7,29 +7,42 @@ Formatter::Formatter() {}
 
 Formatter::~Formatter() {}
 
-String Formatter::generateText(){
+String Formatter::generateText()
+{
     // 文章作成
     String ret;
-    for(int i=0;i<_formatter.getSize();i++){
-        ret+=_formatter.get(i).data;
+    for (int i = 0; i < _formatter.getSize(); i++)
+    {
+        if (_formatter.get(i).left_zero >= 0)
+        {
+            for (int j = _formatter.get(i).data.getSize(); j < _formatter.get(i).left_zero; j++)
+            {
+                ret += _formatter.get(i).left_fill;
+            }
+        }
+        ret += _formatter.get(i).data;
     }
 
     // データ削除
-    for(int i=0;i<_formatter.getSize();i++){
-        if(_formatter.get(i).type_flag){
-            _formatter[i].data="";
+    for (int i = 0; i < _formatter.getSize(); i++)
+    {
+        if (_formatter.get(i).type_flag)
+        {
+            _formatter[i].data = "";
         }
     }
 
     return ret;
 }
 
-void Formatter::setData(const char* fornat_type, const char *data){
-    setData(String(fornat_type),String(data));
+void Formatter::setData(const char *fornat_type, const char *data)
+{
+    setData(String(fornat_type), String(data));
 }
 
-void Formatter::setData(const char *fornat_type, const dataObject::String &data){
-    setData(String(fornat_type),data);
+void Formatter::setData(const char *fornat_type, const dataObject::String &data)
+{
+    setData(String(fornat_type), data);
 }
 
 void Formatter::setData(const String &fornat_type, const String &data)
@@ -46,8 +59,9 @@ void Formatter::setData(const String &fornat_type, const String &data)
     }
 }
 
-void Formatter::setData(const dataObject::String &fornat_type, const char *data){
-    setData(fornat_type,String(data));
+void Formatter::setData(const dataObject::String &fornat_type, const char *data)
+{
+    setData(fornat_type, String(data));
 }
 
 void Formatter::setFormat(const char *fornat_text)
@@ -110,9 +124,21 @@ void Formatter::setFormat(const dataObject::String &fornat_text)
         case _TYPE:
             if (fornat_text[positon] == "}")
             {
+                List<String> type_infos = buffer_str.split(":");
                 // 追加
-                buffer_format.type = buffer_str;
+                buffer_format.type = type_infos[0];
                 buffer_format.type_flag = true;
+                if (len(type_infos) > 1)
+                {
+                    if (len(type_infos[1]) > 1)
+                    {
+                        buffer_format.left_fill=type_infos[1][0];
+                        buffer_format.left_zero = atoi(type_infos[1][1].getChar());
+                    }else{
+                        buffer_format.left_fill=" ";
+                        buffer_format.left_zero = atoi(type_infos[1][1].getChar());
+                    }
+                }
                 _formatter.append(buffer_format);
                 state = _TEXT;
                 buffer_str = "";
@@ -137,4 +163,6 @@ void Formatter::_initFormatStruct(Format &f)
     f.type_flag = false;
     f.type.clear();
     f.data.clear();
+    f.left_fill.clear();
+    f.left_zero = -1;
 }
