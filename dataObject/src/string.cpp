@@ -5,6 +5,7 @@ using namespace dataObject;
 String::String()
 {
     _init();
+    _setData("", -1);
 }
 
 String::String(const int &data)
