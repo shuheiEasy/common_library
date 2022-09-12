@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 #include <dataObject/dataObject.hpp>
+#include <formatter/formatter.hpp>
 #include <fileSystem/fileSystem.hpp>
 
 namespace logSystem
@@ -28,20 +29,9 @@ namespace logSystem
     class LogSystem
     {
     private:
-        enum Format_type
-        {
-            FT_STR,
-            FT_LEVEL,
-            FT_MESSAGE
-        };
-        struct Format
-        {
-            Format_type type;
-            dataObject::String data;
-        };
         fileSystem::File *_file;
         LogLevel _log_level;
-        dataObject::List<Format> _formatter;
+        formatter::Formatter _formatter;
 
         // メゾット
         dataObject::String _generatePrintText(dataObject::String &&msg);
@@ -53,7 +43,7 @@ namespace logSystem
         LogSystem(const char *file_name);
         ~LogSystem();
         void setFile(const char *file_name);
-        void setFormat(const char* format);
+        void setFormat(const char *format);
         void setFormat(const dataObject::String &format);
         void setLevel(LogLevel log_level);
         int fprint(LogLevel log_level, const dataObject::String &format, ...);
