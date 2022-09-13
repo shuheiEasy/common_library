@@ -18,7 +18,7 @@ const char *Time::getLog() const
 
 Time &Time::operator+=(const Time &time)
 {
-    _converter(_day + time.day(), _hour + time.hour(), _minute + time.hour(), _second + time.hour(), _millisec + time.millisec());
+    _converter(_day + time.day(), _hour + time.hour(), _minute + time.minute(), _second + time.second(), _millisec + time.millisec());
     return *this;
 }
 
@@ -58,17 +58,22 @@ Time::~Time()
 
 void Time::_converter(int day, int hour, int minute, int second, int millisec)
 {
-    int buffer;
+    long long time = day * 24 + hour;
+    time = time * 60 + minute;
+    time = time * 60 + second;
+    time = time * 1000 + millisec;
 
-    _millisec = millisec % 1000;
-    buffer = int(millisec / 1000);
-    _second = (second + buffer) % 60;
-    buffer = int(float(second + buffer) / 60);
-    _minute = (minute + buffer) % 60;
-    buffer = int(float(minute + buffer) / 60);
-    _hour = (hour + buffer) % 24;
-    buffer = int(float(hour + buffer) / 24);
-    _day = day + buffer;
+    long long buffer;
+
+    _millisec = time % 1000;
+    buffer = int(float(time) / 1000.f);
+    _second = buffer % 60;
+    buffer = int(float(buffer) / 60.f);
+    _minute = buffer % 60;
+    buffer = int(float(buffer) / 60.f);
+    _hour = buffer % 24;
+    buffer = int(float(buffer) / 24.f);
+    _day = buffer;
 
     _generateText();
 }
