@@ -24,7 +24,10 @@ namespace timeSystem
         formatter::Formatter _formatter;
         dataObject::String _print_text;
 
+        
         void _converter(int day, int hour, int minute, int second, int millisec);
+        long long _convert2msec(int day, int hour, int minute, int second, int millisec);
+        long long _convert2msec(int day, int hour, int minute, int second, int millisec) const;
         void _init();
         void _generateText();
 
@@ -37,11 +40,22 @@ namespace timeSystem
         const char *getType() const;
         int getSize() const;
         const char *getLog() const;
+        Time &operator=(const Time &time);
+        Time operator+(Time &time);
+        Time operator-(Time &time);
         Time &operator+=(const Time &time);
+        Time &operator-=(const Time &time);
+        dataObject::Bool operator==(const Time &time) const;
+        dataObject::Bool operator!=(const Time &time) const;
+        dataObject::Bool operator<(const Time &time) const;
+        dataObject::Bool operator<=(const Time &time) const;
+        dataObject::Bool operator>(const Time &time) const;
+        dataObject::Bool operator>=(const Time &time) const;
         void now();
         void setFormat(const char *format);
         void setFormat(const dataObject::String &format);
         Time();
+        Time(const Time &time);
         Time(int day, int hour, int minute, int second, int millisec = 0);
         ~Time();
     };

@@ -15,11 +15,100 @@ const char *Time::getLog() const
 {
     return _print_text.getChar();
 }
+Time &Time::operator=(const Time &time)
+{
+    _converter(time.day(), time.hour(), time.minute(), time.second(), time.millisec());
+    return *this;
+}
+Time Time::operator+(Time &time)
+{
+    Time ret(*this);
+    ret += time;
+    return ret;
+}
+Time Time::operator-(Time &time)
+{
+    Time ret(*this);
+    ret -= time;
+    return ret;
+}
 
 Time &Time::operator+=(const Time &time)
 {
     _converter(_day + time.day(), _hour + time.hour(), _minute + time.minute(), _second + time.second(), _millisec + time.millisec());
     return *this;
+}
+Time &Time::operator-=(const Time &time)
+{
+    _converter(_day - time.day(), _hour - time.hour(), _minute - time.minute(), _second - time.second(), _millisec - time.millisec());
+    return *this;
+}
+
+Bool Time::operator==(const Time &time) const
+{
+    long long this_time = _convert2msec(_day, _hour, _minute, _second, _millisec);
+    long long compare_time = _convert2msec(time.day(), time.hour(), time.minute(), time.second(), time.millisec());
+    if (this_time == compare_time)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+Bool Time::operator!=(const Time &time) const { return !(*this == time); }
+Bool Time::operator<(const Time &time) const
+{
+    long long this_time = _convert2msec(_day, _hour, _minute, _second, _millisec);
+    long long compare_time = _convert2msec(time.day(), time.hour(), time.minute(), time.second(), time.millisec());
+    if (this_time < compare_time)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+Bool Time::operator<=(const Time &time) const
+{
+    long long this_time = _convert2msec(_day, _hour, _minute, _second, _millisec);
+    long long compare_time = _convert2msec(time.day(), time.hour(), time.minute(), time.second(), time.millisec());
+    if (this_time <= compare_time)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+Bool Time::operator>(const Time &time) const
+{
+    long long this_time = _convert2msec(_day, _hour, _minute, _second, _millisec);
+    long long compare_time = _convert2msec(time.day(), time.hour(), time.minute(), time.second(), time.millisec());
+    if (this_time > compare_time)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+Bool Time::operator>=(const Time &time) const 
+{
+    long long this_time = _convert2msec(_day, _hour, _minute, _second, _millisec);
+    long long compare_time = _convert2msec(time.day(), time.hour(), time.minute(), time.second(), time.millisec());
+    if (this_time >= compare_time)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void Time::now()
@@ -45,6 +134,10 @@ Time::Time()
 {
     _init();
 }
+Time::Time(const Time &time)
+{
+    _converter(time.day(), time.hour(), time.minute(), time.second(), time.millisec());
+}
 
 Time::Time(int day, int hour, int minute, int second, int millisec)
 {
@@ -58,11 +151,7 @@ Time::~Time()
 
 void Time::_converter(int day, int hour, int minute, int second, int millisec)
 {
-    long long time = day * 24 + hour;
-    time = time * 60 + minute;
-    time = time * 60 + second;
-    time = time * 1000 + millisec;
-
+    long long time = _convert2msec(day, hour, minute, second, millisec);
     long long buffer;
 
     _millisec = time % 1000;
@@ -76,6 +165,24 @@ void Time::_converter(int day, int hour, int minute, int second, int millisec)
     _day = buffer;
 
     _generateText();
+}
+
+long long Time::_convert2msec(int day, int hour, int minute, int second, int millisec)
+{
+    long long time = day * 24 + hour;
+    time = time * 60 + minute;
+    time = time * 60 + second;
+    time = time * 1000 + millisec;
+    return time;
+}
+
+long long Time::_convert2msec(int day, int hour, int minute, int second, int millisec) const
+{
+    long long time = day * 24 + hour;
+    time = time * 60 + minute;
+    time = time * 60 + second;
+    time = time * 1000 + millisec;
+    return time;
 }
 
 void Time::_generateText()
