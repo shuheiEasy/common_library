@@ -3,27 +3,35 @@
 using namespace dataObject;
 using namespace timeSystem;
 
-Int Time::day(const Int &day){
+Int Time::day(const Int &day)
+{
     _converter(day, _hour, _minute, _second, _millisec);
     return Int(_day);
 }
 Int Time::day() const { return Int(_day); }
-Int Time::hour(const Int &hour){
+Int Time::hour(const Int &hour)
+{
     _converter(_day, hour, _minute, _second, _millisec);
     return Int(_hour);
 }
 Int Time::hour() const { return Int(_hour); }
-Int Time::minute(const Int &min)  { 
+Int Time::minute(const Int &min)
+{
     _converter(_day, _hour, min, _second, _millisec);
-    return Int(_minute); }
+    return Int(_minute);
+}
 Int Time::minute() const { return Int(_minute); }
-Int Time::second(const Int &sec)  { 
+Int Time::second(const Int &sec)
+{
     _converter(_day, _hour, _minute, sec, _millisec);
-    return Int(_second); }
+    return Int(_second);
+}
 Int Time::second() const { return Int(_second); }
-Int Time::millisec(const Int &msec) { 
+Int Time::millisec(const Int &msec)
+{
     _converter(_day, _hour, _minute, _second, msec);
-    return Int(_millisec); }
+    return Int(_millisec);
+}
 Int Time::millisec() const { return Int(_millisec); }
 
 const char *Time::getType() const { return "Time"; }
@@ -114,7 +122,7 @@ Bool Time::operator>(const Time &time) const
         return false;
     }
 }
-Bool Time::operator>=(const Time &time) const 
+Bool Time::operator>=(const Time &time) const
 {
     long long this_time = _convert2msec(_day, _hour, _minute, _second, _millisec);
     long long compare_time = _convert2msec(time.day(), time.hour(), time.minute(), time.second(), time.millisec());
@@ -166,25 +174,25 @@ Time::~Time()
 {
 }
 
-void Time::_converter(int day, int hour, int minute, int second, int millisec)
+void Time::_converter(int day, int hour, int minute, long long second, long long millisec)
 {
     long long time = _convert2msec(day, hour, minute, second, millisec);
     long long buffer;
 
     _millisec = time % 1000;
-    buffer = int(float(time) / 1000.f);
+    buffer = time / 1000;
     _second = buffer % 60;
-    buffer = int(float(buffer) / 60.f);
+    buffer = buffer / 60;
     _minute = buffer % 60;
-    buffer = int(float(buffer) / 60.f);
+    buffer = buffer / 60;
     _hour = buffer % 24;
-    buffer = int(float(buffer) / 24.f);
+    buffer = buffer / 24;
     _day = buffer;
 
     _generateText();
 }
 
-long long Time::_convert2msec(int day, int hour, int minute, int second, int millisec)
+long long Time::_convert2msec(int day, int hour, int minute, long long second, long long millisec)
 {
     long long time = day * 24 + hour;
     time = time * 60 + minute;
@@ -193,7 +201,7 @@ long long Time::_convert2msec(int day, int hour, int minute, int second, int mil
     return time;
 }
 
-long long Time::_convert2msec(int day, int hour, int minute, int second, int millisec) const
+long long Time::_convert2msec(int day, int hour, int minute, long long second, long long millisec) const
 {
     long long time = day * 24 + hour;
     time = time * 60 + minute;

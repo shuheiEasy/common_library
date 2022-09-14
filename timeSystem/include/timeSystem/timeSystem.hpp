@@ -25,9 +25,9 @@ namespace timeSystem
         dataObject::String _print_text;
 
         
-        void _converter(int day, int hour, int minute, int second, int millisec);
-        long long _convert2msec(int day, int hour, int minute, int second, int millisec);
-        long long _convert2msec(int day, int hour, int minute, int second, int millisec) const;
+        void _converter(int day, int hour, int minute, long long second, long long millisec);
+        long long _convert2msec(int day, int hour, int minute, long long second, long long millisec);
+        long long _convert2msec(int day, int hour, int minute, long long second, long long millisec) const;
         void _init();
         void _generateText();
 
