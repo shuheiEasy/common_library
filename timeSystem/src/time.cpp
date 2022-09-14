@@ -3,10 +3,27 @@
 using namespace dataObject;
 using namespace timeSystem;
 
+Int Time::day(const Int &day){
+    _converter(day, _hour, _minute, _second, _millisec);
+    return Int(_day);
+}
 Int Time::day() const { return Int(_day); }
+Int Time::hour(const Int &hour){
+    _converter(_day, hour, _minute, _second, _millisec);
+    return Int(_hour);
+}
 Int Time::hour() const { return Int(_hour); }
+Int Time::minute(const Int &min)  { 
+    _converter(_day, _hour, min, _second, _millisec);
+    return Int(_minute); }
 Int Time::minute() const { return Int(_minute); }
+Int Time::second(const Int &sec)  { 
+    _converter(_day, _hour, _minute, sec, _millisec);
+    return Int(_second); }
 Int Time::second() const { return Int(_second); }
+Int Time::millisec(const Int &msec) { 
+    _converter(_day, _hour, _minute, _second, msec);
+    return Int(_millisec); }
 Int Time::millisec() const { return Int(_millisec); }
 
 const char *Time::getType() const { return "Time"; }

@@ -32,10 +32,15 @@ namespace timeSystem
         void _generateText();
 
     public:
+        dataObject::Int day(const dataObject::Int &day);
         dataObject::Int day() const;
+        dataObject::Int hour(const dataObject::Int &hour);
         dataObject::Int hour() const;
+        dataObject::Int minute(const dataObject::Int &min);
         dataObject::Int minute() const;
+        dataObject::Int second(const dataObject::Int &sec);
         dataObject::Int second() const;
+        dataObject::Int millisec(const dataObject::Int &msec);
         dataObject::Int millisec() const;
         const char *getType() const;
         int getSize() const;
