@@ -55,43 +55,50 @@ void Datetime::setFormat(const String &format)
 }
 
 Int Datetime::year() const { return Int(_year); }
-Int Datetime::year(const Int &year){
+Int Datetime::year(const Int &year)
+{
     _converter(year, _month, _day, _hour, _minute, _second, _millisec);
     _generateText();
     return Int(_year);
 }
 Int Datetime::month() const { return Int(_month); }
-Int Datetime::month(const Int &month){
+Int Datetime::month(const Int &month)
+{
     _converter(_year, month, _day, _hour, _minute, _second, _millisec);
     _generateText();
     return Int(_month);
 }
 Int Datetime::day() const { return Int(_day); }
-Int Datetime::day(const Int &day){
+Int Datetime::day(const Int &day)
+{
     _converter(_year, _month, day, _hour, _minute, _second, _millisec);
     _generateText();
     return Int(_day);
 }
 Int Datetime::hour() const { return Int(_hour); }
-Int Datetime::hour(const Int &hour){
+Int Datetime::hour(const Int &hour)
+{
     _converter(_year, _month, _day, hour, _minute, _second, _millisec);
     _generateText();
     return Int(_hour);
 }
 Int Datetime::minute() const { return Int(_minute); }
-Int Datetime::minute(const Int &minute){
+Int Datetime::minute(const Int &minute)
+{
     _converter(_year, _month, _day, _hour, minute, _second, _millisec);
     _generateText();
     return Int(_minute);
 }
 Int Datetime::second() const { return Int(_second); }
-Int Datetime::second(const Int &second){
+Int Datetime::second(const Int &second)
+{
     _converter(_year, _month, _day, _hour, _minute, second, _millisec);
     _generateText();
     return Int(_second);
 }
 Int Datetime::millisec() const { return Int(_millisec); }
-Int Datetime::millisec(const Int &millisec){
+Int Datetime::millisec(const Int &millisec)
+{
     _converter(_year, _month, _day, _hour, _minute, _second, millisec);
     _generateText();
     return Int(_millisec);
@@ -114,12 +121,10 @@ void Datetime::_converter(int year, int month, int day, int hour, int min, int s
 
     if (month < 1)
     {
-        _month = -(month % 12);
-        if (_month == 0)
-        {
-            _month = 12;
-        }
+        _month = 12 + (month % 12);
         _year += (month / 12);
+        _year--;
+        printf("%d!!!\n", (month / 12));
     }
     else if (month > 12)
     {
@@ -127,6 +132,7 @@ void Datetime::_converter(int year, int month, int day, int hour, int min, int s
         if (_month == 0)
         {
             _month = 12;
+            _year--;
         }
         _year += (month / 12);
     }
