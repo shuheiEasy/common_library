@@ -24,7 +24,6 @@ namespace timeSystem
         formatter::Formatter _formatter;
         dataObject::String _print_text;
 
-        
         void _converter(int day, int hour, int minute, long long second, long long millisec);
         long long _convert2msec(int day, int hour, int minute, long long second, long long millisec);
         long long _convert2msec(int day, int hour, int minute, long long second, long long millisec) const;
@@ -73,7 +72,6 @@ namespace timeSystem
         short int _year;
         short int _month;
         short int _day;
-
         short int _hour;
         short int _minute;
         short int _second;
@@ -82,18 +80,27 @@ namespace timeSystem
         formatter::Formatter _formatter;
         dataObject::String _print_text;
 
-        void _converter(int duration);
+        void _converter(int year, int month, int day, int hour, int min, int sec, int msec);
+        void _day2Calendar(int duration);
         void _generateText();
 
     public:
         dataObject::Int year() const;
+        dataObject::Int year(const dataObject::Int &year);
         dataObject::Int month() const;
+        dataObject::Int month(const dataObject::Int &month);
         dataObject::Int day() const;
+        dataObject::Int day(const dataObject::Int &day);
         dataObject::Int hour() const;
+        dataObject::Int hour(const dataObject::Int &hour);
         dataObject::Int minute() const;
+        dataObject::Int minute(const dataObject::Int &minute);
         dataObject::Int second() const;
+        dataObject::Int second(const dataObject::Int &second);
         dataObject::Int millisec() const;
+        dataObject::Int millisec(const dataObject::Int &millisec);
         Datetime();
+        Datetime(int year, int month, int day, int hour, int min, int sec, int msec);
         ~Datetime();
         const char *getType() const;
         int getSize() const;
@@ -103,7 +110,7 @@ namespace timeSystem
         void setFormat(const dataObject::String &format);
     };
 
-    void getTimeZone(int &hour,int &minutes);
+    void getTimeZone(int &hour, int &minutes);
     Time getTimeZone();
 
 }

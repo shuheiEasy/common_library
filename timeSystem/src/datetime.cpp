@@ -9,6 +9,13 @@ Datetime::Datetime()
     now();
 }
 
+Datetime::Datetime(int year, int month, int day, int hour, int min, int sec, int msec)
+{
+    _formatter.setFormat("${year}年${month}月${day}日 ${hour}時${min}分${sec}秒 ${msec}");
+    _converter(year, month, day, hour, min, sec, msec);
+    _generateText();
+}
+
 Datetime::~Datetime() {}
 
 const char *Datetime::getType() const { return "Datetime"; }
@@ -27,7 +34,7 @@ void Datetime::now()
 
     auto timezone = getTimeZone();
     _time += timezone;
-    _converter(_time.day());
+    _day2Calendar(_time.day());
     _hour = _time.hour();
     _minute = _time.minute();
     _second = _time.second();
@@ -48,83 +55,210 @@ void Datetime::setFormat(const String &format)
 }
 
 Int Datetime::year() const { return Int(_year); }
+Int Datetime::year(const Int &year){
+    _converter(year, _month, _day, _hour, _minute, _second, _millisec);
+    _generateText();
+    return Int(_year);
+}
 Int Datetime::month() const { return Int(_month); }
+Int Datetime::month(const Int &month){
+    _converter(_year, month, _day, _hour, _minute, _second, _millisec);
+    _generateText();
+    return Int(_month);
+}
 Int Datetime::day() const { return Int(_day); }
+Int Datetime::day(const Int &day){
+    _converter(_year, _month, day, _hour, _minute, _second, _millisec);
+    _generateText();
+    return Int(_day);
+}
 Int Datetime::hour() const { return Int(_hour); }
+Int Datetime::hour(const Int &hour){
+    _converter(_year, _month, _day, hour, _minute, _second, _millisec);
+    _generateText();
+    return Int(_hour);
+}
 Int Datetime::minute() const { return Int(_minute); }
+Int Datetime::minute(const Int &minute){
+    _converter(_year, _month, _day, _hour, minute, _second, _millisec);
+    _generateText();
+    return Int(_minute);
+}
 Int Datetime::second() const { return Int(_second); }
+Int Datetime::second(const Int &second){
+    _converter(_year, _month, _day, _hour, _minute, second, _millisec);
+    _generateText();
+    return Int(_second);
+}
 Int Datetime::millisec() const { return Int(_millisec); }
+Int Datetime::millisec(const Int &millisec){
+    _converter(_year, _month, _day, _hour, _minute, _second, millisec);
+    _generateText();
+    return Int(_millisec);
+}
 
 //////////////////////////////////
 //
 // private
 //
 //////////////////////////////////
-void Datetime::_converter(int duration)
+void Datetime::_converter(int year, int month, int day, int hour, int min, int sec, int msec)
 {
-    _day++;
-    int remain_days = duration - 1;
-    bool next_month_flag = false;
 
-    switch (_month)
+    if (year < MINYEAR || MAXYEAR < year)
     {
-    case 1:
-    case 3:
-    case 5:
-    case 7:
-    case 8:
-    case 10:
-        if (_day > 31)
+        printf("ERROR! 「year」の値が不正です。\n");
+        exit(1);
+    }
+    _year = year;
+
+    if (month < 1)
+    {
+        _month = -(month % 12);
+        if (_month == 0)
         {
-            next_month_flag = true;
+            _month = 12;
         }
-        break;
-    case 2:
-        if (_year % 4 == 0)
+        _year += (month / 12);
+    }
+    else if (month > 12)
+    {
+        _month = month % 12;
+        if (_month == 0)
         {
-            if (_day > 29)
+            _month = 12;
+        }
+        _year += (month / 12);
+    }
+    else
+    {
+        _month = month;
+    }
+
+    _day = 0;
+    _time = Time(day, hour, min, sec, msec);
+    _day2Calendar(_time.day());
+    _hour = _time.hour();
+    _minute = _time.minute();
+    _second = _time.second();
+    _millisec = _time.millisec();
+}
+
+void Datetime::_day2Calendar(int duration)
+{
+    if (duration > 0)
+    {
+        _day++;
+        int remain_days = duration - 1;
+        bool next_month_flag = false;
+
+        switch (_month)
+        {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+            if (_day > 31)
             {
                 next_month_flag = true;
             }
-        }
-        else
-        {
-            if (_day > 28)
+            break;
+        case 2:
+            if (_year % 4 == 0)
+            {
+                if (_day > 29)
+                {
+                    next_month_flag = true;
+                }
+            }
+            else
+            {
+                if (_day > 28)
+                {
+                    next_month_flag = true;
+                }
+            }
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            if (_day > 30)
             {
                 next_month_flag = true;
             }
+            break;
+        case 12:
+            if (_day > 31)
+            {
+                _month = 1;
+                _day = 1;
+                _year++;
+            }
+            break;
         }
-        break;
-    case 4:
-    case 6:
-    case 9:
-    case 11:
-        if (_day > 30)
+
+        // 次の月へ
+        if (next_month_flag)
         {
-            next_month_flag = true;
-        }
-        break;
-    case 12:
-        if (_day > 31)
-        {
-            _month = 1;
             _day = 1;
-            _year++;
+            _month++;
         }
-        break;
-    }
 
-    // 次の月へ
-    if (next_month_flag)
-    {
-        _day = 1;
-        _month++;
+        // 経過日数が残っているならば
+        if (remain_days > 0)
+        {
+            _day2Calendar(remain_days);
+        }
     }
-
-    // 経過日数が残っているならば
-    if (remain_days > 0)
+    else if (duration < 0)
     {
-        _converter(remain_days);
+        _day--;
+        int remain_days = duration + 1;
+        bool next_month_flag = false;
+
+        if (_day < 1)
+        {
+            _month--;
+            switch (_month)
+            {
+            case 0:
+                _year--;
+                _month = 12;
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+                _day = 31;
+                break;
+            case 2:
+                if (_year % 4 == 0)
+                {
+                    _day = 29;
+                }
+                else
+                {
+                    _day = 28;
+                }
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                _day = 30;
+                break;
+            }
+        }
+
+        // 経過日数が残っているならば
+        if (remain_days < 0)
+        {
+            _day2Calendar(remain_days);
+        }
     }
 }
 
