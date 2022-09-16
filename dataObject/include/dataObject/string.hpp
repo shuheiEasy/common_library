@@ -36,6 +36,7 @@ namespace dataObject
 
     public:
         String();
+        String(const bool &data);
         String(const int &data);
         String(const float &data);
         String(const double &data);
@@ -118,6 +119,14 @@ namespace dataObject
     inline String toString(const T &text, typename std::enable_if<!std::is_arithmetic<T>::value&&!std::is_base_of<DataObject, T>::value>::type * = nullptr)
     {
         return "";
+    }
+    inline String toString(bool &b)
+    {
+        return String(b);
+    }
+    inline String toString(bool *&b)
+    {
+        return String(*b);
     }
     inline String toString(int *&num)
     {
