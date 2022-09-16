@@ -27,7 +27,7 @@ File::File(File &file)
     _file_ptr = NULL;
 }
 
-File::~File() {}
+File::~File() { close(); }
 
 int File::getSize() const
 {
