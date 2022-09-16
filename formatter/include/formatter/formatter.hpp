@@ -25,7 +25,7 @@ namespace formatter
         dataObject::String generateText();
         const char *getType() const { return "Formatter"; }
         int getSize() const { return 1; }
-        const char *getLog() const { return "None"; }
+        const char *getLog() const { return _format_text.getLog(); }
         void setData(const char *fornat_type, const char *data);
         void setData(const char *fornat_type, const dataObject::String &data);
         void setData(const dataObject::String &fornat_type, const dataObject::String &data);

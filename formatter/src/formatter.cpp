@@ -3,7 +3,7 @@
 using namespace dataObject;
 using namespace formatter;
 
-Formatter::Formatter() {}
+Formatter::Formatter() { _format_text = ""; }
 
 Formatter::~Formatter() {}
 
@@ -83,7 +83,7 @@ void Formatter::setFormat(const dataObject::String &format_text)
     // 初期化
     _initFormatStruct(buffer_format);
     _formatter.clear();
-    _format_text=format_text;
+    _format_text = format_text;
 
     // 書式取得
     while (positon < format_text.getSize())
@@ -133,10 +133,12 @@ void Formatter::setFormat(const dataObject::String &format_text)
                 {
                     if (len(type_infos[1]) > 1)
                     {
-                        buffer_format.left_fill=type_infos[1][0];
+                        buffer_format.left_fill = type_infos[1][0];
                         buffer_format.left_zero = atoi(type_infos[1][1].getChar());
-                    }else{
-                        buffer_format.left_fill=" ";
+                    }
+                    else
+                    {
+                        buffer_format.left_fill = " ";
                         buffer_format.left_zero = atoi(type_infos[1][0].getChar());
                     }
                 }
