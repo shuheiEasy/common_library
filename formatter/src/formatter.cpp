@@ -64,11 +64,11 @@ void Formatter::setData(const dataObject::String &fornat_type, const char *data)
     setData(fornat_type, String(data));
 }
 
-void Formatter::setFormat(const char *fornat_text)
+void Formatter::setFormat(const char *format_text)
 {
-    setFormat(String(fornat_text));
+    setFormat(String(format_text));
 }
-void Formatter::setFormat(const dataObject::String &fornat_text)
+void Formatter::setFormat(const dataObject::String &format_text)
 {
     enum _State
     {
@@ -83,18 +83,19 @@ void Formatter::setFormat(const dataObject::String &fornat_text)
     // 初期化
     _initFormatStruct(buffer_format);
     _formatter.clear();
+    _format_text=format_text;
 
     // 書式取得
-    while (positon < fornat_text.getSize())
+    while (positon < format_text.getSize())
     {
         switch (state)
         {
         case _TEXT:
-            if (fornat_text[positon] == "$")
+            if (format_text[positon] == "$")
             {
-                if (positon + 1 < fornat_text.getSize())
+                if (positon + 1 < format_text.getSize())
                 {
-                    if (fornat_text[positon + 1] == "{")
+                    if (format_text[positon + 1] == "{")
                     {
                         // 追加
                         buffer_format.data = buffer_str;
@@ -108,21 +109,21 @@ void Formatter::setFormat(const dataObject::String &fornat_text)
                     }
                     else
                     {
-                        buffer_str += fornat_text[positon];
+                        buffer_str += format_text[positon];
                     }
                 }
                 else
                 {
-                    buffer_str += fornat_text[positon];
+                    buffer_str += format_text[positon];
                 }
             }
             else
             {
-                buffer_str += fornat_text[positon];
+                buffer_str += format_text[positon];
             }
             break;
         case _TYPE:
-            if (fornat_text[positon] == "}")
+            if (format_text[positon] == "}")
             {
                 List<String> type_infos = buffer_str.split(":");
                 // 追加
@@ -146,7 +147,7 @@ void Formatter::setFormat(const dataObject::String &fornat_text)
             }
             else
             {
-                buffer_str += fornat_text[positon];
+                buffer_str += format_text[positon];
             }
             break;
         }
