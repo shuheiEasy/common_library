@@ -49,9 +49,16 @@ namespace dataObject
     template <class TYPE>
     class Type
     {
+    private:
+        template <class T, typename std::enable_if<std::is_base_of<DataObject, T>::value>::type * = nullptr>
+        void check(T *arg) { class_id = DATATYPE_CLASS; }
+        template <class T, typename std::enable_if<!std::is_base_of<DataObject, T>::value>::type * = nullptr>
+        void check(T *arg) { class_id = ANYTYPE_CLASS; }
+
+        TYPE *_inner_class;
     public:
         ClassType class_id;
-        Type() { class_id = ANYTYPE_CLASS; }
+        Type() { check(_inner_class); }
     };
 
     template <class TYPE>

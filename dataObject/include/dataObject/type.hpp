@@ -11,52 +11,12 @@
 namespace dataObject
 {
     // 型判定
-    template <>
-    class Type<Bool>
-    {
-    public:
-        ClassType class_id;
-        Type() { class_id = DATATYPE_CLASS; }
-    };
-
-    template <>
-    class Type<Int>
-    {
-    public:
-        ClassType class_id;
-        Type() { class_id = DATATYPE_CLASS; }
-    };
-
-    template <>
-    class Type<Float>
-    {
-    public:
-        ClassType class_id;
-        Type() { class_id = DATATYPE_CLASS; }
-    };
-
-    template <>
-    class Type<Double>
-    {
-    public:
-        ClassType class_id;
-        Type() { class_id = DATATYPE_CLASS; }
-    };
-
-    template <>
-    class Type<String>
-    {
-    public:
-        ClassType class_id;
-        Type() { class_id = DATATYPE_CLASS; }
-    };
-
     template <class T>
     class Type<List<T>>
     {
     public:
         ClassType class_id;
-        Type() { class_id = DATATYPE_CLASS; }
+        Type() { class_id = LISTTYPE_CLASS; }
     };
 
     template <class T>
