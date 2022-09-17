@@ -1,5 +1,5 @@
 /**
- * @file dataObject.hpp
+ * @file float.hpp
  * @author iijima-robot
  * @brief Floatクラスを宣言するヘッダファイル
  * @date 2022-09-17
