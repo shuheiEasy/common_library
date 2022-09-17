@@ -1,5 +1,5 @@
 /**
- * @file dataObject.hpp
+ * @file functions.hpp
  * @author iijima-robot
  * @brief dataObjectライブラリの関数を宣言するヘッダファイル
  * @date 2022-09-17
