@@ -3,6 +3,7 @@
 
 #include <unistd.h>
 #include <sys/stat.h>
+#include <dirent.h>
 
 #include <string>
 
@@ -47,7 +48,7 @@ namespace fileSystem
         File();
         File(const char *path);
         File(dataObject::String &path);
-        File(File &file);
+        File(const File &file);
         ~File();
         const char *getType() const { return "File"; }
         int getSize() const;
@@ -60,15 +61,15 @@ namespace fileSystem
         // ディレクトリ判定
         dataObject::Bool exists();
         // 拡張子取得
-        dataObject::String getExtension();
+        dataObject::String getExtension() const;
         // ファイルポインター
         FILE *getFilePtr();
         // ファイル形式取得
-        FileType getFileType();
+        FileType getFileType() const;
         // 名前取得
-        dataObject::String getName();
+        dataObject::String getName() const;
         // Path取得
-        dataObject::String getPath();
+        dataObject::String getPath() const;
         // ディレクトリ判定
         dataObject::Bool isdir();
         // ファイル判定
@@ -91,7 +92,7 @@ namespace fileSystem
         // メンバ関数
         TextFile();
         TextFile(const char *path);
-        TextFile(File &file);
+        TextFile(const File &file);
         // TextFile(TextFile &file);
         ~TextFile();
         const char *getType() const { return "TextFile"; }
@@ -126,18 +127,21 @@ namespace fileSystem
         dataObject::Int writelines(dataObject::List<dataObject::String> &text_lines, FileMode mode = APPENDMODE, dataObject::Bool close_flag = true);
     };
 
-    // class FileExplorer
-    // {
-    // private:
-    //     File *_dir;
-    //     std::vector<File> *_file_list;
-    //     void _searchDir(void);
+    class FileExplorer: public dataObject::None
+    {
+    private:
+        File *_dir;
+        dataObject::List<File> *_file_list;
+        int _searchDir(void);
 
-    // public:
-    //     FileExplorer(std::string path);
-    //     ~FileExplorer();
-    //     std::vector<File> *getFileList(void);
-    // };
+    public:
+        FileExplorer(const dataObject::String &path);
+        ~FileExplorer();
+        // dataObject::List *getFileList(void);
+        const char *getLog() const;
+        int getSize() const;
+        const char *getType() const { return "FileExplorer"; }
+    };
 
     // 関数
     dataObject::String getAbsolutePath(dataObject::String &path);
