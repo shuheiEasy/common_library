@@ -8,8 +8,8 @@
  *
  */
 
-#ifndef BOOLEAN_H
-#define BOOLEAN_H
+#ifndef COMMON_DATAOBJECT_BOOLEAN_H
+#define COMMON_DATAOBJECT_BOOLEAN_H
 
 #include <dataObject/string.hpp>
 
@@ -63,23 +63,8 @@ namespace dataObject
          * @return bool型 Bool型が保持する真偽値
          */
         bool getBool() const;
-        /**
-         * @brief クラスの型を取得する関数
-         * 
-         * @return const char*型 ”Bool"と返す。
-         */
         const char *getType() const;
-        /**
-         * @brief Boolクラスの文章出力関数
-         * 
-         * @return const char*型 Bool型の値を出力。
-         */
         const char *getLog() const;
-        /**
-         * @brief Boolクラスの容量取得関数
-         * 
-         * @return int型 1を出力。
-         */
         int getSize() const;
         /**
          * @brief bool型への自動変換関数
