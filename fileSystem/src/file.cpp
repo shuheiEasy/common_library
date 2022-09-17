@@ -17,7 +17,7 @@ File::File(String &path)
     _init(path);
 }
 
-File::File(File &file)
+File::File(const File &file)
 {
     _filetype = file.getFileType();
     _filemode = CLOSEMODE;
@@ -27,7 +27,7 @@ File::File(File &file)
     _file_ptr = NULL;
 }
 
-File::~File() {}
+File::~File() { close(); }
 
 int File::getSize() const
 {
@@ -84,7 +84,7 @@ Bool File::exists()
 }
 
 // 拡張子取得
-String File::getExtension()
+String File::getExtension()  const
 {
     return _extension;
 }
@@ -96,19 +96,19 @@ FILE *File::getFilePtr()
 }
 
 // ファイル形式取得
-FileType File::getFileType()
+FileType File::getFileType() const
 {
     return _filetype;
 }
 
 // 名前取得
-String File::getName()
+String File::getName() const
 {
     return _name;
 }
 
 // 名前取得
-String File::getPath()
+String File::getPath() const
 {
     return _path;
 }

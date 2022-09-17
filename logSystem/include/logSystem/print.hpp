@@ -22,50 +22,13 @@ namespace logSystem
         printf("%s", print_text.getLog());
     }
 
-    template <class T>
-    void PrintSystem::_convertTypes(T &data)
+    template <class HeadClass, class... TailClass>
+    void PrintSystem::_extractStr(const HeadClass &head, TailClass &...tail)
     {
-        _text_list->append(dataObject::String(data));
-    }
-
-    template <class... TailClass>
-    void PrintSystem::_extractStr(dataObject::DataObject &&head, TailClass &...tail)
-    {
-        _text_list->append(dataObject::String(head.getLog()));
-        _extractStr(tail...);
-    }
-    template <class... TailClass>
-    void PrintSystem::_extractStr(const dataObject::DataObject &head, TailClass &...tail)
-    {
-        _text_list->append(dataObject::String(head.getLog()));
+        _text_list->append(dataObject::toString(head));
         _extractStr(tail...);
     }
 
-    template <class... TailClass>
-    void PrintSystem::_extractStr(const int &head, TailClass &...tail)
-    {
-        _convertTypes(head);
-        _extractStr(tail...);
-    }
-
-    template <class... TailClass>
-    void PrintSystem::_extractStr(const float &head, TailClass &...tail)
-    {
-        _convertTypes(head);
-        _extractStr(tail...);
-    }
-    template <class... TailClass>
-    void PrintSystem::_extractStr(const double &head, TailClass &...tail)
-    {
-        _convertTypes(head);
-        _extractStr(tail...);
-    }
-    template <class... TailClass>
-    void PrintSystem::_extractStr(const char *head, TailClass &...tail)
-    {
-        _convertTypes(head);
-        _extractStr(tail...);
-    }
     template <class... Args>
     PrintSystem::PrintSystem(const Args &...args)
     {

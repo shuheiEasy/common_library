@@ -9,6 +9,7 @@ namespace dataObject
     Int len(DataObject &data);
     String type(DataObject &data);
     String getEnv(const String &data);
+    String command(const char* cmd);
 }
 
 #endif

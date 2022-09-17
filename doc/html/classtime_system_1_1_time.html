@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>common_library: timeSystem::Time クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">common_library
+   &#160;<span id="projectnumber">0.0.0</span>
+   </div>
+   <div id="projectbrief">c++用共通ライブラリ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classtime_system_1_1_time.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classtime_system_1_1_time-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">timeSystem::Time クラス</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+timeSystem::Time の継承関係図</div>
+<div class="dyncontent">
+<div class="center"><img src="classtime_system_1_1_time__inherit__graph.png" border="0" usemap="#time_system_1_1_time_inherit__map" alt="Inheritance graph"/></div>
+<map name="time_system_1_1_time_inherit__map" id="time_system_1_1_time_inherit__map">
+<area shape="rect" title=" " alt="" coords="21,155,164,181"/>
+<area shape="rect" href="classdata_object_1_1_none.html" title=" " alt="" coords="25,80,160,107"/>
+<area shape="rect" href="classdata_object_1_1_data_object.html" title=" " alt="" coords="5,5,180,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div class="dynheader">
+timeSystem::Time 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="classtime_system_1_1_time__coll__graph.png" border="0" usemap="#time_system_1_1_time_coll__map" alt="Collaboration graph"/></div>
+<map name="time_system_1_1_time_coll__map" id="time_system_1_1_time_coll__map">
+<area shape="rect" title=" " alt="" coords="21,155,164,181"/>
+<area shape="rect" href="classdata_object_1_1_none.html" title=" " alt="" coords="25,80,160,107"/>
+<area shape="rect" href="classdata_object_1_1_data_object.html" title=" " alt="" coords="5,5,180,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a726ca64c38db6c49be1f367be56e5532"><td class="memItemLeft" align="right" valign="top"><a id="a726ca64c38db6c49be1f367be56e5532"></a>
+<a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>day</b> (const <a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;day)</td></tr>
+<tr class="separator:a726ca64c38db6c49be1f367be56e5532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6852246e326575cd28fe3a6abf541cd"><td class="memItemLeft" align="right" valign="top"><a id="ac6852246e326575cd28fe3a6abf541cd"></a>
+<a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>day</b> () const</td></tr>
+<tr class="separator:ac6852246e326575cd28fe3a6abf541cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa396bf82905f514ba0943f1c2abe6053"><td class="memItemLeft" align="right" valign="top"><a id="aa396bf82905f514ba0943f1c2abe6053"></a>
+<a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>hour</b> (const <a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;hour)</td></tr>
+<tr class="separator:aa396bf82905f514ba0943f1c2abe6053"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90fcbbf5a46b6ec38a9b0f04f75cd1a7"><td class="memItemLeft" align="right" valign="top"><a id="a90fcbbf5a46b6ec38a9b0f04f75cd1a7"></a>
+<a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>hour</b> () const</td></tr>
+<tr class="separator:a90fcbbf5a46b6ec38a9b0f04f75cd1a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b04cb7275604d7baebe1ac39d6b6d3b"><td class="memItemLeft" align="right" valign="top"><a id="a5b04cb7275604d7baebe1ac39d6b6d3b"></a>
+<a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>minute</b> (const <a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;min)</td></tr>
+<tr class="separator:a5b04cb7275604d7baebe1ac39d6b6d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5033ffb2dfd66d6ae0bf84365eec502f"><td class="memItemLeft" align="right" valign="top"><a id="a5033ffb2dfd66d6ae0bf84365eec502f"></a>
+<a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>minute</b> () const</td></tr>
+<tr class="separator:a5033ffb2dfd66d6ae0bf84365eec502f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2e915a079470cb6b412de94656cb888"><td class="memItemLeft" align="right" valign="top"><a id="ae2e915a079470cb6b412de94656cb888"></a>
+<a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>second</b> (const <a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;sec)</td></tr>
+<tr class="separator:ae2e915a079470cb6b412de94656cb888"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fde51e68b8d60ba749a8e9175f5724a"><td class="memItemLeft" align="right" valign="top"><a id="a3fde51e68b8d60ba749a8e9175f5724a"></a>
+<a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>second</b> () const</td></tr>
+<tr class="separator:a3fde51e68b8d60ba749a8e9175f5724a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf35eb76f7f1fceb1b56007360abd430"><td class="memItemLeft" align="right" valign="top"><a id="aaf35eb76f7f1fceb1b56007360abd430"></a>
+<a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>millisec</b> (const <a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;msec)</td></tr>
+<tr class="separator:aaf35eb76f7f1fceb1b56007360abd430"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10667641dbe46881a455062a5ff1fba5"><td class="memItemLeft" align="right" valign="top"><a id="a10667641dbe46881a455062a5ff1fba5"></a>
+<a class="el" href="classdata_object_1_1_int.html">dataObject::Int</a>&#160;</td><td class="memItemRight" valign="bottom"><b>millisec</b> () const</td></tr>
+<tr class="separator:a10667641dbe46881a455062a5ff1fba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3244ff06258bb708c8e55c1ecd2c3783"><td class="memItemLeft" align="right" valign="top"><a id="a3244ff06258bb708c8e55c1ecd2c3783"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> () const</td></tr>
+<tr class="separator:a3244ff06258bb708c8e55c1ecd2c3783"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02780dddd8b2fa4c886568d97469272e"><td class="memItemLeft" align="right" valign="top"><a id="a02780dddd8b2fa4c886568d97469272e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getSize</b> () const</td></tr>
+<tr class="separator:a02780dddd8b2fa4c886568d97469272e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abea4835b0954e5a8b1e4833e29ef8f9d"><td class="memItemLeft" align="right" valign="top"><a id="abea4835b0954e5a8b1e4833e29ef8f9d"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>getLog</b> () const</td></tr>
+<tr class="separator:abea4835b0954e5a8b1e4833e29ef8f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7801190e243f4b6662d7d9ebadbd342f"><td class="memItemLeft" align="right" valign="top"><a id="a7801190e243f4b6662d7d9ebadbd342f"></a>
+<a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;time)</td></tr>
+<tr class="separator:a7801190e243f4b6662d7d9ebadbd342f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92cac63087e54600ed42bd9a5cb310c6"><td class="memItemLeft" align="right" valign="top"><a id="a92cac63087e54600ed42bd9a5cb310c6"></a>
+<a class="el" href="classtime_system_1_1_time.html">Time</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (<a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;time)</td></tr>
+<tr class="separator:a92cac63087e54600ed42bd9a5cb310c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f7a16528670048e3dc1472757e9f102"><td class="memItemLeft" align="right" valign="top"><a id="a0f7a16528670048e3dc1472757e9f102"></a>
+<a class="el" href="classtime_system_1_1_time.html">Time</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (<a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;time)</td></tr>
+<tr class="separator:a0f7a16528670048e3dc1472757e9f102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45f4bdd38ef5eadc566a346025c24eb1"><td class="memItemLeft" align="right" valign="top"><a id="a45f4bdd38ef5eadc566a346025c24eb1"></a>
+<a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (const <a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;time)</td></tr>
+<tr class="separator:a45f4bdd38ef5eadc566a346025c24eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed787c2d0018e232cc3b1d53742c4aec"><td class="memItemLeft" align="right" valign="top"><a id="aed787c2d0018e232cc3b1d53742c4aec"></a>
+<a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (const <a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;time)</td></tr>
+<tr class="separator:aed787c2d0018e232cc3b1d53742c4aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a302410700029deb69e6c2c1419ca4658"><td class="memItemLeft" align="right" valign="top"><a id="a302410700029deb69e6c2c1419ca4658"></a>
+<a class="el" href="classdata_object_1_1_bool.html">dataObject::Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;time) const</td></tr>
+<tr class="separator:a302410700029deb69e6c2c1419ca4658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f528d164ccf4f82c9ee97bd3caaeb3e"><td class="memItemLeft" align="right" valign="top"><a id="a8f528d164ccf4f82c9ee97bd3caaeb3e"></a>
+<a class="el" href="classdata_object_1_1_bool.html">dataObject::Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;time) const</td></tr>
+<tr class="separator:a8f528d164ccf4f82c9ee97bd3caaeb3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a060ac2bf5eed5ce5cfae4b6297cd0b7c"><td class="memItemLeft" align="right" valign="top"><a id="a060ac2bf5eed5ce5cfae4b6297cd0b7c"></a>
+<a class="el" href="classdata_object_1_1_bool.html">dataObject::Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;time) const</td></tr>
+<tr class="separator:a060ac2bf5eed5ce5cfae4b6297cd0b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cae476e4135f49c311f5ea706ad65b5"><td class="memItemLeft" align="right" valign="top"><a id="a8cae476e4135f49c311f5ea706ad65b5"></a>
+<a class="el" href="classdata_object_1_1_bool.html">dataObject::Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;time) const</td></tr>
+<tr class="separator:a8cae476e4135f49c311f5ea706ad65b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa21f18ea840565a4ee23654246e0682c"><td class="memItemLeft" align="right" valign="top"><a id="aa21f18ea840565a4ee23654246e0682c"></a>
+<a class="el" href="classdata_object_1_1_bool.html">dataObject::Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;time) const</td></tr>
+<tr class="separator:aa21f18ea840565a4ee23654246e0682c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f509679d525111c59e61659a3b79f47"><td class="memItemLeft" align="right" valign="top"><a id="a3f509679d525111c59e61659a3b79f47"></a>
+<a class="el" href="classdata_object_1_1_bool.html">dataObject::Bool</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;time) const</td></tr>
+<tr class="separator:a3f509679d525111c59e61659a3b79f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c86895665c262c622802310f7887595"><td class="memItemLeft" align="right" valign="top"><a id="a8c86895665c262c622802310f7887595"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>now</b> ()</td></tr>
+<tr class="separator:a8c86895665c262c622802310f7887595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30983a480740c09fb704f78cf045d084"><td class="memItemLeft" align="right" valign="top"><a id="a30983a480740c09fb704f78cf045d084"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFormat</b> (const char *format)</td></tr>
+<tr class="separator:a30983a480740c09fb704f78cf045d084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92ddb8ca241005908e27a5e0709fe211"><td class="memItemLeft" align="right" valign="top"><a id="a92ddb8ca241005908e27a5e0709fe211"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setFormat</b> (const <a class="el" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;format)</td></tr>
+<tr class="separator:a92ddb8ca241005908e27a5e0709fe211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d758b905e2fda239938ae0ee320453f"><td class="memItemLeft" align="right" valign="top"><a id="a8d758b905e2fda239938ae0ee320453f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Time</b> (const <a class="el" href="classtime_system_1_1_time.html">Time</a> &amp;time)</td></tr>
+<tr class="separator:a8d758b905e2fda239938ae0ee320453f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aa5f8ce58187c34cb5292b9241f0885"><td class="memItemLeft" align="right" valign="top"><a id="a3aa5f8ce58187c34cb5292b9241f0885"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Time</b> (int day, int hour, int minute, int second, int millisec=0)</td></tr>
+<tr class="separator:a3aa5f8ce58187c34cb5292b9241f0885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock">
+<p class="definition"> <a class="el" href="time_system_8hpp_source.html">timeSystem.hpp</a> の <a class="el" href="time_system_8hpp_source.html#l00015">15</a> 行目に定義があります。</p>
+</div><hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>/home/iijima-robot/workspace/gitSpace/common_library/common_library/timeSystem/include/timeSystem/<a class="el" href="time_system_8hpp_source.html">timeSystem.hpp</a></li>
+<li>/home/iijima-robot/workspace/gitSpace/common_library/common_library/timeSystem/src/<a class="el" href="time_8cpp_source.html">time.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>timeSystem</b></li><li class="navelem"><a class="el" href="classtime_system_1_1_time.html">Time</a></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

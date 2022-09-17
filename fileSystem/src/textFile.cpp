@@ -7,7 +7,7 @@ TextFile::TextFile() : File() {}
 
 TextFile::TextFile(const char *path) : File(path) {}
 
-TextFile::TextFile(File &file)
+TextFile::TextFile(const File &file)
 {
     _filetype = file.getFileType();
     _filemode = CLOSEMODE;

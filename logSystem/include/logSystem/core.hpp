@@ -3,6 +3,8 @@
 
 #include <stdarg.h>
 #include <dataObject/dataObject.hpp>
+#include <formatter/formatter.hpp>
+#include <timeSystem/timeSystem.hpp>
 #include <fileSystem/fileSystem.hpp>
 
 namespace logSystem
@@ -19,7 +21,7 @@ namespace logSystem
 
     // 関数
     template <class... Args>
-    void print(Args &...args);
+    void print(const Args &...args);
     void fprint(const dataObject::String &format, ...);
     void fprint(const char *format, ...);
     dataObject::String _vprint(const dataObject::String &format, va_list args);
@@ -28,21 +30,10 @@ namespace logSystem
     class LogSystem
     {
     private:
-        enum Format_type
-        {
-            FT_STR,
-            FT_LEVEL,
-            FT_MESSAGE
-        };
-        struct Format
-        {
-            Format_type type;
-            dataObject::String data;
-            const char *getLog() const { return "Unknown"; }
-        };
         fileSystem::File *_file;
         LogLevel _log_level;
-        dataObject::List<Format> _formatter;
+        formatter::Formatter _formatter;
+        timeSystem::Datetime _datetime;
 
         // メゾット
         dataObject::String _generatePrintText(dataObject::String &&msg);
@@ -54,7 +45,7 @@ namespace logSystem
         LogSystem(const char *file_name);
         ~LogSystem();
         void setFile(const char *file_name);
-        void setFormat(const char* format);
+        void setFormat(const char *format);
         void setFormat(const dataObject::String &format);
         void setLevel(LogLevel log_level);
         int fprint(LogLevel log_level, const dataObject::String &format, ...);
@@ -66,21 +57,9 @@ namespace logSystem
     {
     private:
         dataObject::List<dataObject::String> *_text_list;
-        template <class T>
-        void _convertTypes(T &data);
         void _extractStr() {}
-        template <class... TailClass>
-        void _extractStr(dataObject::DataObject &&head, TailClass &...tail);
-        template <class... TailClass>
-        void _extractStr(const dataObject::DataObject &head, TailClass &...tail);
-        template <class... TailClass>
-        void _extractStr(const int &head, TailClass &...tail);
-        template <class... TailClass>
-        void _extractStr(const float &head, TailClass &...tail);
-        template <class... TailClass>
-        void _extractStr(const double &head, TailClass &...tail);
-        template <class... TailClass>
-        void _extractStr(const char *head, TailClass &...tail);
+        template <class HeadClass, class... TailClass>
+        void _extractStr(const HeadClass &head, TailClass &...tail);
 
     public:
         template <class... Args>

@@ -5,6 +5,20 @@ using namespace dataObject;
 String::String()
 {
     _init();
+    _setData("", -1);
+}
+
+String::String(const bool &data)
+{
+    _init();
+    if (data)
+    {
+        _setData("True", -1);
+    }
+    else
+    {
+        _setData("False", -1);
+    }
 }
 
 String::String(const int &data)
@@ -750,7 +764,7 @@ int String::_getPos(int pos) const
     return ret;
 }
 
-void String::_malloc(Moji *&ret,int size)
+void String::_malloc(Moji *&ret, int size)
 {
     ret = (Moji *)malloc(sizeof(Moji) * size);
     for (int i = 0; i < size; i++)

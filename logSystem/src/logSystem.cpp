@@ -130,89 +130,14 @@ void LogSystem::setFile(const char *file_name)
     _file = new TextFile(file_name);
 }
 
-void LogSystem::setFormat(const char* format){
-    setFormat(String(format));
+void LogSystem::setFormat(const char *format)
+{
+    _formatter.setFormat(format);
 }
 
 void LogSystem::setFormat(const dataObject::String &format)
 {
-    enum _State
-    {
-        _TEXT,
-        _TYPE
-    };
-    String buffer_str = "";
-    Format buffer_format;
-    int positon = 0;
-    _State state = _TEXT;
-    _formatter.clear();
-    while (positon < format.getSize())
-    {
-        switch (state)
-        {
-        case _TEXT:
-            if (format[positon] == "%")
-            {
-                if (positon + 1 < format.getSize())
-                {
-                    if (format[positon + 1] == "(")
-                    {
-                        buffer_format.data = buffer_str;
-                        buffer_format.type = FT_STR;
-                        _formatter.append(buffer_format);
-                        state = _TYPE;
-                        buffer_str = "";
-                        positon++;
-                    }
-                    else
-                    {
-                        buffer_str += format[positon];
-                    }
-                }
-                else
-                {
-                    buffer_str += format[positon];
-                }
-            }
-            else
-            {
-                buffer_str += format[positon];
-            }
-            break;
-        case _TYPE:
-            if (format[positon] == ")")
-            {
-                Bool append_flag = false;
-                if (buffer_str == "levelname")
-                {
-                    buffer_format.data = "";
-                    buffer_format.type = FT_LEVEL;
-                    append_flag = true;
-                }
-                else if (buffer_str == "message")
-                {
-                    buffer_format.data = "";
-                    buffer_format.type = FT_MESSAGE;
-                    append_flag = true;
-                }
-                if (append_flag)
-                {
-                    _formatter.append(buffer_format);
-                }
-                state = _TEXT;
-                buffer_str = "";
-            }
-            else
-            {
-                buffer_str += format[positon];
-            }
-            break;
-        }
-        positon++;
-    }
-    buffer_format.data = buffer_str;
-    buffer_format.type = FT_STR;
-    _formatter.append(buffer_format);
+    _formatter.setFormat(format);
 }
 
 void LogSystem::setLevel(LogLevel log_level)
@@ -246,41 +171,28 @@ int LogSystem::fprint(LogLevel log_level, const dataObject::String &format, ...)
 /////////////////////////////////////////////////
 String LogSystem::_generatePrintText(dataObject::String &&msg)
 {
-    for (int i = 0; i < this->_formatter.getSize(); i++)
-    {
-        if (this->_formatter.get(i).type == FT_MESSAGE)
-        {
-            this->_formatter[i].data = msg;
-        }
-    }
-    String ret = "";
-    for (int i = 0; i < this->_formatter.getSize(); i++)
-    {
-        ret += this->_formatter[i].data;
-        if (this->_formatter.get(i).type != FT_STR)
-        {
-            this->_formatter[i].data = "";
-        }
-    }
-    return ret;
+    _formatter.setData("message", msg.getChar());
+    _datetime.now();
+    _formatter.setData("year", String(_datetime.year()));
+    _formatter.setData("month", String(_datetime.month()));
+    _formatter.setData("day", String(_datetime.day()));
+    _formatter.setData("hour", String(_datetime.hour()));
+    _formatter.setData("min", String(_datetime.minute()));
+    _formatter.setData("sec", String(_datetime.second()));
+    _formatter.setData("msec", String(_datetime.millisec()));
+    return _formatter.generateText();
 }
 
 void LogSystem::_init()
 {
     _file = NULL;
     _log_level = WARNING;
-    setFormat("[%(levelname)] %(message) \n");
+    setFormat("${year}-${month:02}-${day:02} ${hour:02}:${min:02}:${sec:02},${msec:03} [${levelname}] ${message}\n");
 }
 
 void LogSystem::_setLoglevelText(LogLevel log_level)
 {
-    for (int i = 0; i < this->_formatter.getSize(); i++)
-    {
-        if (this->_formatter.get(i).type == FT_LEVEL)
-        {
-            this->_formatter[i].data = logLevel_str(log_level);
-        }
-    }
+    _formatter.setData("levelname", logLevel_str(log_level));
 }
 
 /////////////////////////////////////////////////

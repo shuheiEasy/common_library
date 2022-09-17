@@ -36,6 +36,7 @@ namespace dataObject
 
     public:
         String();
+        String(const bool &data);
         String(const int &data);
         String(const float &data);
         String(const double &data);
@@ -93,19 +94,57 @@ namespace dataObject
     };
 
     // String型変換
+    template <class T, int dummy = (&T::getLog, 0)>
+    inline String toString(T *&text)
+    {
+        return String(text->getLog());
+    }
+
     template <class T>
-    inline String toString(T &a)
+    inline String toString(T &text, typename std::enable_if<std::is_base_of<DataObject, T>::value>::type * = nullptr)
+    {
+        return String(text.getLog());
+    }
+    template <class T>
+    inline String toString(T &text, typename std::enable_if<std::is_same<DataObject, T>::value>::type * = nullptr)
+    {
+        return String(text.getLog());
+    }
+    template <class T>
+    inline String toString(const T &num, typename std::enable_if<std::is_arithmetic<T>::value>::type * = nullptr)
+    {
+        return String(num);
+    }
+    template <class T>
+    inline String toString(const T &text, typename std::enable_if<!std::is_arithmetic<T>::value&&!std::is_base_of<DataObject, T>::value>::type * = nullptr)
     {
         return "";
     }
-    inline String toString(const char *a)
+    inline String toString(bool &b)
     {
-        return String(a);
+        return String(b);
     }
-    inline String toString(String &a)
+    inline String toString(bool *&b)
     {
-        return a;
+        return String(*b);
     }
+    inline String toString(int *&num)
+    {
+        return String(*num);
+    }
+    inline String toString(float *&num)
+    {
+        return String(*num);
+    }
+    inline String toString(double *&num)
+    {
+        return String(*num);
+    }
+    inline String toString(const char *text)
+    {
+        return String(text);
+    }
+
 }
 
 #endif
