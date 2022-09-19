@@ -1,5 +1,14 @@
-#ifndef LIST_EX_H
-#define LIST_EX_H
+/**
+ * @file type.hpp
+ * @author iijima-robot
+ * @brief typeクラスを実装するヘッダファイル
+ * @date 2022-09-17
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
+#ifndef COMMON_DATAOBJECT_LIST_EX_H
+#define COMMON_DATAOBJECT_LIST_EX_H
 
 #include <dataObject/bool.hpp>
 #include <dataObject/int.hpp>
