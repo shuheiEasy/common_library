@@ -749,11 +749,11 @@ int String::_judgeNum() const
             }
             else if (strcmp(_data[i].data, "＋") == 0)
             {
-                ret=1;
+                ret = 1;
             }
             else if (strcmp(_data[i].data, "ー") == 0)
             {
-                ret=1;
+                ret = 1;
             }
             else
             {
@@ -860,19 +860,4 @@ void String::_setData(const char *text, int start)
 
     // 文字の長さ更新
     _length += moji_counter;
-}
-
-void String::_test()
-{
-    printf("test start\n");
-
-    int char_size = 0;
-    for (int i = 0; i < _length; i++)
-    {
-        printf("%d: data= %s, size=%d\n", i, _data[i].data, _data[i].size);
-        char_size += _data[i].size;
-    }
-    printf("%d\n", char_size);
-
-    printf("test fin\n");
 }

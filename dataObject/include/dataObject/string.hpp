@@ -229,7 +229,6 @@ namespace dataObject
         /// @param length 取得する文字列の長さ
         /// @return [String] 文字列
         String pop(int start, int length);
-        void _test();
     };
 
     // String型変換
