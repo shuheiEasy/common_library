@@ -6,7 +6,7 @@
 
 namespace dataObject
 {
-
+    /// @brief 文字列クラス
     class String : public None
     {
     private:
@@ -36,59 +36,199 @@ namespace dataObject
         void _setData(const char *text, int start);
 
     public:
+        /// @brief コンストラクタ
         String();
+        /// @brief コンストラクタ
+        /// @param data bool型のデータ
         String(const bool &data);
+        /// @brief コンストラクタ
+        /// @param data int型のデータ
+        /// @details 数値を文字列に変換してデータを格納する
         String(const int &data);
+        /// @brief コンストラクタ
+        /// @param data float型のデータ
+        /// @details 数値を文字列に変換してデータを格納する
         String(const float &data);
+        /// @brief コンストラクタ
+        /// @param data double型のデータ
+        /// @details 数値を文字列に変換してデータを格納する
         String(const double &data);
+        /// @brief コンストラクタ
+        /// @param text const char *型の文字列
         String(const char *text);
+        /// @brief コンストラクタ
+        /// @param text String型の文字列
         String(const String &text);
+        /// @brief デコンストラクタ
         ~String();
+        /// @brief 文字列を追加する関数
+        /// @param data int型のデータ
+        /// @details 数値を文字列に変換して追加する
         void append(const int &data);
+        /// @brief 文字列を追加する関数
+        /// @param data float型のデータ
+        /// @details 数値を文字列に変換して追加する
         void append(const float &data);
+        /// @brief 文字列を追加する関数
+        /// @param data double型のデータ
+        /// @details 数値を文字列に変換して追加する
         void append(const double &data);
+        /// @brief 文字列を追加する関数
+        /// @param text const char *型の文字列
         void append(const char *text);
+        /// @brief 文字列を追加する関数
+        /// @param text String型の文字列
         void append(const String text);
+        /// @brief 文字列をすべて消す関数
         void clear();
+        /// @brief 文字を消す関数
+        /// @param start 消したい文字の位置
         void del(int start);
+        /// @brief 文字列の一部を消す関数
+        /// @param start 消したい文字列の先頭の文字の位置
+        /// @param length 消したい文字列の長さ
         void del(int start, int length);
+        /// @brief char *型へ変換する関数
+        /// @return char *型
         char *getChar() const;
         const char *getType() const;
         const char *getLog() const;
         int getSize() const;
+        /// @brief 文字列を挿入する関数
+        /// @param text 挿入するchar *型の文字列
+        /// @param start 挿入する位置
         void insert(const char *text, int start);
+        /// @brief 文字列を挿入する関数
+        /// @param text 挿入するString型の文字列
+        /// @param start 挿入する位置
         void insert(const String text, int start);
+        /// @brief 文字列が整数か判定する関数
+        /// @todo 全角に対応させる予定
         bool isdigit() const;
+        /// @brief 文字列が数字か判定する関数
+        /// @todo 全角に対応させる予定
         bool isnumeric() const;
+        /// @brief Stringクラスの比較演算子(==)
+        /// @param data 比較するint型のデータ
+        /// @return 数値が等しければtrueを出力。
         bool operator==(const int &data) const;
+        /// @brief Stringクラスの比較演算子(==)
+        /// @param data 比較するfloat型のデータ
+        /// @return 数値が等しければtrueを出力。
         bool operator==(const float &data) const;
+        /// @brief Stringクラスの比較演算子(==)
+        /// @param data 比較するdouble型のデータ
+        /// @return 数値が等しければtrueを出力。
         bool operator==(const double &data) const;
+        /// @brief Stringクラスの比較演算子(==)
+        /// @param data 比較するconst char *型の文字列
+        /// @return 文字列が等しければtrueを出力。
         bool operator==(const char *text) const;
+        /// @brief Stringクラスの比較演算子(==)
+        /// @param data 比較するString型の文字列
+        /// @return 文字列が等しければtrueを出力。
         bool operator==(const String &text) const;
+        /// @brief Stringクラスの比較演算子(!=)
+        /// @param data 比較するint型のデータ
+        /// @return 数値が異なればtrueを出力。
         bool operator!=(const int &data) const;
+        /// @brief Stringクラスの比較演算子(!=)
+        /// @param data 比較するfloat型のデータ
+        /// @return 数値が異なればtrueを出力。
         bool operator!=(const float &data) const;
+        /// @brief Stringクラスの比較演算子(!=)
+        /// @param data 比較するdouble型のデータ
+        /// @return 数値が異なればtrueを出力。
         bool operator!=(const double &data) const;
+        /// @brief Stringクラスの比較演算子(!=)
+        /// @param data 比較するconst char *型の文字列
+        /// @return 文字列が異なればtrueを出力。
         bool operator!=(const char *text) const;
+        /// @brief Stringクラスの比較演算子(!=)
+        /// @param data 比較するString型の文字列
+        /// @return 文字列が異なればtrueを出力。
         bool operator!=(const String &text) const;
+        /// @brief Stringクラスの添字演算子
+        /// @param id 取得したい文字の位置
+        /// @return [String] 取得したい文字
         String operator[](const int id) const;
+        /// @brief Stringクラスの代入演算子(=)
+        /// @param data 代入するint型のデータ
+        /// @return [String] 本クラスの文字列
         String operator=(const int &data);
+        /// @brief Stringクラスの代入演算子(=)
+        /// @param data 代入するfloat型のデータ
+        /// @return [String] 本クラスの文字列
         String operator=(const float &data);
+        /// @brief Stringクラスの代入演算子(=)
+        /// @param data 代入するdouble型のデータ
+        /// @return [String] 本クラスの文字列
         String operator=(const double &data);
+        /// @brief Stringクラスの代入演算子(=)
+        /// @param data 代入するconst char *型の文字列
+        /// @return [String] 本クラスの文字列
         String operator=(const char *str);
+        /// @brief Stringクラスの代入演算子(=)
+        /// @param data 代入するString型の文字列
+        /// @return [String] 本クラスの文字列
         String operator=(const String &str);
+        /// @brief Stringクラスの代入演算子(+)
+        /// @param data 追加するint型のデータ
+        /// @return [String] 追加された文字列
         String operator+(const int &data) const;
+        /// @brief Stringクラスの代入演算子(+)
+        /// @param data 追加するfloat型のデータ
+        /// @return [String] 追加された文字列
         String operator+(const float &data) const;
+        /// @brief Stringクラスの代入演算子(+)
+        /// @param data 追加するdouble型のデータ
+        /// @return [String] 追加された文字列
         String operator+(const double &data) const;
+        /// @brief Stringクラスの代入演算子(+)
+        /// @param data 追加するconst char *型の文字列
+        /// @return [String] 追加された文字列
         String operator+(const char *str) const;
+        /// @brief Stringクラスの代入演算子(+)
+        /// @param data 追加するString型の文字列
+        /// @return [String] 追加された文字列
         String operator+(const String &str) const;
+        /// @brief Stringクラスの複合代入演算子(+=)
+        /// @param data 追加するint型のデータ
+        /// @return [String] 本クラスの文字列
         String &operator+=(const int &data);
+        /// @brief Stringクラスの代入演算子(+=)
+        /// @param data 追加するfloat型のデータ
+        /// @return [String] 本クラスの文字列
         String &operator+=(const float &data);
+        /// @brief Stringクラスの代入演算子(+=)
+        /// @param data 追加するdouble型のデータ
+        /// @return [String] 本クラスの文字列
         String &operator+=(const double &data);
+        /// @brief Stringクラスの代入演算子(+=)
+        /// @param data 追加するconst char *型の文字列
+        /// @return [String] 本クラスの文字列
         String &operator+=(const char *str);
+        /// @brief Stringクラスの代入演算子(+=)
+        /// @param data 追加するString型の文字列
+        /// @return [String] 本クラスの文字列
         String &operator+=(const String &str);
+        /// @brief 文字列の一部を取得する関数
+        /// @param start 取得する文字列の先頭の文字の位置
+        /// @param length 取得する文字列の長さ
+        /// @return [String] 文字列
         String slice(int start, int length) const;
+        /// @brief 文字列を区切り文字列で分割する関数
+        /// @param sep 区切り文字列
+        /// @return [List<String>] 文字列のリスト
         List<String> split(const char *sep);
+        /// @brief 文字列を区切り文字列で分割する関数
+        /// @param sep 区切り文字列
+        /// @return [List<String>] 文字列のリスト
         List<String> split(const String sep);
+        /// @brief 文字列の一部を削除し、削除した文字列を取得する関数
+        /// @param start 取得する文字列の先頭の文字の位置
+        /// @param length 取得する文字列の長さ
+        /// @return [String] 文字列
         String pop(int start, int length);
         void _test();
     };
