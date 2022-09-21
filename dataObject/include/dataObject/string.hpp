@@ -6,15 +6,16 @@
 
 namespace dataObject
 {
-    struct Moji
-    {
-        char *data;
-        int size;
-    };
 
     class String : public None
     {
     private:
+        struct Moji
+        {
+            char *data;
+            int size;
+        };
+
         int _MOJI_SIZE = 4;
         int _MEMORY_SIZE = 4;
 
@@ -55,7 +56,6 @@ namespace dataObject
         const char *getType() const;
         const char *getLog() const;
         int getSize() const;
-        Moji *getStr() const;
         void insert(const char *text, int start);
         void insert(const String text, int start);
         bool isdigit() const;
@@ -94,52 +94,100 @@ namespace dataObject
     };
 
     // String型変換
+
+    /// @brief Stringクラスへ変換する関数
+    /// @tparam T DataObjectクラス、もしくはその派生クラスを示すポインタ型
+    /// @param text データを表すポインタの参照渡し
+    /// @return Stringクラス
     template <class T, int dummy = (&T::getLog, 0)>
     inline String toString(T *&text)
     {
         return String(text->getLog());
     }
 
+    /// @brief Stringクラスへ変換する関数
+    /// @tparam T DataObjectクラスの派生クラス
+    /// @param text DataObjectクラスの派生クラスの参照渡し
+    /// @return Stringクラス
     template <class T>
     inline String toString(T &text, typename std::enable_if<std::is_base_of<DataObject, T>::value>::type * = nullptr)
     {
         return String(text.getLog());
     }
+
+    /// @brief Stringクラスへ変換する関数
+    /// @tparam T DataObjectクラス
+    /// @param text DataObjectクラスの参照渡し
+    /// @return Stringクラス
     template <class T>
     inline String toString(T &text, typename std::enable_if<std::is_same<DataObject, T>::value>::type * = nullptr)
     {
         return String(text.getLog());
     }
+
+    /// @brief Stringクラスへ変換する関数
+    /// @tparam T 算術型
+    /// @param text 算術型の参照渡し
+    /// @return Stringクラス
     template <class T>
     inline String toString(const T &num, typename std::enable_if<std::is_arithmetic<T>::value>::type * = nullptr)
     {
         return String(num);
     }
+
+    /// @brief Stringクラスへ変換する関数
+    /// @tparam T 本関数に未対応の型
+    /// @param text 未対応型の参照渡し
+    /// @return Stringクラス
     template <class T>
-    inline String toString(const T &text, typename std::enable_if<!std::is_arithmetic<T>::value&&!std::is_base_of<DataObject, T>::value>::type * = nullptr)
+    inline String toString(const T &text, typename std::enable_if<!std::is_arithmetic<T>::value && !std::is_base_of<DataObject, T>::value>::type * = nullptr)
     {
         return "";
     }
+
+    /// @brief Stringクラスへ変換する関数
+    /// @param b bool型の参照渡し
+    /// @return Stringクラス
     inline String toString(bool &b)
     {
         return String(b);
     }
+    
+    /// @brief Stringクラスへ変換する関数
+    /// @param b boolのポインタ型の参照渡し
+    /// @return Stringクラス
     inline String toString(bool *&b)
     {
         return String(*b);
     }
+
+    /// @brief Stringクラスへ変換する関数
+    /// @param num intのポインタ型の参照渡し
+    /// @return Stringクラス
     inline String toString(int *&num)
     {
         return String(*num);
     }
+
+    /// @brief Stringクラスへ変換する関数
+    /// @param num floatのポインタ型の参照渡し
+    /// @return Stringクラス
     inline String toString(float *&num)
     {
         return String(*num);
     }
+
+    /// @brief Stringクラスへ変換する関数
+    /// @param num doubleのポインタ型の参照渡し
+    /// @return Stringクラス
     inline String toString(double *&num)
     {
         return String(*num);
     }
+
+    /// @brief Stringクラスへ変換する関数
+    /// @param num const charのポインタ型の参照渡し
+    /// @return Stringクラス
     inline String toString(const char *text)
     {
         return String(text);

@@ -148,11 +148,6 @@ int String::getSize() const
     return _length;
 }
 
-Moji *String::getStr() const
-{
-    return _data;
-}
-
 void String::insert(const char *text, int start)
 {
     int start_pos = _getPos(start);
@@ -289,17 +284,10 @@ bool String::operator==(const String &text) const
 {
     if (text.getSize() == _length)
     {
-        Moji *str = text.getStr();
-
-        for (int i = 0; i < _length; i++)
+        if (strcmp(this->getChar(), text.getChar()) != 0)
         {
-            if (strcmp(_data[i].data, str[i].data) != 0)
-            {
-                return false;
-            }
+            return true;
         }
-
-        return true;
     }
     return false;
 }
