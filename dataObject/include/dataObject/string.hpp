@@ -32,6 +32,7 @@ namespace dataObject
         void _fromDouble(const double data, const int start);
         void _getMemory(const int memory_size);
         int _getPos(int pos) const;
+        int _judgeNum() const;
         void _malloc(Moji *&ret, int size);
         void _setData(const char *text, int start);
 
@@ -103,10 +104,8 @@ namespace dataObject
         /// @param start 挿入する位置
         void insert(const String text, int start);
         /// @brief 文字列が整数か判定する関数
-        /// @todo 全角に対応させる予定
         bool isdigit() const;
         /// @brief 文字列が数字か判定する関数
-        /// @todo 全角に対応させる予定
         bool isnumeric() const;
         /// @brief Stringクラスの比較演算子(==)
         /// @param data 比較するint型のデータ
