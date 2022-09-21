@@ -284,7 +284,7 @@ bool String::operator==(const String &text) const
 {
     if (text.getSize() == _length)
     {
-        if (strcmp(this->getChar(), text.getChar()) != 0)
+        if (strcmp(this->getChar(), text.getChar()) == 0)
         {
             return true;
         }
