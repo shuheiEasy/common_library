@@ -1,0 +1,10 @@
+/**
+@mainpage C++用共通ライブラリ
+
+dataObject : 型クラスライブラリ<br>
+fileSystem : ファイル操作ライブラリ<br>
+logSystem  : ログ出力ライブラリ\n
+formatter  : 書式ライブラリ<br>
+timeSystem : 時間ライブラリ<br>
+
+*/

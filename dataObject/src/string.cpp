@@ -148,11 +148,6 @@ int String::getSize() const
     return _length;
 }
 
-Moji *String::getStr() const
-{
-    return _data;
-}
-
 void String::insert(const char *text, int start)
 {
     int start_pos = _getPos(start);
@@ -169,72 +164,26 @@ void String::insert(const String text, int start)
 
 bool String::isdigit() const
 {
-    for (int i = 0; i < _length; i++)
+    if (this->_judgeNum() == 0)
     {
-        if (_data[i].size > 2)
-        {
-            return false;
-        }
-        else
-        {
-            switch (_data[i].data[0])
-            {
-            case '0':
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
-                break;
-
-            default:
-                return false;
-                break;
-            }
-        }
+        return true;
     }
-    return true;
+    else
+    {
+        return false;
+    }
 }
 
 bool String::isnumeric() const
 {
-    for (int i = 0; i < _length; i++)
+    if (this->_judgeNum() >= 0)
     {
-        if (_data[i].size > 2)
-        {
-            return false;
-        }
-        else
-        {
-            switch (_data[i].data[0])
-            {
-            case '0':
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
-                break;
-
-            // 追加部分
-            case '.':
-                break;
-
-            default:
-                return false;
-                break;
-            }
-        }
+        return true;
     }
-    return true;
+    else
+    {
+        return false;
+    }
 }
 
 bool String::operator==(const int &data) const
@@ -289,17 +238,10 @@ bool String::operator==(const String &text) const
 {
     if (text.getSize() == _length)
     {
-        Moji *str = text.getStr();
-
-        for (int i = 0; i < _length; i++)
+        if (strcmp(this->getChar(), text.getChar()) == 0)
         {
-            if (strcmp(_data[i].data, str[i].data) != 0)
-            {
-                return false;
-            }
+            return true;
         }
-
-        return true;
     }
     return false;
 }
@@ -764,6 +706,92 @@ int String::_getPos(int pos) const
     return ret;
 }
 
+int String::_judgeNum() const
+{
+    // 戻り値
+    // 文字列が整数の場合　　　：0
+    // 文字列が数値の場合　　　：1
+    // 文字列が数値型以外の場合：-1
+    int ret = 0;
+    for (int i = 0; i < _length; i++)
+    {
+        if (_data[i].size > 2)
+        {
+            if (strcmp(_data[i].data, "０") == 0)
+            {
+            }
+            else if (strcmp(_data[i].data, "１") == 0)
+            {
+            }
+            else if (strcmp(_data[i].data, "２") == 0)
+            {
+            }
+            else if (strcmp(_data[i].data, "３") == 0)
+            {
+            }
+            else if (strcmp(_data[i].data, "４") == 0)
+            {
+            }
+            else if (strcmp(_data[i].data, "５") == 0)
+            {
+            }
+            else if (strcmp(_data[i].data, "６") == 0)
+            {
+            }
+            else if (strcmp(_data[i].data, "７") == 0)
+            {
+            }
+            else if (strcmp(_data[i].data, "８") == 0)
+            {
+            }
+            else if (strcmp(_data[i].data, "９") == 0)
+            {
+            }
+            else if (strcmp(_data[i].data, "＋") == 0)
+            {
+                ret = 1;
+            }
+            else if (strcmp(_data[i].data, "ー") == 0)
+            {
+                ret = 1;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        else
+        {
+            switch (_data[i].data[0])
+            {
+            // 数字
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+                break;
+
+            // 記号
+            case '.':
+            case '+':
+            case '-':
+                ret = 1;
+                break;
+
+            default:
+                return -1;
+                break;
+            }
+        }
+    }
+    return ret;
+}
 void String::_malloc(Moji *&ret, int size)
 {
     ret = (Moji *)malloc(sizeof(Moji) * size);
@@ -832,19 +860,4 @@ void String::_setData(const char *text, int start)
 
     // 文字の長さ更新
     _length += moji_counter;
-}
-
-void String::_test()
-{
-    printf("test start\n");
-
-    int char_size = 0;
-    for (int i = 0; i < _length; i++)
-    {
-        printf("%d: data= %s, size=%d\n", i, _data[i].data, _data[i].size);
-        char_size += _data[i].size;
-    }
-    printf("%d\n", char_size);
-
-    printf("test fin\n");
 }

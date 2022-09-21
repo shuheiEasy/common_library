@@ -1,22 +1,41 @@
-#ifndef LIST_H
-#define LIST_H
+/**
+ * @file list.hpp
+ * @author iijima-robot
+ * @brief Listクラスを宣言するヘッダファイル
+ * @date 2022-09-17
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
+#ifndef COMMON_DATAOBJECT_LIST_H
+#define COMMON_DATAOBJECT_LIST_H
 
 #include <dataObject/core.hpp>
 
 namespace dataObject
 {
-    template <class DATATYPE>
-    struct _Node
-    {
-        DATATYPE *data;
-        _Node *prev;
-        _Node *next;
-    };
-
+    /**
+     * @brief 可変長リスト
+     *
+     * @tparam T リストに格納するデータの型
+     */
     template <class T>
     class List : public None
     {
     private:
+        /**
+         * @brief リストの各要素を格納する構造体
+         * @tparam DATATYPE 格納するデータの型
+         *
+         */
+        template <class DATATYPE>
+        struct _Node
+        {
+            DATATYPE *data;
+            _Node *prev;
+            _Node *next;
+        };
+
         // メンバ変数
 
         // データの先頭
@@ -37,44 +56,71 @@ namespace dataObject
         void _search(_Node<T> *&ptr, int id) const;
 
     public:
-        // データの追加
+        /// @brief リストへデータを追加する関数
+        /// @param data 追加するデータ
         void append(const T &data);
-        // データのポインター取得
+        /// @brief データのポインターを取得する関数
+        /// @param id 要素番号
+        /// @return [データの型] データを指すポインタ
         T *at(int id);
-        // 全削除
+        /// @brief リストを空にする関数
         void clear();
-        // 計測
+        /// @brief リスト内にある条件に合うデータの数を計測する関数
+        /// @param data 計測したいデータ
+        /// @return [int] データ数
         int count(const T &data);
-        // 削除
+        /// @brief 指定したデータをリストから削除する関数
+        /// @param start 削除する要素番号
         void del(int start);
-        // 削除
+        /// @brief 指定したデータをリストから削除する関数
+        /// @param start 削除する要素番号の先頭
+        /// @param end 削除する要素番号の末尾
         void del(int start, int end);
-        // 拡張
+        /// @brief リストを拡張する関数
+        /// @param list 格納するリスト
         void extend(const List<T> &list);
-        // データ取得
+        /// @brief データ取得する関数
+        /// @note データを取得する関数であるため、リスト内のデータの変更はできない
+        /// @param id 取得したいデータの要素番号
+        /// @return [データの型] 取得したデータ
         T get(int id) const;
-        // 出力
         const char *getLog() const;
-        // サイズ取得
         int getSize() const;
-        // 形式取得
         const char *getType() const;
-        // 要素の位置取得
-        int index(const T &data,int count=1);
-        // 挿入
+        /// @brief 要素の位置取得
+        /// @param data 取得したいデータ
+        /// @param count 取得する回数（初期値：１）
+        int index(const T &data, int count = 1);
+        /// @brief 要素を挿入する関数
+        /// @param id 挿入する要素番号
+        /// @param data 挿入するデータ
         void insert(const int id, const T &data);
-        // コンストラクタ
+        /// @brief コンストラクタ
         List() { _init(); }
+        /// @brief コンストラクタ
+        /// @param list 代入するリスト
         List(const List<T> &list);
+        /// @brief デコンストラクタ
         ~List() { _free(); }
-        // オペレータ(添字演算子)
+        /// @brief オペレータ(添字演算子)
+        /// @param id 要素番号
         T &operator[](const int id);
-        // オペレータ(代入演算子)
+        /// @brief オペレータ(代入演算子)
+        /// @param list 代入するリスト
+        /// @return [List] データが代入されたリスト
         List<T> &operator=(const List<T> &list);
-        // オペレータ(複合代入演算子)
+        /// @brief オペレータ(複合代入演算子)
+        /// @param data 追加するデータ
+        /// @return [List] データが追加されたリスト
         List<T> &operator+=(const T &data);
+        /// @brief オペレータ(複合代入演算子)
+        /// @param list 追加するリスト
+        /// @return [List] データが追加されたリスト
         List<T> &operator+=(const List<T> &list);
-        // スライス
+        /// @brief スライス
+        /// @param start 取得する要素の先頭の要素番号
+        /// @param length 取得する要素数
+        /// @return [List] スライスしたリスト
         List<T> slice(int start, int length);
     };
 }

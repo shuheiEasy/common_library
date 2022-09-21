@@ -1,5 +1,14 @@
-#ifndef LIST_IMPL_H
-#define LIST_IMPL_H
+/**
+ * @file list_impl.hpp
+ * @author iijima-robot
+ * @brief Listクラスを実装するヘッダファイル
+ * @date 2022-09-17
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
+#ifndef COMMON_DATAOBJECT_LIST_IMPL_H
+#define COMMON_DATAOBJECT_LIST_IMPL_H
 
 #include <dataObject/list.hpp>
 
