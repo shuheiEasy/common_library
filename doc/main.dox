@@ -1,10 +1,59 @@
 /**
 @mainpage C++用共通ライブラリ
-
-dataObject : 型クラスライブラリ<br>
-fileSystem : ファイル操作ライブラリ<br>
-logSystem  : ログ出力ライブラリ\n
-formatter  : 書式ライブラリ<br>
-timeSystem : 時間ライブラリ<br>
+# 各ライブラリ
+\htmlonly
+<table style="border:none;">
+<tr style="border:none;">
+<td style="border:none;">
+\endhtmlonly
+@ref dataObject "dataObject"
+\htmlonly
+</td>
+<td style="border:none;">
+: 型クラスライブラリ
+</td>
+</tr>
+<tr style="border:none;">
+<td style="border:none;">
+\endhtmlonly
+@ref fileSystem "fileSystem"
+\htmlonly
+</td>
+<td style="border:none;">
+: ファイル操作ライブラリ
+</td>
+</tr>
+<tr style="border:none;">
+<td style="border:none;">
+\endhtmlonly
+@ref logSystem "logSystem"
+\htmlonly
+</td>
+<td style="border:none;">
+: ログ出力ライブラリ
+</td>
+</tr>
+<tr style="border:none;">
+<td style="border:none;">
+\endhtmlonly
+@ref formatter "formatter"
+\htmlonly
+</td>
+<td style="border:none;">
+: 書式ライブラリ
+</td>
+</tr>
+<tr style="border:none;">
+<td style="border:none;">
+\endhtmlonly
+@ref timeSystem "timeSystem"
+\htmlonly
+</td>
+<td style="border:none;">
+: 時間ライブラリ
+</td>
+</tr>
+</table>
+\endhtmlonly
 
 */

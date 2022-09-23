@@ -9,8 +9,11 @@
 
 #include <dataObject/dataObject.hpp>
 
+/// @brief ファイル操作ライブラリの空間
 namespace fileSystem
 {
+    /// @brief ファイル種類を表す列挙体
+    /// @details 「FT_Unknown」は不明なファイル、「FT_NoExist」は存在していないファイル、「FT_File」はファイル、「FT_Dir」はディレクトリ
     enum FileType
     {
         FT_Unknown = -100,
@@ -19,6 +22,15 @@ namespace fileSystem
         FT_Dir,
     };
 
+    /// @brief ファイル状況を表す列挙体
+    /// @details 
+    /// | モード | 状態 |
+    /// |--:|:--:|
+    /// | UNKNOWNMODE | 状態不明 |
+    /// | CLOSEMODE | ファイルを閉じた状態 |
+    /// | READMODE | ファイルを読み込みモードで開いた状態 |
+    /// | WRITEMODE | ファイルを上書きモードで開いた状態 |
+    /// | APPENDMODE | ファイルを追記モードで開いた状態 |
     enum FileMode
     {
         UNKNOWNMODE = -100,
@@ -28,6 +40,7 @@ namespace fileSystem
         APPENDMODE
     };
 
+    /// @brief ファイルクラス
     class File : public dataObject::None
     {
     protected:
@@ -45,10 +58,18 @@ namespace fileSystem
         void _setName();
 
     public:
+        /// @brief コンストラクタ
         File();
+        /// @brief コンストラクタ
+        /// @param path パス
         File(const char *path);
+        /// @brief コンストラクタ
+        /// @param path パス
         File(dataObject::String &path);
+        /// @brief コピーコンストラクタ
+        /// @param file ファイル
         File(const File &file);
+        /// @brief デコンストラクタ
         ~File();
         const char *getType() const { return "File"; }
         int getSize() const;
@@ -56,77 +77,154 @@ namespace fileSystem
 
         // 独自メンバ関数
 
-        // ファイル閉じる
+        /// @brief ファイル閉じる
         void close();
-        // ディレクトリ判定
+        /// @brief ファイル存在判定
+        /// @return [Bool] ファイルが存在したときTrueを出力
         dataObject::Bool exists();
-        // 拡張子取得
+        /// @brief 拡張子取得
+        /// @return [String] 拡張子
         dataObject::String getExtension() const;
-        // ファイルポインター
+        /// @brief ファイルポインタ
+        /// @return [FILE] ファイルポインタ
         FILE *getFilePtr();
-        // ファイル形式取得
+        /// @brief ファイル形式取得
+        /// @return [FileType] ファイル種類
         FileType getFileType() const;
-        // 名前取得
+        /// @brief 名前取得
+        /// @return [String] ファイル名
         dataObject::String getName() const;
-        // Path取得
+        /// @brief Path取得
+        /// @return [String] ファイルのパス
         dataObject::String getPath() const;
-        // ディレクトリ判定
+        /// @brief ディレクトリ判定
+        /// @return [Bool] ディレクトリである場合Trueを出力
         dataObject::Bool isdir();
-        // ファイル判定
+        /// @brief ファイル判定
+        /// @return [Bool] ファイルである場合Trueを出力
         dataObject::Bool isfile();
-        // ディレクトリ作成
+        /// @brief ディレクトリ作成
+        /// @return [Bool] ディレクトリ作成が成功した場合Trueを出力
         dataObject::Bool mkdir();
-        // ファイル作成
+        /// @brief ファイル作成
+        /// @return [Bool] ファイル作成が成功した場合Trueを出力
         dataObject::Bool mkfile();
-        // ファイル開く
+        /// @brief ファイル開く
+        /// @param mode ファイルを開くモード
+        /// @return [Bool] ファイルが正しく開けた場合Trueを出力
         dataObject::Bool open(const char *mode);
-        // ファイル開く
+        /// @brief ファイル開く
+        /// @param mode ファイルを開くモード
+        /// @return [Bool] ファイルが正しく開けた場合Trueを出力
         dataObject::Bool open(FileMode mode);
-        // ファイル作成
+        /// @brief ファイル作成
+        /// @return [Bool] ファイル作成が成功した場合Trueを出力
         dataObject::Bool touch();
     };
 
+    /// @brief テキストファイルクラス
     class TextFile : public File
     {
     public:
         // メンバ関数
+
+        /// @brief コンストラクタ
         TextFile();
+        /// @brief コンストラクタ
+        /// @param path パス
         TextFile(const char *path);
+        /// @brief コピーコンストラクタ
+        /// @param file ファイル
         TextFile(const File &file);
-        // TextFile(TextFile &file);
+        /// @brief デコンストラクタ
         ~TextFile();
         const char *getType() const { return "TextFile"; }
 
         // 独自メンバ関数
 
-        // ファイル全体を読み込み
+        /// @brief ファイル全体を読み込み
+        /// @param output 読み込んだテキスト
+        /// @return [Int] 読み込み結果
+        /// @details 
+        /// | 読み込み結果の値 | 読み込み状態 |
+        /// |--:|:--:|
+        /// | 0 | 読み込み成功 |
+        /// | -1 | ファイル以外のため読み込みを中止 |
+        /// | -2 | ファイルの読み込みが失敗 |
         dataObject::Int read(dataObject::String &output);
-        // ファイル全体を読み込み
+        /// @brief ファイル全体を読み込み
+        /// @return [String] 読み込んだテキスト
         dataObject::String read();
-        // 行ごとに読み取り
+        /// @brief 行ごとに読み取り
+        /// @param output 読み込んだテキストの各行ごとのリスト
+        /// @return [Int] 読み込み結果
+        /// @details 
+        /// | 読み込み結果の値 | 読み込み状態 |
+        /// |--:|:--:|
+        /// | 0 | 読み込み成功 |
+        /// | -1 | ファイル以外のため読み込みを中止 |
+        /// | -2 | ファイルの読み込みが失敗 |
         dataObject::Int readlines(dataObject::List<dataObject::String> &text_lines);
-        // 行ごとに読み取り
+        /// @brief 行ごとに読み取り
+        /// @return [String] 読み込んだテキストの各行ごとのリスト
         dataObject::List<dataObject::String> readlines();
-        // 書き込み
+        /// @brief 書き込み
+        /// @param text 書き込む文章
+        /// @param mode 書き込みモード
+        /// @param close_flag ファイル閉じるフラグ（既定値:true）
+        /// @return [Int] 書き込み結果
         dataObject::Int write(const char *text, FileMode mode = APPENDMODE, dataObject::Bool close_flag = true);
-        // 書き込み
+        /// @brief 書き込み
+        /// @param text 書き込む文章
+        /// @param mode 書き込みモード
+        /// @param close_flag ファイル閉じるフラグ（既定値:true）
+        /// @return [Int] 書き込み結果
         dataObject::Int write(dataObject::String text, FileMode mode = APPENDMODE, dataObject::Bool close_flag = true);
-        // 改行したものを書き込み
+        /// @brief 改行したものを書き込み
+        /// @param text 書き込む文章
+        /// @param mode 書き込みモード
+        /// @param close_flag ファイル閉じるフラグ（既定値:true）
+        /// @return [Int] 書き込み結果
         dataObject::Int writeline(const char *text, FileMode mode = APPENDMODE, dataObject::Bool close_flag = true);
-        // 改行したものを書き込み
+        /// @brief 改行したものを書き込み
+        /// @param text 書き込む文章
+        /// @param mode 書き込みモード
+        /// @param close_flag ファイル閉じるフラグ（既定値:true）
+        /// @return [Int] 書き込み結果
         dataObject::Int writeline(dataObject::String text, FileMode mode = APPENDMODE, dataObject::Bool close_flag = true);
-        // 行のリストを書き込み
+        /// @brief 行のリストを書き込み
+        /// @param text 書き込む文章の行のリスト
+        /// @param mode 書き込みモード
+        /// @param close_flag ファイル閉じるフラグ（既定値:true）
+        /// @return [Int] 書き込み結果
         dataObject::Int writelines(dataObject::List<dataObject::Bool> &text_lines, FileMode mode = APPENDMODE, dataObject::Bool close_flag = true);
-        // 行のリストを書き込み
+        /// @brief 行のリストを書き込み
+        /// @param text 書き込む文章の行のリスト
+        /// @param mode 書き込みモード
+        /// @param close_flag ファイル閉じるフラグ（既定値:true）
+        /// @return [Int] 書き込み結果
         dataObject::Int writelines(dataObject::List<dataObject::Int> &text_lines, FileMode mode = APPENDMODE, dataObject::Bool close_flag = true);
-        // 行のリストを書き込み
+        /// @brief 行のリストを書き込み
+        /// @param text 書き込む文章の行のリスト
+        /// @param mode 書き込みモード
+        /// @param close_flag ファイル閉じるフラグ（既定値:true）
+        /// @return [Int] 書き込み結果
         dataObject::Int writelines(dataObject::List<dataObject::Float> &text_lines, FileMode mode = APPENDMODE, dataObject::Bool close_flag = true);
-        // 行のリストを書き込み
+        /// @brief 行のリストを書き込み
+        /// @param text 書き込む文章の行のリスト
+        /// @param mode 書き込みモード
+        /// @param close_flag ファイル閉じるフラグ（既定値:true）
+        /// @return [Int] 書き込み結果
         dataObject::Int writelines(dataObject::List<dataObject::Double> &text_lines, FileMode mode = APPENDMODE, dataObject::Bool close_flag = true);
-        // 行のリストを書き込み
+        /// @brief 行のリストを書き込み
+        /// @param text 書き込む文章の行のリスト
+        /// @param mode 書き込みモード
+        /// @param close_flag ファイル閉じるフラグ（既定値:true）
+        /// @return [Int] 書き込み結果
         dataObject::Int writelines(dataObject::List<dataObject::String> &text_lines, FileMode mode = APPENDMODE, dataObject::Bool close_flag = true);
     };
 
+    /// @brief ディレクトリクラス
     class FileExplorer: public dataObject::None
     {
     private:
@@ -135,16 +233,27 @@ namespace fileSystem
         int _searchDir(void);
 
     public:
+        /// @brief コンストラクタ
+        /// @param path パス
         FileExplorer(const dataObject::String &path);
+        /// @brief デコンストラクタ
         ~FileExplorer();
-        // dataObject::List *getFileList(void);
         const char *getLog() const;
         int getSize() const;
         const char *getType() const { return "FileExplorer"; }
     };
 
-    // 関数
+    /////////////////////////////////////////////
+    // 関数群
+    /////////////////////////////////////////////
+
+    /// @brief 絶対パスを取得する関数
+    /// @param path 相対パス・絶対パスを表す文字列
+    /// @return [String] 絶対パスを表す文字列
     dataObject::String getAbsolutePath(dataObject::String &path);
+    /// @brief パスを区切り文字で分割したリスト
+    /// @param path パスを表す文字列
+    /// @return [List<String>] パスのリスト
     dataObject::List<dataObject::String> getPathList(dataObject::String &path);
 }
 #endif
