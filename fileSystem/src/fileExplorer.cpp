@@ -5,14 +5,75 @@ using namespace fileSystem;
 
 FileExplorer::FileExplorer(const String &path)
 {
+    _init();
     _dir = new File(path.getChar());
-    _file_list = NULL;
     _searchDir();
 }
 
 FileExplorer::~FileExplorer()
 {
-    delete _dir;
+    if (_dir != NULL)
+    {
+        delete _dir;
+    }
+    if (_file_list != NULL)
+    {
+        delete _file_list;
+    }
+}
+
+List<File> FileExplorer::getDirList(){
+    List<File> ret;
+
+    // ポインタに実体があるとき
+    if (_file_list != NULL)
+    {
+        for(int i=0;i<_file_list->getSize();i++){
+            if(_file_list->get(i).isdir()){
+                ret.append(_file_list->get(i));
+            }
+        }
+    }
+
+    return ret;
+}
+
+/// @brief ファイルリストの取得
+/// @return List<File> ファイルリスト
+List<File> FileExplorer::getFileList()
+{
+    List<File> ret;
+
+    // ポインタに実体があるとき
+    if (_file_list != NULL)
+    {
+        ret = *_file_list;
+    }
+
+    return ret;
+}
+
+/// @brief 指定した拡張子のファイルリストの取得
+/// @param extension 拡張子
+/// @return List<File> ファイルリスト
+List<File> FileExplorer::getFileList(const char* extension){
+    return getFileList(String(extension));
+}
+
+List<File> FileExplorer::getFileList(const dataObject::String extension)
+{
+    List<File> ret;
+    
+    // ポインタに実体がないとき
+    if (_file_list != NULL)
+    {
+        for(int i=0;i<_file_list->getSize();i++){
+            if(_file_list->get(i).getExtension()==extension){
+                ret.append(_file_list->get(i));
+            }
+        }
+    }
+    return ret;
 }
 
 const char *FileExplorer::getLog() const
@@ -44,6 +105,12 @@ int FileExplorer::getSize() const
 // private
 //
 /////////////////////////////////////////////////
+
+void FileExplorer::_init()
+{
+    _dir = NULL;
+    _file_list = NULL;
+}
 
 int FileExplorer::_searchDir()
 {

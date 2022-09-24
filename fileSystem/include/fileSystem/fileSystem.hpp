@@ -230,6 +230,7 @@ namespace fileSystem
     private:
         File *_dir;
         dataObject::List<File> *_file_list;
+        void _init();
         int _searchDir(void);
 
     public:
@@ -238,6 +239,15 @@ namespace fileSystem
         FileExplorer(const dataObject::String &path);
         /// @brief デコンストラクタ
         ~FileExplorer();
+        /// @brief ディレクトリのリスト
+        /// @return List<File> ディレクトリリスト
+        dataObject::List<File> getDirList();
+        dataObject::List<File> getFileList();
+        dataObject::List<File> getFileList(const char* extension);
+        /// @brief 指定した拡張子のファイルリストの取得
+        /// @param extension 拡張子
+        /// @return List<File> ファイルリスト
+        dataObject::List<File> getFileList(const dataObject::String extension);
         const char *getLog() const;
         int getSize() const;
         const char *getType() const { return "FileExplorer"; }
