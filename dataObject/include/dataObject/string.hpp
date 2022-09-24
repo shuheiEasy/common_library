@@ -24,6 +24,7 @@ namespace dataObject
         int _memory_unit;
 
         void _converter(Moji *&ret, const char *text, int &size);
+        int _convertNum(int pos) const;
         int _del(int start, int length);
         void _init();
         void _free_ptr();
@@ -211,6 +212,11 @@ namespace dataObject
         /// @param data 追加するString型の文字列
         /// @return [String] 本クラスの文字列
         String &operator+=(const String &str);
+        /// @brief 文字列の一部を削除し、削除した文字列を取得する関数
+        /// @param start 取得する文字列の先頭の文字の位置
+        /// @param length 取得する文字列の長さ
+        /// @return [String] 文字列
+        String pop(int start, int length);
         /// @brief 文字列の一部を取得する関数
         /// @param start 取得する文字列の先頭の文字の位置
         /// @param length 取得する文字列の長さ
@@ -224,11 +230,15 @@ namespace dataObject
         /// @param sep 区切り文字列
         /// @return [List<String>] 文字列のリスト
         List<String> split(const String sep);
-        /// @brief 文字列の一部を削除し、削除した文字列を取得する関数
-        /// @param start 取得する文字列の先頭の文字の位置
-        /// @param length 取得する文字列の長さ
-        /// @return [String] 文字列
-        String pop(int start, int length);
+        /// @brief int型へ変換
+        /// @return [int] 数値
+        int toInt();
+        /// @brief float型へ変換
+        /// @return [float] 数値
+        float toFloat();
+        /// @brief double型へ変換
+        /// @return [double] 数値
+        double toDouble();
     };
 
     // String型変換
