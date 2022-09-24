@@ -3,10 +3,24 @@
 using namespace dataObject;
 using namespace fileSystem;
 
+/// @brief コンストラクタ
+FileExplorer::FileExplorer()
+{
+    _init();
+}
+
 FileExplorer::FileExplorer(const String &path)
 {
     _init();
     _dir = new File(path.getChar());
+    _searchDir();
+}
+/// @brief コンストラクタ
+/// @param path パス
+FileExplorer::FileExplorer(const char* path)
+{
+    _init();
+    _dir = new File(path);
     _searchDir();
 }
 
@@ -98,6 +112,39 @@ int FileExplorer::getSize() const
     {
         return 0;
     }
+}
+
+FileExplorer &FileExplorer::operator=(const String &path){
+    setPath(path);
+    return *this;
+}
+/// @brief 代入演算子
+/// @param path パス
+FileExplorer &FileExplorer::operator=(const char* path){
+    setPath(path);
+    return *this;
+}
+void FileExplorer::setPath(const String &path){
+    // ディレクトリの取得
+    if(_dir==NULL){
+        _dir = new File(path.getChar());
+    }else{
+        *_dir = File(path.getChar());
+    }
+
+    _searchDir();
+}
+/// @brief ディレクトリへのパス
+/// @param path パス
+void FileExplorer::setPath(const char* path){
+    // ディレクトリの取得
+    if(_dir==NULL){
+        _dir = new File(path);
+    }else{
+        *_dir = File(path);
+    }
+
+    _searchDir();
 }
 
 /////////////////////////////////////////////////

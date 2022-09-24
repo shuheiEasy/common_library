@@ -234,9 +234,11 @@ namespace fileSystem
         int _searchDir(void);
 
     public:
+        FileExplorer();
         /// @brief コンストラクタ
         /// @param path パス
         FileExplorer(const dataObject::String &path);
+        FileExplorer(const char* path);
         /// @brief デコンストラクタ
         ~FileExplorer();
         /// @brief ディレクトリのリスト
@@ -251,6 +253,14 @@ namespace fileSystem
         const char *getLog() const;
         int getSize() const;
         const char *getType() const { return "FileExplorer"; }
+        /// @brief 代入演算子
+        /// @param path パス
+        FileExplorer &operator=(const dataObject::String &path);
+        FileExplorer &operator=(const char* path);
+        /// @brief ディレクトリへのパス
+        /// @param path パス
+        void setPath(const dataObject::String &path);
+        void setPath(const char* path);
     };
 
     /////////////////////////////////////////////
