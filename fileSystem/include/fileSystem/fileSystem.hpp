@@ -41,7 +41,7 @@ namespace fileSystem
     };
 
     /// @brief ファイルクラス
-    class File : public dataObject::None
+    class File : public dataObject::DataObject
     {
     protected:
         FileType _filetype;
@@ -225,7 +225,7 @@ namespace fileSystem
     };
 
     /// @brief ディレクトリクラス
-    class FileExplorer: public dataObject::None
+    class FileExplorer: public dataObject::DataObject
     {
     private:
         File *_dir;

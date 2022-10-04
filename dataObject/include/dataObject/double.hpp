@@ -18,7 +18,7 @@ namespace dataObject
      * @brief double型に相当するクラス
      * 
      */
-    class Double : public None
+    class Double : public DataObject
     {
     private:
         double _data;

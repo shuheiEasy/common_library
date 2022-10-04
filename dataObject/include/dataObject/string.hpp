@@ -7,7 +7,7 @@
 namespace dataObject
 {
     /// @brief 文字列クラス
-    class String : public None
+    class String : public DataObject
     {
     private:
         struct Moji
