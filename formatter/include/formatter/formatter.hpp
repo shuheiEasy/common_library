@@ -7,7 +7,7 @@
 namespace formatter
 {   
     /// @brief 書式クラス
-    class Formatter : public dataObject::None
+    class Formatter : public dataObject::DataObject
     {
     private:
         struct Format

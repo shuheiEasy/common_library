@@ -19,6 +19,7 @@
 
 namespace dataObject
 {
+    /// @cond
     // 型判定
     template <class T>
     class Type<List<T>>
@@ -27,6 +28,7 @@ namespace dataObject
         ClassType class_id;
         Type() { class_id = LISTTYPE_CLASS; }
     };
+    /// @endcond
 
     template <class T>
     const char *List<T>::getLog() const

@@ -41,7 +41,7 @@ namespace fileSystem
     };
 
     /// @brief ファイルクラス
-    class File : public dataObject::None
+    class File : public dataObject::DataObject
     {
     protected:
         FileType _filetype;
@@ -225,22 +225,42 @@ namespace fileSystem
     };
 
     /// @brief ディレクトリクラス
-    class FileExplorer: public dataObject::None
+    class FileExplorer: public dataObject::DataObject
     {
     private:
         File *_dir;
         dataObject::List<File> *_file_list;
+        void _init();
         int _searchDir(void);
 
     public:
+        FileExplorer();
         /// @brief コンストラクタ
         /// @param path パス
         FileExplorer(const dataObject::String &path);
+        FileExplorer(const char* path);
         /// @brief デコンストラクタ
         ~FileExplorer();
+        /// @brief ディレクトリのリスト
+        /// @return List<File> ディレクトリリスト
+        dataObject::List<File> getDirList();
+        dataObject::List<File> getFileList();
+        dataObject::List<File> getFileList(const char* extension);
+        /// @brief 指定した拡張子のファイルリストの取得
+        /// @param extension 拡張子
+        /// @return List<File> ファイルリスト
+        dataObject::List<File> getFileList(const dataObject::String extension);
         const char *getLog() const;
         int getSize() const;
         const char *getType() const { return "FileExplorer"; }
+        /// @brief 代入演算子
+        /// @param path パス
+        FileExplorer &operator=(const dataObject::String &path);
+        FileExplorer &operator=(const char* path);
+        /// @brief ディレクトリへのパス
+        /// @param path パス
+        void setPath(const dataObject::String &path);
+        void setPath(const char* path);
     };
 
     /////////////////////////////////////////////

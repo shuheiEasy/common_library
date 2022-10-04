@@ -18,7 +18,7 @@ namespace dataObject
      * @brief float型に相当するクラス
      * 
      */
-    class Float : public None
+    class Float : public DataObject
     {
     private:
         float _data;

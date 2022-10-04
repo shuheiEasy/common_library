@@ -378,6 +378,13 @@ String &String::operator+=(const String &str)
     return *this;
 }
 
+String String::pop(int start, int length)
+{
+    String ret = slice(start, length);
+    _del(start, length);
+    return ret;
+}
+
 String String::slice(int start, int length) const
 {
     // 位置取得
@@ -455,12 +462,233 @@ List<String> String::split(const String sep)
     return ret;
 }
 
-String String::pop(int start, int length)
+int String::toInt()
 {
-    String ret = slice(start, length);
-    _del(start, length);
+    int ret = 0;
+    int digit_counter = 0;
+    for (int i = _length - 1; i >= 0; i--)
+    {
+        auto num = _convertNum(i);
+        if (num < 0)
+        {
+            return 0;
+        }
+        if (num > 10)
+        {
+            switch (num)
+            {
+            case 100:
+                return ret;
+                break;
+            case 101:
+                return -ret;
+                break;
+            case 102:
+                ret = 0;
+                digit_counter = -1;
+                break;
+            default:
+                return 0;
+                break;
+            }
+        }
+        else
+        {
+            int digit = 1;
+            for (int j = 0; j < digit_counter; j++)
+            {
+                digit *= 10;
+            }
+            ret += num * digit;
+        }
+        digit_counter++;
+    }
+
     return ret;
 }
+
+float String::toFloat()
+{
+    float ret = 0;
+    bool integer_flag = true;
+    int point_counter = 0;
+    bool minus_flag = false;
+    for (int i = 0; i < _length; i++)
+    {
+        auto num = _convertNum(i);
+        if (num < 0)
+        {
+            return 0;
+        }
+        if (num > 10)
+        {
+            if (i == 0)
+            {
+                switch (num)
+                {
+                case 101:
+                    minus_flag = true;
+                    break;
+                case 102:
+                    if (!integer_flag)
+                    {
+                        return ret;
+                    }
+                    integer_flag = false;
+                    break;
+                default:
+                    return 0;
+                    break;
+                }
+            }
+            else
+            {
+                switch (num)
+                {
+                case 100:
+                case 101:
+                    return ret;
+                    break;
+                case 102:
+                    if (!integer_flag)
+                    {
+                        return ret;
+                    }
+                    integer_flag = false;
+                    break;
+                default:
+                    return 0;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            if (integer_flag)
+            {
+                ret = ret * 10 + num;
+            }
+            else
+            {
+                float decimal = 1;
+                for (int j = 0; j < point_counter; j++)
+                {
+                    decimal *= 0.1;
+                }
+                ret += num * decimal;
+            }
+        }
+
+        if (!integer_flag)
+        {
+            point_counter++;
+        }
+    }
+
+    if (minus_flag)
+    {
+        return -ret;
+    }
+    else
+    {
+        return ret;
+    }
+}
+
+double String::toDouble()
+{
+    double ret = 0;
+    bool integer_flag = true;
+    int point_counter = 0;
+    bool minus_flag = false;
+    for (int i = 0; i < _length; i++)
+    {
+        auto num = _convertNum(i);
+        if (num < 0)
+        {
+            return 0;
+        }
+        if (num > 10)
+        {
+            if (i == 0)
+            {
+                switch (num)
+                {
+                case 101:
+                    minus_flag = true;
+                    break;
+                case 102:
+                    if (!integer_flag)
+                    {
+                        return ret;
+                    }
+                    integer_flag = false;
+                    break;
+                default:
+                    return 0;
+                    break;
+                }
+            }
+            else
+            {
+                switch (num)
+                {
+                case 100:
+                case 101:
+                    return ret;
+                    break;
+                case 102:
+                    if (!integer_flag)
+                    {
+                        return ret;
+                    }
+                    integer_flag = false;
+                    break;
+                default:
+                    return 0;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            if (integer_flag)
+            {
+                ret = ret * 10 + num;
+            }
+            else
+            {
+                double decimal = 1;
+                for (int j = 0; j < point_counter; j++)
+                {
+                    decimal *= 0.1;
+                }
+                ret += num * decimal;
+            }
+        }
+
+        if (!integer_flag)
+        {
+            point_counter++;
+        }
+    }
+
+    if (minus_flag)
+    {
+        return -ret;
+    }
+    else
+    {
+        return ret;
+    }
+}
+
+
+///////////////////////////////////////////////////////////
+//
+// private
+//
+///////////////////////////////////////////////////////////
 
 void String::_converter(Moji *&ret, const char *text, int &size)
 {
@@ -489,6 +717,123 @@ void String::_converter(Moji *&ret, const char *text, int &size)
     }
 }
 
+int String::_convertNum(int pos) const
+{
+    if (_data[pos].size > 2)
+    {
+        if (strcmp(_data[pos].data, "０") == 0)
+        {
+            return 0;
+        }
+        else if (strcmp(_data[pos].data, "１") == 0)
+        {
+            return 1;
+        }
+        else if (strcmp(_data[pos].data, "２") == 0)
+        {
+            return 2;
+        }
+        else if (strcmp(_data[pos].data, "３") == 0)
+        {
+            return 3;
+        }
+        else if (strcmp(_data[pos].data, "４") == 0)
+        {
+            return 4;
+        }
+        else if (strcmp(_data[pos].data, "５") == 0)
+        {
+            return 5;
+        }
+        else if (strcmp(_data[pos].data, "６") == 0)
+        {
+            return 6;
+        }
+        else if (strcmp(_data[pos].data, "７") == 0)
+        {
+            return 7;
+        }
+        else if (strcmp(_data[pos].data, "８") == 0)
+        {
+            return 8;
+        }
+        else if (strcmp(_data[pos].data, "９") == 0)
+        {
+            return 9;
+        }
+        else if (strcmp(_data[pos].data, "＋") == 0)
+        {
+            return 100;
+        }
+        else if (strcmp(_data[pos].data, "ー") == 0)
+        {
+            return 101;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+    else
+    {
+        if (strcmp(_data[pos].data, "0") == 0)
+        {
+            return 0;
+        }
+        else if (strcmp(_data[pos].data, "1") == 0)
+        {
+            return 1;
+        }
+        else if (strcmp(_data[pos].data, "2") == 0)
+        {
+            return 2;
+        }
+        else if (strcmp(_data[pos].data, "3") == 0)
+        {
+            return 3;
+        }
+        else if (strcmp(_data[pos].data, "4") == 0)
+        {
+            return 4;
+        }
+        else if (strcmp(_data[pos].data, "5") == 0)
+        {
+            return 5;
+        }
+        else if (strcmp(_data[pos].data, "6") == 0)
+        {
+            return 6;
+        }
+        else if (strcmp(_data[pos].data, "7") == 0)
+        {
+            return 7;
+        }
+        else if (strcmp(_data[pos].data, "8") == 0)
+        {
+            return 8;
+        }
+        else if (strcmp(_data[pos].data, "9") == 0)
+        {
+            return 9;
+        }
+        else if (strcmp(_data[pos].data, "+") == 0)
+        {
+            return 100;
+        }
+        else if (strcmp(_data[pos].data, "-") == 0)
+        {
+            return 101;
+        }
+        else if (strcmp(_data[pos].data, ".") == 0)
+        {
+            return 102;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+}
 int String::_del(int start, int length)
 {
     // 位置取得
@@ -715,79 +1060,14 @@ int String::_judgeNum() const
     int ret = 0;
     for (int i = 0; i < _length; i++)
     {
-        if (_data[i].size > 2)
+        auto num = _convertNum(i);
+        if (num < 0)
         {
-            if (strcmp(_data[i].data, "０") == 0)
-            {
-            }
-            else if (strcmp(_data[i].data, "１") == 0)
-            {
-            }
-            else if (strcmp(_data[i].data, "２") == 0)
-            {
-            }
-            else if (strcmp(_data[i].data, "３") == 0)
-            {
-            }
-            else if (strcmp(_data[i].data, "４") == 0)
-            {
-            }
-            else if (strcmp(_data[i].data, "５") == 0)
-            {
-            }
-            else if (strcmp(_data[i].data, "６") == 0)
-            {
-            }
-            else if (strcmp(_data[i].data, "７") == 0)
-            {
-            }
-            else if (strcmp(_data[i].data, "８") == 0)
-            {
-            }
-            else if (strcmp(_data[i].data, "９") == 0)
-            {
-            }
-            else if (strcmp(_data[i].data, "＋") == 0)
-            {
-                ret = 1;
-            }
-            else if (strcmp(_data[i].data, "ー") == 0)
-            {
-                ret = 1;
-            }
-            else
-            {
-                return -1;
-            }
+            return -1;
         }
-        else
+        if (num > 10)
         {
-            switch (_data[i].data[0])
-            {
-            // 数字
-            case '0':
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-            case '5':
-            case '6':
-            case '7':
-            case '8':
-            case '9':
-                break;
-
-            // 記号
-            case '.':
-            case '+':
-            case '-':
-                ret = 1;
-                break;
-
-            default:
-                return -1;
-                break;
-            }
+            ret = 1;
         }
     }
     return ret;

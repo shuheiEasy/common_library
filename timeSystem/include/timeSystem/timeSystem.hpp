@@ -17,7 +17,7 @@ namespace timeSystem
 
     /// @brief 時間クラス
     /// @details 日・時・分・秒・ミリ秒を格納する
-    class Time : public dataObject::None
+    class Time : public dataObject::DataObject
     {
     private:
         short int _day;
@@ -109,7 +109,7 @@ namespace timeSystem
     };
 
     /// @brief 日付クラス
-    class Datetime : public dataObject::None
+    class Datetime : public dataObject::DataObject
     {
     private:
         Time _time;

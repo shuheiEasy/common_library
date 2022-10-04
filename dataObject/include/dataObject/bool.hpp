@@ -17,10 +17,10 @@ namespace dataObject
 {
     /**
      * @brief 真偽値(Bool)クラス
-     * @details bool型と互換性をもつクラス。None型の継承クラス。
+     * @details bool型と互換性をもつクラス。DataObject型の継承クラス。
      *
      */
-    class Bool : public None
+    class Bool : public DataObject
     {
     private:
         bool _data;
