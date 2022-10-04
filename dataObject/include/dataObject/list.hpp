@@ -20,7 +20,7 @@ namespace dataObject
      * @tparam T リストに格納するデータの型
      */
     template <class T>
-    class List : public None
+    class List : public DataObject
     {
     private:
         /**

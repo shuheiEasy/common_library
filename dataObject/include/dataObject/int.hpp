@@ -15,7 +15,7 @@
 namespace dataObject
 {
     /// @brief int型に相当するクラス
-    class Int : public None
+    class Int : public DataObject
     {
     private:
         int _data;
