@@ -85,7 +85,7 @@ namespace dataObject
     };
 
     // Noneを宣言
-    extern const NoneType None;
+    const static NoneType None;
 
     /**
      * @brief 型クラスの種類を分類する列挙型
