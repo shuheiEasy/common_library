@@ -75,17 +75,17 @@ namespace dataObject
         virtual const char *getLog() const { return "None"; }
     };
 
-    /**
-     * @brief データ情報がない場合を定義するクラス
-     * 
-     */
-    class None : public DataObject
+    /// @brief データ情報がない場合を定義するクラス
+    class NoneType : public DataObject
     {
     public:
         const char *getType() const { return "None"; }
         int getSize() const { return 0; }
         const char *getLog() const { return "None"; }
     };
+
+    // Noneを宣言
+    const static NoneType None;
 
     /**
      * @brief 型クラスの種類を分類する列挙型

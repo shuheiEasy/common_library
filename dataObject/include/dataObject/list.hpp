@@ -98,6 +98,8 @@ namespace dataObject
         /// @brief コンストラクタ
         List() { _init(); }
         /// @brief コンストラクタ
+        List(const NoneType &none) { _init(); }
+        /// @brief コンストラクタ
         /// @param list 代入するリスト
         List(const List<T> &list);
         /// @brief デコンストラクタ
