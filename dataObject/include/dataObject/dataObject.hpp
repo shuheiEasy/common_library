@@ -18,5 +18,6 @@
 #include <dataObject/bool.hpp>
 #include <dataObject/type.hpp>
 #include <dataObject/functions.hpp>
+#include <dataObject/arithmetic.hpp>
 
 #endif
