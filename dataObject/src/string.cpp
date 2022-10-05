@@ -8,6 +8,12 @@ String::String()
     _setData("", -1);
 }
 
+String::String(const NoneType &none)
+{
+    _init();
+    _setData("", -1);
+}
+
 String::String(const bool &data)
 {
     _init();
@@ -682,7 +688,6 @@ double String::toDouble()
         return ret;
     }
 }
-
 
 ///////////////////////////////////////////////////////////
 //
