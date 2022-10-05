@@ -2,7 +2,7 @@
  * @file int.hpp
  * @author iijima-robot
  * @brief 算術クラスを宣言するヘッダファイル
- * @date 2022-09-17
+ * @date 2022-10-05
  *
  * @copyright Copyright (c) 2022
  *
@@ -15,6 +15,8 @@
 
 namespace dataObject
 {
+    /// @brief 算術クラス
+    /// @tparam T int,float,double
     template <class T>
     class ArithmeticObject : public DataObject
     {
