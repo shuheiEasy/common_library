@@ -2,7 +2,12 @@
 cmake_minimum_required(VERSION 3.11.0)
 
 # プロジェクト名と使用する言語を設定
-project(common_library CXX)
+project(common_library LANGUAGES CXX VERSION 0.2.0)
+
+# 引数一覧
+
+# doxygen制御
+set(DOC_FLAG OFF CACHE BOOL ON)
 
 # サブプロジェクト設定
 add_subdirectory(dataObject)
@@ -11,11 +16,27 @@ add_subdirectory(timeSystem)
 add_subdirectory(fileSystem)
 add_subdirectory(logSystem)
 
+# doxygenプロジェクト設定
+if(DOC_FLAG)
+    add_subdirectory(docs)
+else(DOC_FLAG)
+    message("Doxygen OFF")
+endif(DOC_FLAG)
+
+# インストール
 install(
     EXPORT commonLibraryTargets
     DESTINATION cmake
     NAMESPACE common_library::
     FILE commonLibraryTargets.cmake)
+
+# config用変数
+set(INCLUDE_DIRS_PATH ${CMAKE_INSTALL_PREFIX}/include/${PROJECT_NAME})
+list(APPEND LIB_PATHS common_library::dataObject )
+list(APPEND LIB_PATHS common_library::formatter )
+list(APPEND LIB_PATHS common_library::timeSystem )
+list(APPEND LIB_PATHS common_library::fileSystem )
+list(APPEND LIB_PATHS common_library::logSystem )
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file( 
