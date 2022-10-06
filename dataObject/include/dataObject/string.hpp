@@ -40,6 +40,7 @@ namespace dataObject
     public:
         /// @brief コンストラクタ
         String();
+        String(const NoneType &none);
         /// @brief コンストラクタ
         /// @param data bool型のデータ
         String(const bool &data);

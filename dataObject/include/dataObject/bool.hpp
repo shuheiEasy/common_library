@@ -35,6 +35,7 @@ namespace dataObject
          * @details Falseにする。
          */
         Bool();
+        Bool(const NoneType &none);
         /**
          * @brief Boolクラスのコンストラクタ。
          * @details bool型引数の真偽値をコピー。

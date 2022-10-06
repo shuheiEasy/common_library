@@ -7,6 +7,11 @@ Bool::Bool()
     this->_init();
 }
 
+
+Bool::Bool(const NoneType &none)
+{
+    this->_init();
+}
 Bool::Bool(const bool &data)
 {
     this->_init();
