@@ -9,6 +9,7 @@ include_directories(../dataObject/include)
 include_directories(../formatter/include)
 include_directories(../timeSystem/include)
 include_directories(../fileSystem/include)
+set(INCLUDE_DIR_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/${INCLUDE_DIR} ${INCLUDE_DIR_PATHS} PARENT_SCOPE)
 
 # # C++ファイル取得
 file(GLOB_RECURSE source_list "src/*.cpp")
