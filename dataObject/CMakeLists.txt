@@ -21,9 +21,11 @@ set_target_properties(
     PUBLIC_HEADER "${header_list}")
 
 # インストール
-install(
-    TARGETS ${PROJECT_NAME}
-    EXPORT commonLibraryTargets
-    INCLUDES DESTINATION include
-    PUBLIC_HEADER DESTINATION include/${PARENT_PROJECT_NAME}/${PROJECT_NAME}
-    ARCHIVE DESTINATION lib/${PARENT_PROJECT_NAME})
+if(INSTALL_FLAG)
+    install(
+        TARGETS ${PROJECT_NAME}
+        EXPORT commonLibraryTargets
+        INCLUDES DESTINATION include
+        PUBLIC_HEADER DESTINATION include/${PARENT_PROJECT_NAME}/${PROJECT_NAME}
+        ARCHIVE DESTINATION lib/${PARENT_PROJECT_NAME})
+endif(INSTALL_FLAG)
