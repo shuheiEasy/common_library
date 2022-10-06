@@ -17,6 +17,14 @@ install(
     NAMESPACE common_library::
     FILE commonLibraryTargets.cmake)
 
+# config用変数
+set(INCLUDE_DIRS_PATH ${CMAKE_INSTALL_PREFIX}/include/${PROJECT_NAME})
+list(APPEND LIB_PATHS common_library::dataObject )
+list(APPEND LIB_PATHS common_library::formatter )
+list(APPEND LIB_PATHS common_library::timeSystem )
+list(APPEND LIB_PATHS common_library::fileSystem )
+list(APPEND LIB_PATHS common_library::logSystem )
+
 include(CMakePackageConfigHelpers)
 configure_package_config_file( 
     "Config.cmake.cfg" 
