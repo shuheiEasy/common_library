@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.11.0)
 
 # プロジェクト名と使用する言語を設定
-project(common_library CXX)
+project(common_library LANGUAGES CXX VERSION 0.2.0)
 
 # サブプロジェクト設定
 add_subdirectory(dataObject)
@@ -10,6 +10,7 @@ add_subdirectory(formatter)
 add_subdirectory(timeSystem)
 add_subdirectory(fileSystem)
 add_subdirectory(logSystem)
+add_subdirectory(docs)
 
 install(
     EXPORT commonLibraryTargets
