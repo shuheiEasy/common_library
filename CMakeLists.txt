@@ -57,4 +57,5 @@ endif(INSTALL_FLAG)
 # ソースモード
 if(NOT common_library_IS_TOP_LEVEL)
     set(common_library_INCLUDE_DIR ${INCLUDE_DIR_PATHS} PARENT_SCOPE)
+    set(common_library_LIBS ${LIB_PATHS} PARENT_SCOPE)
 endif()
