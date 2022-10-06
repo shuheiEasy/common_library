@@ -4,14 +4,26 @@ cmake_minimum_required(VERSION 3.11.0)
 # プロジェクト名と使用する言語を設定
 project(common_library LANGUAGES CXX VERSION 0.2.0)
 
+# 引数一覧
+
+# doxygen制御
+set(DOC_FLAG OFF CACHE BOOL ON)
+
 # サブプロジェクト設定
 add_subdirectory(dataObject)
 add_subdirectory(formatter)
 add_subdirectory(timeSystem)
 add_subdirectory(fileSystem)
 add_subdirectory(logSystem)
-add_subdirectory(docs)
 
+# doxygenプロジェクト設定
+if(DOC_FLAG)
+    add_subdirectory(docs)
+else(DOC_FLAG)
+    message("Doxygen OFF")
+endif(DOC_FLAG)
+
+# インストール
 install(
     EXPORT commonLibraryTargets
     DESTINATION cmake
