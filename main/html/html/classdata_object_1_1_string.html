@@ -1,0 +1,1851 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>common_library: dataObject::String クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">common_library
+   &#160;<span id="projectnumber">0.2.1</span>
+   </div>
+   <div id="projectbrief">c++用共通ライブラリ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classdata_object_1_1_string.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="classdata_object_1_1_string-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle">
+<div class="title">dataObject::String クラス</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>文字列クラス  
+ <a href="classdata_object_1_1_string.html#details">[詳解]</a></p>
+
+<p><code>#include &lt;<a class="el" href="string_8hpp_source.html">string.hpp</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> dataObject::String の継承関係図</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classdata_object_1_1_string__inherit__graph.png" border="0" usemap="#adata_object_1_1_string_inherit__map" alt="Inheritance graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> dataObject::String 連携図</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="classdata_object_1_1_string__coll__graph.png" border="0" usemap="#adata_object_1_1_string_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">凡例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a8a7ef356e05eb9b1ea1ab518baee3095"><td class="memItemLeft" align="right" valign="top"><a id="a8a7ef356e05eb9b1ea1ab518baee3095"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a8a7ef356e05eb9b1ea1ab518baee3095">String</a> ()</td></tr>
+<tr class="memdesc:a8a7ef356e05eb9b1ea1ab518baee3095"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ <br /></td></tr>
+<tr class="separator:a8a7ef356e05eb9b1ea1ab518baee3095"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82d8896e383182f30b41a45a7404aa88"><td class="memItemLeft" align="right" valign="top"><a id="a82d8896e383182f30b41a45a7404aa88"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>String</b> (const <a class="el" href="classdata_object_1_1_none_type.html">NoneType</a> &amp;none)</td></tr>
+<tr class="separator:a82d8896e383182f30b41a45a7404aa88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a550ff4a5027dd47e70c9764f23744c09"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a550ff4a5027dd47e70c9764f23744c09">String</a> (const bool &amp;data)</td></tr>
+<tr class="memdesc:a550ff4a5027dd47e70c9764f23744c09"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <a href="classdata_object_1_1_string.html#a550ff4a5027dd47e70c9764f23744c09">[詳解]</a><br /></td></tr>
+<tr class="separator:a550ff4a5027dd47e70c9764f23744c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ba2c524c62072a1bf7c5514c42e6ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a59ba2c524c62072a1bf7c5514c42e6ae">String</a> (const int &amp;data)</td></tr>
+<tr class="memdesc:a59ba2c524c62072a1bf7c5514c42e6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <a href="classdata_object_1_1_string.html#a59ba2c524c62072a1bf7c5514c42e6ae">[詳解]</a><br /></td></tr>
+<tr class="separator:a59ba2c524c62072a1bf7c5514c42e6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae17635b36b076f6112897a365fd4cefd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#ae17635b36b076f6112897a365fd4cefd">String</a> (const float &amp;data)</td></tr>
+<tr class="memdesc:ae17635b36b076f6112897a365fd4cefd"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <a href="classdata_object_1_1_string.html#ae17635b36b076f6112897a365fd4cefd">[詳解]</a><br /></td></tr>
+<tr class="separator:ae17635b36b076f6112897a365fd4cefd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab58f2abbb6fd4e3617861c97c71a3e5d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#ab58f2abbb6fd4e3617861c97c71a3e5d">String</a> (const double &amp;data)</td></tr>
+<tr class="memdesc:ab58f2abbb6fd4e3617861c97c71a3e5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <a href="classdata_object_1_1_string.html#ab58f2abbb6fd4e3617861c97c71a3e5d">[詳解]</a><br /></td></tr>
+<tr class="separator:ab58f2abbb6fd4e3617861c97c71a3e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a536209bdc6da85c29369073bed2bfd45"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a536209bdc6da85c29369073bed2bfd45">String</a> (const char *text)</td></tr>
+<tr class="memdesc:a536209bdc6da85c29369073bed2bfd45"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <a href="classdata_object_1_1_string.html#a536209bdc6da85c29369073bed2bfd45">[詳解]</a><br /></td></tr>
+<tr class="separator:a536209bdc6da85c29369073bed2bfd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8de432d3b68f08b8f637022fb0641c3c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a8de432d3b68f08b8f637022fb0641c3c">String</a> (const <a class="el" href="classdata_object_1_1_string.html">String</a> &amp;text)</td></tr>
+<tr class="memdesc:a8de432d3b68f08b8f637022fb0641c3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ  <a href="classdata_object_1_1_string.html#a8de432d3b68f08b8f637022fb0641c3c">[詳解]</a><br /></td></tr>
+<tr class="separator:a8de432d3b68f08b8f637022fb0641c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac40b2a3fb58c2d8556f5e6ff73510036"><td class="memItemLeft" align="right" valign="top"><a id="ac40b2a3fb58c2d8556f5e6ff73510036"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#ac40b2a3fb58c2d8556f5e6ff73510036">~String</a> ()</td></tr>
+<tr class="memdesc:ac40b2a3fb58c2d8556f5e6ff73510036"><td class="mdescLeft">&#160;</td><td class="mdescRight">デコンストラクタ <br /></td></tr>
+<tr class="separator:ac40b2a3fb58c2d8556f5e6ff73510036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7182b8cb7a8837db529f486e04bb0e81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a7182b8cb7a8837db529f486e04bb0e81">append</a> (const int &amp;data)</td></tr>
+<tr class="memdesc:a7182b8cb7a8837db529f486e04bb0e81"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を追加する関数  <a href="classdata_object_1_1_string.html#a7182b8cb7a8837db529f486e04bb0e81">[詳解]</a><br /></td></tr>
+<tr class="separator:a7182b8cb7a8837db529f486e04bb0e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca615d679524eef03d15ad0d46a244d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#aca615d679524eef03d15ad0d46a244d6">append</a> (const float &amp;data)</td></tr>
+<tr class="memdesc:aca615d679524eef03d15ad0d46a244d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を追加する関数  <a href="classdata_object_1_1_string.html#aca615d679524eef03d15ad0d46a244d6">[詳解]</a><br /></td></tr>
+<tr class="separator:aca615d679524eef03d15ad0d46a244d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97796bd3b8a1df8816815d4e9f750a1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a97796bd3b8a1df8816815d4e9f750a1c">append</a> (const double &amp;data)</td></tr>
+<tr class="memdesc:a97796bd3b8a1df8816815d4e9f750a1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を追加する関数  <a href="classdata_object_1_1_string.html#a97796bd3b8a1df8816815d4e9f750a1c">[詳解]</a><br /></td></tr>
+<tr class="separator:a97796bd3b8a1df8816815d4e9f750a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84c60b8678417215bb49d660a9873a4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a84c60b8678417215bb49d660a9873a4f">append</a> (const char *text)</td></tr>
+<tr class="memdesc:a84c60b8678417215bb49d660a9873a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を追加する関数  <a href="classdata_object_1_1_string.html#a84c60b8678417215bb49d660a9873a4f">[詳解]</a><br /></td></tr>
+<tr class="separator:a84c60b8678417215bb49d660a9873a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d0eb8b1a39545e0fe7d6a5820b4bddb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a7d0eb8b1a39545e0fe7d6a5820b4bddb">append</a> (const <a class="el" href="classdata_object_1_1_string.html">String</a> text)</td></tr>
+<tr class="memdesc:a7d0eb8b1a39545e0fe7d6a5820b4bddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を追加する関数  <a href="classdata_object_1_1_string.html#a7d0eb8b1a39545e0fe7d6a5820b4bddb">[詳解]</a><br /></td></tr>
+<tr class="separator:a7d0eb8b1a39545e0fe7d6a5820b4bddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b0c43ae84247df8e5f9488a911587c"><td class="memItemLeft" align="right" valign="top"><a id="ab5b0c43ae84247df8e5f9488a911587c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#ab5b0c43ae84247df8e5f9488a911587c">clear</a> ()</td></tr>
+<tr class="memdesc:ab5b0c43ae84247df8e5f9488a911587c"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列をすべて消す関数 <br /></td></tr>
+<tr class="separator:ab5b0c43ae84247df8e5f9488a911587c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fcf7bf5d663337d0f5fddbc421c25a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a5fcf7bf5d663337d0f5fddbc421c25a5">del</a> (int start)</td></tr>
+<tr class="memdesc:a5fcf7bf5d663337d0f5fddbc421c25a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字を消す関数  <a href="classdata_object_1_1_string.html#a5fcf7bf5d663337d0f5fddbc421c25a5">[詳解]</a><br /></td></tr>
+<tr class="separator:a5fcf7bf5d663337d0f5fddbc421c25a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc0aca87880f156c1d746ec6e5ddf082"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#afc0aca87880f156c1d746ec6e5ddf082">del</a> (int start, int length)</td></tr>
+<tr class="memdesc:afc0aca87880f156c1d746ec6e5ddf082"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の一部を消す関数  <a href="classdata_object_1_1_string.html#afc0aca87880f156c1d746ec6e5ddf082">[詳解]</a><br /></td></tr>
+<tr class="separator:afc0aca87880f156c1d746ec6e5ddf082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5445daeb285a5c766361c1b3b43a1fd4"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a5445daeb285a5c766361c1b3b43a1fd4">getChar</a> () const</td></tr>
+<tr class="memdesc:a5445daeb285a5c766361c1b3b43a1fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">char *型へ変換する関数  <a href="classdata_object_1_1_string.html#a5445daeb285a5c766361c1b3b43a1fd4">[詳解]</a><br /></td></tr>
+<tr class="separator:a5445daeb285a5c766361c1b3b43a1fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6baf1f08618fb0c4656f49b4ec38136"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#ae6baf1f08618fb0c4656f49b4ec38136">getType</a> () const</td></tr>
+<tr class="memdesc:ae6baf1f08618fb0c4656f49b4ec38136"><td class="mdescLeft">&#160;</td><td class="mdescRight">型名を取得する仮想関数  <a href="classdata_object_1_1_string.html#ae6baf1f08618fb0c4656f49b4ec38136">[詳解]</a><br /></td></tr>
+<tr class="separator:ae6baf1f08618fb0c4656f49b4ec38136"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac442a1d2bcd7b77a58f2f47bd3d7e612"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#ac442a1d2bcd7b77a58f2f47bd3d7e612">getLog</a> () const</td></tr>
+<tr class="memdesc:ac442a1d2bcd7b77a58f2f47bd3d7e612"><td class="mdescLeft">&#160;</td><td class="mdescRight">ログ出力仮想関数  <a href="classdata_object_1_1_string.html#ac442a1d2bcd7b77a58f2f47bd3d7e612">[詳解]</a><br /></td></tr>
+<tr class="separator:ac442a1d2bcd7b77a58f2f47bd3d7e612"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37b964f5f999cf938b6bac8bdf73b401"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a37b964f5f999cf938b6bac8bdf73b401">getSize</a> () const</td></tr>
+<tr class="memdesc:a37b964f5f999cf938b6bac8bdf73b401"><td class="mdescLeft">&#160;</td><td class="mdescRight">型クラス内の要素数を取得する仮想関数  <a href="classdata_object_1_1_string.html#a37b964f5f999cf938b6bac8bdf73b401">[詳解]</a><br /></td></tr>
+<tr class="separator:a37b964f5f999cf938b6bac8bdf73b401"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a907c93bc1b7610c72f64185bf980d7d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a907c93bc1b7610c72f64185bf980d7d7">insert</a> (const char *text, int start)</td></tr>
+<tr class="memdesc:a907c93bc1b7610c72f64185bf980d7d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を挿入する関数  <a href="classdata_object_1_1_string.html#a907c93bc1b7610c72f64185bf980d7d7">[詳解]</a><br /></td></tr>
+<tr class="separator:a907c93bc1b7610c72f64185bf980d7d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79c5e9b5413387cb222ccfbb4d995f31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a79c5e9b5413387cb222ccfbb4d995f31">insert</a> (const <a class="el" href="classdata_object_1_1_string.html">String</a> text, int start)</td></tr>
+<tr class="memdesc:a79c5e9b5413387cb222ccfbb4d995f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を挿入する関数  <a href="classdata_object_1_1_string.html#a79c5e9b5413387cb222ccfbb4d995f31">[詳解]</a><br /></td></tr>
+<tr class="separator:a79c5e9b5413387cb222ccfbb4d995f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa59e067de9d0985cfa6b2b2ecead2178"><td class="memItemLeft" align="right" valign="top"><a id="aa59e067de9d0985cfa6b2b2ecead2178"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#aa59e067de9d0985cfa6b2b2ecead2178">isdigit</a> () const</td></tr>
+<tr class="memdesc:aa59e067de9d0985cfa6b2b2ecead2178"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列が整数か判定する関数 <br /></td></tr>
+<tr class="separator:aa59e067de9d0985cfa6b2b2ecead2178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a928bacf13e8f2065bb673bb0f9a62108"><td class="memItemLeft" align="right" valign="top"><a id="a928bacf13e8f2065bb673bb0f9a62108"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a928bacf13e8f2065bb673bb0f9a62108">isnumeric</a> () const</td></tr>
+<tr class="memdesc:a928bacf13e8f2065bb673bb0f9a62108"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列が数字か判定する関数 <br /></td></tr>
+<tr class="separator:a928bacf13e8f2065bb673bb0f9a62108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc1d0a983d82de076115bbaab403ab3d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#acc1d0a983d82de076115bbaab403ab3d">operator==</a> (const int &amp;data) const</td></tr>
+<tr class="memdesc:acc1d0a983d82de076115bbaab403ab3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの比較演算子(==)  <a href="classdata_object_1_1_string.html#acc1d0a983d82de076115bbaab403ab3d">[詳解]</a><br /></td></tr>
+<tr class="separator:acc1d0a983d82de076115bbaab403ab3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5e67ebe0ed838dec8498910d866237c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#ac5e67ebe0ed838dec8498910d866237c">operator==</a> (const float &amp;data) const</td></tr>
+<tr class="memdesc:ac5e67ebe0ed838dec8498910d866237c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの比較演算子(==)  <a href="classdata_object_1_1_string.html#ac5e67ebe0ed838dec8498910d866237c">[詳解]</a><br /></td></tr>
+<tr class="separator:ac5e67ebe0ed838dec8498910d866237c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a180be393487ff868938566fee99de57d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a180be393487ff868938566fee99de57d">operator==</a> (const double &amp;data) const</td></tr>
+<tr class="memdesc:a180be393487ff868938566fee99de57d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの比較演算子(==)  <a href="classdata_object_1_1_string.html#a180be393487ff868938566fee99de57d">[詳解]</a><br /></td></tr>
+<tr class="separator:a180be393487ff868938566fee99de57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b84f5474b10eea98a0eaa741c7843e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a1b84f5474b10eea98a0eaa741c7843e7">operator==</a> (const char *text) const</td></tr>
+<tr class="memdesc:a1b84f5474b10eea98a0eaa741c7843e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの比較演算子(==)  <a href="classdata_object_1_1_string.html#a1b84f5474b10eea98a0eaa741c7843e7">[詳解]</a><br /></td></tr>
+<tr class="separator:a1b84f5474b10eea98a0eaa741c7843e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71247fee2fa752121a5dcbf6a722ddff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a71247fee2fa752121a5dcbf6a722ddff">operator==</a> (const <a class="el" href="classdata_object_1_1_string.html">String</a> &amp;text) const</td></tr>
+<tr class="memdesc:a71247fee2fa752121a5dcbf6a722ddff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの比較演算子(==)  <a href="classdata_object_1_1_string.html#a71247fee2fa752121a5dcbf6a722ddff">[詳解]</a><br /></td></tr>
+<tr class="separator:a71247fee2fa752121a5dcbf6a722ddff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b73cb16e81ec8ff3595bb83b360e527"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a3b73cb16e81ec8ff3595bb83b360e527">operator!=</a> (const int &amp;data) const</td></tr>
+<tr class="memdesc:a3b73cb16e81ec8ff3595bb83b360e527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの比較演算子(!=)  <a href="classdata_object_1_1_string.html#a3b73cb16e81ec8ff3595bb83b360e527">[詳解]</a><br /></td></tr>
+<tr class="separator:a3b73cb16e81ec8ff3595bb83b360e527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27a93bec55cea645e2be3f41595f7841"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a27a93bec55cea645e2be3f41595f7841">operator!=</a> (const float &amp;data) const</td></tr>
+<tr class="memdesc:a27a93bec55cea645e2be3f41595f7841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの比較演算子(!=)  <a href="classdata_object_1_1_string.html#a27a93bec55cea645e2be3f41595f7841">[詳解]</a><br /></td></tr>
+<tr class="separator:a27a93bec55cea645e2be3f41595f7841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a164aed38965b85c93533ad13b256d183"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a164aed38965b85c93533ad13b256d183">operator!=</a> (const double &amp;data) const</td></tr>
+<tr class="memdesc:a164aed38965b85c93533ad13b256d183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの比較演算子(!=)  <a href="classdata_object_1_1_string.html#a164aed38965b85c93533ad13b256d183">[詳解]</a><br /></td></tr>
+<tr class="separator:a164aed38965b85c93533ad13b256d183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d60870cbbd012bc1c00c366e6e2b028"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a2d60870cbbd012bc1c00c366e6e2b028">operator!=</a> (const char *text) const</td></tr>
+<tr class="memdesc:a2d60870cbbd012bc1c00c366e6e2b028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの比較演算子(!=)  <a href="classdata_object_1_1_string.html#a2d60870cbbd012bc1c00c366e6e2b028">[詳解]</a><br /></td></tr>
+<tr class="separator:a2d60870cbbd012bc1c00c366e6e2b028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ea3059ba42c903d5e73a9cabad117b7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a3ea3059ba42c903d5e73a9cabad117b7">operator!=</a> (const <a class="el" href="classdata_object_1_1_string.html">String</a> &amp;text) const</td></tr>
+<tr class="memdesc:a3ea3059ba42c903d5e73a9cabad117b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの比較演算子(!=)  <a href="classdata_object_1_1_string.html#a3ea3059ba42c903d5e73a9cabad117b7">[詳解]</a><br /></td></tr>
+<tr class="separator:a3ea3059ba42c903d5e73a9cabad117b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a971e7eedca3326a80b7aee82c171c553"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a971e7eedca3326a80b7aee82c171c553">operator[]</a> (const int id) const</td></tr>
+<tr class="memdesc:a971e7eedca3326a80b7aee82c171c553"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの添字演算子  <a href="classdata_object_1_1_string.html#a971e7eedca3326a80b7aee82c171c553">[詳解]</a><br /></td></tr>
+<tr class="separator:a971e7eedca3326a80b7aee82c171c553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9abfc176ff4c7a63baa2cab98b039a3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a9abfc176ff4c7a63baa2cab98b039a3e">operator=</a> (const int &amp;data)</td></tr>
+<tr class="memdesc:a9abfc176ff4c7a63baa2cab98b039a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(=)  <a href="classdata_object_1_1_string.html#a9abfc176ff4c7a63baa2cab98b039a3e">[詳解]</a><br /></td></tr>
+<tr class="separator:a9abfc176ff4c7a63baa2cab98b039a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8c231d3a2e2600fd3b6ad0d7e388ab9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#ab8c231d3a2e2600fd3b6ad0d7e388ab9">operator=</a> (const float &amp;data)</td></tr>
+<tr class="memdesc:ab8c231d3a2e2600fd3b6ad0d7e388ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(=)  <a href="classdata_object_1_1_string.html#ab8c231d3a2e2600fd3b6ad0d7e388ab9">[詳解]</a><br /></td></tr>
+<tr class="separator:ab8c231d3a2e2600fd3b6ad0d7e388ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a192d49e9304dd829db13d8b7f4f69d2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a192d49e9304dd829db13d8b7f4f69d2b">operator=</a> (const double &amp;data)</td></tr>
+<tr class="memdesc:a192d49e9304dd829db13d8b7f4f69d2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(=)  <a href="classdata_object_1_1_string.html#a192d49e9304dd829db13d8b7f4f69d2b">[詳解]</a><br /></td></tr>
+<tr class="separator:a192d49e9304dd829db13d8b7f4f69d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63273ad50c3800399d7b8737466846bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a63273ad50c3800399d7b8737466846bc">operator=</a> (const char *str)</td></tr>
+<tr class="memdesc:a63273ad50c3800399d7b8737466846bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(=)  <a href="classdata_object_1_1_string.html#a63273ad50c3800399d7b8737466846bc">[詳解]</a><br /></td></tr>
+<tr class="separator:a63273ad50c3800399d7b8737466846bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa14c9fffc35ebc094cbb2866c41b0e4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#aa14c9fffc35ebc094cbb2866c41b0e4b">operator=</a> (const <a class="el" href="classdata_object_1_1_string.html">String</a> &amp;str)</td></tr>
+<tr class="memdesc:aa14c9fffc35ebc094cbb2866c41b0e4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(=)  <a href="classdata_object_1_1_string.html#aa14c9fffc35ebc094cbb2866c41b0e4b">[詳解]</a><br /></td></tr>
+<tr class="separator:aa14c9fffc35ebc094cbb2866c41b0e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57f906b267818b0092917719104ad016"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a57f906b267818b0092917719104ad016">operator+</a> (const int &amp;data) const</td></tr>
+<tr class="memdesc:a57f906b267818b0092917719104ad016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(+)  <a href="classdata_object_1_1_string.html#a57f906b267818b0092917719104ad016">[詳解]</a><br /></td></tr>
+<tr class="separator:a57f906b267818b0092917719104ad016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15babd9fcb1ab5154785636c7d268943"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a15babd9fcb1ab5154785636c7d268943">operator+</a> (const float &amp;data) const</td></tr>
+<tr class="memdesc:a15babd9fcb1ab5154785636c7d268943"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(+)  <a href="classdata_object_1_1_string.html#a15babd9fcb1ab5154785636c7d268943">[詳解]</a><br /></td></tr>
+<tr class="separator:a15babd9fcb1ab5154785636c7d268943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53114a6daf393a660cb4cd1ae8c8f5c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a53114a6daf393a660cb4cd1ae8c8f5c9">operator+</a> (const double &amp;data) const</td></tr>
+<tr class="memdesc:a53114a6daf393a660cb4cd1ae8c8f5c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(+)  <a href="classdata_object_1_1_string.html#a53114a6daf393a660cb4cd1ae8c8f5c9">[詳解]</a><br /></td></tr>
+<tr class="separator:a53114a6daf393a660cb4cd1ae8c8f5c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4060ac210219af9edfe319372326f93f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a4060ac210219af9edfe319372326f93f">operator+</a> (const char *str) const</td></tr>
+<tr class="memdesc:a4060ac210219af9edfe319372326f93f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(+)  <a href="classdata_object_1_1_string.html#a4060ac210219af9edfe319372326f93f">[詳解]</a><br /></td></tr>
+<tr class="separator:a4060ac210219af9edfe319372326f93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58a5d10889dda3066fc30168bf1a8672"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a58a5d10889dda3066fc30168bf1a8672">operator+</a> (const <a class="el" href="classdata_object_1_1_string.html">String</a> &amp;str) const</td></tr>
+<tr class="memdesc:a58a5d10889dda3066fc30168bf1a8672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(+)  <a href="classdata_object_1_1_string.html#a58a5d10889dda3066fc30168bf1a8672">[詳解]</a><br /></td></tr>
+<tr class="separator:a58a5d10889dda3066fc30168bf1a8672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad66b24c0d7a4208eb12f1979fdea4004"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#ad66b24c0d7a4208eb12f1979fdea4004">operator+=</a> (const int &amp;data)</td></tr>
+<tr class="memdesc:ad66b24c0d7a4208eb12f1979fdea4004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの複合代入演算子(+=)  <a href="classdata_object_1_1_string.html#ad66b24c0d7a4208eb12f1979fdea4004">[詳解]</a><br /></td></tr>
+<tr class="separator:ad66b24c0d7a4208eb12f1979fdea4004"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b8640b5475ccf2c38bb2a615f9550d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a00b8640b5475ccf2c38bb2a615f9550d">operator+=</a> (const float &amp;data)</td></tr>
+<tr class="memdesc:a00b8640b5475ccf2c38bb2a615f9550d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(+=)  <a href="classdata_object_1_1_string.html#a00b8640b5475ccf2c38bb2a615f9550d">[詳解]</a><br /></td></tr>
+<tr class="separator:a00b8640b5475ccf2c38bb2a615f9550d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2575acbf9deb35cda43b03c7c06f64cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a2575acbf9deb35cda43b03c7c06f64cf">operator+=</a> (const double &amp;data)</td></tr>
+<tr class="memdesc:a2575acbf9deb35cda43b03c7c06f64cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(+=)  <a href="classdata_object_1_1_string.html#a2575acbf9deb35cda43b03c7c06f64cf">[詳解]</a><br /></td></tr>
+<tr class="separator:a2575acbf9deb35cda43b03c7c06f64cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64de9ab1af5df9397f8fbd8c79d5f4b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a64de9ab1af5df9397f8fbd8c79d5f4b6">operator+=</a> (const char *str)</td></tr>
+<tr class="memdesc:a64de9ab1af5df9397f8fbd8c79d5f4b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(+=)  <a href="classdata_object_1_1_string.html#a64de9ab1af5df9397f8fbd8c79d5f4b6">[詳解]</a><br /></td></tr>
+<tr class="separator:a64de9ab1af5df9397f8fbd8c79d5f4b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bbde274af9955d36e807425e38b77ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a7bbde274af9955d36e807425e38b77ca">operator+=</a> (const <a class="el" href="classdata_object_1_1_string.html">String</a> &amp;str)</td></tr>
+<tr class="memdesc:a7bbde274af9955d36e807425e38b77ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringクラスの代入演算子(+=)  <a href="classdata_object_1_1_string.html#a7bbde274af9955d36e807425e38b77ca">[詳解]</a><br /></td></tr>
+<tr class="separator:a7bbde274af9955d36e807425e38b77ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad17d222457b2b3beca6f23b97510e1f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#ad17d222457b2b3beca6f23b97510e1f0">pop</a> (int start, int length)</td></tr>
+<tr class="memdesc:ad17d222457b2b3beca6f23b97510e1f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の一部を削除し、削除した文字列を取得する関数  <a href="classdata_object_1_1_string.html#ad17d222457b2b3beca6f23b97510e1f0">[詳解]</a><br /></td></tr>
+<tr class="separator:ad17d222457b2b3beca6f23b97510e1f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05351e8a71766d612cec9a5c377eca6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a05351e8a71766d612cec9a5c377eca6d">slice</a> (int start, int length) const</td></tr>
+<tr class="memdesc:a05351e8a71766d612cec9a5c377eca6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列の一部を取得する関数  <a href="classdata_object_1_1_string.html#a05351e8a71766d612cec9a5c377eca6d">[詳解]</a><br /></td></tr>
+<tr class="separator:a05351e8a71766d612cec9a5c377eca6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedcbb4ae11c4f078dfa012b03ac0dcd7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">List</a>&lt; <a class="el" href="classdata_object_1_1_string.html">String</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#aedcbb4ae11c4f078dfa012b03ac0dcd7">split</a> (const char *sep)</td></tr>
+<tr class="memdesc:aedcbb4ae11c4f078dfa012b03ac0dcd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を区切り文字列で分割する関数  <a href="classdata_object_1_1_string.html#aedcbb4ae11c4f078dfa012b03ac0dcd7">[詳解]</a><br /></td></tr>
+<tr class="separator:aedcbb4ae11c4f078dfa012b03ac0dcd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67907955265a2a08420322b5388467b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdata_object_1_1_list.html">List</a>&lt; <a class="el" href="classdata_object_1_1_string.html">String</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a67907955265a2a08420322b5388467b1">split</a> (const <a class="el" href="classdata_object_1_1_string.html">String</a> sep)</td></tr>
+<tr class="memdesc:a67907955265a2a08420322b5388467b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">文字列を区切り文字列で分割する関数  <a href="classdata_object_1_1_string.html#a67907955265a2a08420322b5388467b1">[詳解]</a><br /></td></tr>
+<tr class="separator:a67907955265a2a08420322b5388467b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77ce12d84388f4e13f79ba806dd0e590"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a77ce12d84388f4e13f79ba806dd0e590">toInt</a> ()</td></tr>
+<tr class="memdesc:a77ce12d84388f4e13f79ba806dd0e590"><td class="mdescLeft">&#160;</td><td class="mdescRight">int型へ変換  <a href="classdata_object_1_1_string.html#a77ce12d84388f4e13f79ba806dd0e590">[詳解]</a><br /></td></tr>
+<tr class="separator:a77ce12d84388f4e13f79ba806dd0e590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a414ec0d65c8a9bac5d23d0b0870901ea"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a414ec0d65c8a9bac5d23d0b0870901ea">toFloat</a> ()</td></tr>
+<tr class="memdesc:a414ec0d65c8a9bac5d23d0b0870901ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">float型へ変換  <a href="classdata_object_1_1_string.html#a414ec0d65c8a9bac5d23d0b0870901ea">[詳解]</a><br /></td></tr>
+<tr class="separator:a414ec0d65c8a9bac5d23d0b0870901ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75d63aa7486607b704ef9906077700d4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_object_1_1_string.html#a75d63aa7486607b704ef9906077700d4">toDouble</a> ()</td></tr>
+<tr class="memdesc:a75d63aa7486607b704ef9906077700d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">double型へ変換  <a href="classdata_object_1_1_string.html#a75d63aa7486607b704ef9906077700d4">[詳解]</a><br /></td></tr>
+<tr class="separator:a75d63aa7486607b704ef9906077700d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock"><p>文字列クラス </p>
+
+<p class="definition"> <a class="el" href="string_8hpp_source.html">string.hpp</a> の <a class="el" href="string_8hpp_source.html#l00010">10</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a550ff4a5027dd47e70c9764f23744c09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a550ff4a5027dd47e70c9764f23744c09">&#9670;&nbsp;</a></span>String() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String::String </td>
+          <td>(</td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>bool型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00017">17</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a59ba2c524c62072a1bf7c5514c42e6ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59ba2c524c62072a1bf7c5514c42e6ae">&#9670;&nbsp;</a></span>String() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String::String </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>int型のデータ</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>数値を文字列に変換してデータを格納する </p>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00030">30</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ae17635b36b076f6112897a365fd4cefd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae17635b36b076f6112897a365fd4cefd">&#9670;&nbsp;</a></span>String() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String::String </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>float型のデータ</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>数値を文字列に変換してデータを格納する </p>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00036">36</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ab58f2abbb6fd4e3617861c97c71a3e5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab58f2abbb6fd4e3617861c97c71a3e5d">&#9670;&nbsp;</a></span>String() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String::String </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>double型のデータ</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>数値を文字列に変換してデータを格納する </p>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00042">42</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a536209bdc6da85c29369073bed2bfd45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a536209bdc6da85c29369073bed2bfd45">&#9670;&nbsp;</a></span>String() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String::String </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>const char *型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00048">48</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a8de432d3b68f08b8f637022fb0641c3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8de432d3b68f08b8f637022fb0641c3c">&#9670;&nbsp;</a></span>String() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String::String </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>コンストラクタ </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>String型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00054">54</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a84c60b8678417215bb49d660a9873a4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84c60b8678417215bb49d660a9873a4f">&#9670;&nbsp;</a></span>append() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void String::append </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列を追加する関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>const char *型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00080">80</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a97796bd3b8a1df8816815d4e9f750a1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97796bd3b8a1df8816815d4e9f750a1c">&#9670;&nbsp;</a></span>append() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void String::append </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列を追加する関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>double型のデータ</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>数値を文字列に変換して追加する </p>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00075">75</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aca615d679524eef03d15ad0d46a244d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca615d679524eef03d15ad0d46a244d6">&#9670;&nbsp;</a></span>append() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void String::append </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列を追加する関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>float型のデータ</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>数値を文字列に変換して追加する </p>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00070">70</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7182b8cb7a8837db529f486e04bb0e81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7182b8cb7a8837db529f486e04bb0e81">&#9670;&nbsp;</a></span>append() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void String::append </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列を追加する関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>int型のデータ</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>数値を文字列に変換して追加する </p>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00065">65</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7d0eb8b1a39545e0fe7d6a5820b4bddb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d0eb8b1a39545e0fe7d6a5820b4bddb">&#9670;&nbsp;</a></span>append() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void String::append </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列を追加する関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>String型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00085">85</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a5fcf7bf5d663337d0f5fddbc421c25a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fcf7bf5d663337d0f5fddbc421c25a5">&#9670;&nbsp;</a></span>del() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void String::del </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>start</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字を消す関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>消したい文字の位置 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00096">96</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="afc0aca87880f156c1d746ec6e5ddf082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc0aca87880f156c1d746ec6e5ddf082">&#9670;&nbsp;</a></span>del() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void String::del </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列の一部を消す関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>消したい文字列の先頭の文字の位置 </td></tr>
+    <tr><td class="paramname">length</td><td>消したい文字列の長さ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00101">101</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a5445daeb285a5c766361c1b3b43a1fd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5445daeb285a5c766361c1b3b43a1fd4">&#9670;&nbsp;</a></span>getChar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * String::getChar </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>char *型へ変換する関数 </p>
+<dl class="section return"><dt>戻り値</dt><dd>char *型 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00106">106</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ac442a1d2bcd7b77a58f2f47bd3d7e612"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac442a1d2bcd7b77a58f2f47bd3d7e612">&#9670;&nbsp;</a></span>getLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * String::getLog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ログ出力仮想関数 </p>
+<dl class="section return"><dt>戻り値</dt><dd>[const char*]　型クラスが保持するログ情報 </dd></dl>
+
+<p><a class="el" href="classdata_object_1_1_data_object.html#ab60ca9474d1618e99566b4ac3ab9c0d2">dataObject::DataObject</a>を再実装しています。</p>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00147">147</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a37b964f5f999cf938b6bac8bdf73b401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37b964f5f999cf938b6bac8bdf73b401">&#9670;&nbsp;</a></span>getSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int String::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>型クラス内の要素数を取得する仮想関数 </p>
+<dl class="section return"><dt>戻り値</dt><dd>[int] 要素数 </dd></dl>
+
+<p><a class="el" href="classdata_object_1_1_data_object.html#a7f3dbafcf278269e4cf28dbcddb9e913">dataObject::DataObject</a>を再実装しています。</p>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00152">152</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ae6baf1f08618fb0c4656f49b4ec38136"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6baf1f08618fb0c4656f49b4ec38136">&#9670;&nbsp;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * String::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>型名を取得する仮想関数 </p>
+<dl class="section return"><dt>戻り値</dt><dd>[const char* 型] 型名 </dd></dl>
+
+<p><a class="el" href="classdata_object_1_1_data_object.html#ac3908b9d0c163de3695f99996a844c8d">dataObject::DataObject</a>を再実装しています。</p>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00142">142</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a907c93bc1b7610c72f64185bf980d7d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a907c93bc1b7610c72f64185bf980d7d7">&#9670;&nbsp;</a></span>insert() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void String::insert </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>start</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列を挿入する関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>挿入するchar *型の文字列 </td></tr>
+    <tr><td class="paramname">start</td><td>挿入する位置 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00157">157</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a79c5e9b5413387cb222ccfbb4d995f31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79c5e9b5413387cb222ccfbb4d995f31">&#9670;&nbsp;</a></span>insert() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void String::insert </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>start</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列を挿入する関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>挿入するString型の文字列 </td></tr>
+    <tr><td class="paramname">start</td><td>挿入する位置 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00164">164</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a2d60870cbbd012bc1c00c366e6e2b028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d60870cbbd012bc1c00c366e6e2b028">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool String::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの比較演算子(!=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>比較するconst char *型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>文字列が異なればtrueを出力。 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00270">270</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a164aed38965b85c93533ad13b256d183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a164aed38965b85c93533ad13b256d183">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool String::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの比較演算子(!=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>比較するdouble型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>数値が異なればtrueを出力。 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00265">265</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a27a93bec55cea645e2be3f41595f7841"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27a93bec55cea645e2be3f41595f7841">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool String::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの比較演算子(!=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>比較するfloat型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>数値が異なればtrueを出力。 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00260">260</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a3b73cb16e81ec8ff3595bb83b360e527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b73cb16e81ec8ff3595bb83b360e527">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool String::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの比較演算子(!=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>比較するint型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>数値が異なればtrueを出力。 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00255">255</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a3ea3059ba42c903d5e73a9cabad117b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ea3059ba42c903d5e73a9cabad117b7">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool String::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの比較演算子(!=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>比較するString型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>文字列が異なればtrueを出力。 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00275">275</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a4060ac210219af9edfe319372326f93f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4060ac210219af9edfe319372326f93f">&#9670;&nbsp;</a></span>operator+() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(+) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>追加するconst char *型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 追加された文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00343">343</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a53114a6daf393a660cb4cd1ae8c8f5c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53114a6daf393a660cb4cd1ae8c8f5c9">&#9670;&nbsp;</a></span>operator+() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(+) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>追加するdouble型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 追加された文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00336">336</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a15babd9fcb1ab5154785636c7d268943"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15babd9fcb1ab5154785636c7d268943">&#9670;&nbsp;</a></span>operator+() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(+) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>追加するfloat型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 追加された文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00329">329</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a57f906b267818b0092917719104ad016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57f906b267818b0092917719104ad016">&#9670;&nbsp;</a></span>operator+() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(+) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>追加するint型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 追加された文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00322">322</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a58a5d10889dda3066fc30168bf1a8672"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58a5d10889dda3066fc30168bf1a8672">&#9670;&nbsp;</a></span>operator+() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(+) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>追加するString型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 追加された文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00350">350</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a64de9ab1af5df9397f8fbd8c79d5f4b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64de9ab1af5df9397f8fbd8c79d5f4b6">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> &amp; String::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(+=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>追加するconst char *型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 本クラスの文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00375">375</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a2575acbf9deb35cda43b03c7c06f64cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2575acbf9deb35cda43b03c7c06f64cf">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> &amp; String::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(+=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>追加するdouble型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 本クラスの文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00369">369</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a00b8640b5475ccf2c38bb2a615f9550d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00b8640b5475ccf2c38bb2a615f9550d">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> &amp; String::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(+=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>追加するfloat型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 本クラスの文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00363">363</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ad66b24c0d7a4208eb12f1979fdea4004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad66b24c0d7a4208eb12f1979fdea4004">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> &amp; String::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの複合代入演算子(+=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>追加するint型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 本クラスの文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00357">357</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7bbde274af9955d36e807425e38b77ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bbde274af9955d36e807425e38b77ca">&#9670;&nbsp;</a></span>operator+=() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> &amp; String::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(+=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>追加するString型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 本クラスの文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00381">381</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a63273ad50c3800399d7b8737466846bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63273ad50c3800399d7b8737466846bc">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>代入するconst char *型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 本クラスの文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00306">306</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a192d49e9304dd829db13d8b7f4f69d2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a192d49e9304dd829db13d8b7f4f69d2b">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>代入するdouble型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 本クラスの文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00299">299</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ab8c231d3a2e2600fd3b6ad0d7e388ab9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8c231d3a2e2600fd3b6ad0d7e388ab9">&#9670;&nbsp;</a></span>operator=() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>代入するfloat型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 本クラスの文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00292">292</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a9abfc176ff4c7a63baa2cab98b039a3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9abfc176ff4c7a63baa2cab98b039a3e">&#9670;&nbsp;</a></span>operator=() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>代入するint型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 本クラスの文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00285">285</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aa14c9fffc35ebc094cbb2866c41b0e4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa14c9fffc35ebc094cbb2866c41b0e4b">&#9670;&nbsp;</a></span>operator=() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの代入演算子(=) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>代入するString型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 本クラスの文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00314">314</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a1b84f5474b10eea98a0eaa741c7843e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b84f5474b10eea98a0eaa741c7843e7">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool String::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの比較演算子(==) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>比較するconst char *型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>文字列が等しければtrueを出力。 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00234">234</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a180be393487ff868938566fee99de57d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a180be393487ff868938566fee99de57d">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool String::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの比較演算子(==) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>比較するdouble型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>数値が等しければtrueを出力。 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00221">221</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ac5e67ebe0ed838dec8498910d866237c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5e67ebe0ed838dec8498910d866237c">&#9670;&nbsp;</a></span>operator==() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool String::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの比較演算子(==) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>比較するfloat型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>数値が等しければtrueを出力。 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00208">208</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="acc1d0a983d82de076115bbaab403ab3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc1d0a983d82de076115bbaab403ab3d">&#9670;&nbsp;</a></span>operator==() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool String::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの比較演算子(==) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>比較するint型のデータ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>数値が等しければtrueを出力。 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00195">195</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a71247fee2fa752121a5dcbf6a722ddff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71247fee2fa752121a5dcbf6a722ddff">&#9670;&nbsp;</a></span>operator==() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool String::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの比較演算子(==) </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>比較するString型の文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>文字列が等しければtrueを出力。 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00243">243</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a971e7eedca3326a80b7aee82c171c553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a971e7eedca3326a80b7aee82c171c553">&#9670;&nbsp;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stringクラスの添字演算子 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>取得したい文字の位置 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 取得したい文字 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00280">280</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ad17d222457b2b3beca6f23b97510e1f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad17d222457b2b3beca6f23b97510e1f0">&#9670;&nbsp;</a></span>pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::pop </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列の一部を削除し、削除した文字列を取得する関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>取得する文字列の先頭の文字の位置 </td></tr>
+    <tr><td class="paramname">length</td><td>取得する文字列の長さ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00387">387</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a05351e8a71766d612cec9a5c377eca6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05351e8a71766d612cec9a5c377eca6d">&#9670;&nbsp;</a></span>slice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_string.html">String</a> String::slice </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列の一部を取得する関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>取得する文字列の先頭の文字の位置 </td></tr>
+    <tr><td class="paramname">length</td><td>取得する文字列の長さ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[<a class="el" href="classdata_object_1_1_string.html" title="文字列クラス">String</a>] 文字列 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00394">394</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aedcbb4ae11c4f078dfa012b03ac0dcd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedcbb4ae11c4f078dfa012b03ac0dcd7">&#9670;&nbsp;</a></span>split() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">List</a>&lt; <a class="el" href="classdata_object_1_1_string.html">String</a> &gt; String::split </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>sep</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列を区切り文字列で分割する関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sep</td><td>区切り文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[List&lt;String&gt;] 文字列のリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00432">432</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a67907955265a2a08420322b5388467b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67907955265a2a08420322b5388467b1">&#9670;&nbsp;</a></span>split() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdata_object_1_1_list.html">List</a>&lt; <a class="el" href="classdata_object_1_1_string.html">String</a> &gt; String::split </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdata_object_1_1_string.html">String</a>&#160;</td>
+          <td class="paramname"><em>sep</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>文字列を区切り文字列で分割する関数 </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sep</td><td>区切り文字列 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>戻り値</dt><dd>[List&lt;String&gt;] 文字列のリスト </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00437">437</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a75d63aa7486607b704ef9906077700d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75d63aa7486607b704ef9906077700d4">&#9670;&nbsp;</a></span>toDouble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double String::toDouble </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>double型へ変換 </p>
+<dl class="section return"><dt>戻り値</dt><dd>[double] 数値 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00604">604</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a414ec0d65c8a9bac5d23d0b0870901ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a414ec0d65c8a9bac5d23d0b0870901ea">&#9670;&nbsp;</a></span>toFloat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float String::toFloat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>float型へ変換 </p>
+<dl class="section return"><dt>戻り値</dt><dd>[float] 数値 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00516">516</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a77ce12d84388f4e13f79ba806dd0e590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77ce12d84388f4e13f79ba806dd0e590">&#9670;&nbsp;</a></span>toInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int String::toInt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>int型へ変換 </p>
+<dl class="section return"><dt>戻り値</dt><dd>[int] 数値 </dd></dl>
+
+<p class="definition"> <a class="el" href="string_8cpp_source.html">string.cpp</a> の <a class="el" href="string_8cpp_source.html#l00471">471</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>/home/iijimarobot/workspace/Ubuntu/workspace/gitSpace/common_library/common_library/dataObject/include/dataObject/<a class="el" href="string_8hpp_source.html">string.hpp</a></li>
+<li>/home/iijimarobot/workspace/Ubuntu/workspace/gitSpace/common_library/common_library/dataObject/src/<a class="el" href="string_8cpp_source.html">string.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacedata_object.html">dataObject</a></li><li class="navelem"><a class="el" href="classdata_object_1_1_string.html">String</a></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
