@@ -1,0 +1,11 @@
+digraph "fileSystem::File"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="fileSystem::File",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="ファイルクラス"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="dataObject::DataObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classdata_object_1_1_data_object.html",tooltip="基本型クラス"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="fileSystem::TextFile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classfile_system_1_1_text_file.html",tooltip="テキストファイルクラス"];
+}

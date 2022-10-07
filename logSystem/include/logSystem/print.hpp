@@ -1,7 +1,7 @@
 #include <logSystem/core.hpp>
 
-#ifndef PRINT_IMPL_H
-#define PRINT_IMPL_H
+#ifndef COMMON_LOG_SYSTEM_PRINT_IMPL_H
+#define COMMON_LOG_SYSTEM_PRINT_IMPL_H
 
 namespace logSystem
 {

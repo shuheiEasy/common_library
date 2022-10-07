@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>common_library: /home/iijimarobot/workspace/Ubuntu/workspace/gitSpace/common_library/common_library/dataObject/include/dataObject/string.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">common_library
+   &#160;<span id="projectnumber">0.2.1</span>
+   </div>
+   <div id="projectbrief">c++用共通ライブラリ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('string_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">string.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef STRING_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define STRING_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="data_object_2include_2data_object_2core_8hpp.html">dataObject/core.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="list__impl_8hpp.html">dataObject/list_impl.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacedata_object.html">dataObject</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classdata_object_1_1_string.html">   10</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdata_object_1_1_string.html">String</a> : <span class="keyword">public</span> <a class="code" href="classdata_object_1_1_data_object.html">DataObject</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">struct </span>Moji</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <span class="keywordtype">char</span> *data;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordtype">int</span> size;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        };</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">int</span> _MOJI_SIZE = 4;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">int</span> _MEMORY_SIZE = 4;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        Moji *_data;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">int</span> _length;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">int</span> _memory_unit;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">void</span> _converter(Moji *&amp;ret, <span class="keyword">const</span> <span class="keywordtype">char</span> *text, <span class="keywordtype">int</span> &amp;size);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">int</span> _convertNum(<span class="keywordtype">int</span> pos) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">int</span> _del(<span class="keywordtype">int</span> start, <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">void</span> _init();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> _free_ptr();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">void</span> _fromInt(<span class="keyword">const</span> <span class="keywordtype">int</span> data, <span class="keyword">const</span> <span class="keywordtype">int</span> start);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> _fromFloat(<span class="keyword">const</span> <span class="keywordtype">float</span> data, <span class="keyword">const</span> <span class="keywordtype">int</span> start);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> _fromDouble(<span class="keyword">const</span> <span class="keywordtype">double</span> data, <span class="keyword">const</span> <span class="keywordtype">int</span> start);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">void</span> _getMemory(<span class="keyword">const</span> <span class="keywordtype">int</span> memory_size);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">int</span> _getPos(<span class="keywordtype">int</span> pos) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">int</span> _judgeNum() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">void</span> _malloc(Moji *&amp;ret, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">void</span> _setData(<span class="keyword">const</span> <span class="keywordtype">char</span> *text, <span class="keywordtype">int</span> start);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classdata_object_1_1_string.html#a8a7ef356e05eb9b1ea1ab518baee3095">String</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="classdata_object_1_1_string.html#a8a7ef356e05eb9b1ea1ab518baee3095">String</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_none_type.html">NoneType</a> &amp;none);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classdata_object_1_1_string.html#a8a7ef356e05eb9b1ea1ab518baee3095">String</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> &amp;data);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="classdata_object_1_1_string.html#a8a7ef356e05eb9b1ea1ab518baee3095">String</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;data);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="classdata_object_1_1_string.html#a8a7ef356e05eb9b1ea1ab518baee3095">String</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;data);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <a class="code" href="classdata_object_1_1_string.html#a8a7ef356e05eb9b1ea1ab518baee3095">String</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;data);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="classdata_object_1_1_string.html#a8a7ef356e05eb9b1ea1ab518baee3095">String</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *text);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="classdata_object_1_1_string.html#a8a7ef356e05eb9b1ea1ab518baee3095">String</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_string.html">String</a> &amp;text);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="classdata_object_1_1_string.html#ac40b2a3fb58c2d8556f5e6ff73510036">~String</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdata_object_1_1_string.html#a7182b8cb7a8837db529f486e04bb0e81">append</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;data);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdata_object_1_1_string.html#a7182b8cb7a8837db529f486e04bb0e81">append</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;data);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdata_object_1_1_string.html#a7182b8cb7a8837db529f486e04bb0e81">append</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;data);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdata_object_1_1_string.html#a7182b8cb7a8837db529f486e04bb0e81">append</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *text);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdata_object_1_1_string.html#a7182b8cb7a8837db529f486e04bb0e81">append</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_string.html">String</a> text);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdata_object_1_1_string.html#ab5b0c43ae84247df8e5f9488a911587c">clear</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdata_object_1_1_string.html#a5fcf7bf5d663337d0f5fddbc421c25a5">del</a>(<span class="keywordtype">int</span> start);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdata_object_1_1_string.html#a5fcf7bf5d663337d0f5fddbc421c25a5">del</a>(<span class="keywordtype">int</span> start, <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">char</span> *<a class="code" href="classdata_object_1_1_string.html#a5445daeb285a5c766361c1b3b43a1fd4">getChar</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classdata_object_1_1_string.html#ae6baf1f08618fb0c4656f49b4ec38136">getType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classdata_object_1_1_string.html#ac442a1d2bcd7b77a58f2f47bd3d7e612">getLog</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classdata_object_1_1_string.html#a37b964f5f999cf938b6bac8bdf73b401">getSize</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdata_object_1_1_string.html#a907c93bc1b7610c72f64185bf980d7d7">insert</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *text, <span class="keywordtype">int</span> start);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdata_object_1_1_string.html#a907c93bc1b7610c72f64185bf980d7d7">insert</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_string.html">String</a> text, <span class="keywordtype">int</span> start);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdata_object_1_1_string.html#aa59e067de9d0985cfa6b2b2ecead2178">isdigit</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdata_object_1_1_string.html#a928bacf13e8f2065bb673bb0f9a62108">isnumeric</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdata_object_1_1_string.html#acc1d0a983d82de076115bbaab403ab3d">operator==</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;data) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdata_object_1_1_string.html#acc1d0a983d82de076115bbaab403ab3d">operator==</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;data) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdata_object_1_1_string.html#acc1d0a983d82de076115bbaab403ab3d">operator==</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;data) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdata_object_1_1_string.html#acc1d0a983d82de076115bbaab403ab3d">operator==</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *text) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdata_object_1_1_string.html#acc1d0a983d82de076115bbaab403ab3d">operator==</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_string.html">String</a> &amp;text) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdata_object_1_1_string.html#a3b73cb16e81ec8ff3595bb83b360e527">operator!=</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;data) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdata_object_1_1_string.html#a3b73cb16e81ec8ff3595bb83b360e527">operator!=</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;data) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdata_object_1_1_string.html#a3b73cb16e81ec8ff3595bb83b360e527">operator!=</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;data) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdata_object_1_1_string.html#a3b73cb16e81ec8ff3595bb83b360e527">operator!=</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *text) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdata_object_1_1_string.html#a3b73cb16e81ec8ff3595bb83b360e527">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_string.html">String</a> &amp;text) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#a971e7eedca3326a80b7aee82c171c553">operator[]</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#a9abfc176ff4c7a63baa2cab98b039a3e">operator=</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;data);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#a9abfc176ff4c7a63baa2cab98b039a3e">operator=</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;data);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#a9abfc176ff4c7a63baa2cab98b039a3e">operator=</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;data);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#a9abfc176ff4c7a63baa2cab98b039a3e">operator=</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#a9abfc176ff4c7a63baa2cab98b039a3e">operator=</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_string.html">String</a> &amp;str);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#a57f906b267818b0092917719104ad016">operator+</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;data) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#a57f906b267818b0092917719104ad016">operator+</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;data) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#a57f906b267818b0092917719104ad016">operator+</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;data) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#a57f906b267818b0092917719104ad016">operator+</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#a57f906b267818b0092917719104ad016">operator+</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_string.html">String</a> &amp;str) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> &amp;<a class="code" href="classdata_object_1_1_string.html#ad66b24c0d7a4208eb12f1979fdea4004">operator+=</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> &amp;data);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> &amp;<a class="code" href="classdata_object_1_1_string.html#ad66b24c0d7a4208eb12f1979fdea4004">operator+=</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;data);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> &amp;<a class="code" href="classdata_object_1_1_string.html#ad66b24c0d7a4208eb12f1979fdea4004">operator+=</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> &amp;data);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> &amp;<a class="code" href="classdata_object_1_1_string.html#ad66b24c0d7a4208eb12f1979fdea4004">operator+=</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *str);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> &amp;<a class="code" href="classdata_object_1_1_string.html#ad66b24c0d7a4208eb12f1979fdea4004">operator+=</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_string.html">String</a> &amp;str);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#ad17d222457b2b3beca6f23b97510e1f0">pop</a>(<span class="keywordtype">int</span> start, <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="classdata_object_1_1_string.html#a05351e8a71766d612cec9a5c377eca6d">slice</a>(<span class="keywordtype">int</span> start, <span class="keywordtype">int</span> length) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <a class="code" href="classdata_object_1_1_list.html">List&lt;String&gt;</a> <a class="code" href="classdata_object_1_1_string.html#aedcbb4ae11c4f078dfa012b03ac0dcd7">split</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *sep);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <a class="code" href="classdata_object_1_1_list.html">List&lt;String&gt;</a> <a class="code" href="classdata_object_1_1_string.html#aedcbb4ae11c4f078dfa012b03ac0dcd7">split</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_string.html">String</a> sep);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classdata_object_1_1_string.html#a77ce12d84388f4e13f79ba806dd0e590">toInt</a>();</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classdata_object_1_1_string.html#a414ec0d65c8a9bac5d23d0b0870901ea">toFloat</a>();</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="classdata_object_1_1_string.html#a75d63aa7486607b704ef9906077700d4">toDouble</a>();</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    };</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="comment">// String型変換</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> dummy = (&amp;T::getLog, 0)&gt;</div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">  252</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(T *&amp;text)</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    {</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classdata_object_1_1_string.html">String</a>(text-&gt;getLog());</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    }</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="namespacedata_object.html#ad77d0766009808e2ac481142a650f09d">  262</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(T &amp;text, <span class="keyword">typename</span> std::enable_if&lt;std::is_base_of&lt;DataObject, T&gt;::value&gt;::<a class="code" href="namespacedata_object.html#a268f5e36d58545b30b996f0bfb7394b4">type</a> * = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    {</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classdata_object_1_1_string.html">String</a>(text.getLog());</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    }</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="namespacedata_object.html#ae788fbcb6a3b54fc86d91398dcc7a3ef">  272</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(T &amp;text, <span class="keyword">typename</span> std::enable_if&lt;std::is_same&lt;DataObject, T&gt;::value&gt;::<a class="code" href="namespacedata_object.html#a268f5e36d58545b30b996f0bfb7394b4">type</a> * = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    {</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classdata_object_1_1_string.html">String</a>(text.getLog());</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    }</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="namespacedata_object.html#ac4a18f78ce3c894959e1a0a2ada698d0">  282</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(<span class="keyword">const</span> T &amp;num, <span class="keyword">typename</span> std::enable_if&lt;std::is_arithmetic&lt;T&gt;::value&gt;::<a class="code" href="namespacedata_object.html#a268f5e36d58545b30b996f0bfb7394b4">type</a> * = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    {</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classdata_object_1_1_string.html">String</a>(num);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00292"></a><span class="lineno"><a class="line" href="namespacedata_object.html#aa3c402eadddb256063262633aed2921f">  292</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(<span class="keyword">const</span> T &amp;text, <span class="keyword">typename</span> std::enable_if&lt;!std::is_arithmetic&lt;T&gt;::value &amp;&amp; !std::is_base_of&lt;DataObject, T&gt;::value&gt;::<a class="code" href="namespacedata_object.html#a268f5e36d58545b30b996f0bfb7394b4">type</a> * = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    {</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    }</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="namespacedata_object.html#ac94c7ac7399a1a2a23e5f554386cbf67">  300</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(<span class="keywordtype">bool</span> &amp;b)</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    {</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classdata_object_1_1_string.html">String</a>(b);</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    }</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    </div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="namespacedata_object.html#a0a7fa4bc555f01f8c4af9641e31c536a">  308</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(<span class="keywordtype">bool</span> *&amp;b)</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    {</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classdata_object_1_1_string.html">String</a>(*b);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno"><a class="line" href="namespacedata_object.html#ad9db4e328e6b495a2ae43ce639366619">  316</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(<span class="keywordtype">int</span> *&amp;num)</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    {</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classdata_object_1_1_string.html">String</a>(*num);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    }</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno"><a class="line" href="namespacedata_object.html#a03559ea89d6561960781d72bce4efd4c">  324</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(<span class="keywordtype">float</span> *&amp;num)</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classdata_object_1_1_string.html">String</a>(*num);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    }</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
+<div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="namespacedata_object.html#af119fe301fe7b4d29d4536f81151f233">  332</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(<span class="keywordtype">double</span> *&amp;num)</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    {</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classdata_object_1_1_string.html">String</a>(*num);</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    }</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno"><a class="line" href="namespacedata_object.html#a8a3eb705b4ac806613f4add5e2745cc1">  340</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(<span class="keywordtype">char</span> *text)</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    {</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classdata_object_1_1_string.html">String</a>(text);</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    }</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
+<div class="line"><a name="l00348"></a><span class="lineno"><a class="line" href="namespacedata_object.html#a0d00d1fb8f994118527f8598acc289f2">  348</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="classdata_object_1_1_string.html">String</a> <a class="code" href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">toString</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *text)</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    {</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classdata_object_1_1_string.html">String</a>(text);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    }</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;}</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassdata_object_1_1_data_object_html"><div class="ttname"><a href="classdata_object_1_1_data_object.html">dataObject::DataObject</a></div><div class="ttdoc">基本型クラス</div><div class="ttdef"><b>Definition:</b> <a href="data_object_2include_2data_object_2core_8hpp_source.html#l00055">core.hpp:56</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_list_html"><div class="ttname"><a href="classdata_object_1_1_list.html">dataObject::List</a></div><div class="ttdoc">可変長リスト</div><div class="ttdef"><b>Definition:</b> <a href="list_8hpp_source.html#l00023">list.hpp:24</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_none_type_html"><div class="ttname"><a href="classdata_object_1_1_none_type.html">dataObject::NoneType</a></div><div class="ttdoc">データ情報がない場合を定義するクラス</div><div class="ttdef"><b>Definition:</b> <a href="data_object_2include_2data_object_2core_8hpp_source.html#l00079">core.hpp:80</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html"><div class="ttname"><a href="classdata_object_1_1_string.html">dataObject::String</a></div><div class="ttdoc">文字列クラス</div><div class="ttdef"><b>Definition:</b> <a href="string_8hpp_source.html#l00010">string.hpp:11</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a05351e8a71766d612cec9a5c377eca6d"><div class="ttname"><a href="classdata_object_1_1_string.html#a05351e8a71766d612cec9a5c377eca6d">dataObject::String::slice</a></div><div class="ttdeci">String slice(int start, int length) const</div><div class="ttdoc">文字列の一部を取得する関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00394">string.cpp:394</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a37b964f5f999cf938b6bac8bdf73b401"><div class="ttname"><a href="classdata_object_1_1_string.html#a37b964f5f999cf938b6bac8bdf73b401">dataObject::String::getSize</a></div><div class="ttdeci">int getSize() const</div><div class="ttdoc">型クラス内の要素数を取得する仮想関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00152">string.cpp:152</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a3b73cb16e81ec8ff3595bb83b360e527"><div class="ttname"><a href="classdata_object_1_1_string.html#a3b73cb16e81ec8ff3595bb83b360e527">dataObject::String::operator!=</a></div><div class="ttdeci">bool operator!=(const int &amp;data) const</div><div class="ttdoc">Stringクラスの比較演算子(!=)</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00255">string.cpp:255</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a414ec0d65c8a9bac5d23d0b0870901ea"><div class="ttname"><a href="classdata_object_1_1_string.html#a414ec0d65c8a9bac5d23d0b0870901ea">dataObject::String::toFloat</a></div><div class="ttdeci">float toFloat()</div><div class="ttdoc">float型へ変換</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00516">string.cpp:516</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a5445daeb285a5c766361c1b3b43a1fd4"><div class="ttname"><a href="classdata_object_1_1_string.html#a5445daeb285a5c766361c1b3b43a1fd4">dataObject::String::getChar</a></div><div class="ttdeci">char * getChar() const</div><div class="ttdoc">char *型へ変換する関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00106">string.cpp:106</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a57f906b267818b0092917719104ad016"><div class="ttname"><a href="classdata_object_1_1_string.html#a57f906b267818b0092917719104ad016">dataObject::String::operator+</a></div><div class="ttdeci">String operator+(const int &amp;data) const</div><div class="ttdoc">Stringクラスの代入演算子(+)</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00322">string.cpp:322</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a5fcf7bf5d663337d0f5fddbc421c25a5"><div class="ttname"><a href="classdata_object_1_1_string.html#a5fcf7bf5d663337d0f5fddbc421c25a5">dataObject::String::del</a></div><div class="ttdeci">void del(int start)</div><div class="ttdoc">文字を消す関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00096">string.cpp:96</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a7182b8cb7a8837db529f486e04bb0e81"><div class="ttname"><a href="classdata_object_1_1_string.html#a7182b8cb7a8837db529f486e04bb0e81">dataObject::String::append</a></div><div class="ttdeci">void append(const int &amp;data)</div><div class="ttdoc">文字列を追加する関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00065">string.cpp:65</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a75d63aa7486607b704ef9906077700d4"><div class="ttname"><a href="classdata_object_1_1_string.html#a75d63aa7486607b704ef9906077700d4">dataObject::String::toDouble</a></div><div class="ttdeci">double toDouble()</div><div class="ttdoc">double型へ変換</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00604">string.cpp:604</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a77ce12d84388f4e13f79ba806dd0e590"><div class="ttname"><a href="classdata_object_1_1_string.html#a77ce12d84388f4e13f79ba806dd0e590">dataObject::String::toInt</a></div><div class="ttdeci">int toInt()</div><div class="ttdoc">int型へ変換</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00471">string.cpp:471</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a8a7ef356e05eb9b1ea1ab518baee3095"><div class="ttname"><a href="classdata_object_1_1_string.html#a8a7ef356e05eb9b1ea1ab518baee3095">dataObject::String::String</a></div><div class="ttdeci">String()</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00005">string.cpp:5</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a907c93bc1b7610c72f64185bf980d7d7"><div class="ttname"><a href="classdata_object_1_1_string.html#a907c93bc1b7610c72f64185bf980d7d7">dataObject::String::insert</a></div><div class="ttdeci">void insert(const char *text, int start)</div><div class="ttdoc">文字列を挿入する関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00157">string.cpp:157</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a928bacf13e8f2065bb673bb0f9a62108"><div class="ttname"><a href="classdata_object_1_1_string.html#a928bacf13e8f2065bb673bb0f9a62108">dataObject::String::isnumeric</a></div><div class="ttdeci">bool isnumeric() const</div><div class="ttdoc">文字列が数字か判定する関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00183">string.cpp:183</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a971e7eedca3326a80b7aee82c171c553"><div class="ttname"><a href="classdata_object_1_1_string.html#a971e7eedca3326a80b7aee82c171c553">dataObject::String::operator[]</a></div><div class="ttdeci">String operator[](const int id) const</div><div class="ttdoc">Stringクラスの添字演算子</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00280">string.cpp:280</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_a9abfc176ff4c7a63baa2cab98b039a3e"><div class="ttname"><a href="classdata_object_1_1_string.html#a9abfc176ff4c7a63baa2cab98b039a3e">dataObject::String::operator=</a></div><div class="ttdeci">String operator=(const int &amp;data)</div><div class="ttdoc">Stringクラスの代入演算子(=)</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00285">string.cpp:285</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_aa59e067de9d0985cfa6b2b2ecead2178"><div class="ttname"><a href="classdata_object_1_1_string.html#aa59e067de9d0985cfa6b2b2ecead2178">dataObject::String::isdigit</a></div><div class="ttdeci">bool isdigit() const</div><div class="ttdoc">文字列が整数か判定する関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00171">string.cpp:171</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_ab5b0c43ae84247df8e5f9488a911587c"><div class="ttname"><a href="classdata_object_1_1_string.html#ab5b0c43ae84247df8e5f9488a911587c">dataObject::String::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">文字列をすべて消す関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00090">string.cpp:90</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_ac40b2a3fb58c2d8556f5e6ff73510036"><div class="ttname"><a href="classdata_object_1_1_string.html#ac40b2a3fb58c2d8556f5e6ff73510036">dataObject::String::~String</a></div><div class="ttdeci">~String()</div><div class="ttdoc">デコンストラクタ</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00060">string.cpp:60</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_ac442a1d2bcd7b77a58f2f47bd3d7e612"><div class="ttname"><a href="classdata_object_1_1_string.html#ac442a1d2bcd7b77a58f2f47bd3d7e612">dataObject::String::getLog</a></div><div class="ttdeci">const char * getLog() const</div><div class="ttdoc">ログ出力仮想関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00147">string.cpp:147</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_acc1d0a983d82de076115bbaab403ab3d"><div class="ttname"><a href="classdata_object_1_1_string.html#acc1d0a983d82de076115bbaab403ab3d">dataObject::String::operator==</a></div><div class="ttdeci">bool operator==(const int &amp;data) const</div><div class="ttdoc">Stringクラスの比較演算子(==)</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00195">string.cpp:195</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_ad17d222457b2b3beca6f23b97510e1f0"><div class="ttname"><a href="classdata_object_1_1_string.html#ad17d222457b2b3beca6f23b97510e1f0">dataObject::String::pop</a></div><div class="ttdeci">String pop(int start, int length)</div><div class="ttdoc">文字列の一部を削除し、削除した文字列を取得する関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00387">string.cpp:387</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_ad66b24c0d7a4208eb12f1979fdea4004"><div class="ttname"><a href="classdata_object_1_1_string.html#ad66b24c0d7a4208eb12f1979fdea4004">dataObject::String::operator+=</a></div><div class="ttdeci">String &amp; operator+=(const int &amp;data)</div><div class="ttdoc">Stringクラスの複合代入演算子(+=)</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00357">string.cpp:357</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_ae6baf1f08618fb0c4656f49b4ec38136"><div class="ttname"><a href="classdata_object_1_1_string.html#ae6baf1f08618fb0c4656f49b4ec38136">dataObject::String::getType</a></div><div class="ttdeci">const char * getType() const</div><div class="ttdoc">型名を取得する仮想関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00142">string.cpp:142</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html_aedcbb4ae11c4f078dfa012b03ac0dcd7"><div class="ttname"><a href="classdata_object_1_1_string.html#aedcbb4ae11c4f078dfa012b03ac0dcd7">dataObject::String::split</a></div><div class="ttdeci">List&lt; String &gt; split(const char *sep)</div><div class="ttdoc">文字列を区切り文字列で分割する関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8cpp_source.html#l00432">string.cpp:432</a></div></div>
+<div class="ttc" id="adata_object_2include_2data_object_2core_8hpp_html"><div class="ttname"><a href="data_object_2include_2data_object_2core_8hpp.html">core.hpp</a></div><div class="ttdoc">dataObjectライブラリの基礎となるヘッダファイル</div></div>
+<div class="ttc" id="alist__impl_8hpp_html"><div class="ttname"><a href="list__impl_8hpp.html">list_impl.hpp</a></div><div class="ttdoc">Listクラスを実装するヘッダファイル</div></div>
+<div class="ttc" id="anamespacedata_object_html"><div class="ttname"><a href="namespacedata_object.html">dataObject</a></div><div class="ttdoc">dataObjectライブラリの空間。</div><div class="ttdef"><b>Definition:</b> <a href="arithmetic_8hpp_source.html#l00016">arithmetic.hpp:17</a></div></div>
+<div class="ttc" id="anamespacedata_object_html_a268f5e36d58545b30b996f0bfb7394b4"><div class="ttname"><a href="namespacedata_object.html#a268f5e36d58545b30b996f0bfb7394b4">dataObject::type</a></div><div class="ttdeci">String type(DataObject &amp;data)</div><div class="ttdoc">型名取得関数</div><div class="ttdef"><b>Definition:</b> <a href="functions_8cpp_source.html#l00009">functions.cpp:9</a></div></div>
+<div class="ttc" id="anamespacedata_object_html_a4b4f5f56aab693544a3f35510706f489"><div class="ttname"><a href="namespacedata_object.html#a4b4f5f56aab693544a3f35510706f489">dataObject::toString</a></div><div class="ttdeci">String toString(T *&amp;text)</div><div class="ttdoc">Stringクラスへ変換する関数</div><div class="ttdef"><b>Definition:</b> <a href="string_8hpp_source.html#l00252">string.hpp:252</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_09a3f5de0991353e96b0713821b92fb6.html">common_library</a></li><li class="navelem"><a class="el" href="dir_38f5a69fab2cf79a5e8dfd2c0018f8c2.html">dataObject</a></li><li class="navelem"><a class="el" href="dir_989d8d0c090e9541a5a71e8f84e9cbe6.html">include</a></li><li class="navelem"><a class="el" href="dir_025115c38a58f3640c5d1e05200d9185.html">dataObject</a></li><li class="navelem"><b>string.hpp</b></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>common_library: /home/iijimarobot/workspace/Ubuntu/workspace/gitSpace/common_library/common_library/timeSystem/include/timeSystem/timeSystem.hpp ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">common_library
+   &#160;<span id="projectnumber">0.2.1</span>
+   </div>
+   <div id="projectbrief">c++用共通ライブラリ</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('time_system_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">timeSystem.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TIMESYS_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TIMESYS_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="data_object_8hpp.html">dataObject/dataObject.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;formatter/formatter.hpp&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacetime_system.html">   11</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetime_system.html">timeSystem</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">const</span> <span class="keyword">static</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> MINYEAR = 0;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">const</span> <span class="keyword">static</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> MAXYEAR = 9999;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtime_system_1_1_time.html">   20</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classtime_system_1_1_time.html">Time</a> : <span class="keyword">public</span> <a class="code" href="classdata_object_1_1_data_object.html">dataObject::DataObject</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">short</span> <span class="keywordtype">int</span> _day;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">short</span> <span class="keywordtype">int</span> _hour;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">short</span> <span class="keywordtype">int</span> _minute;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">short</span> <span class="keywordtype">int</span> _second;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">short</span> <span class="keywordtype">int</span> _millisec;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="classformatter_1_1_formatter.html">formatter::Formatter</a> _formatter;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">dataObject::String</a> _print_text;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> _converter(<span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#ac6852246e326575cd28fe3a6abf541cd">day</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#a90fcbbf5a46b6ec38a9b0f04f75cd1a7">hour</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#a5033ffb2dfd66d6ae0bf84365eec502f">minute</a>, <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="classtime_system_1_1_time.html#a3fde51e68b8d60ba749a8e9175f5724a">second</a>, <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="classtime_system_1_1_time.html#a10667641dbe46881a455062a5ff1fba5">millisec</a>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">long</span> <span class="keywordtype">long</span> _convert2msec(<span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#ac6852246e326575cd28fe3a6abf541cd">day</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#a90fcbbf5a46b6ec38a9b0f04f75cd1a7">hour</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#a5033ffb2dfd66d6ae0bf84365eec502f">minute</a>, <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="classtime_system_1_1_time.html#a3fde51e68b8d60ba749a8e9175f5724a">second</a>, <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="classtime_system_1_1_time.html#a10667641dbe46881a455062a5ff1fba5">millisec</a>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">long</span> <span class="keywordtype">long</span> _convert2msec(<span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#ac6852246e326575cd28fe3a6abf541cd">day</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#a90fcbbf5a46b6ec38a9b0f04f75cd1a7">hour</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#a5033ffb2dfd66d6ae0bf84365eec502f">minute</a>, <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="classtime_system_1_1_time.html#a3fde51e68b8d60ba749a8e9175f5724a">second</a>, <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="classtime_system_1_1_time.html#a10667641dbe46881a455062a5ff1fba5">millisec</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">void</span> _init();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">void</span> _generateText();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_time.html#ac6852246e326575cd28fe3a6abf541cd">day</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;<a class="code" href="classtime_system_1_1_time.html#ac6852246e326575cd28fe3a6abf541cd">day</a>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_time.html#ac6852246e326575cd28fe3a6abf541cd">day</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_time.html#a90fcbbf5a46b6ec38a9b0f04f75cd1a7">hour</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;<a class="code" href="classtime_system_1_1_time.html#a90fcbbf5a46b6ec38a9b0f04f75cd1a7">hour</a>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_time.html#a90fcbbf5a46b6ec38a9b0f04f75cd1a7">hour</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_time.html#a5033ffb2dfd66d6ae0bf84365eec502f">minute</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;min);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_time.html#a5033ffb2dfd66d6ae0bf84365eec502f">minute</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_time.html#a3fde51e68b8d60ba749a8e9175f5724a">second</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;sec);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_time.html#a3fde51e68b8d60ba749a8e9175f5724a">second</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_time.html#a10667641dbe46881a455062a5ff1fba5">millisec</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;msec);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_time.html#a10667641dbe46881a455062a5ff1fba5">millisec</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classtime_system_1_1_time.html#a3244ff06258bb708c8e55c1ecd2c3783">getType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#a02780dddd8b2fa4c886568d97469272e">getSize</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classtime_system_1_1_time.html#abea4835b0954e5a8b1e4833e29ef8f9d">getLog</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;operator=(<span class="keyword">const</span> <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;time);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="classtime_system_1_1_time.html">Time</a> operator+(<a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;time);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="classtime_system_1_1_time.html">Time</a> operator-(<a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;time);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;operator+=(<span class="keyword">const</span> <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;time);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;operator-=(<span class="keyword">const</span> <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;time);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="classdata_object_1_1_bool.html">dataObject::Bool</a> operator==(<span class="keyword">const</span> <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;time) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="classdata_object_1_1_bool.html">dataObject::Bool</a> operator!=(<span class="keyword">const</span> <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;time) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="classdata_object_1_1_bool.html">dataObject::Bool</a> operator&lt;(<span class="keyword">const</span> <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;time) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="classdata_object_1_1_bool.html">dataObject::Bool</a> operator&lt;=(<span class="keyword">const</span> <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;time) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <a class="code" href="classdata_object_1_1_bool.html">dataObject::Bool</a> operator&gt;(<span class="keyword">const</span> <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;time) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="classdata_object_1_1_bool.html">dataObject::Bool</a> operator&gt;=(<span class="keyword">const</span> <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;time) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtime_system_1_1_time.html#a8c86895665c262c622802310f7887595">now</a>();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtime_system_1_1_time.html#a30983a480740c09fb704f78cf045d084">setFormat</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *format);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtime_system_1_1_time.html#a30983a480740c09fb704f78cf045d084">setFormat</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;format);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="classtime_system_1_1_time.html#a4245e409c7347d1d671858962c2ca3b5">Time</a>();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <a class="code" href="classtime_system_1_1_time.html#a4245e409c7347d1d671858962c2ca3b5">Time</a>(<span class="keyword">const</span> <a class="code" href="classtime_system_1_1_time.html">Time</a> &amp;time);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="classtime_system_1_1_time.html#a4245e409c7347d1d671858962c2ca3b5">Time</a>(<span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#ac6852246e326575cd28fe3a6abf541cd">day</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#a90fcbbf5a46b6ec38a9b0f04f75cd1a7">hour</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#a5033ffb2dfd66d6ae0bf84365eec502f">minute</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#a3fde51e68b8d60ba749a8e9175f5724a">second</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_time.html#a10667641dbe46881a455062a5ff1fba5">millisec</a> = 0);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        ~<a class="code" href="classtime_system_1_1_time.html">Time</a>();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    };</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classtime_system_1_1_datetime.html">  112</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classtime_system_1_1_datetime.html">Datetime</a> : <span class="keyword">public</span> <a class="code" href="classdata_object_1_1_data_object.html">dataObject::DataObject</a></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <a class="code" href="classtime_system_1_1_time.html">Time</a> _time;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordtype">short</span> <span class="keywordtype">int</span> _year;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordtype">short</span> <span class="keywordtype">int</span> _month;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordtype">short</span> <span class="keywordtype">int</span> _day;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordtype">short</span> <span class="keywordtype">int</span> _hour;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordtype">short</span> <span class="keywordtype">int</span> _minute;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordtype">short</span> <span class="keywordtype">int</span> _second;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordtype">short</span> <span class="keywordtype">int</span> _millisec;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="classformatter_1_1_formatter.html">formatter::Formatter</a> _formatter;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <a class="code" href="classdata_object_1_1_string.html">dataObject::String</a> _print_text;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordtype">void</span> _converter(<span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_datetime.html#a322eb5626a47a10fc10bb98d034e75fc">year</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_datetime.html#a5b31e5d49e02aaa16f5245e483f5f4c9">month</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_datetime.html#a6890bfd1ffa63c87c42e1bd1dbd90bcb">day</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_datetime.html#a555890df6abc861da76da9009196d636">hour</a>, <span class="keywordtype">int</span> min, <span class="keywordtype">int</span> sec, <span class="keywordtype">int</span> msec);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordtype">void</span> _day2Calendar(<span class="keywordtype">int</span> duration);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordtype">void</span> _generateText();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#a322eb5626a47a10fc10bb98d034e75fc">year</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#a322eb5626a47a10fc10bb98d034e75fc">year</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;<a class="code" href="classtime_system_1_1_datetime.html#a322eb5626a47a10fc10bb98d034e75fc">year</a>);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#a5b31e5d49e02aaa16f5245e483f5f4c9">month</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#a5b31e5d49e02aaa16f5245e483f5f4c9">month</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;<a class="code" href="classtime_system_1_1_datetime.html#a5b31e5d49e02aaa16f5245e483f5f4c9">month</a>);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#a6890bfd1ffa63c87c42e1bd1dbd90bcb">day</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;<a class="code" href="classtime_system_1_1_datetime.html#a6890bfd1ffa63c87c42e1bd1dbd90bcb">day</a>);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#a6890bfd1ffa63c87c42e1bd1dbd90bcb">day</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#a555890df6abc861da76da9009196d636">hour</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;<a class="code" href="classtime_system_1_1_datetime.html#a555890df6abc861da76da9009196d636">hour</a>);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#a555890df6abc861da76da9009196d636">hour</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#af95c2cd41f27a641279fcb63e1cf004c">minute</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;min);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#af95c2cd41f27a641279fcb63e1cf004c">minute</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#ab03b31f1500d7f89ce5772aa41609639">second</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;sec);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#ab03b31f1500d7f89ce5772aa41609639">second</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#a1ac531c763fba7499d0cfa01c7770f38">millisec</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> &amp;msec);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <a class="code" href="classdata_object_1_1_int.html">dataObject::Int</a> <a class="code" href="classtime_system_1_1_datetime.html#a1ac531c763fba7499d0cfa01c7770f38">millisec</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <a class="code" href="classtime_system_1_1_datetime.html#aef793cec0f59b7385d19befb8e7a8a18">Datetime</a>();</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <a class="code" href="classtime_system_1_1_datetime.html#aef793cec0f59b7385d19befb8e7a8a18">Datetime</a>(<span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_datetime.html#a322eb5626a47a10fc10bb98d034e75fc">year</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_datetime.html#a5b31e5d49e02aaa16f5245e483f5f4c9">month</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_datetime.html#a6890bfd1ffa63c87c42e1bd1dbd90bcb">day</a>, <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_datetime.html#a555890df6abc861da76da9009196d636">hour</a>, <span class="keywordtype">int</span> min, <span class="keywordtype">int</span> sec, <span class="keywordtype">int</span> msec);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        ~<a class="code" href="classtime_system_1_1_datetime.html">Datetime</a>();</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classtime_system_1_1_datetime.html#a4cb76ea3d55fc6f36b4218bd85f2e8f5">getType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classtime_system_1_1_datetime.html#ae893c542c4699040c1d64e5139143d0d">getSize</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classtime_system_1_1_datetime.html#a6c6c05fbfb46b8c9dea5bc94f8b39932">getLog</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtime_system_1_1_datetime.html#af7b0031208f4f3cb2a330a045f6fcd2f">now</a>();</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtime_system_1_1_datetime.html#a8723b2aaecfaa3506601288bce802805">setFormat</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *format);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classtime_system_1_1_datetime.html#a8723b2aaecfaa3506601288bce802805">setFormat</a>(<span class="keyword">const</span> <a class="code" href="classdata_object_1_1_string.html">dataObject::String</a> &amp;format);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    };</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="comment">// 関数群</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespacetime_system.html#acba00d76e06a51fad8560d4d1e346500">getTimeZone</a>(<span class="keywordtype">int</span> &amp;hour, <span class="keywordtype">int</span> &amp;minutes);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <a class="code" href="classtime_system_1_1_time.html">Time</a> <a class="code" href="namespacetime_system.html#acba00d76e06a51fad8560d4d1e346500">getTimeZone</a>();</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;}</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassdata_object_1_1_bool_html"><div class="ttname"><a href="classdata_object_1_1_bool.html">dataObject::Bool</a></div><div class="ttdoc">真偽値(Bool)クラス</div><div class="ttdef"><b>Definition:</b> <a href="bool_8hpp_source.html#l00023">bool.hpp:24</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_data_object_html"><div class="ttname"><a href="classdata_object_1_1_data_object.html">dataObject::DataObject</a></div><div class="ttdoc">基本型クラス</div><div class="ttdef"><b>Definition:</b> <a href="data_object_2include_2data_object_2core_8hpp_source.html#l00055">core.hpp:56</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_int_html"><div class="ttname"><a href="classdata_object_1_1_int.html">dataObject::Int</a></div><div class="ttdoc">int型に相当するクラス</div><div class="ttdef"><b>Definition:</b> <a href="int_8hpp_source.html#l00018">int.hpp:19</a></div></div>
+<div class="ttc" id="aclassdata_object_1_1_string_html"><div class="ttname"><a href="classdata_object_1_1_string.html">dataObject::String</a></div><div class="ttdoc">文字列クラス</div><div class="ttdef"><b>Definition:</b> <a href="string_8hpp_source.html#l00010">string.hpp:11</a></div></div>
+<div class="ttc" id="aclassformatter_1_1_formatter_html"><div class="ttname"><a href="classformatter_1_1_formatter.html">formatter::Formatter</a></div><div class="ttdoc">書式クラス</div><div class="ttdef"><b>Definition:</b> <a href="formatter_8hpp_source.html#l00010">formatter.hpp:11</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html"><div class="ttname"><a href="classtime_system_1_1_datetime.html">timeSystem::Datetime</a></div><div class="ttdoc">日付クラス</div><div class="ttdef"><b>Definition:</b> <a href="time_system_8hpp_source.html#l00112">timeSystem.hpp:113</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_a1ac531c763fba7499d0cfa01c7770f38"><div class="ttname"><a href="classtime_system_1_1_datetime.html#a1ac531c763fba7499d0cfa01c7770f38">timeSystem::Datetime::millisec</a></div><div class="ttdeci">dataObject::Int millisec() const</div><div class="ttdoc">時刻のミリ秒を取得</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00099">datetime.cpp:99</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_a322eb5626a47a10fc10bb98d034e75fc"><div class="ttname"><a href="classtime_system_1_1_datetime.html#a322eb5626a47a10fc10bb98d034e75fc">timeSystem::Datetime::year</a></div><div class="ttdeci">dataObject::Int year() const</div><div class="ttdoc">時刻の年を取得</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00057">datetime.cpp:57</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_a4cb76ea3d55fc6f36b4218bd85f2e8f5"><div class="ttname"><a href="classtime_system_1_1_datetime.html#a4cb76ea3d55fc6f36b4218bd85f2e8f5">timeSystem::Datetime::getType</a></div><div class="ttdeci">const char * getType() const</div><div class="ttdoc">型名を取得する仮想関数</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00021">datetime.cpp:21</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_a555890df6abc861da76da9009196d636"><div class="ttname"><a href="classtime_system_1_1_datetime.html#a555890df6abc861da76da9009196d636">timeSystem::Datetime::hour</a></div><div class="ttdeci">dataObject::Int hour() const</div><div class="ttdoc">時刻の時を取得</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00078">datetime.cpp:78</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_a5b31e5d49e02aaa16f5245e483f5f4c9"><div class="ttname"><a href="classtime_system_1_1_datetime.html#a5b31e5d49e02aaa16f5245e483f5f4c9">timeSystem::Datetime::month</a></div><div class="ttdeci">dataObject::Int month() const</div><div class="ttdoc">時刻の時を取得</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00064">datetime.cpp:64</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_a6890bfd1ffa63c87c42e1bd1dbd90bcb"><div class="ttname"><a href="classtime_system_1_1_datetime.html#a6890bfd1ffa63c87c42e1bd1dbd90bcb">timeSystem::Datetime::day</a></div><div class="ttdeci">dataObject::Int day() const</div><div class="ttdoc">日数を取得</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00071">datetime.cpp:71</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_a6c6c05fbfb46b8c9dea5bc94f8b39932"><div class="ttname"><a href="classtime_system_1_1_datetime.html#a6c6c05fbfb46b8c9dea5bc94f8b39932">timeSystem::Datetime::getLog</a></div><div class="ttdeci">const char * getLog() const</div><div class="ttdoc">ログ出力仮想関数</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00025">datetime.cpp:25</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_a8723b2aaecfaa3506601288bce802805"><div class="ttname"><a href="classtime_system_1_1_datetime.html#a8723b2aaecfaa3506601288bce802805">timeSystem::Datetime::setFormat</a></div><div class="ttdeci">void setFormat(const char *format)</div><div class="ttdoc">時刻の書式を設定する</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00046">datetime.cpp:46</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_ab03b31f1500d7f89ce5772aa41609639"><div class="ttname"><a href="classtime_system_1_1_datetime.html#ab03b31f1500d7f89ce5772aa41609639">timeSystem::Datetime::second</a></div><div class="ttdeci">dataObject::Int second() const</div><div class="ttdoc">時刻の秒を取得</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00092">datetime.cpp:92</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_ae893c542c4699040c1d64e5139143d0d"><div class="ttname"><a href="classtime_system_1_1_datetime.html#ae893c542c4699040c1d64e5139143d0d">timeSystem::Datetime::getSize</a></div><div class="ttdeci">int getSize() const</div><div class="ttdoc">型クラス内の要素数を取得する仮想関数</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00023">datetime.cpp:23</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_aef793cec0f59b7385d19befb8e7a8a18"><div class="ttname"><a href="classtime_system_1_1_datetime.html#aef793cec0f59b7385d19befb8e7a8a18">timeSystem::Datetime::Datetime</a></div><div class="ttdeci">Datetime()</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00006">datetime.cpp:6</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_af7b0031208f4f3cb2a330a045f6fcd2f"><div class="ttname"><a href="classtime_system_1_1_datetime.html#af7b0031208f4f3cb2a330a045f6fcd2f">timeSystem::Datetime::now</a></div><div class="ttdeci">void now()</div><div class="ttdoc">現在時刻取得する</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00027">datetime.cpp:27</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_datetime_html_af95c2cd41f27a641279fcb63e1cf004c"><div class="ttname"><a href="classtime_system_1_1_datetime.html#af95c2cd41f27a641279fcb63e1cf004c">timeSystem::Datetime::minute</a></div><div class="ttdeci">dataObject::Int minute() const</div><div class="ttdoc">時刻の分を取得</div><div class="ttdef"><b>Definition:</b> <a href="datetime_8cpp_source.html#l00085">datetime.cpp:85</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_time_html"><div class="ttname"><a href="classtime_system_1_1_time.html">timeSystem::Time</a></div><div class="ttdoc">時間クラス</div><div class="ttdef"><b>Definition:</b> <a href="time_system_8hpp_source.html#l00020">timeSystem.hpp:21</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_time_html_a02780dddd8b2fa4c886568d97469272e"><div class="ttname"><a href="classtime_system_1_1_time.html#a02780dddd8b2fa4c886568d97469272e">timeSystem::Time::getSize</a></div><div class="ttdeci">int getSize() const</div><div class="ttdoc">型クラス内の要素数を取得する仮想関数</div><div class="ttdef"><b>Definition:</b> <a href="time_8cpp_source.html#l00038">time.cpp:38</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_time_html_a10667641dbe46881a455062a5ff1fba5"><div class="ttname"><a href="classtime_system_1_1_time.html#a10667641dbe46881a455062a5ff1fba5">timeSystem::Time::millisec</a></div><div class="ttdeci">dataObject::Int millisec() const</div><div class="ttdoc">時間のミリ秒を取得</div><div class="ttdef"><b>Definition:</b> <a href="time_8cpp_source.html#l00035">time.cpp:35</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_time_html_a30983a480740c09fb704f78cf045d084"><div class="ttname"><a href="classtime_system_1_1_time.html#a30983a480740c09fb704f78cf045d084">timeSystem::Time::setFormat</a></div><div class="ttdeci">void setFormat(const char *format)</div><div class="ttdoc">時間の書式を設定する</div><div class="ttdef"><b>Definition:</b> <a href="time_8cpp_source.html#l00147">time.cpp:147</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_time_html_a3244ff06258bb708c8e55c1ecd2c3783"><div class="ttname"><a href="classtime_system_1_1_time.html#a3244ff06258bb708c8e55c1ecd2c3783">timeSystem::Time::getType</a></div><div class="ttdeci">const char * getType() const</div><div class="ttdoc">型名を取得する仮想関数</div><div class="ttdef"><b>Definition:</b> <a href="time_8cpp_source.html#l00037">time.cpp:37</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_time_html_a3fde51e68b8d60ba749a8e9175f5724a"><div class="ttname"><a href="classtime_system_1_1_time.html#a3fde51e68b8d60ba749a8e9175f5724a">timeSystem::Time::second</a></div><div class="ttdeci">dataObject::Int second() const</div><div class="ttdoc">時間の秒を取得</div><div class="ttdef"><b>Definition:</b> <a href="time_8cpp_source.html#l00029">time.cpp:29</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_time_html_a4245e409c7347d1d671858962c2ca3b5"><div class="ttname"><a href="classtime_system_1_1_time.html#a4245e409c7347d1d671858962c2ca3b5">timeSystem::Time::Time</a></div><div class="ttdeci">Time()</div><div class="ttdoc">コンストラクタ</div><div class="ttdef"><b>Definition:</b> <a href="time_8cpp_source.html#l00158">time.cpp:158</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_time_html_a5033ffb2dfd66d6ae0bf84365eec502f"><div class="ttname"><a href="classtime_system_1_1_time.html#a5033ffb2dfd66d6ae0bf84365eec502f">timeSystem::Time::minute</a></div><div class="ttdeci">dataObject::Int minute() const</div><div class="ttdoc">時間の分を取得</div><div class="ttdef"><b>Definition:</b> <a href="time_8cpp_source.html#l00023">time.cpp:23</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_time_html_a8c86895665c262c622802310f7887595"><div class="ttname"><a href="classtime_system_1_1_time.html#a8c86895665c262c622802310f7887595">timeSystem::Time::now</a></div><div class="ttdeci">void now()</div><div class="ttdoc">現在のUNIX時間を取得する</div><div class="ttdef"><b>Definition:</b> <a href="time_8cpp_source.html#l00139">time.cpp:139</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_time_html_a90fcbbf5a46b6ec38a9b0f04f75cd1a7"><div class="ttname"><a href="classtime_system_1_1_time.html#a90fcbbf5a46b6ec38a9b0f04f75cd1a7">timeSystem::Time::hour</a></div><div class="ttdeci">dataObject::Int hour() const</div><div class="ttdoc">時間を取得</div><div class="ttdef"><b>Definition:</b> <a href="time_8cpp_source.html#l00017">time.cpp:17</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_time_html_abea4835b0954e5a8b1e4833e29ef8f9d"><div class="ttname"><a href="classtime_system_1_1_time.html#abea4835b0954e5a8b1e4833e29ef8f9d">timeSystem::Time::getLog</a></div><div class="ttdeci">const char * getLog() const</div><div class="ttdoc">ログ出力仮想関数</div><div class="ttdef"><b>Definition:</b> <a href="time_8cpp_source.html#l00039">time.cpp:39</a></div></div>
+<div class="ttc" id="aclasstime_system_1_1_time_html_ac6852246e326575cd28fe3a6abf541cd"><div class="ttname"><a href="classtime_system_1_1_time.html#ac6852246e326575cd28fe3a6abf541cd">timeSystem::Time::day</a></div><div class="ttdeci">dataObject::Int day() const</div><div class="ttdoc">日数を取得</div><div class="ttdef"><b>Definition:</b> <a href="time_8cpp_source.html#l00011">time.cpp:11</a></div></div>
+<div class="ttc" id="adata_object_8hpp_html"><div class="ttname"><a href="data_object_8hpp.html">dataObject.hpp</a></div><div class="ttdoc">dataObjectライブラリを使用するときにインクルードするヘッダファイル</div></div>
+<div class="ttc" id="anamespacetime_system_html"><div class="ttname"><a href="namespacetime_system.html">timeSystem</a></div><div class="ttdoc">時刻ライブラリ</div><div class="ttdef"><b>Definition:</b> <a href="time_system_8hpp_source.html#l00011">timeSystem.hpp:12</a></div></div>
+<div class="ttc" id="anamespacetime_system_html_acba00d76e06a51fad8560d4d1e346500"><div class="ttname"><a href="namespacetime_system.html#acba00d76e06a51fad8560d4d1e346500">timeSystem::getTimeZone</a></div><div class="ttdeci">void getTimeZone(int &amp;hour, int &amp;minutes)</div><div class="ttdoc">タイムゾーンを取得する</div><div class="ttdef"><b>Definition:</b> <a href="time_8cpp_source.html#l00229">time.cpp:229</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_09a3f5de0991353e96b0713821b92fb6.html">common_library</a></li><li class="navelem"><a class="el" href="dir_3ce44b505d55aab5bcca00911b29e05b.html">timeSystem</a></li><li class="navelem"><a class="el" href="dir_711364886ffd9cc6be289ed1f934ba1e.html">include</a></li><li class="navelem"><a class="el" href="dir_037b359b6f59283af2e4af4d9aca7bd8.html">timeSystem</a></li><li class="navelem"><b>timeSystem.hpp</b></li>
+    <li class="footer">構築: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
