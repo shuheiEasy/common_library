@@ -335,7 +335,15 @@ namespace dataObject
     }
 
     /// @brief Stringクラスへ変換する関数
-    /// @param num const charのポインタ型の参照渡し
+    /// @param text charのポインタ型の参照渡し
+    /// @return Stringクラス
+    inline String toString(char *text)
+    {
+        return String(text);
+    }
+
+    /// @brief Stringクラスへ変換する関数
+    /// @param text const charのポインタ型の参照渡し
     /// @return Stringクラス
     inline String toString(const char *text)
     {

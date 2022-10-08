@@ -1,5 +1,5 @@
-#ifndef LOG_CORE_H
-#define LOG_CORE_H
+#ifndef COMMON_LOG_SYSTEM_CORE_H
+#define COMMON_LOG_SYSTEM_CORE_H
 
 #include <stdarg.h>
 #include <dataObject/dataObject.hpp>

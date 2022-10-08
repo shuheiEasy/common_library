@@ -5,6 +5,7 @@ set(PARENT_PROJECT_NAME common_library)
 # インクルードフォルダ追加
 set(INCLUDE_DIR include)
 include_directories(${INCLUDE_DIR})
+set(INCLUDE_DIR_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/${INCLUDE_DIR} ${INCLUDE_DIR_PATHS} PARENT_SCOPE)
 
 # # C++ファイル取得
 file(GLOB_RECURSE source_list "src/*.cpp")
@@ -21,9 +22,11 @@ set_target_properties(
     PUBLIC_HEADER "${header_list}")
 
 # インストール
-install(
-    TARGETS ${PROJECT_NAME}
-    EXPORT commonLibraryTargets
-    INCLUDES DESTINATION include
-    PUBLIC_HEADER DESTINATION include/${PARENT_PROJECT_NAME}/${PROJECT_NAME}
-    ARCHIVE DESTINATION lib/${PARENT_PROJECT_NAME})
+if(INSTALL_FLAG)
+    install(
+        TARGETS ${PROJECT_NAME}
+        EXPORT commonLibraryTargets
+        INCLUDES DESTINATION include
+        PUBLIC_HEADER DESTINATION include/${PARENT_PROJECT_NAME}/${PROJECT_NAME}
+        ARCHIVE DESTINATION lib/${PARENT_PROJECT_NAME})
+endif(INSTALL_FLAG)

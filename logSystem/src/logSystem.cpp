@@ -25,7 +25,7 @@ void logSystem::fprint(const String &format, ...)
     va_end(args);
 
     // 出力
-    printf("%s\n", print_text.getChar());
+    printf("%s", print_text.getChar());
 }
 
 void logSystem::fprint(const char *format_char, ...)
@@ -43,7 +43,7 @@ void logSystem::fprint(const char *format_char, ...)
     va_end(args);
 
     // 出力
-    printf("%s\n", print_text.getChar());
+    printf("%s", print_text.getChar());
 }
 
 dataObject::String logSystem::_vprint(const String &format, va_list args)

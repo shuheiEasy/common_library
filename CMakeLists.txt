@@ -2,12 +2,13 @@
 cmake_minimum_required(VERSION 3.11.0)
 
 # プロジェクト名と使用する言語を設定
-project(common_library LANGUAGES CXX VERSION 0.2.0)
+project(common_library LANGUAGES CXX VERSION 0.2.1)
 
 # 引数一覧
 
 # doxygen制御
 set(DOC_FLAG OFF CACHE BOOL ON)
+set(INSTALL_FLAG OFF CACHE BOOL ON)
 
 # サブプロジェクト設定
 add_subdirectory(dataObject)
@@ -23,6 +24,7 @@ else(DOC_FLAG)
     message("Doxygen OFF")
 endif(DOC_FLAG)
 
+if(INSTALL_FLAG)
 # インストール
 install(
     EXPORT commonLibraryTargets
@@ -47,3 +49,12 @@ configure_package_config_file(
 install(
     FILES "${CMAKE_CURRENT_BINARY_DIR}/common_libraryConfig.cmake"
     DESTINATION "cmake")
+
+else(INSTALL_FLAG)
+    message("Install mode OFF")
+endif(INSTALL_FLAG)
+
+# ソースモード
+if(NOT common_library_IS_TOP_LEVEL)
+    set(common_library_INCLUDE_DIR ${INCLUDE_DIR_PATHS} PARENT_SCOPE)
+endif()
