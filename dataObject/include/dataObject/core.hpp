@@ -84,7 +84,8 @@ namespace dataObject
         const char *getLog() const { return "None"; }
     };
 
-    // Noneを宣言
+    /// @brief None
+    /// @details この変数はデータが無い状態を表す変数。データの代入などは出来ない。
     const static NoneType None;
 
     /**
