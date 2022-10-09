@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.11.0)
 
 # プロジェクト名と使用する言語を設定
-project(common_library LANGUAGES CXX VERSION 0.2.1)
+project(common_library LANGUAGES CXX VERSION 0.2.2)
 
 # 引数一覧
 
@@ -24,6 +24,13 @@ else(DOC_FLAG)
     message("Doxygen OFF")
 endif(DOC_FLAG)
 
+# libraryの変数設定
+list(APPEND LIB_PATHS common_library::dataObject )
+list(APPEND LIB_PATHS common_library::formatter )
+list(APPEND LIB_PATHS common_library::timeSystem )
+list(APPEND LIB_PATHS common_library::fileSystem )
+list(APPEND LIB_PATHS common_library::logSystem )
+
 if(INSTALL_FLAG)
 # インストール
 install(
@@ -34,11 +41,6 @@ install(
 
 # config用変数
 set(INCLUDE_DIRS_PATH ${CMAKE_INSTALL_PREFIX}/include/${PROJECT_NAME})
-list(APPEND LIB_PATHS common_library::dataObject )
-list(APPEND LIB_PATHS common_library::formatter )
-list(APPEND LIB_PATHS common_library::timeSystem )
-list(APPEND LIB_PATHS common_library::fileSystem )
-list(APPEND LIB_PATHS common_library::logSystem )
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file( 
@@ -57,4 +59,5 @@ endif(INSTALL_FLAG)
 # ソースモード
 if(NOT common_library_IS_TOP_LEVEL)
     set(common_library_INCLUDE_DIR ${INCLUDE_DIR_PATHS} PARENT_SCOPE)
+    set(common_library_LIBS ${LIB_PATHS} PARENT_SCOPE)
 endif()
