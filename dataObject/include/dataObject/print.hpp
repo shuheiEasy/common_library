@@ -1,21 +1,18 @@
 /**
- * @file type.hpp
+ * @file print.hpp
  * @author iijima-robot
- * @brief typeクラスを実装するヘッダファイル
+ * @brief リストクラスおよび辞書クラスの出力を実装するヘッダファイル
  * @date 2022-09-17
  *
  * @copyright Copyright (c) 2022
  *
  */
-#ifndef COMMON_DATAOBJECT_LIST_EX_H
-#define COMMON_DATAOBJECT_LIST_EX_H
+#ifndef COMMON_DATAOBJECT_PRINT_H
+#define COMMON_DATAOBJECT_PRINT_H
 
-#include <dataObject/bool.hpp>
-#include <dataObject/int.hpp>
-#include <dataObject/float.hpp>
-#include <dataObject/double.hpp>
 #include <dataObject/list.hpp>
 #include <dataObject/string.hpp>
+#include <dataObject/dict_impl.hpp>
 
 namespace dataObject
 {
@@ -49,6 +46,27 @@ namespace dataObject
         }
 
         ret += " ]";
+
+        return ret.getChar();
+    }
+
+    template <class K_T, class V_T>
+    const char *Dict<K_T, V_T>::getLog() const
+    {
+        String ret = "{ ";
+
+        for(int i = 0; i < _key_list.getSize(); i++){
+            if(i != 0){
+                ret += ", ";
+            }            
+            K_T key = _key_list.get(i);
+            V_T value = _value_list.get(i);
+            ret += toString(key);
+            ret += ": ";
+            ret += toString(value);
+        }
+
+        ret += " }";
 
         return ret.getChar();
     }
