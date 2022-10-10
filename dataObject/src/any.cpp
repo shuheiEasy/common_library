@@ -4,5 +4,5 @@ using namespace dataObject;
 
 Any::Any()
 {
-    _data_ptr = new Data<NoneType>(None);
+    _data_ptr.reset(new Data<NoneType>(None));
 }

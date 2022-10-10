@@ -11,6 +11,7 @@
 #define COMMON_DATAOBJECT_ANY_H
 
 #include <dataObject/dataObject.hpp>
+#include <memory>
 
 namespace dataObject
 {
@@ -22,13 +23,13 @@ namespace dataObject
         struct Storage
         {
             virtual ~Storage() {}
-            virtual Storage *copy() const { return nullptr; }
+            virtual std::unique_ptr<Storage> copy() const { return nullptr; }
             virtual const char *getLog() const { return ""; }
             virtual int getSize() const { return 0; }
-            virtual const char *getType() const {return "Null";}
+            virtual const char *getType() const { return "Null"; }
         };
 
-        template <class T, typename std::enable_if<std::is_base_of<DataObject, T>::value>::type * = nullptr>
+        template <class T>
         struct Data : public Storage
         {
             T *_data;
@@ -40,16 +41,16 @@ namespace dataObject
             {
                 delete _data;
             }
-            Storage *copy() const
+            std::unique_ptr<Storage> copy() const
             {
-                return new Data<T>(*_data);
+                return std::unique_ptr<Storage>(new Data<T>(std::forward<T>(*_data)));
             }
             const char *getType() const { return _data->getType(); }
             int getSize() const { return _data->getSize(); }
             const char *getLog() const { return _data->getLog(); }
         };
 
-        Storage *_data_ptr;
+        std::unique_ptr<Storage> _data_ptr;
 
     public:
         /// @brief コンストラクタ
@@ -57,21 +58,42 @@ namespace dataObject
         /// @brief コンストラクタ
         /// @tparam T dataObject型の派生型
         /// @param data 代入するデータ
-        /// @todo 将来的に算術型にも対応する予定
-        template <class T>
-        Any(const T &data, typename std::enable_if<std::is_base_of<DataObject, T>::value>::type * = nullptr)
+        template <class T, typename std::enable_if<std::is_base_of<DataObject, T>::value>::type * = nullptr>
+        Any(const T &data)
         {
-            _data_ptr = new Data<T>(data);
+            _data_ptr.reset(new Data<T>(data));
+        }
+        /// @brief コンストラクタ
+        /// @param data 代入するintデータ
+        Any(const int &data)
+        {            
+            _data_ptr.reset(new Data<Int>(data));
+        }
+        /// @brief コンストラクタ
+        /// @param data 代入するintデータ
+        Any(const float &data)
+        {            
+            _data_ptr.reset(new Data<Float>(data));
+        }
+        /// @brief コンストラクタ
+        /// @param data 代入するintデータ
+        Any(const double &data)
+        {            
+            _data_ptr.reset(new Data<Double>(data));
+        }
+        /// @brief コンストラクタ
+        /// @param data 代入するintデータ
+        Any(const char *data)
+        {            
+            _data_ptr.reset(new Data<String>(data));
         }
         /// @brief コピーコンストラクタ
-        Any(const Any &data){
-            _data_ptr = data._data_ptr->copy();
+        Any(const Any &data)
+        {
+            _data_ptr=data._data_ptr->copy();
         }
         /// @brief デコンストラクタ
-        ~Any()
-        {
-            delete _data_ptr;
-        }
+        ~Any() {}
         /// @brief 値を取得する関数
         /// @tparam T 取得するデータの型
         /// @return 取得する値
@@ -86,9 +108,15 @@ namespace dataObject
         const char *getType() const { return _data_ptr->getType(); }
 
         template <class T, typename std::enable_if<std::is_base_of<DataObject, T>::value>::type * = nullptr>
-        Any operator=(const T &data){
-            delete _data_ptr;
-            _data_ptr = new Data<T>(data);
+        Any operator=(const T &data)
+        {
+            _data_ptr.reset(new Data<T>(data));
+            return *this;
+        }
+
+        Any operator=(const Any &data)
+        {
+            _data_ptr=data._data_ptr->copy();
             return *this;
         }
     };
