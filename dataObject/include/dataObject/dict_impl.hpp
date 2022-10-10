@@ -59,7 +59,7 @@ namespace dataObject
     void Dict<K_T, V_T>::extend(const Dict<K_T, V_T> &dict)
     {
         auto key_list = dict.getKeys();
-        auto value_list = dict.getKeys();
+        auto value_list = dict.getValues();
         for(int i=0;i<key_list.getSize();i++){
             this->update(key_list.get(i),value_list.get(i));
         }
