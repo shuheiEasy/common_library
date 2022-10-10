@@ -10,10 +10,6 @@
 #ifndef COMMON_DATAOBJECT_LIST_EX_H
 #define COMMON_DATAOBJECT_LIST_EX_H
 
-#include <dataObject/bool.hpp>
-#include <dataObject/int.hpp>
-#include <dataObject/float.hpp>
-#include <dataObject/double.hpp>
 #include <dataObject/list.hpp>
 #include <dataObject/string.hpp>
 #include <dataObject/dict_impl.hpp>
