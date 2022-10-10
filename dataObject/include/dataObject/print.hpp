@@ -1,7 +1,7 @@
 /**
- * @file type.hpp
+ * @file print.hpp
  * @author iijima-robot
- * @brief typeクラスを実装するヘッダファイル
+ * @brief リストクラスおよび辞書クラスの出力を実装するヘッダファイル
  * @date 2022-09-17
  *
  * @copyright Copyright (c) 2022
