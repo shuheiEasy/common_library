@@ -7,6 +7,10 @@ var dir_025115c38a58f3640c5d1e05200d9185 =
     ] ],
     [ "core.hpp", "data_object_2include_2data_object_2core_8hpp.html", "data_object_2include_2data_object_2core_8hpp" ],
     [ "dataObject.hpp", "data_object_8hpp.html", null ],
+    [ "dict.hpp", "dict_8hpp.html", [
+      [ "Dict", "classdata_object_1_1_dict.html", "classdata_object_1_1_dict" ]
+    ] ],
+    [ "dict_impl.hpp", "dict__impl_8hpp_source.html", null ],
     [ "double.hpp", "double_8hpp.html", [
       [ "Double", "classdata_object_1_1_double.html", "classdata_object_1_1_double" ]
     ] ],
@@ -21,6 +25,6 @@ var dir_025115c38a58f3640c5d1e05200d9185 =
       [ "List", "classdata_object_1_1_list.html", "classdata_object_1_1_list" ]
     ] ],
     [ "list_impl.hpp", "list__impl_8hpp.html", null ],
-    [ "string.hpp", "string_8hpp_source.html", null ],
-    [ "type.hpp", "type_8hpp.html", null ]
+    [ "print.hpp", "data_object_2include_2data_object_2print_8hpp.html", null ],
+    [ "string.hpp", "string_8hpp_source.html", null ]
 ];

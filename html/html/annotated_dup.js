@@ -7,6 +7,7 @@ var annotated_dup =
       [ "DataObject", "classdata_object_1_1_data_object.html", "classdata_object_1_1_data_object" ],
       [ "NoneType", "classdata_object_1_1_none_type.html", "classdata_object_1_1_none_type" ],
       [ "Type", "classdata_object_1_1_type.html", "classdata_object_1_1_type" ],
+      [ "Dict", "classdata_object_1_1_dict.html", "classdata_object_1_1_dict" ],
       [ "Double", "classdata_object_1_1_double.html", "classdata_object_1_1_double" ],
       [ "Float", "classdata_object_1_1_float.html", "classdata_object_1_1_float" ],
       [ "Int", "classdata_object_1_1_int.html", "classdata_object_1_1_int" ],
