@@ -13,6 +13,7 @@ var hierarchy =
       [ "dataObject::List< dataObject::String >", "classdata_object_1_1_list.html", null ],
       [ "dataObject::List< Format >", "classdata_object_1_1_list.html", null ],
       [ "dataObject::List< fileSystem::File >", "classdata_object_1_1_list.html", null ],
+      [ "dataObject::Any", "classdata_object_1_1_any.html", null ],
       [ "dataObject::ArithmeticObject< T >", "classdata_object_1_1_arithmetic_object.html", null ],
       [ "dataObject::Bool", "classdata_object_1_1_bool.html", null ],
       [ "dataObject::List< T >", "classdata_object_1_1_list.html", null ],

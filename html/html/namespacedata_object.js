@@ -1,5 +1,6 @@
 var namespacedata_object =
 [
+    [ "Any", "classdata_object_1_1_any.html", "classdata_object_1_1_any" ],
     [ "ArithmeticObject", "classdata_object_1_1_arithmetic_object.html", "classdata_object_1_1_arithmetic_object" ],
     [ "Bool", "classdata_object_1_1_bool.html", "classdata_object_1_1_bool" ],
     [ "DataObject", "classdata_object_1_1_data_object.html", "classdata_object_1_1_data_object" ],
