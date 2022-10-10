@@ -16,6 +16,7 @@
 #include <dataObject/double.hpp>
 #include <dataObject/list.hpp>
 #include <dataObject/string.hpp>
+#include <dataObject/dict_impl.hpp>
 
 namespace dataObject
 {
@@ -49,6 +50,27 @@ namespace dataObject
         }
 
         ret += " ]";
+
+        return ret.getChar();
+    }
+
+    template <class K_T, class V_T>
+    const char *Dict<K_T, V_T>::getLog() const
+    {
+        String ret = "{ ";
+
+        for(int i = 0; i < _key_list.getSize(); i++){
+            if(i != 0){
+                ret += ", ";
+            }            
+            K_T key = _key_list.get(i);
+            V_T value = _value_list.get(i);
+            ret += toString(key);
+            ret += ": ";
+            ret += toString(value);
+        }
+
+        ret += " }";
 
         return ret.getChar();
     }

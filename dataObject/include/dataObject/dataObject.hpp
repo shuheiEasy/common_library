@@ -18,6 +18,7 @@
 #include <dataObject/bool.hpp>
 #include <dataObject/type.hpp>
 #include <dataObject/functions.hpp>
+#include <dataObject/dict_impl.hpp>
 #include <dataObject/any.hpp>
 
 #endif
