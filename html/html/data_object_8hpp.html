@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">common_library
-   &#160;<span id="projectnumber">0.2.2</span>
+   &#160;<span id="projectnumber">0.2.3</span>
    </div>
    <div id="projectbrief">c++用共通ライブラリ</div>
   </td>
@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('data_object_8hpp.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 
-<p>dataObjectライブラリを使用するときにインクルードするヘッダファイル  
+<p>Anyクラスを宣言するヘッダファイル  
 <a href="#details">[詳解]</a></p>
 <div class="textblock"><code>#include &lt;<a class="el" href="data_object_2include_2data_object_2core_8hpp_source.html">dataObject/core.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="int_8hpp_source.html">dataObject/int.hpp</a>&gt;</code><br />
@@ -98,6 +98,7 @@ $(document).ready(function(){initNavTree('data_object_8hpp.html',''); initResiza
 <code>#include &lt;<a class="el" href="bool_8hpp_source.html">dataObject/bool.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="type_8hpp_source.html">dataObject/type.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="functions_8hpp_source.html">dataObject/functions.hpp</a>&gt;</code><br />
+<code>#include &lt;dataObject/any.hpp&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> dataObject.hpp の依存先関係図:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -105,15 +106,16 @@ $(document).ready(function(){initNavTree('data_object_8hpp.html',''); initResiza
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="data_object_8hpp__incl.png" border="0" usemap="#a_2home_2iijimarobot_2workspace_2_ubuntu_2workspace_2git_space_2common__library_2common__library_2data_object_2include_2data_object_2data_object_8hpp" alt=""/></div>
 <map name="a_2home_2iijimarobot_2workspace_2_ubuntu_2workspace_2git_space_2common__library_2common__library_2data_object_2include_2data_object_2data_object_8hpp" id="a_2home_2iijimarobot_2workspace_2_ubuntu_2workspace_2git_space_2common__library_2common__library_2data_object_2include_2data_object_2data_object_8hpp">
-<area shape="rect" title="dataObjectライブラリを使用するときにインクルードするヘッダファイル" alt="" coords="341,5,584,91"/>
+<area shape="rect" title="Anyクラスを宣言するヘッダファイル" alt="" coords="488,5,731,91"/>
 <area shape="rect" href="data_object_2include_2data_object_2core_8hpp.html" title="dataObjectライブラリの基礎となるヘッダファイル" alt="" coords="485,512,638,539"/>
 <area shape="rect" href="int_8hpp.html" title="算術クラスを宣言するヘッダファイル" alt="" coords="417,213,559,240"/>
 <area shape="rect" href="float_8hpp.html" title="Floatクラスを宣言するヘッダファイル" alt="" coords="237,213,392,240"/>
 <area shape="rect" href="double_8hpp.html" title="Doubleクラスを宣言するヘッダファイル" alt="" coords="43,213,213,240"/>
 <area shape="rect" href="string_8hpp_source.html" title=" " alt="" coords="727,288,889,315"/>
 <area shape="rect" href="bool_8hpp.html" title="Boolクラスの宣言" alt="" coords="686,213,839,240"/>
-<area shape="rect" href="type_8hpp.html" title="typeクラスを実装するヘッダファイル" alt="" coords="443,139,597,165"/>
-<area shape="rect" href="functions_8hpp.html" title="dataObjectライブラリの関数を宣言するヘッダファイル" alt="" coords="673,139,858,165"/>
+<area shape="rect" href="type_8hpp.html" title="typeクラスを実装するヘッダファイル" alt="" coords="475,139,629,165"/>
+<area shape="rect" href="functions_8hpp.html" title="dataObjectライブラリの関数を宣言するヘッダファイル" alt="" coords="705,139,890,165"/>
+<area shape="rect" href="any_8hpp_source.html" title=" " alt="" coords="965,139,1112,165"/>
 <area shape="rect" title=" " alt="" coords="340,587,407,613"/>
 <area shape="rect" title=" " alt="" coords="431,587,502,613"/>
 <area shape="rect" title=" " alt="" coords="526,587,597,613"/>
@@ -131,34 +133,40 @@ $(document).ready(function(){initNavTree('data_object_8hpp.html',''); initResiza
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="data_object_8hpp__dep__incl.png" border="0" usemap="#a_2home_2iijimarobot_2workspace_2_ubuntu_2workspace_2git_space_2common__library_2common__library_2data_object_2include_2data_object_2data_object_8hppdep" alt=""/></div>
 <map name="a_2home_2iijimarobot_2workspace_2_ubuntu_2workspace_2git_space_2common__library_2common__library_2data_object_2include_2data_object_2data_object_8hppdep" id="a_2home_2iijimarobot_2workspace_2_ubuntu_2workspace_2git_space_2common__library_2common__library_2data_object_2include_2data_object_2data_object_8hppdep">
-<area shape="rect" title="dataObjectライブラリを使用するときにインクルードするヘッダファイル" alt="" coords="1339,5,1581,91"/>
-<area shape="rect" href="arithmetic_8cpp_source.html" title=" " alt="" coords="5,146,248,217"/>
-<area shape="rect" href="bool_8cpp_source.html" title=" " alt="" coords="272,146,515,217"/>
-<area shape="rect" href="double_8cpp_source.html" title=" " alt="" coords="539,146,781,217"/>
-<area shape="rect" href="float_8cpp_source.html" title=" " alt="" coords="805,146,1048,217"/>
-<area shape="rect" href="functions_8cpp_source.html" title=" " alt="" coords="1072,146,1315,217"/>
-<area shape="rect" href="int_8cpp_source.html" title=" " alt="" coords="1339,146,1581,217"/>
-<area shape="rect" href="string_8cpp_source.html" title=" " alt="" coords="1605,146,1848,217"/>
-<area shape="rect" href="file_system_8hpp_source.html" title=" " alt="" coords="1872,139,2115,224"/>
-<area shape="rect" href="log_system_2include_2log_system_2core_8hpp_source.html" title=" " alt="" coords="2063,405,2342,476"/>
-<area shape="rect" href="formatter_8hpp_source.html" title=" " alt="" coords="2240,139,2483,224"/>
-<area shape="rect" href="time_system_8hpp_source.html" title=" " alt="" coords="2532,272,2775,357"/>
-<area shape="rect" href="file_8cpp_source.html" title=" " alt="" coords="1047,279,1289,350"/>
-<area shape="rect" href="file_explorer_8cpp_source.html" title=" " alt="" coords="1313,279,1556,350"/>
-<area shape="rect" href="file_functions_8cpp_source.html" title=" " alt="" coords="1580,279,1823,350"/>
-<area shape="rect" href="text_file_8cpp_source.html" title=" " alt="" coords="1847,279,2089,350"/>
-<area shape="rect" href="log_system_8hpp_source.html" title=" " alt="" coords="2081,657,2324,743"/>
-<area shape="rect" href="print_8hpp_source.html" title=" " alt="" coords="2161,524,2404,609"/>
-<area shape="rect" href="log_system_8cpp_source.html" title=" " alt="" coords="2081,791,2324,861"/>
-<area shape="rect" href="formatter_8cpp_source.html" title=" " alt="" coords="2265,279,2508,350"/>
-<area shape="rect" href="datetime_8cpp_source.html" title=" " alt="" coords="2449,405,2692,476"/>
-<area shape="rect" href="time_8cpp_source.html" title=" " alt="" coords="2716,405,2959,476"/>
+<area shape="rect" title="Anyクラスを宣言するヘッダファイル" alt="" coords="1507,5,1749,91"/>
+<area shape="rect" href="any_8hpp_source.html" title=" " alt="" coords="5,146,283,217"/>
+<area shape="rect" href="any_8cpp_source.html" title=" " alt="" coords="307,146,549,217"/>
+<area shape="rect" href="arithmetic_8cpp_source.html" title=" " alt="" coords="573,146,816,217"/>
+<area shape="rect" href="bool_8cpp_source.html" title=" " alt="" coords="840,146,1083,217"/>
+<area shape="rect" href="double_8cpp_source.html" title=" " alt="" coords="1107,146,1349,217"/>
+<area shape="rect" href="float_8cpp_source.html" title=" " alt="" coords="1373,146,1616,217"/>
+<area shape="rect" href="functions_8cpp_source.html" title=" " alt="" coords="1640,146,1883,217"/>
+<area shape="rect" href="int_8cpp_source.html" title=" " alt="" coords="1907,146,2149,217"/>
+<area shape="rect" href="string_8cpp_source.html" title=" " alt="" coords="2173,146,2416,217"/>
+<area shape="rect" href="file_system_8hpp_source.html" title=" " alt="" coords="2440,139,2683,224"/>
+<area shape="rect" href="log_system_2include_2log_system_2core_8hpp_source.html" title=" " alt="" coords="2631,405,2910,476"/>
+<area shape="rect" href="formatter_8hpp_source.html" title=" " alt="" coords="2808,139,3051,224"/>
+<area shape="rect" href="time_system_8hpp_source.html" title=" " alt="" coords="3100,272,3343,357"/>
+<area shape="rect" href="file_8cpp_source.html" title=" " alt="" coords="1615,279,1857,350"/>
+<area shape="rect" href="file_explorer_8cpp_source.html" title=" " alt="" coords="1881,279,2124,350"/>
+<area shape="rect" href="file_functions_8cpp_source.html" title=" " alt="" coords="2148,279,2391,350"/>
+<area shape="rect" href="text_file_8cpp_source.html" title=" " alt="" coords="2415,279,2657,350"/>
+<area shape="rect" href="log_system_8hpp_source.html" title=" " alt="" coords="2649,657,2892,743"/>
+<area shape="rect" href="print_8hpp_source.html" title=" " alt="" coords="2729,524,2972,609"/>
+<area shape="rect" href="log_system_8cpp_source.html" title=" " alt="" coords="2649,791,2892,861"/>
+<area shape="rect" href="formatter_8cpp_source.html" title=" " alt="" coords="2833,279,3076,350"/>
+<area shape="rect" href="datetime_8cpp_source.html" title=" " alt="" coords="3017,405,3260,476"/>
+<area shape="rect" href="time_8cpp_source.html" title=" " alt="" coords="3284,405,3527,476"/>
 </map>
 </div>
 </div>
 <p><a href="data_object_8hpp_source.html">[ソースコード]</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
-<div class="textblock"><p>dataObjectライブラリを使用するときにインクルードするヘッダファイル </p>
+<div class="textblock"><p>Anyクラスを宣言するヘッダファイル </p>
+<p>dataObjectライブラリを使用するときにインクルードするヘッダファイル</p>
+<dl class="section author"><dt>著者</dt><dd>iijima-robot </dd></dl>
+<dl class="section date"><dt>日付</dt><dd>2022-09-24</dd></dl>
+<dl class="section copyright"><dt>著作権所有</dt><dd>Copyright (c) 2022</dd></dl>
 <dl class="section author"><dt>著者</dt><dd>iijima-robot </dd></dl>
 <dl class="section date"><dt>日付</dt><dd>2022-09-17</dd></dl>
 <dl class="section copyright"><dt>著作権所有</dt><dd>Copyright (c) 2022 </dd></dl>
