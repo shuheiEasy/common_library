@@ -100,7 +100,7 @@ namespace dataObject
         template <class T>
         T *getData()
         {
-            Data<T> *ptr = dynamic_cast<Data<T> *>(_data_ptr);
+            Data<T> *ptr = dynamic_cast<Data<T> *>(_data_ptr.get());
             return ptr->_data;
         }
         const char *getLog() const { return _data_ptr->getLog(); }
